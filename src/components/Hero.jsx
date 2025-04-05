@@ -5,18 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 // ✅ Importing images
 import img1 from "../assets/heritage/img1.jpeg";
 import img2 from "../assets/heritage/img2.jpg";
-// 👉 Add more images and labels
+import img3 from "../assets/heritage/img3.jpg";
+
+// 🖼️ Images array with captions
 const images = [
   { src: img1, label: "Jal Mandir" },
   { src: img2, label: "Mahabodhi Temple" },
+  { src: img3, label: "Budh Gaya" },
 ];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
-  // 🔁 Auto-rotate every 5 sec
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrent((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
@@ -25,16 +29,25 @@ const Hero = () => {
   return (
     <div
       className="relative w-full overflow-hidden"
-      style={{ height: "calc(100vh - 120px)" }} // 💡 Adjust this value to match your combined header height
+      style={{ height: "calc(100vh - 120px)" }}
     >
-      {/* 🔄 Image slideshow with animation */}
-      <AnimatePresence>
+      {/* 🎞️ AnimatePresence handles slide + zoom */}
+      <AnimatePresence custom={direction}>
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1.05 }}
-          exit={{ opacity: 0, scale: 1 }}
-          transition={{ duration: 2 }}
+          custom={direction}
+          initial={{ x: direction * 1000, opacity: 0, scale: 1 }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1.1, // 👈 slowly zoom while visible
+          }}
+          exit={{ x: direction * -1000, opacity: 0, scale: 1 }}
+          transition={{
+            x: { duration: 1.2 },
+            opacity: { duration: 1.2 },
+            scale: { duration: 5, ease: "easeInOut" }, // 👈 continuous zoom effect
+          }}
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${images[current].src})`,
@@ -42,7 +55,7 @@ const Hero = () => {
         />
       </AnimatePresence>
 
-      {/* 📦 Static left-side content */}
+      {/* 🧾 Constant Left Text */}
       <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-12 max-w-xl bg-black/70 text-white p-6 rounded-2xl z-10 backdrop-blur-sm shadow-xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">
           Heritage is for everybody.
@@ -55,12 +68,12 @@ const Hero = () => {
         </p>
       </div>
 
-      {/* 📍 Dynamic location tag */}
+      {/* 📍 Caption at Bottom Right */}
       <div className="absolute bottom-6 right-8 z-10 text-white text-base md:text-xl font-semibold bg-black/50 px-4 py-2 rounded-md shadow-md">
         {images[current].label}
       </div>
 
-      {/* 🖤 Dark overlay for readability */}
+      {/* 🖤 Overlay */}
       <div className="absolute inset-0 bg-black/30 z-[1]" />
     </div>
   );
