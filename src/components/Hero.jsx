@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // eslint-disable-next-line 
 import { motion, AnimatePresence } from "framer-motion";
 
-// ✅ Importing images
+// ✅ Image Imports
 import img1 from "../assets/heritage/img1.jpeg";
-import img2 from "../assets/heritage/img2.jpg";
+import img4 from "../assets/heritage/img4.jpg";
 import img3 from "../assets/heritage/img3.jpg";
 
-// 🖼️ Images array with captions
+// 🖼️ Image Array
 const images = [
   { src: img1, label: "Jal Mandir" },
-  { src: img2, label: "Mahabodhi Temple" },
+  { src: img4, label: "Mahabodhi Temple" },
   { src: img3, label: "Budh Gaya" },
 ];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1);
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 5000); // ⏱️ Every 5 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -31,50 +29,59 @@ const Hero = () => {
       className="relative w-full overflow-hidden"
       style={{ height: "calc(100vh - 120px)" }}
     >
-      {/* 🎞️ AnimatePresence handles slide + zoom */}
-      <AnimatePresence custom={direction}>
-        <motion.div
+      {/* ✅ Background Images with Animation */}
+      <AnimatePresence mode="wait">
+        <motion.img
           key={current}
-          custom={direction}
-          initial={{ x: direction * 1000, opacity: 0, scale: 1 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            scale: 1.1, // 👈 slowly zoom while visible
-          }}
-          exit={{ x: direction * -1000, opacity: 0, scale: 1 }}
+          src={images[current].src}
+          initial={{ opacity: 0, scale: 1.05, x: 100 }}
+          animate={{ opacity: 1, scale: 1.1, x: 0 }}
+          exit={{ opacity: 0, scale: 1.05, x: -100 }}
           transition={{
-            x: { duration: 1.2 },
-            opacity: { duration: 1.2 },
-            scale: { duration: 5, ease: "easeInOut" }, // 👈 continuous zoom effect
+            duration: 1.2,
+            ease: "easeInOut",
           }}
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${images[current].src})`,
-          }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </AnimatePresence>
 
-      {/* 🧾 Constant Left Text */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-12 max-w-xl bg-black/70 text-white p-6 rounded-2xl z-10 backdrop-blur-sm shadow-xl">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Heritage is for everybody.
-        </h1>
-        <p className="text-sm md:text-base leading-relaxed">
-          We are the group that preserves hundreds of historic sites in every
-          corner of Bihar. Some are globally renowned, some are local gems, and
-          all are there for everyone. There are over four hundred heritage sites
-          across the state just waiting to be discovered.
-        </p>
+      {/* 🧾 Static Text Box with Animated Heading & Paragraph */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-12 max-w-xl bg-black/70 text-white p-6 rounded-2xl z-20 backdrop-blur-sm shadow-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          >
+            Heritage is for everybody.
+          </motion.h1>
+
+          <motion.p
+            className="text-xs sm:text-sm md:text-base leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
+          >
+            We are the group that preserves hundreds of historic sites in every
+            corner of Bihar. Some are globally renowned, some are local gems, and
+            all are there for everyone. There are over four hundred heritage sites
+            across the state just waiting to be discovered.
+          </motion.p>
+        </motion.div>
       </div>
 
-      {/* 📍 Caption at Bottom Right */}
-      <div className="absolute bottom-6 right-8 z-10 text-white text-base md:text-xl font-semibold bg-black/50 px-4 py-2 rounded-md shadow-md">
+      {/* 🏷️ Bottom Caption */}
+      <div className="absolute bottom-6 right-4 sm:right-8 z-20 text-white text-sm sm:text-lg md:text-xl font-semibold bg-black/50 px-4 py-2 rounded-md shadow-md">
         {images[current].label}
       </div>
 
-      {/* 🖤 Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-[1]" />
+      {/* 🌑 Overlay for Readability */}
+      <div className="absolute inset-0 bg-black/30 z-10" />
     </div>
   );
 };
