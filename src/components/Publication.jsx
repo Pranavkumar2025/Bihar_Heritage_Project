@@ -107,7 +107,7 @@ const Publication = () => {
         {data.map((item) => (
           <div
             key={item.id}
-            className="flex-shrink-0 w-[250px] h-[420px] rounded-2xl overflow-hidden border border-gray-300 bg-white shadow-sm group hover:shadow-2xl transition duration-300"
+            className="flex-shrink-0 w-[250px] h-[420px] rounded-2xl overflow-hidden border border-gray-500 bg-white shadow-sm group hover:shadow-2xl transition duration-300 "
           >
             <img
               src={item.imageUrl}
