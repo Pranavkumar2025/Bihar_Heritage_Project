@@ -9,6 +9,7 @@ const Home = () => {
       <Hero/>
       <Excavations/>
       <SS_Site/>
+      
     </div>
   )
 }
