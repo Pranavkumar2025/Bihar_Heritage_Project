@@ -4,19 +4,21 @@ import Home from "./components/Home";
 import Header1 from "./components/Header/Header1";
 import Header2 from "./components/Header/Header2";
 import Publication from "./components/Publication";
+import Excavations from "./components/Excavations";
 const App = () => {
   return (
-    <Router>
-      {/* <Header /> */}
-      <Header1/>
-      <Header2/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/publication" element={<Publication />} />
-        {/* Add other routes */}
-      </Routes>
-    </Router>
-  );
+			<Router>
+				{/* <Header /> */}
+				<Header1 />
+				<Header2 />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/publication" element={<Publication />} />
+					<Route path="/p" element={<Excavations />} />
+					{/* Add other routes */}
+				</Routes>
+			</Router>
+		);
 };
 
 export default App;
