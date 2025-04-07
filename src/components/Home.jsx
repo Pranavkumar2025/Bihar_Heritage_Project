@@ -1,12 +1,14 @@
 import React from 'react'
-import Header1 from './Header/Header1'
-import Header2 from './Header/Header2'
 import Hero from './Hero'
+import SS_Site from './SS_Site'
+import Excavations from './Excavations'
 
 const Home = () => {
   return (
     <div>
       <Hero/>
+      <Excavations/>
+      <SS_Site/>
     </div>
   )
 }

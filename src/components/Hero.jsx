@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line 
+// eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 
 // ✅ Image Imports
@@ -20,16 +20,15 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000); // ⏱️ Every 5 seconds
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden scroll-smooth"
       style={{ height: "calc(100vh - 120px)" }}
     >
-      {/* ✅ Background Images with Animation */}
       <AnimatePresence mode="wait">
         <motion.img
           key={current}
@@ -45,7 +44,7 @@ const Hero = () => {
         />
       </AnimatePresence>
 
-      {/* 🧾 Static Text Box with Animated Heading & Paragraph */}
+      {/* Static Text Box */}
       <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-12 max-w-xl bg-black/70 text-white p-6 rounded-2xl z-20 backdrop-blur-sm shadow-xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -60,27 +59,24 @@ const Hero = () => {
           >
             Heritage is for everybody.
           </motion.h1>
-
           <motion.p
             className="text-xs sm:text-sm md:text-base leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
           >
-            We are the group that preserves hundreds of historic sites in every
-            corner of Bihar. Some are globally renowned, some are local gems, and
-            all are there for everyone. There are over four hundred heritage sites
-            across the state just waiting to be discovered.
+            We preserve hundreds of historic sites in Bihar. Some are globally
+            renowned, some are local gems — all are here for you to discover.
           </motion.p>
         </motion.div>
       </div>
 
-      {/* 🏷️ Bottom Caption */}
+      {/* Caption */}
       <div className="absolute bottom-6 right-4 sm:right-8 z-20 text-white text-sm sm:text-lg md:text-xl font-semibold bg-black/50 px-4 py-2 rounded-md shadow-md">
         {images[current].label}
       </div>
 
-      {/* 🌑 Overlay for Readability */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-10" />
     </div>
   );
