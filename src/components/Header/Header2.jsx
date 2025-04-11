@@ -1,147 +1,120 @@
-import React, { useState, useRef, useEffect } from "react";
-// eslint-disable-next-line 
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import bhdsLogo from "../../assets/logo.png";
 
-const navLinks = [
-  { name: "Home", to: "/" },
-  { name: "Organisation", to: "/organisation" },
-  { name: "Activities", to: "/activities" },
-  { name: "Gallery", to: "/gallery" },
-  { name: "Publication", to: "/publication" },
-  { name: "Events", to: "/events" },
-  { name: "News", to: "/news" },
-  { name: "Tender", to: "/tender" },
-  { name: "RTI", to: "/rti" },
-  { name: "Contact Us", to: "/contact" },
-];
-
 const Header2 = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const menuRef = useRef(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Detect outside click to close menu
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
+  const navLinks = [
+    { name: "Home", to: "/" },
+    { name: "About Us", to: "/organisation" },
+    { name: "Collections", to: "/gallery" },
+    { name: "Events", to: "/events" },
+    { name: "Publications", to: "/publication" },
+    { name: "Contact", to: "/contact" },
+  ];
 
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
-
-  // Scroll listener for sticky behavior on homepage
+  // Handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
-      if (location.pathname === "/") {
-        setIsSticky(window.scrollY > 80); // Trigger after 80px scroll
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 100) {
+        setShowHeader(false);
       } else {
-        setIsSticky(true); // Always sticky on other pages
+        setShowHeader(true);
       }
+      setLastScrollY(currentY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once on mount
-
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location]);
+  }, [lastScrollY]);
 
   return (
-    <header
-      className={`${
-        isSticky ? "fixed top-0 left-0 shadow-md z-50" : "relative"
-      } bg-[#1A1A2E] text-white px-4 lg:px-10 py-3 w-full transition-all duration-300`}
-    >
-      <div className="flex justify-between items-center">
-        {/* 🖼️ Logo */}
-        <div
-          className="cursor-pointer flex items-center gap-2"
-          onClick={() => navigate("/")}
+    <AnimatePresence>
+      {showHeader && (
+        <motion.header
+          className="w-full z-50 fixed top-0 bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#334155] shadow-md"
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          exit={{ y: -100 }}
+          transition={{ duration: 0.4 }}
         >
-          <img
-            src={bhdsLogo}
-            alt="BHDS Logo"
-            className="h-14 md:h-16 object-contain"
-          />
-        </div>
-
-        {/* 🍔 Hamburger Menu */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="text-white focus:outline-none"
-          >
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
-
-        {/* 🧭 Desktop Nav */}
-        <nav className="hidden lg:flex flex-wrap justify-center gap-4 lg:gap-6">
-          {navLinks.map(({ name, to }, idx) => (
-            <NavLink
-              key={idx}
-              to={to}
-              className={({ isActive }) =>
-                `text-sm font-semibold px-3 py-2 rounded-md transition-all duration-300 ${
-                  isActive
-                    ? "text-[#FF4D5A] border-b-2 border-[#FF4D5A] bg-[#1D0E11]"
-                    : "hover:text-[#FF4D5A] hover:bg-[#2C2C3E]"
-                }`
-              }
+          <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            {/* Logo */}
+            <motion.div
+              onClick={() => navigate("/")}
+              className="cursor-pointer z-10"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {name}
-            </NavLink>
-          ))}
-        </nav>
-      </div>
+              <img src={bhdsLogo} alt="Logo" className="h-10 w-auto" />
+            </motion.div>
 
-      {/* 📱 Mobile Nav */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden"
-            ref={menuRef}
-          >
-            <div className="flex flex-col gap-2 pt-4 pb-4 px-2">
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex gap-8 z-10">
               {navLinks.map(({ name, to }, idx) => (
-                <NavLink
-                  key={idx}
-                  to={to}
-                  onClick={() => setMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block font-semibold px-4 py-2 rounded-md text-sm transition-colors ${
-                      isActive
-                        ? "text-[#FF4D5A] bg-[#1D0E11]"
-                        : "text-white hover:bg-[#2C2C3E]"
-                    }`
-                  }
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 + 0.4 }}
                 >
-                  {name}
-                </NavLink>
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) =>
+                      `text-base font-medium transition duration-200 ${
+                        isActive
+                          ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                          : "text-white hover:text-yellow-400"
+                      }`
+                    }
+                  >
+                    {name}
+                  </NavLink>
+                </motion.div>
               ))}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden z-20">
+              <button onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <X size={28} className="text-white" /> : <Menu size={28} className="text-white" />}
+              </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+
+            {/* Mobile Nav Menu */}
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="absolute top-16 left-0 w-full bg-[#1e293b] text-white flex flex-col items-center py-4 gap-4 md:hidden"
+                >
+                  {navLinks.map(({ name, to }) => (
+                    <NavLink
+                      key={name}
+                      to={to}
+                      onClick={() => setMenuOpen(false)}
+                      className="text-base font-medium hover:text-yellow-400"
+                    >
+                      {name}
+                    </NavLink>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.header>
+      )}
+    </AnimatePresence>
   );
 };
 

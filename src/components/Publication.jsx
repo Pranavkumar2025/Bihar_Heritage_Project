@@ -79,7 +79,7 @@ const Publication = () => {
 
   return (
     <div className="bg-[#F9F9F9] min-h-screen px-6 py-12 relative overflow-hidden">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10 pt-6">
         Publications
       </h2>
 

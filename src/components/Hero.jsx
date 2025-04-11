@@ -1,83 +1,126 @@
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// ✅ Image Imports
 import img1 from "../assets/heritage/img1.jpeg";
-import img4 from "../assets/heritage/img4.jpg";
+import img2 from "../assets/heritage/img2.jpg";
 import img3 from "../assets/heritage/img3.jpg";
+import img4 from "../assets/heritage/img4.jpg";
+import img5 from "../assets/heritage/img5.jpg";
+import img6 from "../assets/heritage/img6.jpg";
+import img7 from "../assets/heritage/img7.jpg";
+import img8 from "../assets/heritage/img8.jpg";
 
-// 🖼️ Image Array
-const images = [
-  { src: img1, label: "Jal Mandir" },
-  { src: img4, label: "Mahabodhi Temple" },
-  { src: img3, label: "Budh Gaya" },
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const Hero = () => {
-  const [current, setCurrent] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div
-      className="relative w-full overflow-hidden scroll-smooth"
-      style={{ height: "calc(100vh - 120px)" }}
-    >
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={current}
-          src={images[current].src}
-          initial={{ opacity: 0, scale: 1.05, x: 100 }}
-          animate={{ opacity: 1, scale: 1.1, x: 0 }}
-          exit={{ opacity: 0, scale: 1.05, x: -100 }}
-          transition={{
-            duration: 1.2,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </AnimatePresence>
+  const getVisibleImages = () => {
+    const visible = [];
+    for (let i = -2; i <= 2; i++) {
+      const index = (activeIndex + i + images.length) % images.length;
+      visible.push({ img: images[index], offset: i });
+    }
+    return visible;
+  };
 
-      {/* Static Text Box */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-12 max-w-xl bg-black/70 text-white p-6 rounded-2xl z-20 backdrop-blur-sm shadow-xl">
-        <motion.div
+  return (
+    <div className="w-full min-h-[calc(100vh-120px)] bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden px-4 py-16 pt-[120px]">
+      
+      {/* Caption with Animations */}
+      <motion.div
+        className="text-center max-w-3xl mb-12 px-4"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
+        <motion.h1
+          className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 leading-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.h1
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          >
-            Heritage is for everybody.
-          </motion.h1>
-          <motion.p
-            className="text-xs sm:text-sm md:text-base leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
-          >
-            We preserve hundreds of historic sites in Bihar. Some are globally
-            renowned, some are local gems — all are here for you to discover.
-          </motion.p>
-        </motion.div>
+          Heritage is for everybody.
+        </motion.h1>
+
+        <motion.p
+          className="text-gray-600 text-lg md:text-lg leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          We are the group that preserves hundreds of historic sites across Bihar.
+          Some are globally renowned, some are local gems — and all are there for everyone.
+          <br className="hidden md:block" />
+          Over 400 heritage sites across the state are just waiting to be discovered.
+        </motion.p>
+      </motion.div>
+
+      {/* Carousel */}
+      <div className="relative flex items-center justify-center gap-4 md:gap-10">
+        <AnimatePresence initial={false} mode="popLayout">
+          {getVisibleImages().map(({ img, offset }, idx) => {
+            const absOffset = Math.abs(offset);
+            const scale = 1 - absOffset * 0.1;
+            const zIndex = 10 - absOffset;
+            const translateX = offset * 150;
+            const blur = absOffset >= 2 ? "blur-[2px]" : "";
+
+            return (
+              <motion.div
+                key={`${activeIndex}-${idx}`}
+                className={`relative w-52 h-72 md:w-64 md:h-80 rounded-xl overflow-hidden shadow-xl cursor-pointer bg-white ${blur}`}
+                style={{
+                  transform: `translateX(${translateX}px) scale(${scale})`,
+                  zIndex,
+                }}
+                initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                animate={{ opacity: 1, scale, y: 0 }}
+                exit={{ opacity: 0, scale: 0.85, y: -20 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <img
+                  src={img}
+                  alt={`slide-${idx}`}
+                  className="w-full h-full object-cover rounded-xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
 
-      {/* Caption */}
-      <div className="absolute bottom-6 right-4 sm:right-8 z-20 text-white text-sm sm:text-lg md:text-xl font-semibold bg-black/50 px-4 py-2 rounded-md shadow-md">
-        {images[current].label}
+      {/* Navigation Arrows */}
+      <div className="flex gap-4 mt-12">
+        <button
+          onClick={() => setActiveIndex((prev) => (prev - 1 + images.length) % images.length)}
+          className="w-11 h-11 rounded-full bg-gray-200 hover:bg-slate-600 transition-colors flex items-center justify-center shadow-md"
+        >
+          <ChevronLeft className="text-gray-700 hover:text-white" />
+        </button>
+        <button
+          onClick={() => setActiveIndex((prev) => (prev + 1) % images.length)}
+          className="w-11 h-11 rounded-full bg-orange-500 hover:bg-orange-600 transition-colors flex items-center justify-center shadow-md"
+        >
+          <ChevronRight className="text-white" />
+        </button>
       </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-10" />
     </div>
   );
 };

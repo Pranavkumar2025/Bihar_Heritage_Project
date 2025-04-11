@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       {/* <Header /> */}
-      <Header1 />
+      {/* <Header1 /> */}
       <Header2 />
       <Routes>
         <Route path="/" element={<Home />} />
