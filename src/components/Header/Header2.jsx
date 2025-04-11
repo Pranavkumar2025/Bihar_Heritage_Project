@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+// eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import bhdsLogo from "../../assets/logo.png";
