@@ -1,90 +1,121 @@
 import React from "react";
-import { Facebook, Youtube, Send, Phone, MapPin } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+import { CiMail } from "react-icons/ci";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer1 = () => {
-  return (
-    <footer className="bg-gradient-to-br from-[#e0e7ff] via-[#c7d2fe] to-[#e0f2fe] text-gray-900 py-14 px-6 sm:px-12 md:px-24 border-t border-blue-200 shadow-inner">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {/* Navigation */}
-        <div>
-          <h3 className="text-2xl font-semibold text-blue-700 mb-4 relative">
-            Navigation
-            <span className="block w-12 h-[2px] bg-blue-700 mt-1"></span>
-          </h3>
-          <ul className="space-y-3 text-[15px] font-medium">
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Terms & Conditions</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Copyright Policy</li>
-          </ul>
+	return (
+		<>
+			<div className="bg-gray-100 py-8 px-10 ">
+				<div className="flex justify-between max-w-6xl mx-auto w-full space-x-12">
+					{/* Legal Information */}
+					<div className="w-2/3 transiton  ">
+						<ul className="text-gray-800 ">
+							<li className="font-bold  text-2xl mb-2">About</li>
+							<li className=" py-2 mt-4 font-bold  transition-colors duration-300">
+								Over the years BSFDFC has worked with some of the most acclaimed
+								filmmakers of India including Satyajit Ray, Mira Nair, Aparna
+								Sen, Shyam Benegal, Govind Nihalani, Mrinal Sen, Richard
+								Attenborogh, Adoor Gopalkrishnan and Ketan Mehta. BSFDFC is
+								breaking new grounds by co-producing projects involving
+								public-private partnerships
+							</li>
+						</ul>
+					</div>
 
-          <div className="mt-8">
-            <h4 className="text-xl font-semibold text-blue-700 mb-3 relative">
-              Connect Online
-              <span className="block w-12 h-[2px] bg-blue-700 mt-1"></span>
-            </h4>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center bg-blue-700 hover:bg-blue-800 rounded-full text-white transition"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center bg-black hover:bg-gray-800 rounded-full text-white transition"
-              >
-                <FaXTwitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full text-white transition"
-              >
-                <Youtube size={20} />
-              </a>
-            </div>
-          </div>
-        </div>
+					{/* More Pages */}
+					<div className="w-1/3">
+						<ul className="text-gray-700">
+							<li className="font-bold mb-2">Important Links</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								Publication
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								Photo Gallery
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								Events
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								News
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								{" "}
+								Tender
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								{" "}
+								Contact Us
+							</li>
+						</ul>
+					</div>
 
-        {/* Contact Info */}
-        <div>
-          <h3 className="text-2xl font-semibold text-blue-700 mb-4 relative">
-            Contact Us
-            <span className="block w-12 h-[2px] bg-blue-700 mt-1"></span>
-          </h3>
-          <div className="space-y-5 text-[15px] font-medium">
-            <div className="flex items-start gap-3">
-              <MapPin className="text-blue-700" size={18} />
-              <span>North of Patna Museum, Off Buddha Marg, Patna – 800001</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Phone className="text-blue-700" size={18} />
-              <span>0612-2508445</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Send className="text-blue-700" size={18} />
-              <span>heritageofbihar@gmail.com</span>
-            </div>
-          </div>
-        </div>
+					{/* Contact */}
+					<div className="w-1/3 ">
+						<ul className="text-gray-700">
+							<li className=" font-bold mb-2">Contact</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								North of Patna Museum, Off Buddha Marg, Patna – 800001
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								0612-2508445
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								heritageofbihar@gmail.com
+							</li>
+							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
+								Get Location
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-        {/* Quick Navigation */}
-        <div>
-          <h3 className="text-2xl font-semibold text-blue-700 mb-4 relative">
-            Quick Navigation
-            <span className="block w-12 h-[2px] bg-blue-700 mt-1"></span>
-          </h3>
-          <ul className="space-y-3 text-[15px] font-medium">
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Publication</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Photo Gallery</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Events</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">News</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Tender</li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">Contact Us</li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  );
+			<div className="bg-gray-100 py-8 px-10">
+				<div className="flex justify-between max-w-6xl mx-auto w-full space-x-12">
+					{/* Newsletter Section */}
+					<div className="w-1/3">
+						<h2 className="text-lg font-semibold mb-4">Newsletter</h2>
+						<button className="flex items-center space-x-2 bg-red-500 text-white text-lg font-medium py-2 px-6 rounded-full hover:bg-red-600 transition duration-300">
+							<CiMail className="text-2xl" /> {/* Mail Icon */}
+							<span>Register For Newsletter</span>
+						</button>
+					</div>
+
+					{/* Follow Us Section */}
+					<div className="w-2/3">
+						<h2 className="text-lg font-semibold mb-4">Follow us</h2>
+						<div className="flex space-x-4">
+							<a
+								href="#"
+								className="text-gray-500 hover:text-blue-600 text-2xl transition"
+							>
+								<FaFacebook />
+							</a>
+							<a
+								href="#"
+								className="text-gray-500 hover:text-pink-500 text-2xl transition"
+							>
+								<FaInstagram />
+							</a>
+							<a
+								href="#"
+								className="text-gray-500 hover:text-blue-400 text-2xl transition"
+							>
+								<FaTwitter />
+							</a>
+							<a
+								href="#"
+								className="text-gray-500 hover:text-red-500 text-2xl transition"
+							>
+								<FaYoutube />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div className=" border-t-2 border-gray-500 mt-6"></div>
+			</div>
+		</>
+	);
 };
 
 export default Footer1;
