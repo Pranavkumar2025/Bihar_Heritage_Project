@@ -5,6 +5,7 @@ import Header1 from "./components/Header/Header1";
 import Header2 from "./components/Header/Header2";
 import Publication from "./components/Publication";
 import Footer1 from "./components/Footer/Footer1";
+import Event from "./components/Event";
 import Footer2 from "./components/Footer/Footer2";
 import Footer1old from "./components/Footer/Footer1old";
 
@@ -17,6 +18,7 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/publication" element={<Publication />} />
+					<Route path="/events" element={<Event />} />
 					{/* Add other routes */}
 				</Routes>
 				<Footer1 />
