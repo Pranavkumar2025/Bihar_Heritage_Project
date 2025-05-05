@@ -20,7 +20,6 @@ const Header2 = () => {
     { name: "Contact", to: "/contact" },
   ];
 
-  // Handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -54,12 +53,13 @@ const Header2 = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              aria-label="Navigate to Home"
             >
-              <img src={bhdsLogo} alt="Logo" className="h-10 w-auto" />
+              <img src={bhdsLogo} alt="Bihar Heritage Logo" className="h-10 w-auto" />
             </motion.div>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex gap-8 z-10">
+            <nav className="hidden md:flex gap-8 z-10" role="navigation">
               {navLinks.map(({ name, to }, idx) => (
                 <motion.div
                   key={name}
@@ -76,6 +76,7 @@ const Header2 = () => {
                           : "text-white hover:text-yellow-400"
                       }`
                     }
+                    aria-label={`Navigate to ${name}`}
                   >
                     {name}
                   </NavLink>
@@ -83,9 +84,9 @@ const Header2 = () => {
               ))}
             </nav>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Toggle */}
             <div className="md:hidden z-20">
-              <button onClick={() => setMenuOpen(!menuOpen)}>
+              <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
                 {menuOpen ? <X size={28} className="text-white" /> : <Menu size={28} className="text-white" />}
               </button>
             </div>
@@ -105,6 +106,7 @@ const Header2 = () => {
                       to={to}
                       onClick={() => setMenuOpen(false)}
                       className="text-base font-medium hover:text-yellow-400"
+                      aria-label={`Navigate to ${name}`}
                     >
                       {name}
                     </NavLink>
