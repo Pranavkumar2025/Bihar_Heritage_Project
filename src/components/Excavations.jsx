@@ -135,7 +135,7 @@ const CardSlider = ({ items }) => {
   };
 
   return (
-    <div className="relative mt-10">
+    <div className="relative mt-6">
       <button
         onClick={() => scroll("left")}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700"
@@ -149,24 +149,22 @@ const CardSlider = ({ items }) => {
       >
         {items.map((item, index) => (
           <motion.div
-		  key={item.id}
-		  layout
-		  initial={{ opacity: 0, scale: 0.9, y: 50 }}
-		  animate={{ opacity: 1, scale: 1, y: 0 }}
-		  transition={{
-			type: "spring",
-			stiffness: 100,
-			damping: 15,
-			delay: index * 0.15,
-		  }}
-		  whileHover={{
-			scale: 1.03,
-			transition: { duration: 0.3 },
-		  }}
-		  className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
-		>
-		
-		
+            key={item.id}
+            layout
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: index * 0.15,
+            }}
+            whileHover={{
+              scale: 1.03,
+              transition: { duration: 0.3 },
+            }}
+            className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+          >
             <img
               src={item.image}
               alt={item.title}
@@ -192,7 +190,7 @@ const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 py-14 px-6 md:px-20">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20">
       <motion.h1
         variants={fadeIn("down", 0.1)}
         initial="hidden"
@@ -208,7 +206,7 @@ const Excavations = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="mt-10 flex justify-center gap-6 flex-wrap"
+        className="mt-6 flex justify-center gap-4 flex-wrap"
       >
         <button
           onClick={() => setActiveTab("excavation")}
@@ -232,7 +230,7 @@ const Excavations = () => {
         </button>
       </motion.div>
 
-      <div className="mt-6">
+      <div className="mt-2">
         {activeTab === "excavation" ? (
           <CardSlider items={excavationSites} />
         ) : (

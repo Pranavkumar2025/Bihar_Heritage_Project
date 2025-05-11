@@ -4,6 +4,8 @@ import SS_Site from "./SS_Site";
 import Excavations from "./Excavations";
 import ExploreJoin from "./ExploreJoin";
 import Conservation from "./Conservation";
+import Awareness from "./Awareness";
+import Gallery from "./Gallery";
 
 
 const Home = () => {
@@ -13,7 +15,9 @@ const Home = () => {
 			<Excavations />
 			{/* <ExploreJoin/> */}
 			<Conservation/>
+			<Gallery/>
 			<SS_Site />
+			<Awareness/>
 		</div>
 	);
 };

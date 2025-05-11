@@ -36,8 +36,8 @@ const Header2 = () => {
     {
       name: "Gallery",
       subMenu: [
-        { name: "Photos", to: "/gallery/photos" },
-        { name: "Videos", to: "/gallery/videos" },
+       { name: "Photos", to: "/GalleryPage" },
+        { name: "Videos", to: "/VideoGalleryPage" },
       ],
     },
     { name: "Publications", to: "/publication" },
