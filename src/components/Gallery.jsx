@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 // eslint-disable-next-line
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,6 +29,8 @@ const videoItems = [
 ];
 
 const Gallery = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
   return (
     <div className="bg-white min-h-screen px-4 md:px-16 py-14">
       <motion.h2
@@ -73,8 +76,9 @@ const Gallery = () => {
           {photos.map((src, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+                className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer" // Added cursor-pointer
                 whileHover={{ scale: 1.03 }}
+                onClick={() => navigate('/GalleryPage')} // Added onClick handler
               >
                 <img
                   src={src}

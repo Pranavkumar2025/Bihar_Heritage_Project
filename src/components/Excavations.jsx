@@ -145,7 +145,7 @@ const CardSlider = ({ items }) => {
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12"
+        className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12 pb-4"
       >
         {items.map((item, index) => (
           <motion.div
@@ -190,7 +190,7 @@ const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20">
+    <div id="excavation-section" className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20">
       <motion.h1
         variants={fadeIn("down", 0.1)}
         initial="hidden"

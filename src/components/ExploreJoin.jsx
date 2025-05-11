@@ -1,9 +1,12 @@
 import React from "react";
 import { MapPin, Heart, Users, Mail, Landmark } from "lucide-react";
+import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
+import PatliputraImg from "../assets/heritage/patliputraimg.jpg"; // Assuming Golghar is in Patna (Pataliputra)
+import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
 
 const ExploreJoin = () => {
   return (
-    <div className="bg-gray-50 py-20 px-6 md:px-20">
+    <div id="explore-join-section" className="bg-gray-50 py-20 px-6 md:px-20">
       {/* Explore Sites Section */}
       <section className="mb-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800">
@@ -15,19 +18,19 @@ const ExploreJoin = () => {
             {
               title: "Nalanda University",
               location: "Nalanda, Bihar",
-              image: "/images/nalanda.jpg",
+              image: NalandaUniversityImg,
               description: "Ancient center of learning, a UNESCO World Heritage Site."
             },
             {
               title: "Golghar",
               location: "Patna, Bihar",
-              image: "/images/golghar.jpg",
+              image: PatliputraImg, // Using Patliputra image as placeholder for Golghar in Patna
               description: "A granary with a unique dome structure built in 1786."
             },
             {
               title: "Rohtasgarh Fort",
               location: "Rohtas, Bihar",
-              image: "/images/rohtas.jpg",
+              image: RohtasgarhFortImg,
               description: "A grand fort nestled in the hills, rich in Mughal history."
             }
           ].map((site, index) => (
