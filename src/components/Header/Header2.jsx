@@ -24,7 +24,7 @@ const Header2 = () => {
     { name: "About Us", to: "/#footer-section" }, // Changed for in-page scroll to footer
     { name: "Excavation", to: "/#excavation-section" },
     { name: "Exploration", to: "/#explore-join-section" }, // Changed for in-page scroll
-    { name: "Activities", to: "/activities" },
+    { name: "Activities", to: "/#conservation-section" }, // Changed to scroll to conservation section
     {
       name: "Events",
       subMenu: [
