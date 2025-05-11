@@ -9,6 +9,8 @@ import Event from "./components/Event";
 import Contact from "./components/Contact";
 import Footer2 from "./components/Footer/Footer2";
 import Footer1old from "./components/Footer/Footer1old";
+import VideoGalleryPage from "./components/VideoGalleryPage";
+import GalleryPage from "./components/GalleryPage";
 
 const App = () => {
   return (
@@ -21,6 +23,9 @@ const App = () => {
 					<Route path="/publication" element={<Publication />} />
 					<Route path="/events" element={<Event />} />
 					<Route path="/contact" element={<Contact />} />
+					{/* <Route path="/excavation" element={<Event />} /> */}
+					<Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
+					<Route path="/GalleryPage" element={<GalleryPage />} />
 
 					{/* Add other routes */}
 				</Routes>
