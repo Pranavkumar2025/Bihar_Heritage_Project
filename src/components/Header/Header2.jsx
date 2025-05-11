@@ -2,22 +2,46 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 // eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import bhdsLogo from "../../assets/logo.png";
+
+const dropdownVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+};
 
 const Header2 = () => {
   const navigate = useNavigate();
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const navLinks = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/organisation" },
-    { name: "Collections", to: "/gallery" },
-    { name: "Events", to: "/events" },
+    { name: "Excavation", to: "/excavation" },
+    { name: "Exploration", to: "/exploration" },
+    { name: "Activities", to: "/activities" },
+    {
+      name: "Events",
+      subMenu: [
+        { name: "Seminar/Workshop", to: "/events/seminar" },
+        { name: "Heritage Week", to: "/events/heritage-week" },
+        { name: "Women's Day", to: "/events/womens-day" },
+        { name: "Upcoming Events", to: "/events/upcoming" },
+      ],
+    },
+    {
+      name: "Gallery",
+      subMenu: [
+        { name: "Photos", to: "/gallery/photos" },
+        { name: "Videos", to: "/gallery/videos" },
+      ],
+    },
     { name: "Publications", to: "/publication" },
-    { name: "Contact", to: "/contact" },
+    { name: "Contact Us", to: "/contact" },
   ];
 
   useEffect(() => {
@@ -30,7 +54,6 @@ const Header2 = () => {
       }
       setLastScrollY(currentY);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -53,33 +76,68 @@ const Header2 = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              aria-label="Navigate to Home"
             >
               <img src={bhdsLogo} alt="Bihar Heritage Logo" className="h-10 w-auto" />
             </motion.div>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex gap-8 z-10" role="navigation">
-              {navLinks.map(({ name, to }, idx) => (
+            <nav className="hidden md:flex gap-8 z-10 relative" role="navigation">
+              {navLinks.map(({ name, to, subMenu }, idx) => (
                 <motion.div
                   key={name}
+                  className="relative group"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 + 0.4 }}
                 >
-                  <NavLink
-                    to={to}
-                    className={({ isActive }) =>
-                      `text-base font-medium transition duration-200 ${
-                        isActive
-                          ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
-                          : "text-white hover:text-yellow-400"
-                      }`
-                    }
-                    aria-label={`Navigate to ${name}`}
-                  >
-                    {name}
-                  </NavLink>
+                  {!subMenu ? (
+                    <NavLink
+                      to={to}
+                      className={({ isActive }) =>
+                        `text-base font-medium transition duration-200 ${
+                          isActive
+                            ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                            : "text-white hover:text-yellow-400"
+                        }`
+                      }
+                    >
+                      {name}
+                    </NavLink>
+                  ) : (
+                    <div className="relative">
+                      <button
+                        onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
+                        className="text-white hover:text-yellow-400 flex items-center gap-1"
+                      >
+                        {name} <ChevronDown size={16} />
+                      </button>
+                      <AnimatePresence>
+                        {activeDropdown === name && (
+                          <motion.div
+                            variants={dropdownVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="absolute bg-[#1e293b] shadow-lg mt-2 rounded-md z-50"
+                          >
+                            {subMenu.map((item) => (
+                              <NavLink
+                                key={item.name}
+                                to={item.to}
+                                className={({ isActive }) =>
+                                  `block px-4 py-2 text-white hover:bg-gray-700 whitespace-nowrap ${
+                                    isActive ? "bg-gray-700 text-yellow-400" : ""
+                                  }`
+                                }
+                              >
+                                {item.name}
+                              </NavLink>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </nav>
@@ -91,25 +149,66 @@ const Header2 = () => {
               </button>
             </div>
 
-            {/* Mobile Nav Menu */}
+            {/* Mobile Nav */}
             <AnimatePresence>
               {menuOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-16 left-0 w-full bg-[#1e293b] text-white flex flex-col items-center py-4 gap-4 md:hidden"
+                  className="absolute top-16 left-0 w-full bg-[#1e293b] text-white flex flex-col items-center py-4 gap-2 md:hidden z-40"
                 >
-                  {navLinks.map(({ name, to }) => (
-                    <NavLink
-                      key={name}
-                      to={to}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-base font-medium hover:text-yellow-400"
-                      aria-label={`Navigate to ${name}`}
-                    >
-                      {name}
-                    </NavLink>
+                  {navLinks.map(({ name, to, subMenu }) => (
+                    <div key={name} className="w-full text-center">
+                      {!subMenu ? (
+                        <NavLink
+                          to={to}
+                          onClick={() => setMenuOpen(false)}
+                          className={({ isActive }) =>
+                            `block py-2 text-base font-medium ${
+                              isActive ? "text-yellow-400" : "hover:text-yellow-400"
+                            }`
+                          }
+                        >
+                          {name}
+                        </NavLink>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
+                            className="w-full py-2 text-base font-medium hover:text-yellow-400 flex justify-center items-center gap-1"
+                          >
+                            {name} <ChevronDown size={16} />
+                          </button>
+                          <AnimatePresence>
+                            {activeDropdown === name && (
+                              <motion.div
+                                variants={dropdownVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                className="bg-[#334155]"
+                              >
+                                {subMenu.map((item) => (
+                                  <NavLink
+                                    key={item.name}
+                                    to={item.to}
+                                    onClick={() => setMenuOpen(false)}
+                                    className={({ isActive }) =>
+                                      `block py-2 px-4 text-sm hover:bg-gray-700 ${
+                                        isActive ? "bg-gray-700 text-yellow-400" : ""
+                                      }`
+                                    }
+                                  >
+                                    {item.name}
+                                  </NavLink>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      )}
+                    </div>
                   ))}
                 </motion.div>
               )}

@@ -35,10 +35,10 @@ const Hero = () => {
 
   return (
     <div className="w-full min-h-[calc(100vh-120px)] bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden px-4 py-16 pt-[120px]">
-      
-      {/* Caption with Animations */}
+
+      {/* Caption */}
       <motion.div
-        className="text-center max-w-3xl mb-12 px-4"
+        className="text-center max-w-4xl mb-12 px-4"
         initial="hidden"
         animate="visible"
         variants={{
@@ -51,25 +51,30 @@ const Hero = () => {
         }}
       >
         <motion.h1
-          className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 leading-tight"
+          className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4 leading-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          Heritage is for everybody.
+          Preserving Bihar’s Glorious Past
         </motion.h1>
 
         <motion.p
-          className="text-gray-600 text-lg md:text-lg leading-relaxed"
+          className="text-gray-700 text-lg md:text-xl leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          We are the group that preserves hundreds of historic sites across Bihar.
-          Some are globally renowned, some are local gems — and all are there for everyone.
-          <br className="hidden md:block" />
-          Over 400 heritage sites across the state are just waiting to be discovered.
+          From ancient excavations to cultural celebrations — we protect and promote the rich heritage of Bihar. Discover over 400 historical sites across the state.
         </motion.p>
+
+        <motion.div
+          className="mt-8 flex justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        >
+        </motion.div>
       </motion.div>
 
       {/* Carousel */}
@@ -77,15 +82,15 @@ const Hero = () => {
         <AnimatePresence initial={false} mode="popLayout">
           {getVisibleImages().map(({ img, offset }, idx) => {
             const absOffset = Math.abs(offset);
-            const scale = 1 - absOffset * 0.1;
+            const scale = offset === 0 ? 1.1 : 1 - absOffset * 0.1;
             const zIndex = 10 - absOffset;
             const translateX = offset * 150;
-            const blur = absOffset >= 2 ? "blur-[2px]" : "";
+            const blur = absOffset >= 2 ? "blur-[2px] opacity-60" : "";
 
             return (
               <motion.div
                 key={`${activeIndex}-${idx}`}
-                className={`relative w-52 h-72 md:w-64 md:h-80 rounded-xl overflow-hidden shadow-xl cursor-pointer bg-white ${blur}`}
+                className={`relative w-48 h-64 md:w-60 md:h-80 rounded-xl overflow-hidden shadow-xl cursor-pointer bg-white ${blur}`}
                 style={{
                   transform: `translateX(${translateX}px) scale(${scale})`,
                   zIndex,
@@ -100,7 +105,7 @@ const Hero = () => {
                   alt={`slide-${idx}`}
                   className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </motion.div>
             );
           })}
@@ -108,7 +113,7 @@ const Hero = () => {
       </div>
 
       {/* Navigation Arrows */}
-      <div className="flex gap-4 mt-12">
+      <div className="flex gap-4 mt-10">
         <button
           onClick={() => setActiveIndex((prev) => (prev - 1 + images.length) % images.length)}
           className="w-11 h-11 rounded-full bg-gray-200 hover:bg-slate-600 transition-colors flex items-center justify-center shadow-md"
