@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer1 = () => {
 	return (
-		<>
+		<div id="footer-section">
 			<div className="bg-gray-100 py-8 px-10 ">
 				<div className="flex justify-between max-w-6xl mx-auto w-full space-x-12">
 					{/* Legal Information */}
@@ -114,7 +114,7 @@ const Footer1 = () => {
 				</div>
 				<div className=" border-t-2 border-gray-500 mt-6"></div>
 			</div>
-		</>
+			</div>
 	);
 };
 

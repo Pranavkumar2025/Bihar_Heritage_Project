@@ -113,17 +113,11 @@ const SS_Site = () => {
         <style>
           {`
             .custom-scrollbar::-webkit-scrollbar {
-              height: 8px;
+              display: none; /* Hide scrollbar for WebKit browsers */
             }
-            .custom-scrollbar::-webkit-scrollbar-track {
-              background: transparent;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb {
-              background: #aaa;
-              border-radius: 10px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-              background: #777;
+            .custom-scrollbar {
+              -ms-overflow-style: none;  /* IE and Edge */
+              scrollbar-width: none;  /* Firefox */
             }
           `}
         </style>
