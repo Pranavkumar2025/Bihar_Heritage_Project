@@ -8,6 +8,7 @@ import Awareness from "./Awareness";
 import Gallery from "./Gallery";
 import CallToAction from "./CallToAction";
 import News from "./News";
+import UniqueBihar from "./UniqueBihar";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
 		<div>
 			<Hero />
 			<Excavations />
+			<UniqueBihar/>
 			<Conservation/>
 			<Gallery/>
 			<SS_Site />
