@@ -32,7 +32,7 @@ const Gallery = () => {
   const navigate = useNavigate(); // Initialize navigate
 
   return (
-    <div className="bg-white min-h-screen px-4 md:px-16 py-14">
+    <div className="bg-white min-h-screen px-4 md:px-16 py-14" id="gallery">
       <motion.h2
         className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 mb-4"
         initial={{ opacity: 0, y: -30 }}

@@ -10,7 +10,7 @@ const smoothHorizontal = {
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-[#eeeeff] px-5 py-16 md:px-24">
+    <div className="min-h-screen bg-[#eeeeff] px-5 mt-15 py-16 md:px-24">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}

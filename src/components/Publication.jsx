@@ -90,7 +90,7 @@ const Publication = () => {
   };
 
   return (
-    <div className="bg-[#F9F9F9] min-h-screen px-6 py-12 relative overflow-hidden">
+    <div className="bg-[#F9F9F9] min-h-screen mt-15 px-6 py-12 relative overflow-hidden">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10 pt-6">
         Publications
       </h2>
@@ -114,7 +114,7 @@ const Publication = () => {
       {/* 📄 Card Container */}
       <div
         ref={containerRef}
-        className="flex gap-6 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 px-2 pb-4 scroll-smooth"
+        className="flex gap-6 overflow-x-auto scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent px-2 pb-4 scroll-smooth"
       >
         {data.map((item) => (
           <div
