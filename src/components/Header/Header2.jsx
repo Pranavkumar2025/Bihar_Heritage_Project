@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom"; // Added useLocation
 // eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -13,6 +13,7 @@ const dropdownVariants = {
 
 const Header2 = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // Added: to get current location and hash
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,9 +21,9 @@ const Header2 = () => {
 
   const navLinks = [
     { name: "Home", to: "/" },
-    { name: "About Us", to: "/organisation" },
-    { name: "Excavation", to: "/excavation" },
-    { name: "Exploration", to: "/exploration" },
+    { name: "About Us", to: "/#footer-section" }, // Changed for in-page scroll to footer
+    { name: "Excavation", to: "/#excavation-section" },
+    { name: "Exploration", to: "/#explore-join-section" }, // Changed for in-page scroll
     { name: "Activities", to: "/activities" },
     {
       name: "Events",
@@ -36,7 +37,7 @@ const Header2 = () => {
     {
       name: "Gallery",
       subMenu: [
-       { name: "Photos", to: "/GalleryPage" },
+       { name: "Photos", to: "/GalleryPage" }, // Corrected typo: GalleyPage -> GalleryPage
         { name: "Videos", to: "/VideoGalleryPage" },
       ],
     },
@@ -93,13 +94,22 @@ const Header2 = () => {
                   {!subMenu ? (
                     <NavLink
                       to={to}
-                      className={({ isActive }) =>
-                        `text-base font-medium transition duration-200 ${
-                          isActive
+                      onClick={() => setActiveDropdown(null)} // Added: Close dropdown on main link click
+                      className={({ isActive: navLinkIsActive }) => {
+                        let isCurrentPageActive = false;
+                        if (to.startsWith('/#')) {
+                          isCurrentPageActive = location.pathname === '/' && location.hash === to.substring(1);
+                        } else if (to === '/') {
+                          isCurrentPageActive = location.pathname === '/' && (location.hash === '' || !navLinks.some(l => l.to.startsWith('/#') && l.to.substring(1) === location.hash));
+                        } else {
+                          isCurrentPageActive = navLinkIsActive && location.hash === ''; // Active only if path matches and no home-page hash
+                        }
+                        return `text-base font-medium transition duration-200 ${
+                          isCurrentPageActive
                             ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
                             : "text-white hover:text-yellow-400"
-                        }`
-                      }
+                        }`;
+                      }}
                     >
                       {name}
                     </NavLink>
@@ -124,6 +134,7 @@ const Header2 = () => {
                               <NavLink
                                 key={item.name}
                                 to={item.to}
+                                onClick={() => setActiveDropdown(null)} // Added: Close dropdown on submenu item click
                                 className={({ isActive }) =>
                                   `block px-4 py-2 text-white hover:bg-gray-700 whitespace-nowrap ${
                                     isActive ? "bg-gray-700 text-yellow-400" : ""
@@ -163,12 +174,23 @@ const Header2 = () => {
                       {!subMenu ? (
                         <NavLink
                           to={to}
-                          onClick={() => setMenuOpen(false)}
-                          className={({ isActive }) =>
-                            `block py-2 text-base font-medium ${
-                              isActive ? "text-yellow-400" : "hover:text-yellow-400"
-                            }`
-                          }
+                          onClick={() => {
+                            setActiveDropdown(null); // Added: Close dropdown
+                            setMenuOpen(false);
+                          }}
+                          className={({ isActive: navLinkIsActive }) => {
+                            let isCurrentPageActive = false;
+                            if (to.startsWith('/#')) {
+                              isCurrentPageActive = location.pathname === '/' && location.hash === to.substring(1);
+                            } else if (to === '/') {
+                              isCurrentPageActive = location.pathname === '/' && (location.hash === '' || !navLinks.some(l => l.to.startsWith('/#') && l.to.substring(1) === location.hash));
+                            } else {
+                              isCurrentPageActive = navLinkIsActive && location.hash === '';
+                            }
+                            return `block py-2 text-base font-medium ${
+                              isCurrentPageActive ? "text-yellow-400" : "hover:text-yellow-400"
+                            }`;
+                          }}
                         >
                           {name}
                         </NavLink>
@@ -193,7 +215,10 @@ const Header2 = () => {
                                   <NavLink
                                     key={item.name}
                                     to={item.to}
-                                    onClick={() => setMenuOpen(false)}
+                                    onClick={() => {
+                                      setActiveDropdown(null); // Added: Close dropdown
+                                      setMenuOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                       `block py-2 px-4 text-sm hover:bg-gray-700 ${
                                         isActive ? "bg-gray-700 text-yellow-400" : ""

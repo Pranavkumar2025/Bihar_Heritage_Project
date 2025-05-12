@@ -7,6 +7,7 @@ import Conservation from "./Conservation";
 import Awareness from "./Awareness";
 import Gallery from "./Gallery";
 import CallToAction from "./CallToAction";
+import News from "./News";
 
 
 const Home = () => {
@@ -14,10 +15,11 @@ const Home = () => {
 		<div>
 			<Hero />
 			<Excavations />
-			{/* <ExploreJoin/> */}
 			<Conservation/>
 			<Gallery/>
 			<SS_Site />
+			<ExploreJoin/>
+			<News/>
 			<Awareness/>
 			<CallToAction/>
 		</div>
