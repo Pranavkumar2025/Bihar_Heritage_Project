@@ -40,7 +40,7 @@ const fadeInUp = {
 
 const Conservation = () => {
   return (
-    <div className="bg-gray-50 min-h-screen px-4 md:px-16 py-12">
+    <div id="conservation-section" className="bg-gray-50 min-h-screen px-4 md:px-16 py-12">
       {/* Title */}
       <motion.h2
         className="text-4xl font-bold text-center mb-10 text-[#1D3557]"
