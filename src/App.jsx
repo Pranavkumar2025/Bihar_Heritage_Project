@@ -11,6 +11,7 @@ import Footer2 from "./components/Footer/Footer2";
 import Footer1old from "./components/Footer/Footer1old";
 import VideoGalleryPage from "./components/VideoGalleryPage";
 import GalleryPage from "./components/GalleryPage";
+import Gallery from "./components/Gallery";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
 					{/* <Route path="/excavation" element={<Event />} /> */}
 					<Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
 					<Route path="/GalleryPage" element={<GalleryPage />} />
+					<Route path="/Gallery" element={<Gallery />} />
 
 					{/* Add other routes */}
 				</Routes>

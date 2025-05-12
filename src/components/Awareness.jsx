@@ -29,7 +29,7 @@ const cardVariant = {
 
 const Awareness = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen px-4 md:px-16 py-14">
+    <div className="bg-gradient-to-b from-gray-50 to-white  px-4 md:px-16 py-14">
       {/* Main Title */}
       <motion.h2
         className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 mb-6"

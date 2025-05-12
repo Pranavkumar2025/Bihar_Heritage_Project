@@ -6,6 +6,7 @@ import ExploreJoin from "./ExploreJoin";
 import Conservation from "./Conservation";
 import Awareness from "./Awareness";
 import Gallery from "./Gallery";
+import CallToAction from "./CallToAction";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
 			<Gallery/>
 			<SS_Site />
 			<Awareness/>
+			<CallToAction/>
 		</div>
 	);
 };

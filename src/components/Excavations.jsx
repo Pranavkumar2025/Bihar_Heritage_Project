@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 // eslint-disable-next-line
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Images
@@ -121,6 +121,38 @@ const explorationActivities = [
   },
 ];
 
+const Card = ({ item, index }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: 60 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        delay: index * 0.1,
+      }}
+      whileHover={{
+        scale: 1.03,
+        transition: { duration: 0.3 },
+      }}
+      className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+    >
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform duration-300"
+      />
+      <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+      <p className="text-sm text-gray-600 mt-2">{item.description}</p>
+    </motion.div>
+  );
+};
+
 const CardSlider = ({ items }) => {
   const scrollRef = useRef(null);
 
@@ -148,31 +180,7 @@ const CardSlider = ({ items }) => {
         className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12"
       >
         {items.map((item, index) => (
-          <motion.div
-            key={item.id}
-            layout
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              delay: index * 0.15,
-            }}
-            whileHover={{
-              scale: 1.03,
-              transition: { duration: 0.3 },
-            }}
-            className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
-          >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform duration-300"
-            />
-            <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-            <p className="text-sm text-gray-600 mt-2">{item.description}</p>
-          </motion.div>
+          <Card key={item.id} item={item} index={index} />
         ))}
       </div>
 
