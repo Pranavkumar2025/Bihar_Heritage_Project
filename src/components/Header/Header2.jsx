@@ -37,7 +37,7 @@ const Header2 = () => {
     {
       name: "Gallery",
       subMenu: [
-         { name: "Experience", to: "/#gallery" },
+         { name: "Experience", to: "/gallery" },
        { name: "Photos", to: "/GalleryPage" }, // Corrected typo: GalleyPage -> GalleryPage
         { name: "Videos", to: "/VideoGalleryPage" },
       ],
