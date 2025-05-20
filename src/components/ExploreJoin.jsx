@@ -1,42 +1,122 @@
 import React from "react";
-import { MapPin, Heart, Users, Mail, Landmark } from "lucide-react";
+import {
+  MapPin,
+  Heart,
+  Users,
+  Mail,
+  Landmark
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
-import PatliputraImg from "../assets/heritage/patliputraimg.jpg"; // Assuming Golghar is in Patna (Pataliputra)
+import PatliputraImg from "../assets/heritage/patliputraimg.jpg";
 import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
 
+const fadeIn = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, scale: 0.9, y: 50 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 12 } }
+};
+
+const hoverEffect = {
+  whileHover: {
+    scale: 1.05,
+    rotateY: 5,
+    rotateX: -3,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut"
+    }
+  }
+};
+
 const ExploreJoin = () => {
+  const [exploreRef, inViewExplore] = useInView({ triggerOnce: true });
+  const [joinRef, inViewJoin] = useInView({ triggerOnce: true });
+
+  const heritageSites = [
+    {
+      title: "Nalanda University",
+      location: "Nalanda, Bihar",
+      image: NalandaUniversityImg,
+      description: "Ancient center of learning, a UNESCO World Heritage Site."
+    },
+    {
+      title: "Golghar",
+      location: "Patna, Bihar",
+      image: PatliputraImg,
+      description: "A granary with a unique dome structure built in 1786."
+    },
+    {
+      title: "Rohtasgarh Fort",
+      location: "Rohtas, Bihar",
+      image: RohtasgarhFortImg,
+      description: "A grand fort nestled in the hills, rich in Mughal history."
+    }
+  ];
+
+  const joinOptions = [
+    {
+      icon: <Users className="w-8 h-8 mx-auto text-orange-500 mb-3" />,
+      title: "Become a Volunteer",
+      text: "Help preserve and promote heritage by contributing time and skills."
+    },
+    {
+      icon: <Landmark className="w-8 h-8 mx-auto text-orange-500 mb-3" />,
+      title: "Report a Site",
+      text: "Share information about neglected or unknown heritage sites."
+    },
+    {
+      icon: <Heart className="w-8 h-8 mx-auto text-orange-500 mb-3" />,
+      title: "Support the Cause",
+      text: "Help us with funding, resources, or spreading awareness."
+    },
+    {
+      icon: <Mail className="w-8 h-8 mx-auto text-orange-500 mb-3" />,
+      title: "Subscribe for Updates",
+      text: "Stay informed about new initiatives, events, and stories."
+    }
+  ];
+
   return (
     <div id="explore-join-section" className="bg-gray-50 py-20 px-6 md:px-20">
-      {/* Explore Sites Section */}
-      <section className="mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800">
+      <motion.section
+        ref={exploreRef}
+        variants={staggerContainer}
+        initial="hidden"
+        animate={inViewExplore ? "visible" : "hidden"}
+        className="mb-20"
+      >
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800"
+          variants={fadeIn}
+        >
           Explore Heritage Sites
-        </h2>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Nalanda University",
-              location: "Nalanda, Bihar",
-              image: NalandaUniversityImg,
-              description: "Ancient center of learning, a UNESCO World Heritage Site."
-            },
-            {
-              title: "Golghar",
-              location: "Patna, Bihar",
-              image: PatliputraImg, // Using Patliputra image as placeholder for Golghar in Patna
-              description: "A granary with a unique dome structure built in 1786."
-            },
-            {
-              title: "Rohtasgarh Fort",
-              location: "Rohtas, Bihar",
-              image: RohtasgarhFortImg,
-              description: "A grand fort nestled in the hills, rich in Mughal history."
-            }
-          ].map((site, index) => (
-            <div
+        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
+          {heritageSites.map((site, index) => (
+            <motion.div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300"
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+              variants={cardVariant}
+              {...hoverEffect}
+              style={{ transformStyle: "preserve-3d" }}
             >
               <img
                 src={site.image}
@@ -50,73 +130,68 @@ const ExploreJoin = () => {
                 <p className="text-sm text-gray-500 flex items-center mb-3">
                   <MapPin className="w-4 h-4 mr-2" /> {site.location}
                 </p>
-                <p className="text-gray-600 text-sm mb-4">
-                  {site.description}
-                </p>
-                <a href="#" className="text-orange-500 font-medium hover:underline">
+                <p className="text-gray-600 text-sm mb-4">{site.description}</p>
+                <a
+                  href="#"
+                  className="text-orange-500 font-medium hover:underline"
+                >
                   Learn More →
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <motion.div
+          className="text-center mt-10"
+          variants={fadeIn}
+        >
           <a
             href="#"
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-medium shadow"
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-medium shadow transition duration-300"
           >
             View All Sites
           </a>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      {/* Join Our Mission Section */}
-      <section>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800">
+      <motion.section
+        ref={joinRef}
+        variants={staggerContainer}
+        initial="hidden"
+        animate={inViewJoin ? "visible" : "hidden"}
+      >
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800"
+          variants={fadeIn}
+        >
           Join Our Mission
-        </h2>
+        </motion.h2>
 
         <div className="grid md:grid-cols-4 gap-6 text-center">
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md">
-            <Users className="w-8 h-8 mx-auto text-orange-500 mb-3" />
-            <h4 className="text-lg font-semibold mb-1">Become a Volunteer</h4>
-            <p className="text-sm text-gray-600">
-              Help preserve and promote heritage by contributing time and skills.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md">
-            <Landmark className="w-8 h-8 mx-auto text-orange-500 mb-3" />
-            <h4 className="text-lg font-semibold mb-1">Report a Site</h4>
-            <p className="text-sm text-gray-600">
-              Share information about neglected or unknown heritage sites.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md">
-            <Heart className="w-8 h-8 mx-auto text-orange-500 mb-3" />
-            <h4 className="text-lg font-semibold mb-1">Support the Cause</h4>
-            <p className="text-sm text-gray-600">
-              Help us with funding, resources, or spreading awareness.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md">
-            <Mail className="w-8 h-8 mx-auto text-orange-500 mb-3" />
-            <h4 className="text-lg font-semibold mb-1">Subscribe for Updates</h4>
-            <p className="text-sm text-gray-600">
-              Stay informed about new initiatives, events, and stories.
-            </p>
-          </div>
+          {joinOptions.map((option, i) => (
+            <motion.div
+              key={i}
+              className="bg-white p-6 rounded-xl shadow hover:shadow-md transition-transform duration-300"
+              variants={cardVariant}
+              whileHover={{ scale: 1.06 }}
+            >
+              {option.icon}
+              <h4 className="text-lg font-semibold mb-1">{option.title}</h4>
+              <p className="text-sm text-gray-600">{option.text}</p>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="text-center mt-10">
+        <motion.div className="text-center mt-10" variants={fadeIn}>
           <a
             href="#"
-            className="inline-block bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-full text-lg font-medium shadow"
+            className="inline-block bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-full text-lg font-medium shadow transition duration-300"
           >
-            Become a Volunteer
+            Join Now
           </a>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </div>
   );
 };

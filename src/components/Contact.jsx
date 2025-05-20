@@ -1,60 +1,65 @@
 import React from "react";
-// eslint-disable-next-line
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkedAlt } from "react-icons/fa";
 
-const smoothHorizontal = {
-  duration: 1,
-  ease: [0.25, 1, 0.5, 1],
+const iconVariants = {
+  initial: { scale: 1 },
+  hover: { scale: 1.15, transition: { type: "spring", stiffness: 300 } },
 };
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-[#eeeeff] px-5 mt-15 py-16 md:px-24">
+    <div className="relative min-h-screen bg-gray-100 px-5 py-20 md:px-24">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 relative inline-block mt-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
           Contact Us
-          <motion.span
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="block h-[3px] bg-pink-500 mt-2 rounded-full"
-          ></motion.span>
         </h1>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="h-[2px] bg-gray-400 w-20 mx-auto mt-3 rounded-full"
+        />
       </motion.div>
 
-      {/* Grid */}
+      {/* Grid Section */}
       <div className="grid md:grid-cols-2 gap-10">
         {/* Info Box */}
         <motion.div
-          initial={{ opacity: 0, x: -120 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={smoothHorizontal}
-          className="bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-gray-200 hover:shadow-2xl transition duration-300"
+          initial={{ opacity: 0, scale: 0.95, x: -50 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-white p-8 rounded-xl shadow-md border border-gray-200"
         >
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
             Bihar Heritage Development Society
           </h2>
-          <div className="space-y-4 text-gray-700 text-lg">
+          <div className="space-y-4 text-gray-700 text-[17px] leading-relaxed">
             <p className="flex items-start gap-3">
-              <FaMapMarkedAlt className="text-pink-500 mt-1" />
+              <motion.span variants={iconVariants} initial="initial" whileHover="hover">
+                <FaMapMarkedAlt className="text-gray-600 mt-1" />
+              </motion.span>
               North of Patna Museum, Off Buddha Marg, Patna – 800001
             </p>
             <p className="flex items-center gap-3">
-              <FaPhoneAlt className="text-pink-500" />
+              <motion.span variants={iconVariants} initial="initial" whileHover="hover">
+                <FaPhoneAlt className="text-gray-600" />
+              </motion.span>
               91-9955058450, 0612-2508445
             </p>
             <p className="flex items-center gap-3">
-              <FaEnvelope className="text-pink-500" />
+              <motion.span variants={iconVariants} initial="initial" whileHover="hover">
+                <FaEnvelope className="text-gray-600" />
+              </motion.span>
               <a
                 href="mailto:heritageofbihar@gmail.com"
-                className="hover:text-orange-600 transition"
+                className="hover:underline text-gray-800"
               >
                 heritageofbihar@gmail.com
               </a>
@@ -64,10 +69,10 @@ const Contact = () => {
 
         {/* Map Box */}
         <motion.div
-          initial={{ opacity: 0, x: 120 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ ...smoothHorizontal, delay: 0.1 }}
-          className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 hover:shadow-2xl transition duration-300"
+          initial={{ opacity: 0, scale: 0.95, x: 50 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="rounded-xl overflow-hidden shadow-md border border-gray-200"
         >
           <iframe
             className="w-full h-96"
@@ -79,6 +84,40 @@ const Contact = () => {
           ></iframe>
         </motion.div>
       </div>
+
+      {/* Optional Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="mt-16 max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200"
+      >
+        <h3 className="text-xl font-semibold mb-4 text-gray-700">Send Us a Message</h3>
+        <form className="space-y-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <textarea
+            rows="4"
+            placeholder="Your Message"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          ></textarea>
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-6 py-2 bg-blue-600 text-white font-medium rounded-md shadow hover:bg-blue-700 transition"
+          >
+            Send
+          </motion.button>
+        </form>
+      </motion.div>
     </div>
   );
 };

@@ -121,6 +121,20 @@ const explorationActivities = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: index * 0.1,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const Card = ({ item, index }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -128,27 +142,42 @@ const Card = ({ item, index }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: 60 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        delay: index * 0.1,
-      }}
+      variants={cardVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      custom={index}
       whileHover={{
-        scale: 1.03,
+        scale: 1.05,
+        boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
         transition: { duration: 0.3 },
       }}
-      className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+      whileTap={{ scale: 0.98 }}
+      className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl transition-all duration-300"
     >
-      <img
+      <motion.img
         src={item.image}
         alt={item.title}
-        className="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform duration-300"
+        className="w-full h-48 object-cover rounded-lg mb-4"
+        initial={{ scale: 1.1 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 0.6 }}
       />
-      <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-      <p className="text-sm text-gray-600 mt-2">{item.description}</p>
+      <motion.h3
+        className="text-xl font-semibold text-gray-800"
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        {item.title}
+      </motion.h3>
+      <motion.p
+        className="text-sm text-gray-600 mt-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+      >
+        {item.description}
+      </motion.p>
     </motion.div>
   );
 };
@@ -198,7 +227,10 @@ const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
 
   return (
-    <div id="excavation-section" className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20">
+    <div
+      id="excavation-section"
+      className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20"
+    >
       <motion.h1
         variants={fadeIn("down", 0.1)}
         initial="hidden"

@@ -90,43 +90,22 @@ const Publication = () => {
   };
 
   return (
-    <div className="bg-[#F9F9F9] min-h-screen mt-15 px-6 py-12 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-200 to-gray-300 text-gray-800 mt-15 px-6 py-12 relative overflow-hidden">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10 pt-6">
         Publications
       </h2>
-
-      {/* ⬅️ Left Arrow */}
-      <button
-        onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:scale-105 transition"
-      >
-        <ChevronLeft size={28} />
-      </button>
-
-      {/* ➡️ Right Arrow */}
-      <button
-        onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:scale-105 transition"
-      >
-        <ChevronRight size={28} />
-      </button>
-
-      {/* 📄 Card Container */}
-      <div
-        ref={containerRef}
-        className="flex gap-6 overflow-x-auto scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent px-2 pb-4 scroll-smooth"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center p-2">
         {data.map((item) => (
           <div
             key={item.id}
-            className="flex-shrink-0 w-[250px] h-[420px] rounded-2xl overflow-hidden border border-gray-500 bg-white shadow-sm group hover:shadow-2xl transition duration-300 "
+            className="w-[250px] h-[420px] rounded-2xl overflow-hidden border border-gray-500 bg-gradient-to-br from-white via-gray-200 to-gray-300 shadow-sm group hover:shadow-2xl hover:shadow-red-400/80 hover:bg-[#ffd2d7] hover:border-[#FF4D5A] transition duration-300 flex flex-col"
           >
             <img
               src={item.imageUrl}
               alt={item.title}
               className="w-full h-56 object-contain p-4 transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="px-4 py-5 flex flex-col justify-between h-[160px] text-gray-800 group-hover:rounded-2xl group-hover:bg-[#ffd2d7] transition-colors duration-300">
+            <div className="px-4 py-5 flex flex-col justify-between h-[160px] text-gray-800 transition-colors duration-300">
               <div>
                 <h3 className="text-lg font-bold mb-2">{item.title}</h3>
                 <p className="text-sm">{item.description}</p>

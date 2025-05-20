@@ -1,5 +1,4 @@
 import React from "react";
-// eslint-disable-next-line
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -55,31 +54,36 @@ const features = [
 
 const UniqueBihar = () => {
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* 🎥 Background Video */}
-      <div className="relative h-[80vh] w-full">
-        <video
+    <div className="relative w-full overflow-hidden bg-white">
+      {/* 🎥 Modern Styled Video Section */}
+      <div className="relative h-[90vh] w-full overflow-hidden">
+        <motion.video
           src={BiharHistoryVideo}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover brightness-75"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-6">
+
+        {/* Stylish overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 flex flex-col items-center justify-center text-center px-4">
           <motion.h1
-            initial={{ opacity: 0, y: -40 }}
+            initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-white text-4xl md:text-5xl font-extrabold"
+            className="text-white text-5xl md:text-6xl font-extrabold drop-shadow-xl"
           >
             Bihar – The Land of Ancient Wisdom
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="text-white text-lg mt-4 max-w-xl"
+            transition={{ delay: 0.6, duration: 1 }}
+            className="text-white text-lg md:text-xl mt-4 max-w-2xl drop-shadow"
           >
             Experience the spiritual and intellectual legacy through time.
           </motion.p>
@@ -88,16 +92,22 @@ const UniqueBihar = () => {
 
       {/* 🚀 Feature Cards Using Swiper */}
       <section className="bg-white py-20 px-6 md:px-16">
-        <h2 className="text-3xl font-bold text-center text-indigo-900 mb-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-4xl font-extrabold text-center text-indigo-800 mb-12"
+        >
           What Makes Bihar Unique
-        </h2>
+        </motion.h2>
 
         <Swiper
           spaceBetween={20}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -112,11 +122,20 @@ const UniqueBihar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="block bg-gray-100 p-6 rounded-2xl shadow hover:shadow-xl transition-all duration-300 h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="block bg-gradient-to-br from-indigo-50 to-white p-6 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 h-full"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="text-5xl mb-4 transition-transform"
+                >
+                  {item.icon}
+                </motion.div>
                 <h3 className="text-xl font-semibold text-indigo-800 mb-1">
                   {item.title}
                 </h3>
