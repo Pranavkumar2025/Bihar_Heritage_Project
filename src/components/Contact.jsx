@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkedAlt } from "react-icons/fa";
 

@@ -6,6 +6,7 @@ import {
   Mail,
   Landmark
 } from "lucide-react";
+// eslint-disable-next-line
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
