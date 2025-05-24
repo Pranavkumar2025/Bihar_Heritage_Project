@@ -1,126 +1,106 @@
-import React, { useRef} from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+import { BsFileEarmarkPdf } from "react-icons/bs";
+import { motion } from "framer-motion";
 
-// Import images from assets
-import heritageOfBiharImg from "../assets/heritage/img1.jpeg";
-import buddhistCircuitImg from "../assets/heritage/NalandaUniversity.jpg";
-import archaeologicalSitesImg from "../assets/heritage/telhara.jpg";
-import preservationActsImg from "../assets/heritage/img2.jpg"; // Using a generic image
-import architecturalStylesImg from "../assets/heritage/img3.jpg"; // Using a generic image
-import unescoSitesImg from "../assets/heritage/rohtas.jpg"; // Rohtas Fort as a UNESCO site example
-import intangibleHeritageImg from "../assets/heritage/img4.jpg"; // Using a generic image
-import heritageManagementImg from "../assets/heritage/img5.jpg"; // Using a generic image
-import touristGuidesImg from "../assets/heritage/patliputra.jpg"; // Patliputra as a tourist site
-import culturalMappingImg from "../assets/heritage/map.png";
+// PDF Imports
+import pdf1 from "../assets/pdfs/Archaeological Atlas of Bihar.pdf";
+import pdf2 from "../assets/pdfs/Bihar ki lok kathayien Angika, Vajjika maithli.pdf";
+import pdf3 from "../assets/pdfs/Bihar ki lok kathayien Bhojpuri Magahi.pdf";
+import pdf4 from "../assets/pdfs/Bihar me bhasahaon evam lipiyon ka vikas.pdf";
+import pdf5 from "../assets/pdfs/SRI_PRATHAMASIVAPURA_MAHAVIHARA_Excavati.pdf";
 
 const data = [
   {
     id: 1,
-    title: "Heritage of Bihar",
-    description: "A detailed document exploring the historical monuments of Bihar.",
-    imageUrl: heritageOfBiharImg,
+    title: "Archaeological Atlas of Bihar",
+    description: "A detailed atlas showcasing archaeological richness of Bihar.",
+    pdfUrl: pdf1,
   },
   {
     id: 2,
-    title: "Bihar Buddhist Circuit",
-    description: "Explore the Buddhist trail across Bodh Gaya, Rajgir, and Nalanda.",
-    imageUrl: buddhistCircuitImg,
+    title: "लोक कथाएँ: अंगिका, वज्जिका, मैथिली",
+    description: "Collection of folk tales in Angika, Vajjika and Maithili.",
+    pdfUrl: pdf2,
   },
   {
     id: 3,
-    title: "Archaeological Sites",
-    description: "Publication featuring archaeological surveys and discoveries.",
-    imageUrl: archaeologicalSitesImg,
+    title: "लोक कथाएँ: भोजपुरी, मगही",
+    description: "Folk tales from Bhojpuri and Magahi cultural regions.",
+    pdfUrl: pdf3,
   },
   {
     id: 4,
-    title: "Preservation Acts",
-    description: "Key legal acts related to heritage and conservation in Bihar.",
-    imageUrl: preservationActsImg,
+    title: "बिहार में भाषाओं एवं लिपियों का विकास",
+    description: "Development of languages and scripts in Bihar.",
+    pdfUrl: pdf4,
   },
   {
     id: 5,
-    title: "Architectural Styles",
-    description: "Traditional and modern architecture styles observed in Bihar.",
-    imageUrl: architecturalStylesImg,
-  },
-  {
-    id: 6,
-    title: "UNESCO Sites",
-    description: "Bihar’s recognized World Heritage Sites and their significance.",
-    imageUrl: unescoSitesImg,
-  },
-  {
-    id: 7,
-    title: "Intangible Heritage",
-    description: "Folk traditions, oral history, festivals, and music of Bihar.",
-    imageUrl: intangibleHeritageImg,
-  },
-  {
-    id: 8,
-    title: "Heritage Management",
-    description: "Policies, challenges, and modern management practices.",
-    imageUrl: heritageManagementImg,
-  },
-  {
-    id: 9,
-    title: "Tourist Guides",
-    description: "Official guides to explore major heritage destinations.",
-    imageUrl: touristGuidesImg,
-  },
-  {
-    id: 10,
-    title: "Cultural Mapping",
-    description: "Mapping Bihar’s diverse cultural zones and practices.",
-    imageUrl: culturalMappingImg,
+    title: "Prathama Sivapura Mahavihara",
+    description: "Excavation report of Prathama Sivapura Mahavihara.",
+    pdfUrl: pdf5,
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.5, ease: "easeOut" },
+  }),
+};
+
 const Publication = () => {
-  const containerRef = useRef(null);
-
-  const scroll = (direction) => {
-    const container = containerRef.current;
-    const scrollAmount = container.offsetWidth; // Scroll by full container width
-    if (direction === "left") {
-      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-200 to-gray-300 text-gray-800 mt-15 px-6 py-12 relative overflow-hidden">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10 pt-6">
-        Publications
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center p-2">
-        {data.map((item) => (
-          <div
-            key={item.id}
-            className="w-[250px] h-[420px] rounded-2xl overflow-hidden border border-gray-500 bg-gradient-to-br from-white via-gray-200 to-gray-300 shadow-sm group hover:shadow-2xl hover:shadow-red-400/80 hover:bg-[#ffd2d7] hover:border-[#FF4D5A] transition duration-300 flex flex-col"
-          >
-            <img
-              src={item.imageUrl}
-              alt={item.title}
-              className="w-full h-56 object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="px-4 py-5 flex flex-col justify-between h-[160px] text-gray-800 transition-colors duration-300">
-              <div>
-                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-sm">{item.description}</p>
+    <section className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 mt-8">
+          Publications
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {data.map((item, index) => (
+            <motion.div
+              key={item.id}
+              custom={index}
+              initial="hidden"
+              animate="visible"
+              variants={cardVariants}
+              whileHover={{ scale: 1.05, boxShadow: "0 15px 25px rgba(255, 77, 90, 0.3)" }}
+              className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col items-center cursor-pointer transition-shadow duration-300"
+            >
+              <BsFileEarmarkPdf className="text-red-600 mb-4" size={70} />
+
+              <h3 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-2 px-2">
+                {item.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 text-center mb-6 px-2">
+                {item.description}
+              </p>
+
+              <div className="mt-auto flex justify-center gap-6 text-sm font-medium px-2 w-full max-w-[200px]">
+                <a
+                  href={item.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View
+                </a>
+                <a
+                  href={item.pdfUrl}
+                  download
+                  className="text-green-600 hover:underline"
+                >
+                  Download
+                </a>
               </div>
-              <a
-                href="#"
-                className="text-[#FF4D5A] font-semibold hover:underline group-hover:text-[#D90429] mt-3"
-              >
-                View
-              </a>
-            </div>
-          </div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
