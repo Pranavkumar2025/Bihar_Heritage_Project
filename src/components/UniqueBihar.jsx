@@ -55,53 +55,77 @@ const features = [
 
 const UniqueBihar = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-white">
-      {/* 🎥 Modern Styled Video Section */}
-      <div className="relative h-[90vh] w-full overflow-hidden">
-        <motion.video
-          src={BiharHistoryVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          initial={{ scale: 1 }}
-          animate={{ scale: 1.05 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
-
-        {/* Stylish overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 flex flex-col items-center justify-center text-center px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white text-5xl md:text-6xl font-extrabold drop-shadow-xl"
-          >
+    <div className="bg-white w-full">
+      {/* 🧭 Split Hero Section */}
+      <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 gap-10">
+        {/* Left Content */}
+        <motion.div
+          className="flex-1 text-center md:text-left"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-900 mb-4">
             Bihar – The Land of Ancient Wisdom
-          </motion.h1>
+          </h1>
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-            className="text-white text-lg md:text-xl mt-4 max-w-2xl drop-shadow"
+            className="text-gray-700 text-lg max-w-xl"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Experience the spiritual and intellectual legacy through time.
           </motion.p>
-        </div>
-      </div>
+          <motion.p
+            className="mt-6 text-base text-indigo-700 font-medium italic max-w-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            “Where knowledge was born before it spread to the world – that’s the story of Bihar.”
+          </motion.p>
+        </motion.div>
 
-      {/* 🚀 Feature Cards Using Swiper */}
+        {/* Right Video Box */}
+        <motion.div
+          className="flex-1 relative w-full max-w-xl aspect-video overflow-hidden rounded-3xl shadow-xl border-4 border-indigo-100"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <video
+            src={BiharHistoryVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover rounded-3xl"
+          />
+          <div className="absolute inset-0 bg-black/30 rounded-3xl" />
+        </motion.div>
+      </section>
+
+      {/* 🚀 Features Carousel */}
       <section className="bg-white py-20 px-6 md:px-16">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-4xl font-extrabold text-center text-indigo-800 mb-12"
+          className="text-4xl font-extrabold text-center text-indigo-900 mb-4"
         >
           What Makes Bihar Unique
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center text-gray-600 text-md max-w-2xl mx-auto mb-12"
+        >
+          Discover Bihar’s unmatched contributions to culture, religion, and history through these timeless landmarks.
+        </motion.p>
 
         <Swiper
           spaceBetween={20}
@@ -137,7 +161,7 @@ const UniqueBihar = () => {
                 >
                   {item.icon}
                 </motion.div>
-                <h3 className="text-xl font-semibold text-indigo-800 mb-1">
+                <h3 className="text-xl font-semibold text-indigo-900 mb-1">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>

@@ -6,6 +6,7 @@ import {
   Mail,
   Landmark
 } from "lucide-react";
+
 // eslint-disable-next-line
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -13,6 +14,7 @@ import { useInView } from "react-intersection-observer";
 import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
 import PatliputraImg from "../assets/heritage/patliputraimg.jpg";
 import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
+import heritageVideo from "../assets/Videos/BiharHeritage1.mp4"; // ✅ Importing the video
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -96,6 +98,7 @@ const ExploreJoin = () => {
 
   return (
     <div id="explore-join-section" className="bg-gray-50 py-20 px-6 md:px-20">
+      {/* Explore Heritage Section */}
       <motion.section
         ref={exploreRef}
         variants={staggerContainer}
@@ -143,19 +146,44 @@ const ExploreJoin = () => {
           ))}
         </div>
 
-        <motion.div
-          className="text-center mt-10"
-          variants={fadeIn}
-        >
+        <motion.div className="text-center mt-10" variants={fadeIn}>
           <a
-            href="#"
+            href="https://tourism.bihar.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-medium shadow transition duration-300"
           >
             View All Sites
           </a>
+
         </motion.div>
       </motion.section>
 
+      {/* ✅ Heritage Video Section */}
+      <motion.div
+        className="my-20"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-8">
+          Bihar’s Living Heritage
+        </h2>
+        <div className="relative w-full max-w-5xl mx-auto shadow-xl rounded-xl overflow-hidden">
+          <video
+            src={heritageVideo}
+            controls
+            autoPlay
+            muted
+            loop
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: "600px" }}
+          />
+        </div>
+      </motion.div>
+
+      {/* Join Mission Section */}
       <motion.section
         ref={joinRef}
         variants={staggerContainer}
