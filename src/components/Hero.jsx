@@ -148,34 +148,14 @@
 
 
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 // eslint-disable-next-line
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 import heritagvideo from "../assets/Videos/BiharHeritage1.mp4";
 
-import img1 from "../assets/heritage/img1.jpeg";
-import img2 from "../assets/heritage/img2.jpg";
-import img3 from "../assets/heritage/img3.jpg";
-import img4 from "../assets/heritage/img4.jpg";
-import img5 from "../assets/heritage/img5.jpg";
-import img6 from "../assets/heritage/img6.jpg";
-import img7 from "../assets/heritage/img7.jpg";
-import img8 from "../assets/heritage/img8.jpg";
-
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-
 const Hero = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const videoRef = useRef(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -183,126 +163,51 @@ const Hero = () => {
     }
   }, []);
 
-  const getVisibleImages = () => {
-    const visible = [];
-    for (let i = -2; i <= 2; i++) {
-      const index = (activeIndex + i + images.length) % images.length;
-      visible.push({ img: images[index], offset: i });
-    }
-    return visible;
-  };
-
   return (
-    <div className="w-full bg-gray-50 overflow-x-hidden">
+    <div className="w-full h-screen bg-black overflow-hidden">
       {/* ===== VIDEO BANNER ===== */}
-      <div className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
-  <video
-    ref={videoRef}
-    src={heritagvideo}
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-full object-contain md:object-cover"
-  />
-  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
-    <div className="max-w-3xl">
-      <motion.h1
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"
-      >
-        Preserving Bihar’s Glorious Past
-      </motion.h1>
+      <div className="relative w-full h-full overflow-hidden">
+        <video
+          ref={videoRef}
+          src={heritagvideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
+          <div className="max-w-3xl">
+            <motion.h1
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"
+            >
+              Preserving Bihar’s Glorious Past
+            </motion.h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="text-white text-lg md:text-xl mb-4 drop-shadow-lg"
-      >
-        From ancient excavations to cultural celebrations —
-        <br className="hidden md:inline" />
-        we protect and promote the enduring legacy of Bihar.
-      </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="text-white text-lg md:text-xl mb-4 drop-shadow-lg"
+            >
+              From ancient excavations to cultural celebrations —
+              <br className="hidden md:inline" />
+              we protect and promote the enduring legacy of Bihar.
+            </motion.p>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.8 }}
-        className="text-gray-200 text-base md:text-lg italic"
-      >
-        Join us in discovering monuments, history, and untold stories
-        that shaped a civilization.
-      </motion.p>
-    </div>
-  </div>
-</div>
-
-
-      {/* ===== IMAGE CAROUSEL SECTION ===== */}
-      <div className="py-16 px-4">
-        <motion.h2
-          className="text-2xl md:text-3xl font-semibold text-center text-slate-800 mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          Explore Bihar’s Heritage
-        </motion.h2>
-
-        <div className="relative flex items-center justify-center gap-4 md:gap-10">
-          <AnimatePresence initial={false} mode="popLayout">
-            {getVisibleImages().map(({ img, offset }, idx) => {
-              const absOffset = Math.abs(offset);
-              const scale = offset === 0 ? 1.1 : 1 - absOffset * 0.1;
-              const zIndex = 10 - absOffset;
-              const translateX = offset * 150;
-              const blur = absOffset >= 2 ? "blur-[2px] opacity-60" : "";
-
-              return (
-                <motion.div
-                  key={`${activeIndex}-${idx}`}
-                  className={`relative w-48 h-64 md:w-60 md:h-80 rounded-xl overflow-hidden shadow-xl cursor-pointer bg-white ${blur}`}
-                  style={{
-                    transform: `translateX(${translateX}px) scale(${scale})`,
-                    zIndex,
-                  }}
-                  initial={{ opacity: 0, scale: 0.85, y: 20 }}
-                  animate={{ opacity: 1, scale, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.85, y: -20 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  <img
-                    src={img}
-                    alt={`slide-${idx}`}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4 mt-10">
-          <button
-            onClick={() =>
-              setActiveIndex((prev) => (prev - 1 + images.length) % images.length)
-            }
-            className="w-11 h-11 rounded-full bg-gray-200 hover:bg-slate-600 transition-all duration-300 flex items-center justify-center shadow-md"
-          >
-            <ChevronLeft className="text-gray-700 hover:text-white" />
-          </button>
-          <button
-            onClick={() => setActiveIndex((prev) => (prev + 1) % images.length)}
-            className="w-11 h-11 rounded-full bg-orange-500 hover:bg-orange-600 transition-all duration-300 flex items-center justify-center shadow-md"
-          >
-            <ChevronRight className="text-white" />
-          </button>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.8 }}
+              className="text-gray-200 text-base md:text-lg italic"
+            >
+              Join us in discovering monuments, history, and untold stories
+              that shaped a civilization.
+            </motion.p>
+          </div>
         </div>
       </div>
     </div>

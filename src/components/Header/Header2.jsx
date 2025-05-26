@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom"; // Added useLocation
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 // eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -13,18 +13,19 @@ const dropdownVariants = {
 
 const Header2 = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Added: to get current location and hash
+  const location = useLocation();
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { name: "Home", to: "/" },
-    { name: "About Us", to: "/#footer-section" }, // Changed for in-page scroll to footer
+    { name: "About Us", to: "/GoverningBody" },
     { name: "Excavation", to: "/#excavation" },
-    { name: "Exploration", to: "/#explorejoin" }, // Changed for in-page scroll
-    { name: "Activities", to: "/#conservation" }, // Changed to scroll to conservation section
+    { name: "Exploration", to: "/#explorejoin" },
+    { name: "Activities", to: "/#conservation" },
     {
       name: "Events",
       subMenu: [
@@ -37,8 +38,7 @@ const Header2 = () => {
     {
       name: "Gallery",
       subMenu: [
-        //  { name: "Experience", to: "/gallery" },
-       { name: "Photos", to: "/GalleryPage" }, // Corrected typo: GalleyPage -> GalleryPage
+        { name: "Photos", to: "/GalleryPage" },
         { name: "Videos", to: "/VideoGalleryPage" },
       ],
     },
@@ -49,6 +49,8 @@ const Header2 = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
+      setIsScrolled(currentY > 10);
+
       if (currentY > lastScrollY && currentY > 100) {
         setShowHeader(false);
       } else {
@@ -56,21 +58,28 @@ const Header2 = () => {
       }
       setLastScrollY(currentY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  const headerClass = `w-full fixed top-0 z-50 transition-all duration-300 ${
+    isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+  }`;
+
+  const textColor = isScrolled ? "text-gray-900 hover:text-yellow-500" : "text-white hover:text-yellow-300";
 
   return (
     <AnimatePresence>
       {showHeader && (
         <motion.header
-          className="w-full z-50 fixed top-0 bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#334155] shadow-md"
+          className={headerClass}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             {/* Logo */}
             <motion.div
               onClick={() => navigate("/")}
@@ -95,20 +104,22 @@ const Header2 = () => {
                   {!subMenu ? (
                     <NavLink
                       to={to}
-                      onClick={() => setActiveDropdown(null)} // Added: Close dropdown on main link click
-                      className={({ isActive: navLinkIsActive }) => {
+                      onClick={() => setActiveDropdown(null)}
+                      className={({ isActive }) => {
                         let isCurrentPageActive = false;
-                        if (to.startsWith('/#')) {
-                          isCurrentPageActive = location.pathname === '/' && location.hash === to.substring(1);
-                        } else if (to === '/') {
-                          isCurrentPageActive = location.pathname === '/' && (location.hash === '' || !navLinks.some(l => l.to.startsWith('/#') && l.to.substring(1) === location.hash));
+                        if (to.startsWith("/#")) {
+                          isCurrentPageActive = location.pathname === "/" && location.hash === to.substring(1);
+                        } else if (to === "/") {
+                          isCurrentPageActive =
+                            location.pathname === "/" &&
+                            (location.hash === "" || !navLinks.some(l => l.to.startsWith("/#") && l.to.substring(1) === location.hash));
                         } else {
-                          isCurrentPageActive = navLinkIsActive && location.hash === ''; // Active only if path matches and no home-page hash
+                          isCurrentPageActive = isActive && location.hash === "";
                         }
                         return `text-base font-medium transition duration-200 ${
                           isCurrentPageActive
-                            ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
-                            : "text-white hover:text-yellow-400"
+                            ? "text-yellow-500 border-b-2 border-yellow-500 pb-1"
+                            : `${textColor}`
                         }`;
                       }}
                     >
@@ -118,7 +129,7 @@ const Header2 = () => {
                     <div className="relative">
                       <button
                         onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
-                        className="text-white hover:text-yellow-400 flex items-center gap-1"
+                        className={`flex items-center gap-1 ${textColor}`}
                       >
                         {name} <ChevronDown size={16} />
                       </button>
@@ -129,16 +140,16 @@ const Header2 = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute bg-[#1e293b] shadow-lg mt-2 rounded-md z-50"
+                            className="absolute bg-white shadow-lg mt-2 rounded-md z-50"
                           >
-                            {subMenu.map((item) => (
+                            {subMenu.map(item => (
                               <NavLink
                                 key={item.name}
                                 to={item.to}
-                                onClick={() => setActiveDropdown(null)} // Added: Close dropdown on submenu item click
+                                onClick={() => setActiveDropdown(null)}
                                 className={({ isActive }) =>
-                                  `block px-4 py-2 text-white hover:bg-gray-700 whitespace-nowrap ${
-                                    isActive ? "bg-gray-700 text-yellow-400" : ""
+                                  `block px-4 py-2 text-gray-800 hover:bg-gray-100 whitespace-nowrap ${
+                                    isActive ? "bg-gray-100 text-yellow-500" : ""
                                   }`
                                 }
                               >
@@ -154,10 +165,14 @@ const Header2 = () => {
               ))}
             </nav>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Toggle */}
             <div className="md:hidden z-20">
               <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
-                {menuOpen ? <X size={28} className="text-white" /> : <Menu size={28} className="text-white" />}
+                {menuOpen ? (
+                  <X size={28} className={`${isScrolled ? "text-gray-900" : "text-white"}`} />
+                ) : (
+                  <Menu size={28} className={`${isScrolled ? "text-gray-900" : "text-white"}`} />
+                )}
               </button>
             </div>
 
@@ -168,7 +183,7 @@ const Header2 = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-16 left-0 w-full bg-[#1e293b] text-white flex flex-col items-center py-4 gap-2 md:hidden z-40"
+                  className="absolute top-16 left-0 w-full bg-white text-gray-800 flex flex-col items-center py-4 gap-2 md:hidden z-40"
                 >
                   {navLinks.map(({ name, to, subMenu }) => (
                     <div key={name} className="w-full text-center">
@@ -176,22 +191,14 @@ const Header2 = () => {
                         <NavLink
                           to={to}
                           onClick={() => {
-                            setActiveDropdown(null); // Added: Close dropdown
+                            setActiveDropdown(null);
                             setMenuOpen(false);
                           }}
-                          className={({ isActive: navLinkIsActive }) => {
-                            let isCurrentPageActive = false;
-                            if (to.startsWith('/#')) {
-                              isCurrentPageActive = location.pathname === '/' && location.hash === to.substring(1);
-                            } else if (to === '/') {
-                              isCurrentPageActive = location.pathname === '/' && (location.hash === '' || !navLinks.some(l => l.to.startsWith('/#') && l.to.substring(1) === location.hash));
-                            } else {
-                              isCurrentPageActive = navLinkIsActive && location.hash === '';
-                            }
-                            return `block py-2 text-base font-medium ${
-                              isCurrentPageActive ? "text-yellow-400" : "hover:text-yellow-400"
-                            }`;
-                          }}
+                          className={({ isActive }) =>
+                            `block py-2 text-base font-medium ${
+                              isActive ? "text-yellow-500" : "hover:text-yellow-500"
+                            }`
+                          }
                         >
                           {name}
                         </NavLink>
@@ -199,7 +206,7 @@ const Header2 = () => {
                         <>
                           <button
                             onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
-                            className="w-full py-2 text-base font-medium hover:text-yellow-400 flex justify-center items-center gap-1"
+                            className="w-full py-2 text-base font-medium hover:text-yellow-500 flex justify-center items-center gap-1"
                           >
                             {name} <ChevronDown size={16} />
                           </button>
@@ -210,19 +217,19 @@ const Header2 = () => {
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="bg-[#334155]"
+                                className="bg-gray-100"
                               >
-                                {subMenu.map((item) => (
+                                {subMenu.map(item => (
                                   <NavLink
                                     key={item.name}
                                     to={item.to}
                                     onClick={() => {
-                                      setActiveDropdown(null); // Added: Close dropdown
+                                      setActiveDropdown(null);
                                       setMenuOpen(false);
                                     }}
                                     className={({ isActive }) =>
-                                      `block py-2 px-4 text-sm hover:bg-gray-700 ${
-                                        isActive ? "bg-gray-700 text-yellow-400" : ""
+                                      `block py-2 px-4 text-sm hover:bg-gray-200 ${
+                                        isActive ? "bg-gray-200 text-yellow-500" : ""
                                       }`
                                     }
                                   >

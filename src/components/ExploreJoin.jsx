@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer";
 import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
 import PatliputraImg from "../assets/heritage/patliputraimg.jpg";
 import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
-import heritageVideo from "../assets/Videos/BiharHeritage1.mp4"; // ✅ Importing the video
+import heritageVideo from "../assets/Videos/BiharHistory.mp4"; // ✅ Importing the video
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },

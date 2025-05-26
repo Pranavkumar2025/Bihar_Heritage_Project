@@ -6,7 +6,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import BiharHistoryVideo from "../assets/Videos/BiharHistory.mp4";
+import BiharHistoryVideo from "../assets/Videos/BiharHeritage_2.mp4";
 
 const features = [
   {
