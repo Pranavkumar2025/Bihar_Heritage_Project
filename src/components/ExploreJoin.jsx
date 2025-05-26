@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer";
 import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
 import PatliputraImg from "../assets/heritage/patliputraimg.jpg";
 import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
-import heritageVideo from "../assets/Videos/BiharHeritage1.mp4"; // ✅ Importing the video
+import heritageVideo from "../assets/Videos/BiharHeritage6.mp4"; // ✅ Importing the video
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -97,7 +97,7 @@ const ExploreJoin = () => {
   ];
 
   return (
-    <div id="explore-join-section" className="bg-gray-50 py-20 px-6 md:px-20">
+    <div id="explore-join-section" className="bg-amber-50 py-20 px-6 md:px-20">
       {/* Explore Heritage Section */}
       <motion.section
         ref={exploreRef}

@@ -13,6 +13,9 @@ import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
 
+// Components
+
+
 const fadeIn = (direction = "up", delay = 0) => ({
   hidden: {
     opacity: 0,
@@ -231,6 +234,7 @@ const Excavations = () => {
       id="excavation-section"
       className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20"
     >
+      {/* Headings and tab buttons first */}
       <motion.h1
         variants={fadeIn("down", 0.1)}
         initial="hidden"
@@ -277,6 +281,8 @@ const Excavations = () => {
           <CardSlider items={explorationActivities} />
         )}
       </div>
+
+      
     </div>
   );
 };

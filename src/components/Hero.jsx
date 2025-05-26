@@ -153,7 +153,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import heritagvideo from "../assets/Videos/BiharHeritage_2.mp4";
+import heritagvideo from "../assets/Videos/BiharHeritage6.mp4";
 
 import img1 from "../assets/heritage/img1.jpeg";
 import img2 from "../assets/heritage/img2.jpg";
@@ -205,44 +205,23 @@ const Hero = () => {
     playsInline
     className="w-full h-full object-contain md:object-cover"
   />
-  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
+  <div className="absolute inset-x-0 top-0 flex items-start justify-center text-center pt-8 px-4">
     <div className="max-w-3xl">
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"
+        className="text-3xl md:text-5xl mt-15 font-extrabold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"
       >
         Preserving Bihar’s Glorious Past
       </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="text-white text-lg md:text-xl mb-4 drop-shadow-lg"
-      >
-        From ancient excavations to cultural celebrations —
-        <br className="hidden md:inline" />
-        we protect and promote the enduring legacy of Bihar.
-      </motion.p>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.8 }}
-        className="text-gray-200 text-base md:text-lg italic"
-      >
-        Join us in discovering monuments, history, and untold stories
-        that shaped a civilization.
-      </motion.p>
     </div>
   </div>
 </div>
 
 
       {/* ===== IMAGE CAROUSEL SECTION ===== */}
-      <div className="py-16 px-4">
+      {/* <div className="mt-10 py-16 px-4">
         <motion.h2
           className="text-2xl md:text-3xl font-semibold text-center text-slate-800 mb-10"
           initial={{ opacity: 0, y: 30 }}
@@ -288,7 +267,7 @@ const Hero = () => {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4 mt-10">
+        {/* <div className="flex justify-center gap-4 mt-10">
           <button
             onClick={() =>
               setActiveIndex((prev) => (prev - 1 + images.length) % images.length)
@@ -304,7 +283,7 @@ const Hero = () => {
             <ChevronRight className="text-white" />
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

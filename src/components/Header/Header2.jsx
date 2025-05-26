@@ -21,7 +21,7 @@ const Header2 = () => {
 
   const navLinks = [
     { name: "Home", to: "/" },
-    { name: "About Us", to: "/#footer-section" }, // Changed for in-page scroll to footer
+    { name: "About Us", to: "/GoverningBody" }, // Clicking About Us navigates to GoverningBody page
     { name: "Excavation", to: "/#excavation" },
     { name: "Exploration", to: "/#explorejoin" }, // Changed for in-page scroll
     { name: "Activities", to: "/#conservation" }, // Changed to scroll to conservation section
@@ -60,11 +60,15 @@ const Header2 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Determine navbar background color
+  const isHome = location.pathname === "/";
+  const navBg = isHome ? (showHeader ? "bg-transparent" : "bg-transparent") : "bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#334155]";
+
   return (
     <AnimatePresence>
       {showHeader && (
         <motion.header
-          className="w-full z-50 fixed top-0 bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#334155] shadow-md"
+          className={`w-full z-50 fixed top-0 ${navBg}`}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}

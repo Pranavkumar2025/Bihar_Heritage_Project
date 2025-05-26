@@ -55,7 +55,7 @@ const features = [
 
 const UniqueBihar = () => {
   return (
-    <div className="bg-white w-full">
+    <div className="bg-amber-50">
       {/* 🧭 Split Hero Section */}
       <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 gap-10">
         {/* Left Content */}

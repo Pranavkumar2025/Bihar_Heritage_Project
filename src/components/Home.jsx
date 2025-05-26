@@ -10,6 +10,7 @@ import CallToAction from "./CallToAction";
 import News from "./News";
 import UniqueBihar from "./UniqueBihar";
 import { useLocation } from "react-router-dom";
+import VideoSection from "./video";
 
 const Home = () => {
   const excavationRef = useRef(null);
@@ -38,6 +39,7 @@ const Home = () => {
       <section ref={excavationRef} id="excavation">
         <Excavations />
       </section>
+      <VideoSection/>
       <UniqueBihar />
 	  <section ref={conservationRef} id="conservation">
         <Conservation />

@@ -44,7 +44,7 @@ const SS_Site = () => {
   };
 
   return (
-    <div className="bg-[#F9F9F9] min-h-screen w-full py-16 px-6 text-gray-800">
+    <div className="bg-amber-200 min-h-screen w-full py-16 px-6 text-gray-800">
       <div className="max-w-7xl mx-auto relative">
         {/* 🏷️ Section Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
