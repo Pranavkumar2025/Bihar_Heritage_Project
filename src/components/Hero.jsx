@@ -153,7 +153,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import heritagvideo from "../assets/Videos/BiharHeritage_2.mp4";
+import heritagvideo from "../assets/Videos/BiharHeritage1.mp4";
 
 import img1 from "../assets/heritage/img1.jpeg";
 import img2 from "../assets/heritage/img2.jpg";
