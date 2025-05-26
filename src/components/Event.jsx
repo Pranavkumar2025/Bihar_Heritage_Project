@@ -49,19 +49,18 @@ const cardVariants = {
 
 export default function Event() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-200 to-gray-300 text-gray-800 mt-6 py-20 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-gray-100 mt-6 py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, type: "spring" }}
-          className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-cyan-600 leading-relaxed
-"
+          className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 leading-relaxed"
         >
           Upcoming Events
         </motion.h1>
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-16">
+        <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-16">
           Discover our curated cultural experiences designed to showcase the soul of Bihar.
         </p>
 
@@ -78,27 +77,27 @@ export default function Event() {
               key={event.id}
               variants={cardVariants}
               whileHover={{ scale: 1.02 }}
-              className="bg-white p-6 rounded-2xl border border-gray-200 shadow-xl transition-all duration-300"
+              className="bg-gray-900 p-6 rounded-2xl border border-gray-700 shadow-xl transition-all duration-300"
             >
               {/* Date and Location */}
-              <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+              <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
                 <div className="flex items-center gap-2">
-                  <CalendarDays size={16} className="text-purple-500" />
+                  <CalendarDays size={16} className="text-purple-400" />
                   <span>{event.date}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-pink-500" />
+                  <MapPin size={16} className="text-pink-400" />
                   <span>{event.location}</span>
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {event.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+              <p className="text-sm text-gray-300 leading-relaxed mb-4">
                 {event.description}
               </p>
 
@@ -107,7 +106,7 @@ export default function Event() {
                 {event.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="bg-purple-100 text-purple-600 text-xs px-3 py-1 rounded-full"
+                    className="bg-purple-700 bg-opacity-30 text-purple-300 text-xs px-3 py-1 rounded-full"
                   >
                     #{tag}
                   </span>

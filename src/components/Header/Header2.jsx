@@ -26,15 +26,16 @@ const Header2 = () => {
     { name: "Excavation", to: "/#excavation" },
     { name: "Exploration", to: "/#explorejoin" },
     { name: "Activities", to: "/#conservation" },
-    {
-      name: "Events",
-      subMenu: [
-        { name: "Seminar/Workshop", to: "/events/seminar" },
-        { name: "Heritage Week", to: "/events/heritage-week" },
-        { name: "Women's Day", to: "/events/womens-day" },
-        { name: "Upcoming Events", to: "/events/upcoming" },
-      ],
-    },
+    // {
+    //   name: "Events",
+    //   subMenu: [
+    //     { name: "Seminar/Workshop", to: "/events/seminar" },
+    //     { name: "Heritage Week", to: "/events/heritage-week" },
+    //     { name: "Women's Day", to: "/events/womens-day" },
+    //     { name: "Upcoming Events", to: "/events/upcoming" },
+    //   ],
+    // },
+    { name: "Events", to: "/events/upcoming" }, // Changed to a single link for simplicity
     {
       name: "Gallery",
       subMenu: [

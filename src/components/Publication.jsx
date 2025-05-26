@@ -54,9 +54,9 @@ const cardVariants = {
 
 const Publication = () => {
   return (
-    <section className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 py-16 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 mt-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 mt-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">
           Publications
         </h2>
 
@@ -68,15 +68,18 @@ const Publication = () => {
               initial="hidden"
               animate="visible"
               variants={cardVariants}
-              whileHover={{ scale: 1.05, boxShadow: "0 15px 25px rgba(255, 77, 90, 0.3)" }}
-              className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col items-center cursor-pointer transition-shadow duration-300"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 12px 30px rgba(255, 255, 255, 0.1)",
+              }}
+              className="bg-gray-800 rounded-2xl border border-gray-700 shadow-lg p-6 flex flex-col items-center transition duration-300"
             >
-              <BsFileEarmarkPdf className="text-red-600 mb-4" size={70} />
+              <BsFileEarmarkPdf className="text-red-500 mb-4" size={70} />
 
-              <h3 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-2 px-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-center mb-2 px-2 text-white">
                 {item.title}
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 text-center mb-6 px-2">
+              <p className="text-xs sm:text-sm text-gray-300 text-center mb-6 px-2">
                 {item.description}
               </p>
 
@@ -85,14 +88,14 @@ const Publication = () => {
                   href={item.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-blue-400 hover:text-blue-300 hover:underline"
                 >
                   View
                 </a>
                 <a
                   href={item.pdfUrl}
                   download
-                  className="text-green-600 hover:underline"
+                  className="text-green-400 hover:text-green-300 hover:underline"
                 >
                   Download
                 </a>
