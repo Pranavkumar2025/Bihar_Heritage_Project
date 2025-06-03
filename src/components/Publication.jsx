@@ -10,6 +10,16 @@ import pdf3 from "../assets/pdfs/Bihar ki lok kathayien Bhojpuri Magahi.pdf";
 import pdf4 from "../assets/pdfs/Bihar me bhasahaon evam lipiyon ka vikas.pdf";
 import pdf5 from "../assets/pdfs/SRI_PRATHAMASIVAPURA_MAHAVIHARA_Excavati.pdf";
 
+// Cover Image Import
+import cover1 from "../assets/pdfs/image1.jpg";
+import cover2 from "../assets/pdfs/image2.jpg";
+import cover3 from "../assets/pdfs/image3.jpg";
+import cover4 from "../assets/pdfs/image4.jpg";
+
+
+
+
+
 const data = [
   {
     id: 1,
@@ -19,19 +29,19 @@ const data = [
   },
   {
     id: 2,
-    title: "लोक कथाएँ: अंगिका, वज्जिका, मैथिली",
+    title: "Folk Tales: Angika, Vajjika, Maithili",
     description: "Collection of folk tales in Angika, Vajjika and Maithili.",
     pdfUrl: pdf2,
   },
   {
     id: 3,
-    title: "लोक कथाएँ: भोजपुरी, मगही",
+    title: "Folk Tales: Bhojpuri, Magahi",
     description: "Folk tales from Bhojpuri and Magahi cultural regions.",
     pdfUrl: pdf3,
   },
   {
     id: 4,
-    title: "बिहार में भाषाओं एवं लिपियों का विकास",
+    title: "Development of Languages and Scripts in Bihar",
     description: "Development of languages and scripts in Bihar.",
     pdfUrl: pdf4,
   },
@@ -74,7 +84,39 @@ const Publication = () => {
               }}
               className="bg-gray-800 rounded-2xl border border-gray-700 shadow-lg p-6 flex flex-col items-center transition duration-300"
             >
-              <BsFileEarmarkPdf className="text-red-500 mb-4" size={70} />
+              {item.title === "Archaeological Atlas of Bihar" ? (
+                <img
+                  src={cover1}
+                  alt="Archaeological Atlas of Bihar Cover"
+                  className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
+                />
+              ) : item.title === "Folk Tales: Angika, Vajjika, Maithili" ? (
+                <img
+                  src={cover2}
+                  alt="Folk Tales: Angika, Vajjika, Maithili Cover"
+                  className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
+                />
+              ) : item.title === "Folk Tales: Bhojpuri, Magahi" ? (
+                <img
+                  src={cover2}
+                  alt="Folk Tales: Bhojpuri, Magahi Cover"
+                  className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
+                />
+              ) : item.title === "Development of Languages and Scripts in Bihar" ? (
+                <img
+                  src={cover3}
+                  alt="Development of Languages and Scripts in Bihar Cover"
+                  className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
+                />
+              ) : item.title === "Prathama Sivapura Mahavihara" ? (
+                <img
+                  src={cover4}
+                  alt="Prathama Sivapura Mahavihara Cover"
+                  className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
+                />
+              ) : (
+                <BsFileEarmarkPdf className="text-red-500 mb-4" size={70} />
+              )}
 
               <h3 className="text-lg sm:text-xl font-semibold text-center mb-2 px-2 text-white">
                 {item.title}
