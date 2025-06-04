@@ -47,14 +47,14 @@ const headingVariants = {
 const VideoGalleryPage = () => {
   return (
     <motion.div
-      className="min-h-screen overflow-x-hidden overflow-y-auto bg-gray-50 py-8"
+      className="min-h-screen overflow-x-hidden overflow-y-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-12"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <div className="max-w-6xl mx-auto p-5">
         <motion.h1
-          className="text-4xl mt-20 md:text-5xl font-extrabold text-slate-800 mb-12 leading-tight text-center"
+          className="text-4xl md:text-5xl font-extrabold text-white mb-12 leading-tight text-center"
           variants={headingVariants}
         >
           Bihar Heritage - Video Gallery
@@ -64,7 +64,7 @@ const VideoGalleryPage = () => {
           {videoItems.map((item) => (
             <motion.figure
               key={item.id}
-              className="w-full md:w-[48%] lg:w-[31%] relative mb-5 rounded-lg overflow-hidden shadow-lg bg-white group cursor-pointer"
+              className="w-full md:w-[48%] lg:w-[31%] relative mb-5 rounded-lg overflow-hidden shadow-lg bg-gray-800 group cursor-pointer"
               variants={cardVariants}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -81,8 +81,8 @@ const VideoGalleryPage = () => {
                   className="rounded-t-lg"
                 ></iframe>
               </div>
-              <figcaption className="p-4 text-center">
-                <h3 className="text-lg font-semibold text-slate-700 group-hover:text-purple-700 transition-colors duration-300">
+              <figcaption className="p-4 text-center bg-gray-900">
+                <h3 className="text-lg font-semibold text-gray-200 group-hover:text-sky-400 transition-colors duration-300">
                   {item.caption}
                 </h3>
               </figcaption>

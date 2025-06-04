@@ -13,6 +13,10 @@ import VideoGalleryPage from "./components/VideoGalleryPage";
 import GalleryPage from "./components/GalleryPage";
 import Gallery from "./components/Gallery";
 import GoverningBody from "./components/GoverningBody";
+import AboutUs from "./components/AboutUs";
+import KeyFunctionaries from "./components/KeyFunctionaries";
+import ExecutiveCommittee from "./components/ExecutiveCommitee";	
+import ArcheologicalTeam from "./components/ArcheologicalTeam";
 
 const App = () => {
   return (
@@ -29,7 +33,13 @@ const App = () => {
 					<Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
 					<Route path="/GalleryPage" element={<GalleryPage />} />
 					<Route path="/Gallery" element={<Gallery />} />
-					<Route path="/GoverningBody" element={<GoverningBody />} />
+					<Route path="/governingbody" element={<GoverningBody />} />
+					<Route path="/about" element={<AboutUs />} />
+					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />
+					<Route path="/executive" element={<ExecutiveCommittee />} />
+					<Route path="/archeologicalteam" element={<ArcheologicalTeam />} />
+					{/* <Route path="*" element={<Home />} /> Fallback route */}
+
 
 					{/* Add other routes */}
 				</Routes>

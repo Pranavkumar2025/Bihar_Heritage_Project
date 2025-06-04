@@ -49,7 +49,7 @@ const cardVariants = {
 
 export default function Event() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-gray-100 mt-6 py-20 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-gray-100 py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
         <motion.h1

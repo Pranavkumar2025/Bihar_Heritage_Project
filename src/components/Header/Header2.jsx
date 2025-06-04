@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-// eslint-disable-next-line
+import { HashLink } from "react-router-hash-link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import bhdsLogo from "../../assets/logo.png";
@@ -19,23 +19,24 @@ const Header2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
 
   const navLinks = [
     { name: "Home", to: "/" },
-    { name: "About Us", to: "/GoverningBody" },
-    { name: "Excavation", to: "/#excavation" },
-    { name: "Exploration", to: "/#explorejoin" },
-    { name: "Activities", to: "/#conservation" },
-    // {
-    //   name: "Events",
-    //   subMenu: [
-    //     { name: "Seminar/Workshop", to: "/events/seminar" },
-    //     { name: "Heritage Week", to: "/events/heritage-week" },
-    //     { name: "Women's Day", to: "/events/womens-day" },
-    //     { name: "Upcoming Events", to: "/events/upcoming" },
-    //   ],
-    // },
-    { name: "Events", to: "/events/upcoming" }, // Changed to a single link for simplicity
+    {
+      name: "Organization",
+      subMenu: [
+        { name: "About Us", to: "/about" },
+        { name: "Governing Body", to: "/governingbody" },
+        { name: "Executive Committee", to: "/executive" },
+        { name: "Key Functionaries", to: "/keyfunctionaries" },
+        { name: "Archeological Team", to: "/archeologicalteam" },
+      ],
+    },
+    { name: "Excavation", to: "/#excavation", isHash: true },
+    { name: "Exploration", to: "/#explorejoin", isHash: true },
+    { name: "Activities", to: "/#conservation", isHash: true },
+    { name: "Events", to: "/events/upcoming" },
     {
       name: "Gallery",
       subMenu: [
@@ -51,6 +52,7 @@ const Header2 = () => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setIsScrolled(currentY > 10);
+      setIsPastHero(currentY > window.innerHeight - 50);
 
       if (currentY > lastScrollY && currentY > 100) {
         setShowHeader(false);
@@ -65,10 +67,12 @@ const Header2 = () => {
   }, [lastScrollY]);
 
   const headerClass = `w-full fixed top-0 z-50 transition-all duration-300 ${
-    isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+    isPastHero ? "bg-[#111827]/95 backdrop-blur-md shadow-lg" : "bg-transparent"
   }`;
 
-  const textColor = isScrolled ? "text-gray-900 hover:text-yellow-500" : "text-white hover:text-yellow-300";
+  const textColor = isPastHero
+    ? "text-gray-100 hover:text-yellow-400"
+    : "text-white hover:text-yellow-300";
 
   return (
     <AnimatePresence>
@@ -94,7 +98,7 @@ const Header2 = () => {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex gap-8 z-10 relative" role="navigation">
-              {navLinks.map(({ name, to, subMenu }, idx) => (
+              {navLinks.map(({ name, to, subMenu, isHash }, idx) => (
                 <motion.div
                   key={name}
                   className="relative group"
@@ -103,33 +107,42 @@ const Header2 = () => {
                   transition={{ delay: idx * 0.1 + 0.4 }}
                 >
                   {!subMenu ? (
-                    <NavLink
-                      to={to}
-                      onClick={() => setActiveDropdown(null)}
-                      className={({ isActive }) => {
-                        let isCurrentPageActive = false;
-                        if (to.startsWith("/#")) {
-                          isCurrentPageActive = location.pathname === "/" && location.hash === to.substring(1);
-                        } else if (to === "/") {
-                          isCurrentPageActive =
-                            location.pathname === "/" &&
-                            (location.hash === "" || !navLinks.some(l => l.to.startsWith("/#") && l.to.substring(1) === location.hash));
-                        } else {
-                          isCurrentPageActive = isActive && location.hash === "";
-                        }
-                        return `text-base font-medium transition duration-200 ${
-                          isCurrentPageActive
-                            ? "text-yellow-500 border-b-2 border-yellow-500 pb-1"
-                            : `${textColor}`
-                        }`;
-                      }}
-                    >
-                      {name}
-                    </NavLink>
+                    isHash ? (
+                      <HashLink
+                        smooth
+                        to={to}
+                        onClick={() => setActiveDropdown(null)}
+                        className={`text-base font-medium transition duration-200 ${textColor}`}
+                      >
+                        {name}
+                      </HashLink>
+                    ) : (
+                      <NavLink
+                        to={to}
+                        onClick={() => setActiveDropdown(null)}
+                        className={({ isActive }) => {
+                          let isCurrentPageActive = false;
+                          if (to === "/") {
+                            isCurrentPageActive = location.pathname === "/" && location.hash === "";
+                          } else {
+                            isCurrentPageActive = isActive && location.hash === "";
+                          }
+                          return `text-base font-medium transition duration-200 ${
+                            isCurrentPageActive
+                              ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                              : `${textColor}`
+                          }`;
+                        }}
+                      >
+                        {name}
+                      </NavLink>
+                    )
                   ) : (
                     <div className="relative">
                       <button
-                        onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
+                        onClick={() =>
+                          setActiveDropdown(activeDropdown === name ? null : name)
+                        }
                         className={`flex items-center gap-1 ${textColor}`}
                       >
                         {name} <ChevronDown size={16} />
@@ -143,7 +156,7 @@ const Header2 = () => {
                             exit="exit"
                             className="absolute bg-white shadow-lg mt-2 rounded-md z-50"
                           >
-                            {subMenu.map(item => (
+                            {subMenu.map((item) => (
                               <NavLink
                                 key={item.name}
                                 to={item.to}
@@ -170,9 +183,9 @@ const Header2 = () => {
             <div className="md:hidden z-20">
               <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
                 {menuOpen ? (
-                  <X size={28} className={`${isScrolled ? "text-gray-900" : "text-white"}`} />
+                  <X size={28} className="text-white" />
                 ) : (
-                  <Menu size={28} className={`${isScrolled ? "text-gray-900" : "text-white"}`} />
+                  <Menu size={28} className="text-white" />
                 )}
               </button>
             </div>
@@ -184,30 +197,40 @@ const Header2 = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-16 left-0 w-full bg-white text-gray-800 flex flex-col items-center py-4 gap-2 md:hidden z-40"
+                  className="absolute top-16 left-0 w-full bg-[#1f2937] text-white flex flex-col items-center py-4 gap-2 md:hidden z-40"
                 >
-                  {navLinks.map(({ name, to, subMenu }) => (
+                  {navLinks.map(({ name, to, subMenu, isHash }) => (
                     <div key={name} className="w-full text-center">
                       {!subMenu ? (
-                        <NavLink
-                          to={to}
-                          onClick={() => {
-                            setActiveDropdown(null);
-                            setMenuOpen(false);
-                          }}
-                          className={({ isActive }) =>
-                            `block py-2 text-base font-medium ${
-                              isActive ? "text-yellow-500" : "hover:text-yellow-500"
-                            }`
-                          }
-                        >
-                          {name}
-                        </NavLink>
+                        isHash ? (
+                          <HashLink
+                            smooth
+                            to={to}
+                            onClick={() => setMenuOpen(false)}
+                            className="block py-2 text-base font-medium hover:text-yellow-400"
+                          >
+                            {name}
+                          </HashLink>
+                        ) : (
+                          <NavLink
+                            to={to}
+                            onClick={() => setMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `block py-2 text-base font-medium ${
+                                isActive ? "text-yellow-400" : "hover:text-yellow-400"
+                              }`
+                            }
+                          >
+                            {name}
+                          </NavLink>
+                        )
                       ) : (
                         <>
                           <button
-                            onClick={() => setActiveDropdown(activeDropdown === name ? null : name)}
-                            className="w-full py-2 text-base font-medium hover:text-yellow-500 flex justify-center items-center gap-1"
+                            onClick={() =>
+                              setActiveDropdown(activeDropdown === name ? null : name)
+                            }
+                            className="w-full py-2 text-base font-medium hover:text-yellow-400 flex justify-center items-center gap-1"
                           >
                             {name} <ChevronDown size={16} />
                           </button>
@@ -218,9 +241,9 @@ const Header2 = () => {
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="bg-gray-100"
+                                className="bg-gray-700"
                               >
-                                {subMenu.map(item => (
+                                {subMenu.map((item) => (
                                   <NavLink
                                     key={item.name}
                                     to={item.to}
@@ -229,8 +252,8 @@ const Header2 = () => {
                                       setMenuOpen(false);
                                     }}
                                     className={({ isActive }) =>
-                                      `block py-2 px-4 text-sm hover:bg-gray-200 ${
-                                        isActive ? "bg-gray-200 text-yellow-500" : ""
+                                      `block py-2 px-4 text-sm hover:bg-gray-600 ${
+                                        isActive ? "bg-gray-600 text-yellow-400" : ""
                                       }`
                                     }
                                   >
