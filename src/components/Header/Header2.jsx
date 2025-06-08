@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+// eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import bhdsLogo from "../../assets/logo.png";
@@ -41,7 +42,7 @@ const Header2 = () => {
       name: "Gallery",
       subMenu: [
         { name: "Photos", to: "/GalleryPage" },
-        { name: "Videos", to: "/VideoGalleryPage" },
+        // { name: "Videos", to: "/VideoGalleryPage" },
       ],
     },
     { name: "Publications", to: "/publication" },

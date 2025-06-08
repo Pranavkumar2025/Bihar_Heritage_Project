@@ -1,0 +1,78 @@
+{
+  "excavationSites": [
+    {
+      "id": 1,
+      "title": "Nalanda University",
+      "image": "NalandaUniversity.jpg",
+      "description": "Ancient center of learning that attracted scholars from all over Asia."
+    },
+    {
+      "id": 2,
+      "title": "Vikramashila",
+      "image": "Vikramshila.jpg",
+      "description": "Another great seat of Buddhist learning with stupas and viharas."
+    },
+    {
+      "id": 3,
+      "title": "Patliputra",
+      "image": "patliputraimg.jpg",
+      "description": "Capital of the Mauryan Empire with palatial ruins and ancient pillars."
+    },
+    {
+      "id": 4,
+      "title": "Rohtasgarh Fort",
+      "image": "rohtas.jpg",
+      "description": "Massive medieval fort with underground structures and battle remains."
+    },
+    {
+      "id": 5,
+      "title": "Rajgir Hills",
+      "image": "rajgir.jpg",
+      "description": "Rich archaeological remains of Buddhist and Jain heritage."
+    },
+    {
+      "id": 6,
+      "title": "Telhara Monastery",
+      "image": "telhara.jpg",
+      "description": "Buddhist monastery ruins linked to ancient Magadha's monastic tradition."
+    }
+  ],
+  "explorationActivities": [
+    {
+      "id": 1,
+      "title": "Rohtasgarh Tunnel Study",
+      "image": "exploration1.jpg",
+      "description": "Ongoing study on underground tunnels in Rohtasgarh by historians."
+    },
+    {
+      "id": 2,
+      "title": "Chausa Excavation",
+      "image": "exploration2.jpg",
+      "description": "Discovery of coins, seals, and terracotta figurines from the Gupta period."
+    },
+    {
+      "id": 3,
+      "title": "Kesaria Stupa Mapping",
+      "image": "rajgir.jpg",
+      "description": "GIS-based exploration of the massive Kesaria Buddhist stupa in East Champaran."
+    },
+    {
+      "id": 4,
+      "title": "Sasaram Tombs Documentation",
+      "image": "rohtas.jpg",
+      "description": "Ongoing digital documentation of Sher Shah Suri's tomb and related sites."
+    },
+    {
+      "id": 5,
+      "title": "Nalanda Digital Reconstruction",
+      "image": "NalandaUniversity.jpg",
+      "description": "3D mapping and AR visualization efforts by the Archaeological Survey of India."
+    },
+    {
+      "id": 6,
+      "title": "Vikramshila River Excavation",
+      "image": "Vikramshila.jpg",
+      "description": "River-side excavation near Vikramshila for trade route relics."
+    }
+  ]
+}

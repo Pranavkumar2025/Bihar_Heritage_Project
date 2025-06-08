@@ -13,3 +13,14 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+.swiper-pagination-bullet {
+  background-color: #1e3a8a; /* Tailwind blue-900 */
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #1e3a8a;
+  opacity: 1;
+  transform: scale(1.2);
+}

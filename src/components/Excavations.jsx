@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 // eslint-disable-next-line
-import { motion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-// Images
+// Load data
+import data from "./ExcavationData/Excavation.json";
+import detailMap from "./ExcavationData/DetailedInfo.json";
+
+// Import all heritage images
 import NalandaImg from "../assets/heritage/NalandaUniversity.jpg";
 import VikramShilaImg from "../assets/heritage/Vikramshila.jpg";
 import patliputraImg from "../assets/heritage/patliputraimg.jpg";
@@ -12,6 +16,18 @@ import rajgirImg from "../assets/heritage/rajgir.jpg";
 import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
+
+// Image map
+const imageMap = {
+  "NalandaUniversity.jpg": NalandaImg,
+  "Vikramshila.jpg": VikramShilaImg,
+  "patliputraimg.jpg": patliputraImg,
+  "rohtas.jpg": rohtasImg,
+  "rajgir.jpg": rajgirImg,
+  "telhara.jpg": telharaImg,
+  "exploration1.jpg": exploration1Img,
+  "exploration2.jpg": exploration2Img
+};
 
 const fadeIn = (direction = "up", delay = 0) => ({
   hidden: {
@@ -24,102 +40,12 @@ const fadeIn = (direction = "up", delay = 0) => ({
     x: 0,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
       delay,
       ease: "easeOut",
     },
   },
 });
-
-const excavationSites = [
-  {
-    id: 1,
-    title: "Nalanda University",
-    image: NalandaImg,
-    description:
-      "Ancient center of learning that attracted scholars from all over Asia.",
-  },
-  {
-    id: 2,
-    title: "Vikramashila",
-    image: VikramShilaImg,
-    description:
-      "Another great seat of Buddhist learning with stupas and viharas.",
-  },
-  {
-    id: 3,
-    title: "Pataliputra",
-    image: patliputraImg,
-    description:
-      "Capital of the Mauryan Empire with palatial ruins and ancient pillars.",
-  },
-  {
-    id: 4,
-    title: "Rohtasgarh Fort",
-    image: rohtasImg,
-    description:
-      "Massive medieval fort with underground structures and battle remains.",
-  },
-  {
-    id: 5,
-    title: "Rajgir Hills",
-    image: rajgirImg,
-    description:
-      "Rich archaeological remains of Buddhist and Jain heritage.",
-  },
-  {
-    id: 6,
-    title: "Telhara Monastery",
-    image: telharaImg,
-    description:
-      "Buddhist monastery ruins linked to ancient Magadha's monastic tradition.",
-  },
-];
-
-const explorationActivities = [
-  {
-    id: 1,
-    title: "Rohtasgarh Tunnel Study",
-    image: exploration1Img,
-    description:
-      "Ongoing study on underground tunnels in Rohtasgarh by historians.",
-  },
-  {
-    id: 2,
-    title: "Chausa Excavation",
-    image: exploration2Img,
-    description:
-      "Discovery of coins, seals, and terracotta figurines from the Gupta period.",
-  },
-  {
-    id: 3,
-    title: "Kesaria Stupa Mapping",
-    image: rajgirImg,
-    description:
-      "GIS-based exploration of the massive Kesaria Buddhist stupa in East Champaran.",
-  },
-  {
-    id: 4,
-    title: "Sasaram Tombs Documentation",
-    image: rohtasImg,
-    description:
-      "Ongoing digital documentation of Sher Shah Suri's tomb and related sites.",
-  },
-  {
-    id: 5,
-    title: "Nalanda Digital Reconstruction",
-    image: NalandaImg,
-    description:
-      "3D mapping and AR visualization efforts by the Archaeological Survey of India.",
-  },
-  {
-    id: 6,
-    title: "Vikramshila River Excavation",
-    image: VikramShilaImg,
-    description:
-      "River-side excavation near Vikramshila for trade route relics.",
-  },
-];
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50, scale: 0.95 },
@@ -135,7 +61,7 @@ const cardVariants = {
   }),
 };
 
-const Card = ({ item, index }) => {
+const Card = ({ item, index, onClick }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -152,10 +78,11 @@ const Card = ({ item, index }) => {
         transition: { duration: 0.3 },
       }}
       whileTap={{ scale: 0.98 }}
-      className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl transition-all duration-300"
+      onClick={() => onClick(item)}
+      className="cursor-pointer min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl transition-all duration-300"
     >
       <motion.img
-        src={item.image}
+        src={imageMap[item.image]}
         alt={item.title}
         className="w-full h-48 object-cover rounded-lg mb-4"
         initial={{ scale: 1.1 }}
@@ -182,7 +109,51 @@ const Card = ({ item, index }) => {
   );
 };
 
-const CardSlider = ({ items }) => {
+const Modal = ({ item, onClose }) => {
+  const detailsText =
+    detailMap[item?.title]?.details || "No detailed description available.";
+
+  return (
+    <AnimatePresence>
+      {item && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center px-4"
+        >
+          <motion.div
+            initial={{ scale: 0.8, y: 50 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.8, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white max-w-3xl w-full p-6 rounded-xl shadow-xl relative overflow-y-auto max-h-[90vh]"
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-3 right-3 bg-gray-200 rounded-full p-1 hover:bg-red-400 hover:text-white transition"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={imageMap[item.image]}
+              alt={item.title}
+              className="w-full h-64 object-cover rounded-lg mb-4"
+            />
+            <h2 className="text-2xl font-bold mb-2 text-gray-800">
+              {item.title}
+            </h2>
+            <pre className="text-gray-700 whitespace-pre-wrap font-sans text-sm mt-4">
+              {detailsText}
+            </pre>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+const CardSlider = ({ items, onCardClick }) => {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -209,7 +180,7 @@ const CardSlider = ({ items }) => {
         className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12 pb-4"
       >
         {items.map((item, index) => (
-          <Card key={item.id} item={item} index={index} />
+          <Card key={item.id} item={item} index={index} onClick={onCardClick} />
         ))}
       </div>
 
@@ -225,11 +196,12 @@ const CardSlider = ({ items }) => {
 
 const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
+  const [selectedCard, setSelectedCard] = useState(null);
 
   return (
     <div
       id="excavation-section"
-      className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20"
+      className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20 relative"
     >
       <motion.h1
         variants={fadeIn("down", 0.1)}
@@ -271,12 +243,17 @@ const Excavations = () => {
       </motion.div>
 
       <div className="mt-2">
-        {activeTab === "excavation" ? (
-          <CardSlider items={excavationSites} />
-        ) : (
-          <CardSlider items={explorationActivities} />
-        )}
+        <CardSlider
+          items={
+            activeTab === "excavation"
+              ? data.excavationSites
+              : data.explorationActivities
+          }
+          onCardClick={(item) => setSelectedCard(item)}
+        />
       </div>
+
+      <Modal item={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   );
 };

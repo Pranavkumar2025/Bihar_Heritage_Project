@@ -32,9 +32,7 @@ const Footer1 = () => {
 							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
 								Photo Gallery
 							</li>
-							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
-								Events
-							</li>
+						
 							<li className="border-b border-gray-400 py-2 font-semibold hover:text-red-500 transition-colors duration-300">
 								News
 							</li>
@@ -73,14 +71,7 @@ const Footer1 = () => {
 			<div className="bg-gray-100 py-8 px-10">
 				<div className="flex justify-between max-w-6xl mx-auto w-full space-x-12">
 					{/* Newsletter Section */}
-					<div className="w-1/3">
-						<h2 className="text-lg font-semibold mb-4">Newsletter</h2>
-						<button className="flex items-center space-x-2 bg-red-500 text-white text-lg font-medium py-2 px-6 rounded-full hover:bg-red-600 transition duration-300">
-							<CiMail className="text-2xl" /> {/* Mail Icon */}
-							<span>Register For Newsletter</span>
-						</button>
-					</div>
-
+				
 					{/* Follow Us Section */}
 					<div className="w-2/3">
 						<h2 className="text-lg font-semibold mb-4">Follow us</h2>

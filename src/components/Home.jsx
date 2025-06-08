@@ -49,7 +49,7 @@ const Home = () => {
       </section>
       <News />
       <Awareness />
-      <CallToAction />
+      {/* <CallToAction /> */}
     </main>
   );
 };

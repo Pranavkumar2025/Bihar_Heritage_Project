@@ -17,12 +17,14 @@ import AboutUs from "./components/AboutUs";
 import KeyFunctionaries from "./components/KeyFunctionaries";
 import ExecutiveCommittee from "./components/ExecutiveCommitee";	
 import ArcheologicalTeam from "./components/ArcheologicalTeam";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
 			<Router>
 				{/* <Header /> */}
 				{/* <Header1 /> */}
+				<ScrollToTop />
 				<Header2 />
 				<Routes>
 					<Route path="/" element={<Home />} />

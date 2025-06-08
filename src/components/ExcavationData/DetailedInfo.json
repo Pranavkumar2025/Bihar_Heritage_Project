@@ -1,0 +1,50 @@
+{
+  "Nalanda University": {
+    "title": "Nalanda University",
+    "details": "Nalanda University, founded in the 5th century CE, was a prominent center of learning in ancient India, attracting scholars and students from across Asia. It flourished for over 800 years under the Pala dynasty. Renowned for its vast library and diverse curriculum, Nalanda was a major hub for Buddhist studies, as well as medicine, mathematics, astronomy, and philosophy.\n\nFounding and Early Years:\n- Established around 427 CE by Emperor Kumaragupta I.\n- Functioned as a mahavihara, combining religious study with secular subjects.\n\nPeak of Influence:\n- Reached its zenith in the 8th–9th centuries CE.\n- Hosted an estimated 10,000 scholars and students.\n- Library housed millions of palm-leaf manuscripts.\n\nNotable Scholars:\n- Aryabhata studied and perhaps taught here.\n- Covered subjects like Ayurveda, astronomy, grammar, and Buddhist philosophy.\n\nDecline:\n- Declined under Sena dynasty and was famously destroyed by invader Bakhtiyar Khilji in the late 12th century.\n\nModern Revival:\n- Recently revived on a new campus including sustainable, net-zero infrastructure."
+  },
+  "Vikramashila": {
+    "title": "Vikramashila",
+    "details": "Founded in the late 8th century by Pala king Dharmapala, Vikramashila was a major Buddhist monastic university and a rival to Nalanda. Specializing in tantrayana and esoteric Buddhism, it had 108 temples and numerous monasteries. It was known for its strict admission, curriculum, and highly trained scholars. The site was destroyed by invaders around the 12th century, but ruins still contain stupas, monastic cells, and an ancient temple."
+  },
+  "Pataliputra": {
+    "title": "Pataliputra",
+    "details": "Pataliputra was founded as a fortified town by Ajatashatru around 490 BCE at the confluence of the Ganges and Son rivers. It grew to be a major capital under the Magadha dynasties (Haryanka, Nanda, Maurya, Shunga, Pala). During the Mauryan era (–180 BCE), it was one of the world's largest cities, with wooden fortifications and 64 gates. The city hosted major archaeological sites like Kumhrar, Bulandi Bagh, and Agam Kuan."
+  },
+  "Rohtasgarh Fort": {
+    "title": "Rohtasgarh Fort",
+    "details": "Rohtasgarh is a massive medieval fort built atop a hill overlooking the Son river. The site shows early inscriptions from Gauda king Shashanka (circa 7th century). It was later held by the Khayaravala dynasty, and captured by Sher Shah Suri in 1539, who reinforced it heavily and built the Jami Masjid in 1543. Under Mughal rule, it became a military headquarters under Raja Man Singh. The fort was used again in the 1857 rebellion and remains in ruins today but largely intact."
+  },
+  "Rajgir Hills": {
+    "title": "Rajgir Hills",
+    "details": "Rajgir served as the first capital of Magadha and was sacred to both Buddhism and Jainism. It was the residence of King Bimbisara and visited often by both Buddha and Mahavira. Excavations have unearthed stupas, viharas, and Jain sites across the hills. It features ancient hot springs, a cycling path atop the hills, and panoramic views of archaeological ruins."
+  },
+  "Telhara Monastery": {
+    "title": "Telhara Monastery",
+    "details": "Telhara, located in Nalanda district, was an ancient Buddhist monastic university active between the 1st century CE and 12th century. Multiple excavation seasons revealed large residential blocks, prayer halls, and stupas. Inscriptions confirm its functioning under Pala and Sena patrons. It’s believed to have been connected to the Nalanda–Vikramashila network."
+  },
+  "Kesaria Stupa Mapping": {
+    "title": "Kesaria Stupa Mapping",
+    "details": "Kesaria Stupa, located in East Champaran, is one of the tallest Buddhist stupas in India. Recent GIS-based research has mapped the full stupa structure, its moats, and peripheral structures to understand its original grandeur and ritual layouts."
+  },
+  "Sasaram Tombs Documentation": {
+    "title": "Sasaram Tombs Documentation",
+    "details": "Sher Shah Suri’s tomb in Sasaram, built between 1540–45, lies in a 22-acre artificial lake and is called the 'Second Taj'. Designed by Mir Muhammad Aliwal Khan, it stands 122 ft tall, with an octagonal plan and chhatris at each corner. The Archaeological Survey of India is currently engaged in restoration, including lighting, landscaping, cleaning of ponds, and reopening of visitor access."
+  },
+  "Nalanda Digital Reconstruction": {
+    "title": "Nalanda Digital Reconstruction",
+    "details": "This is an ongoing project under ASI and partner institutions to create 3D models, AR visualizations, and GIS maps of the old Nalanda site. It aims to present ancient spatial layouts of monasteries, temples, libraries, and teaching halls for heritage preservation and education."
+  },
+  "Vikramshila River Excavation": {
+    "title": "Vikramshila River Excavation",
+    "details": "Recent excavations near the ancient river channel adjacent to Vikramshila uncovered trade-route relics including terracotta pottery, beads, and small Buddhist statues, shedding light on the site's river-based trade networks during the Pala period."
+  },
+  "Rohtasgarh Tunnel Study": {
+    "title": "Rohtasgarh Tunnel Study",
+    "details": "A recent archaeological study is investigating the underground tunnels and passages below Rohtasgarh fort, believed to have been used as escape routes or secret access during sieges or emergencies. Exploratory soundings continue to reveal the extent of the subterranean network."
+  },
+  "Chausa Excavation": {
+    "title": "Chausa Excavation",
+    "details": "Excavation at Chausa (site of Sher Shah’s first battle with Humayun) has revealed coins, seals from the Gupta era, terracotta figurines, and brick structures. This suggests that the site was significant long before the 16th century, likely as an ancient settlement connected to early Magadha kingdoms."
+  }
+}
