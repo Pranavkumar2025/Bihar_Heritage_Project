@@ -4,60 +4,73 @@
     "details": "Nalanda University, founded in the 5th century CE, was a prominent center of learning in ancient India, attracting scholars and students from across Asia. It flourished for over 800 years under the Pala dynasty. Renowned for its vast library and diverse curriculum, Nalanda was a major hub for Buddhist studies, as well as medicine, mathematics, astronomy, and philosophy.\n\nFounding and Early Years:\n- Established around 427 CE by Emperor Kumaragupta I.\n- Functioned as a mahavihara, combining religious study with secular subjects.\n\nPeak of Influence:\n- Reached its zenith in the 8th–9th centuries CE.\n- Hosted an estimated 10,000 scholars and students.\n- Library housed millions of palm-leaf manuscripts.\n\nNotable Scholars:\n- Aryabhata studied and perhaps taught here.\n- Covered subjects like Ayurveda, astronomy, grammar, and Buddhist philosophy.\n\nDecline:\n- Declined under Sena dynasty and was famously destroyed by invader Bakhtiyar Khilji in the late 12th century.\n\nModern Revival:\n- Recently revived on a new campus including sustainable, net-zero infrastructure."
   },
   "Vikramashila": {
-    "title": "Vikramashila",
-    "details": "Founded in the late 8th century by Pala king Dharmapala, Vikramashila was a major Buddhist monastic university and a rival to Nalanda. Specializing in tantrayana and esoteric Buddhism, it had 108 temples and numerous monasteries. It was known for its strict admission, curriculum, and highly trained scholars. The site was destroyed by invaders around the 12th century, but ruins still contain stupas, monastic cells, and an ancient temple."
-  },
-  "Patliputra": {
-    "title": "Pataliputra",
-    "details": "Pataliputra was founded as a fortified town by Ajatashatru around 490 BCE at the confluence of the Ganges and Son rivers. It grew to be a major capital under the Magadha dynasties (Haryanka, Nanda, Maurya, Shunga, Pala). During the Mauryan era ( 180 BCE), it was one of the world's largest cities, with wooden fortifications and 64 gates. The city hosted major archaeological sites like Kumhrar, Bulandi Bagh, and Agam Kuan."
-  },
-  "Rohtasgarh Fort": {
-    "title": "Rohtasgarh Fort",
-    "details": "Rohtasgarh is a massive medieval fort built atop a hill overlooking the Son river. The site shows early inscriptions from Gauda king Shashanka (circa 7th century). It was later held by the Khayaravala dynasty, and captured by Sher Shah Suri in 1539, who reinforced it heavily and built the Jami Masjid in 1543. Under Mughal rule, it became a military headquarters under Raja Man Singh. The fort was used again in the 1857 rebellion and remains in ruins today but largely intact."
-  },
+  "title": "Vikramashila",
+  "details": "Founded by Pala emperor Dharmapala around the late 8th century CE at Antichak near Bhagalpur, Vikramashila was one of the three great Buddhist mahaviharas of its time—alongside Nalanda and Odantapuri—specializing in Vajrayāna (Tantric Buddhism). The fortified complex comprised six colleges, a central stupa, 108 small temples, and a courtyard large enough for 8,000 monks. It housed over 100 teachers and 1,000 students, including the notable scholar Atiśa. The monastery operated under a structured hierarchy, including an abbot, six gate scholars, panditas, and bhikṣus. It thrived as an international center of Buddhist learning until its destruction by Bakhtiyar Khalji’s forces around 1193 CE. Its scholars continued to influence Buddhist traditions in Tibet and Sri Lanka."
+}
+,
+ "Patliputra": {
+  "title": "Patliputra",
+  "details": "Founded by King Ajatashatru around 490 BCE at the confluence of the Ganges, Son, and Gandak rivers, Patliputra spanned roughly 2.5 km × 15 km and was fortified with wooden palisades, boasting 64 gates and an estimated 570 towers. Excavations at Kumhrar revealed an 80‑pillared hall once part of a grand palace; Bulandi Bagh exposed massive wooden walls and the famed Pataliputra capital (a 3rd century BCE sandstone artifact now in Patna Museum); Agam Kuan, a brick‑lined well (≈32 m deep), is linked to Ashokan lore. During the Mauryan era (~180 BCE), Patliputra was one of the world’s largest cities—rich in gold‑adorned architecture, gardens, stone pillars, and ponds. It remained the seat of successive dynasties (Haryanka, Nanda, Maurya, Shunga, Gupta, Pala) until decline set in by the 7th century, when Xuanzang described it as largely in ruins."
+}
+,
+ "Rohtasgarh Fort": {
+  "title": "Rohtasgarh Fort",
+  "details": "Perched ~1,500 ft atop the Vindhya hills overlooking the Son River, Rohtasgarh has roots as early as the 7th century when Gauda king Shashanka inscribed the site. By 1223 CE it belonged to Khayaravala ruler Śrī‑Pratāpa, who repelled a Muslim army. In 1539, Sher Shah Suri deceitfully seized it—hiding troops in palanquins—and housed a 10,000-strong garrison. His general Haibat Khan built the three-domed white sandstone Jami Masjid and mausoleum in 1543. Under Akbar’s general Raja Man Singh (1558), the fort became a Mughal stronghold featuring the four-storied Takht-e-Badshahi palace, Aina Mahal, Persian gardens, ponds, the ornate Hathiya Pol gate (1597), and temples of Ganesh and Shiva. The citadel spans some 70 ha, with over 4 km of sandstone ramparts, 68 bastions, 83 gates, machicolations, underground passages, and the legendary Hanging House overlooking a 1,500‑ft gorge. Later used by Prince Khurram (Shah Jahan), as a Mughal prison under Aurangzeb, briefly held by the British, and as a rebel bastion during the 1857 uprising, the fort remains in impressive ruins—a testament to Hindu, Afghan, and Mughal legacies, yet largely unrestored."
+}
+,
   "Rajgir Hills": {
-    "title": "Rajgir Hills",
-    "details": "Rajgir served as the first capital of Magadha and was sacred to both Buddhism and Jainism. It was the residence of King Bimbisara and visited often by both Buddha and Mahavira. Excavations have unearthed stupas, viharas, and Jain sites across the hills. It features ancient hot springs, a cycling path atop the hills, and panoramic views of archaeological ruins."
-  },
+  "title": "Rajgir Hills",
+  "details": "Rajgir, ancient Rajagriha, was the pioneering capital of Magadha under Bimbisara (c.540–491 BCE) and Ajatashatru, enfolded by massive cyclopean walls along five quartzite ridges (elev. ~388 m). It became a focal site of Buddhism and Jainism—Buddha taught at Vulture’s Peak (Gridhrakūṭa), including the Lotus Sutra and Fire Sermon, and the Saptaparni Cave hosted the First Buddhist Council. The Son Bhandar Caves contain 3rd–4th CE Jain inscriptions linked to Bimbisara’s treasures. Mahavira also spent multiple chaturmases here, and numerous ancient Jain temples remain. Archaeological excavations have revealed Bimbisara’s prison, Ajatashatru’s fort, Maniyar Math, and evidence of habitation from the Palaeolithic through the Pala period. At its foot, the Brahmakund hot springs (≈45 °C) are revered for healing. Modern amenities include a ropeway to a Peace Pagoda, hill trails, panoramic views, and cycling paths, making Rajgir both a spiritual and scenic heritage destination."
+}
+,
   "Telhara Monastery": {
-    "title": "Telhara Monastery",
-    "details": "Telhara, located in Nalanda district, was an ancient Buddhist monastic university active between the 1st century CE and 12th century. Multiple excavation seasons revealed large residential blocks, prayer halls, and stupas. Inscriptions confirm its functioning under Pala and Sena patrons. It’s believed to have been connected to the Nalanda–Vikramashila network."
-  },
-  "Kesaria Stupa Mapping": {
-    "title": "Kesaria Stupa Mapping",
-    "details": "Kesaria Stupa, located in East Champaran, is one of the tallest Buddhist stupas in India. Recent GIS-based research has mapped the full stupa structure, its moats, and peripheral structures to understand its original grandeur and ritual layouts."
-  },
+  "title": "Telhara Monastery",
+  "details": "Telhara (ancient Telāḍhaka), in Nalanda district, was a major Buddhist Mahāvihāra active from the 1st century CE to the 12th century CE. First described by Chinese traveller Xuanzang in the 7th century, excavations (2009–14, 2020–22) unearthed a three‑storeyed monastery complex, prayer halls, residential cells, and stupas across successive layers from Northern Black Polished Ware (3rd century BCE) through Kushan, Gupta, Pāla, and Sena periods :contentReference[oaicite:1]{index=1}. Over a thousand artefacts—including terracotta monastery seals, pottery, bronze and basalt Buddha statues (in Abhay and Dharmacakra mudrās), rich Pāla‑era sculptures, and inscriptions—affirm its link to Nalanda and Sakya learning networks :contentReference[oaicite:2]{index=2}. Evidence of a thick ash layer suggests destruction by Bakhtiyar Khilji’s invasion in the 12th century :contentReference[oaicite:3]{index=3}. Chinese texts mention seven viharas housing around 1,000 monks—matched by a large platform for communal prayer (~75 x 75 m) and multi‑storied cells :contentReference[oaicite:4]{index=4}. Mentioned in the Ain‑i‑Akbari as a Mughal pargana, its ruins include a later mosque built using monastery stones :contentReference[oaicite:5]{index=5}. Today, the site remains under excavation, with plans for a site museum and renewed interest from scholars, including Nobel laureate Amartya Sen :contentReference[oaicite:6]{index=6}."
+}
+,
+ "Kesaria Stupa Mapping": {
+  "title": "Kesaria Stupa Mapping",
+  "details": "The 32 m–high Kesaria Stupa in East Champaran, Bihar—one of the tallest Buddhist stupas in India—was originally built in the 3rd century BCE under Ashoka and later expanded during the Gupta–Pala periods (~200–750 CE) :contentReference[oaicite:1]{index=1}. Recent GIS‑based mapping and ASI excavations (1997–98; Patna Circle and Patna Branch in 2018–19) have revealed its full architectural plan: a 31.5 m high terraced stupa (c. 123 m base diameter) with six concentric circular terraces and a massive base wall, possibly extending the diameter to 167 m :contentReference[oaicite:2]{index=2}. Dozens of cell‑shrines with stucco Buddha figures, ornamental geometric patterns, perimeter moats, pradakshina‑paths (circumambulation walk), and relic casket chambers have been mapped :contentReference[oaicite:3]{index=3}. Additional nearby excavations at the Raniwas mound uncovered an extensive monastic complex—cells, corridors, and stupas—suggesting a functional satellite vihara connected to Kesaria :contentReference[oaicite:4]{index=4}. The combined insights from GIS‑mapping and stratigraphic excavation are reshaping scholarly understanding of large‑scale stupa planning in ancient India."
+}
+,
   "Sasaram Tombs Documentation": {
-    "title": "Sasaram Tombs Documentation",
-    "details": "Sher Shah Suri’s tomb in Sasaram, built between 1540–45, lies in a 22-acre artificial lake and is called the 'Second Taj'. Designed by Mir Muhammad Aliwal Khan, it stands 122 ft tall, with an octagonal plan and chhatris at each corner. The Archaeological Survey of India is currently engaged in restoration, including lighting, landscaping, cleaning of ponds, and reopening of visitor access."
-  },
-  "Nalanda Digital Reconstruction": {
-    "title": "Nalanda Digital Reconstruction",
-    "details": "This is an ongoing project under ASI and partner institutions to create 3D models, AR visualizations, and GIS maps of the old Nalanda site. It aims to present ancient spatial layouts of monasteries, temples, libraries, and teaching halls for heritage preservation and education."
-  },
-  "Vikramshila River Excavation": {
-    "title": "Vikramshila River Excavation",
-    "details": "Recent excavations near the ancient river channel adjacent to Vikramshila uncovered trade-route relics including terracotta pottery, beads, and small Buddhist statues, shedding light on the site's river-based trade networks during the Pala period."
-  },
+  "title": "Sasaram Tombs Documentation",
+  "details": "The monumental tomb of Sher Shah Suri in Sasaram, Bihar—often called the “Second Taj”—was built between **1540 and 1545** by Mir Muhammad Aliwal Khan in Indo‑Islamic (Afghan‑Mughal) style :contentReference[oaicite:1]{index=1}. Standing **122 ft tall** on a three-tiered octagonal plinth at the center of a **22‑acre artificial lake** (approx. 1,130 × 865 ft), it features an elegant full‑height dome (22 m span), chhatris at each corner of the second and third stories, and a surrounding verandah with 24 smaller domes and arched openings :contentReference[oaicite:2]{index=2}.\n\nCarved with Quranic verses and intricate floral motifs, the tomb was originally decorated with glazed tiles in blue and yellow hues—earning it the moniker “Second Taj” :contentReference[oaicite:3]{index=3}. Painted depictions from the 1770s show a pavilion atop the tomb replaced during an **1882–83 renovation by Beglar** :contentReference[oaicite:4]{index=4}.\n\nToday, the **Archaeological Survey of India (ASI)** is actively restoring the site—cleaning the lake and inlet canal, installing solar lighting, landscape beautification, repairing access ways to the top floor (reopening visitor access), and reclaiming encroached land :contentReference[oaicite:5]{index=5}."
+}
+,
+ "Nalanda Digital Reconstruction": {
+  "title": "Nalanda Digital Reconstruction",
+  "details": "Under the Archaeological Survey of India and the Ministry of Culture, an ongoing effort is underway to **digitally restore Nalanda Mahavihara**, using **3D modeling**, **GIS mapping**, and **AR/VR technologies** to recreate its ancient architecture and libraries. A PTI report (Jan 2023) confirms a pilot AR/VR visualization project is expected to launch by April, aiming to give visitors an immersive sense of Nalanda’s grandeur as it once stood :contentReference[oaicite:1]{index=1}. GIS-based studies using **Cartosat-1 stereo imagery** and satellite multispectral data have already mapped the full archaeological extent—revealing outlying ruins far beyond the core area, and integrating historical survey data into a layered spatial model :contentReference[oaicite:2]{index=2}. Combined with ASR-based ground surveys, photogrammetric modeling, public image‑crowdsourcing platforms, and CHIS/AR initiatives like JATAN and virtual museum builders, this work aims to digitally preserve, reconstruct, and reinterpret monastery layouts, stupas, temples, temples halls, and libraries—enhancing onsite visitor experience and enabling academic study :contentReference[oaicite:3]{index=3}."
+}
+,
+ "Vikramshila River Excavation": {
+  "title": "Vikramshila River Excavation",
+  "details": "Excavations near the ancient river channel adjacent to the Vikramshila Mahavihara—conducted after ASI resumed work in early 2024—have uncovered a wide array of Pala-period artifacts. These include terracotta plaques, human and animal figurines, beads of stone, glass, and terracotta, stone and bronze Buddhist and Hindu images (e.g., Buddha, Avalokiteśvara, Manjushri, Tara), seals and sealings, and household pottery and metal finds such as coins and copper rings :contentReference[oaicite:1]{index=1}. The finds suggest river-based trade activity, evidenced by beads and pottery types—alongside votive stupas and stupa remnants—highlighting the site's role in monastic life and commerce during the Pala dynasty."
+}
+,
   "Rohtasgarh Tunnel Study": {
-    "title": "Rohtasgarh Tunnel Study",
-    "details": "A recent archaeological study is investigating the underground tunnels and passages below Rohtasgarh fort, believed to have been used as escape routes or secret access during sieges or emergencies. Exploratory soundings continue to reveal the extent of the subterranean network."
-  },
+  "title": "Rohtasgarh Tunnel Study",
+  "details": "Recent archaeological work at Rohtasgarh Fort—the world’s second‑largest fort spread over ~42 km²—has turned scholarly attention to its extensive underground network of tunnels and chambers. According to a *Times of India* report (Nov 2023), the fort contains a “network of underground tunnels,” historically believed to have served as escape routes or secret passageways during sieges :contentReference[oaicite:1]{index=1}. On‑site investigations at the so‑called **Bada Angana** courtyard have revealed hidden stairways leading into vaulted chambers with domes and ventilators, including large underground halls like the **‘Nach‑ghar’ (dancing hall)** (~48 × 45 ft) and the **‘Raniwas’** (~59 × 37 ft), hinting at elaborate subterranean planning :contentReference[oaicite:2]{index=2}."
+}
+,
   "Chausa Excavation": {
-    "title": "Chausa Excavation",
-    "details": "Excavation at Chausa (site of Sher Shah’s first battle with Humayun) has revealed coins, seals from the Gupta era, terracotta figurines, and brick structures. This suggests that the site was significant long before the 16th century, likely as an ancient settlement connected to early Magadha kingdoms."
-  },
+  "title": "Chausa Excavation",
+  "details": "Excavation at Chausa, located in Bihar, the site of Sher Shah Suri’s first battle with Humayun in 1539, has revealed significant archaeological evidence suggesting the site's importance long before the medieval period. Discoveries include coins and seals from the Gupta era (4th-6th century CE), indicating active trade and administration during ancient times. Terracotta figurines have been unearthed, which reflect the cultural and religious life of the early settlers. Additionally, brick structures, possibly remnants of residential or public buildings, were found, pointing to a well-organized ancient settlement. These findings strongly suggest that Chausa was a flourishing habitation site, potentially connected to the early Magadhan kingdoms, with continuous occupation spanning centuries. The ongoing excavations aim to further uncover the site's historical layers and its role in ancient India's urban network."
+}
+,
   "Barabar Caves": {
   "title": "Barabar Caves",
-  "details": "The Barabar Caves are the oldest surviving rock-cut caves in India, associated with the Mauryan period and Jain monks. The caves are famous for their highly polished interior walls and amazing acoustic properties."
-},
+  "details": "The Barabar Caves, located in the Jehanabad district of Bihar, are the oldest surviving rock-cut caves in India, dating back to the Mauryan period (3rd century BCE) during the reign of Emperor Ashoka. These caves are historically significant as they were primarily used by Ajivika monks, a sect contemporaneous with Buddhism and Jainism, although later associated with Jain monks as well. The caves are renowned for their unique architectural features, including highly polished granite walls that create remarkable acoustic effects, producing echoes that last several seconds. The precision of the rock-cutting and the mirror-like polish demonstrate the advanced engineering and craftsmanship of the Mauryan era. Key caves in the complex include the Lomas Rishi Cave and the Sudama Cave, which are noted for their arched facade and exquisite workmanship. The Barabar Caves hold immense cultural, religious, and architectural importance in ancient Indian history."
+}
+,
 "Lauriya Nandangarh": {
   "title": "Lauriya Nandangarh",
-  "details": "Lauriya Nandangarh is known for its monolithic Ashokan pillars and large brick stupas. Archaeological studies reveal these sites to be crucial Buddhist relic spots connected to Emperor Ashoka’s reign."
-},
+  "details": "Lauriya Nandangarh, located in the West Champaran district of Bihar, is renowned for its well-preserved monolithic Ashokan pillars and large brick stupas. The Ashokan pillar at this site, made from a single piece of polished sandstone, bears inscriptions that propagate Emperor Ashoka's edicts promoting non-violence, moral conduct, and religious tolerance. The pillar stands as a testament to Ashoka's efforts to spread Buddhism across his empire. The large brick stupas in the area are believed to be ancient Buddhist burial mounds, possibly containing the relics of Lord Buddha or his followers. Archaeological studies suggest that Lauriya Nandangarh was an important Buddhist religious and administrative center during the Mauryan period. The site’s architectural remains and inscriptions highlight its significance in the Buddhist pilgrimage circuit and offer valuable insights into the religious and cultural policies of Emperor Ashoka's reign."
+}
+,
 "Bodh Gaya": {
   "title": "Bodh Gaya",
-  "details": "Bodh Gaya is the sacred site where Gautama Buddha attained enlightenment under the Bodhi tree. The Mahabodhi Temple Complex is a UNESCO World Heritage Site with a rich history of temple architecture, monastic settlements, and continuous pilgrimage activity."
+  "details": "Bodh Gaya, located in the Gaya district of Bihar, is one of the most sacred Buddhist sites in the world. It is the place where Gautama Buddha attained enlightenment around the 6th century BCE while meditating under the Bodhi Tree. The focal point of this pilgrimage site is the Mahabodhi Temple Complex, a UNESCO World Heritage Site known for its impressive brick architecture and historical significance. The temple complex includes the revered Bodhi Tree, several ancient stupas, monasteries, and a large seated statue of Buddha. Bodh Gaya has been a continuous center of Buddhist learning and devotion, attracting pilgrims from India, Sri Lanka, Tibet, China, Japan, and other Buddhist countries for over two millennia. Archaeological evidence reveals successive phases of temple construction, monastic settlements, and cultural exchanges that reflect the global importance of this site in the Buddhist world. Today, Bodh Gaya remains a vibrant spiritual destination symbolizing peace, meditation, and enlightenment."
 }
 
 }
