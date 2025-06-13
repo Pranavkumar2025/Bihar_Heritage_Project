@@ -7,9 +7,9 @@
     "title": "Vikramashila",
     "details": "Founded in the late 8th century by Pala king Dharmapala, Vikramashila was a major Buddhist monastic university and a rival to Nalanda. Specializing in tantrayana and esoteric Buddhism, it had 108 temples and numerous monasteries. It was known for its strict admission, curriculum, and highly trained scholars. The site was destroyed by invaders around the 12th century, but ruins still contain stupas, monastic cells, and an ancient temple."
   },
-  "Pataliputra": {
+  "Patliputra": {
     "title": "Pataliputra",
-    "details": "Pataliputra was founded as a fortified town by Ajatashatru around 490 BCE at the confluence of the Ganges and Son rivers. It grew to be a major capital under the Magadha dynasties (Haryanka, Nanda, Maurya, Shunga, Pala). During the Mauryan era (–180 BCE), it was one of the world's largest cities, with wooden fortifications and 64 gates. The city hosted major archaeological sites like Kumhrar, Bulandi Bagh, and Agam Kuan."
+    "details": "Pataliputra was founded as a fortified town by Ajatashatru around 490 BCE at the confluence of the Ganges and Son rivers. It grew to be a major capital under the Magadha dynasties (Haryanka, Nanda, Maurya, Shunga, Pala). During the Mauryan era ( 180 BCE), it was one of the world's largest cities, with wooden fortifications and 64 gates. The city hosted major archaeological sites like Kumhrar, Bulandi Bagh, and Agam Kuan."
   },
   "Rohtasgarh Fort": {
     "title": "Rohtasgarh Fort",
@@ -46,5 +46,18 @@
   "Chausa Excavation": {
     "title": "Chausa Excavation",
     "details": "Excavation at Chausa (site of Sher Shah’s first battle with Humayun) has revealed coins, seals from the Gupta era, terracotta figurines, and brick structures. This suggests that the site was significant long before the 16th century, likely as an ancient settlement connected to early Magadha kingdoms."
-  }
+  },
+  "Barabar Caves": {
+  "title": "Barabar Caves",
+  "details": "The Barabar Caves are the oldest surviving rock-cut caves in India, associated with the Mauryan period and Jain monks. The caves are famous for their highly polished interior walls and amazing acoustic properties."
+},
+"Lauriya Nandangarh": {
+  "title": "Lauriya Nandangarh",
+  "details": "Lauriya Nandangarh is known for its monolithic Ashokan pillars and large brick stupas. Archaeological studies reveal these sites to be crucial Buddhist relic spots connected to Emperor Ashoka’s reign."
+},
+"Bodh Gaya": {
+  "title": "Bodh Gaya",
+  "details": "Bodh Gaya is the sacred site where Gautama Buddha attained enlightenment under the Bodhi tree. The Mahabodhi Temple Complex is a UNESCO World Heritage Site with a rich history of temple architecture, monastic settlements, and continuous pilgrimage activity."
+}
+
 }

@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-// eslint-disable-next-line
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // Load data
@@ -16,6 +15,9 @@ import rajgirImg from "../assets/heritage/rajgir.jpg";
 import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
+import barabarImg from "../assets/heritage/barabar.avif";
+import lauriyaImg from "../assets/heritage/lauriya.webp";
+import bodhgayaImg from "../assets/heritage/BodhGayaImg.jpg";
 
 // Image map
 const imageMap = {
@@ -26,87 +28,10 @@ const imageMap = {
   "rajgir.jpg": rajgirImg,
   "telhara.jpg": telharaImg,
   "exploration1.jpg": exploration1Img,
-  "exploration2.jpg": exploration2Img
-};
-
-const fadeIn = (direction = "up", delay = 0) => ({
-  hidden: {
-    opacity: 0,
-    y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-    x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      delay,
-      ease: "easeOut",
-    },
-  },
-});
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.95 },
-  visible: (index) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      delay: index * 0.1,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const Card = ({ item, index, onClick }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={cardVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      custom={index}
-      whileHover={{
-        scale: 1.05,
-        boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
-        transition: { duration: 0.3 },
-      }}
-      whileTap={{ scale: 0.98 }}
-      onClick={() => onClick(item)}
-      className="cursor-pointer min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-xl transition-all duration-300"
-    >
-      <motion.img
-        src={imageMap[item.image]}
-        alt={item.title}
-        className="w-full h-48 object-cover rounded-lg mb-4"
-        initial={{ scale: 1.1 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.6 }}
-      />
-      <motion.h3
-        className="text-xl font-semibold text-gray-800"
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        {item.title}
-      </motion.h3>
-      <motion.p
-        className="text-sm text-gray-600 mt-2"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        {item.description}
-      </motion.p>
-    </motion.div>
-  );
+  "exploration2.jpg": exploration2Img,
+  "barabar.jpg": barabarImg,
+  "lauriya.jpg": lauriyaImg,
+  "bodhgaya.jpg": bodhgayaImg
 };
 
 const Modal = ({ item, onClose }) => {
@@ -173,60 +98,14 @@ const Modal = ({ item, onClose }) => {
   );
 };
 
-
-const CardSlider = ({ items, onCardClick }) => {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth / 1.2;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  return (
-    <div className="relative mt-6">
-      <button
-        onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700"
-      >
-        <ChevronLeft size={28} />
-      </button>
-
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12 pb-4"
-      >
-        {items.map((item, index) => (
-          <Card key={item.id} item={item} index={index} onClick={onCardClick} />
-        ))}
-      </div>
-
-      <button
-        onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700"
-      >
-        <ChevronRight size={28} />
-      </button>
-    </div>
-  );
-};
-
-
 const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState(null);
-
+  const scrollRef = useRef(null);
 
   const items =
-    activeTab === "excavation"
-      ? data.excavationSites
-      : data.explorationActivities;
+    activeTab === "excavation" ? data.excavationSites : data.explorationActivities;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -236,14 +115,12 @@ const Excavations = () => {
     return () => clearInterval(interval);
   }, [items.length]);
 
-  const scrollRef = useRef(null);
-
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth / 1.2;
+      const scrollAmount = scrollRef.current.offsetWidth / 1.05; // Almost one full card
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
   };
@@ -256,7 +133,7 @@ const Excavations = () => {
     return (
       <motion.div
         key={item.id}
-        className="flex flex-col rounded-2xl overflow-hidden border p-2  border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-64 min-h-[280px] bg-white"
+        className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-[20%] min-w-[220px] min-h-[280px] bg-white"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         onClick={() => onClick(index)}
@@ -275,7 +152,6 @@ const Excavations = () => {
               {item.description}
             </p>
           </div>
-
         </div>
       </motion.div>
     );
@@ -348,27 +224,32 @@ const Excavations = () => {
         </motion.div>
       </motion.div>
 
-
-
-
-
-      <div className="relative mt-1">
-
+      <div className="relative mt-8 flex items-center justify-center">
+        <button
+          onClick={() => scroll('left')}
+          className="z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700 mr-4"
+        >
+          <ChevronLeft size={28} />
+        </button>
 
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar px-16 pt-4 pb-8 mb-4"
+          className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-[80%] md:w-[80%] px-4 pt-4 pb-8 mb-4"
         >
           {items.map((item, index) => (
             <Card key={item.id} item={item} index={index} onClick={setSelectedIndex} />
           ))}
         </div>
 
-
+        <button
+          onClick={() => scroll('right')}
+          className="z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700 ml-4"
+        >
+          <ChevronRight size={28} />
+        </button>
       </div>
 
       <Modal item={modalItem} onClose={() => setModalItem(null)} />
-
     </div>
   );
 };

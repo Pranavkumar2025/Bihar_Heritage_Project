@@ -35,6 +35,24 @@
       "title": "Telhara Monastery",
       "image": "telhara.jpg",
       "description": "Buddhist monastery ruins linked to ancient Magadha's monastic tradition."
+    },
+    {
+      "id": 7,
+      "title": "Barabar Caves",
+      "image": "barabar.jpg",
+      "description": "Ancient rock-cut caves dating back to the Mauryan Empire."
+    },
+    {
+      "id": 8,
+      "title": "Lauriya Nandangarh",
+      "image": "lauriya.jpg",
+      "description": "Ashokan pillar site with monolithic columns and stupa remains."
+    },
+    {
+      "id": 9,
+      "title": "Bodh Gaya",
+      "image": "bodhgaya.jpg",
+      "description": "Sacred Buddhist site where Gautama Buddha attained enlightenment."
     }
   ],
   "explorationActivities": [
@@ -73,6 +91,24 @@
       "title": "Vikramshila River Excavation",
       "image": "Vikramshila.jpg",
       "description": "River-side excavation near Vikramshila for trade route relics."
+    },
+    {
+      "id": 7,
+      "title": "Lauriya Nandangarh Survey",
+      "image": "lauriya.jpg",
+      "description": "Detailed field surveys of Ashokan pillars and nearby stupas."
+    },
+    {
+      "id": 8,
+      "title": "Bodh Gaya Temple Analysis",
+      "image": "bodhgaya.jpg",
+      "description": "Recent studies on temple architecture and underground remains at Bodh Gaya."
+    },
+    {
+      "id": 9,
+      "title": "Barabar Caves Sound Mapping",
+      "image": "barabar.jpg",
+      "description": "Acoustic analysis of the resonating chambers inside Barabar rock-cut caves."
     }
   ]
 }
