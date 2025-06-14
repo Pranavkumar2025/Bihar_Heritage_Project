@@ -36,7 +36,7 @@ const Header2 = () => {
     },
     { name: "Excavation", to: "/#excavation", isHash: true },
     { name: "Exploration", to: "/#explorejoin", isHash: true },
-    { name: "Activities", to: "/#conservation", isHash: true },
+    { name: "Activities", to: "/Activities", isHash: true },
     { name: "Events", to: "/events/upcoming" },
     {
       name: "Gallery",

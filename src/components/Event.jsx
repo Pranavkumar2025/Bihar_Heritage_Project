@@ -58,7 +58,7 @@ export default function Event() {
           transition={{ duration: 0.6, type: "spring" }}
           className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 leading-relaxed"
         >
-          Upcoming Events
+          Events
         </motion.h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-16">
           Discover our curated cultural experiences designed to showcase the soul of Bihar.

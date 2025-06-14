@@ -17,6 +17,7 @@ import AboutUs from "./components/AboutUs";
 import KeyFunctionaries from "./components/KeyFunctionaries";
 import ExecutiveCommittee from "./components/ExecutiveCommitee";	
 import ArcheologicalTeam from "./components/ArcheologicalTeam";
+import ActivitiesPage from "./components/ActivitiesPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
 					<Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
 					<Route path="/GalleryPage" element={<GalleryPage />} />
 					<Route path="/Gallery" element={<Gallery />} />
+					<Route path ="/Activities" element={<ActivitiesPage />} />
 					<Route path="/governingbody" element={<GoverningBody />} />
 					<Route path="/about" element={<AboutUs />} />
 					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />

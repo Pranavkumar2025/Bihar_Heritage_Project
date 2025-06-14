@@ -39,9 +39,9 @@ const Home = () => {
         <Excavations />
       </section>
       <UniqueBihar />
-	  <section ref={conservationRef} id="conservation">
+	  {/* <section ref={conservationRef} id="conservation">
         <Conservation />
-      </section>
+      </section> */}
       <Gallery />
       {/* <SS_Site /> */}
       <section ref={exploreJoinRef} id="explorejoin">
