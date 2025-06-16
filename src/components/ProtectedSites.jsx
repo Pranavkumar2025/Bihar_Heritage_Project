@@ -50,7 +50,7 @@ const ProtectedSites = () => {
         {protectedSites.map((site) => (
           <div
             key={site.id}
-            className="bg-gray-800 border border-gray-700 rounded-2xl shadow hover:shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 ease-in-out p-4 cursor-pointer"
+            className="bg-gradient-to-br from-slate-800 to-slate-700 border border-gray-700 rounded-2xl shadow hover:shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 ease-in-out p-4 cursor-pointer"
           >
             <div className="overflow-hidden rounded-xl">
               <img
