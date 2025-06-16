@@ -10,6 +10,8 @@ import CallToAction from "./CallToAction";
 import News from "./News";
 import UniqueBihar from "./UniqueBihar";
 import { useLocation } from "react-router-dom";
+import GoverningComponents from "./GoverningComponents";
+
 
 const Home = () => {
   const excavationRef = useRef(null);
@@ -49,6 +51,8 @@ const Home = () => {
       </section>
       <News />
       <Awareness />
+      <GoverningComponents/>
+    
       {/* <CallToAction /> */}
     </main>
   );

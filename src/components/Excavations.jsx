@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
+import { Link } from "react-router-dom"; // Add this at the top with other imports
 
 // Load data
 import data from "./ExcavationData/Excavation.json";
@@ -15,9 +16,6 @@ import rajgirImg from "../assets/heritage/rajgir.jpg";
 import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
-import barabarImg from "../assets/heritage/barabar.avif";
-import lauriyaImg from "../assets/heritage/lauriya.webp";
-import bodhgayaImg from "../assets/heritage/BodhGayaImg.jpg";
 
 // Image map
 const imageMap = {
@@ -29,9 +27,44 @@ const imageMap = {
   "telhara.jpg": telharaImg,
   "exploration1.jpg": exploration1Img,
   "exploration2.jpg": exploration2Img,
-  "barabar.jpg": barabarImg,
-  "lauriya.jpg": lauriyaImg,
-  "bodhgaya.jpg": bodhgayaImg
+};
+
+// Protected Sites Data
+const protectedSites = [
+  { id: 1, name: "Nalanda Mahavihara", location: "Nalanda, Bihar" },
+  { id: 2, name: "Vikramashila Monastery", location: "Bhagalpur, Bihar" },
+  { id: 3, name: "Ancient Ruins of Rajgir", location: "Rajgir, Bihar" },
+  { id: 4, name: "Rohtasgarh Fort", location: "Rohtas, Bihar" },
+  { id: 5, name: "Kesaria Stupa", location: "East Champaran, Bihar" },
+  { id: 6, name: "Telhara Monastery", location: "Nalanda District, Bihar" },
+];
+
+const Card = ({ item, index, onClick }) => {
+  return (
+    <motion.div
+      key={item.id}
+      className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-64 min-h-[280px] bg-white"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      onClick={() => onClick(index)}
+    >
+      <div className="overflow-hidden rounded-t-lg">
+        <img
+          src={imageMap[item.image]}
+          alt={item.title}
+          className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="px-2 pt-4 rounded-b-lg text-gray-800 flex-grow flex flex-col justify-between group-hover:bg-[#f8c2c5] group-hover:text-gray-900 transition-colors duration-500">
+        <div>
+          <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+          <p className="text-sm mb-2 group-hover:opacity-90 transition-opacity duration-500">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 const Modal = ({ item, onClose }) => {
@@ -102,10 +135,11 @@ const Excavations = () => {
   const [activeTab, setActiveTab] = useState("excavation");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalItem, setModalItem] = useState(null);
-  const scrollRef = useRef(null);
 
   const items =
-    activeTab === "excavation" ? data.excavationSites : data.explorationActivities;
+    activeTab === "excavation"
+      ? data.excavationSites
+      : data.explorationActivities;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,47 +149,11 @@ const Excavations = () => {
     return () => clearInterval(interval);
   }, [items.length]);
 
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth / 1.05; // Almost one full card
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth"
-      });
-    }
-  };
+  const scrollRef = useRef(null);
 
   const selectedItem = items[selectedIndex];
   const detailsText =
     detailMap[selectedItem?.title]?.details || "No detailed description available.";
-
-  const Card = ({ item, index, onClick }) => {
-    return (
-      <motion.div
-        key={item.id}
-        className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-[20%] min-w-[220px] min-h-[280px] bg-white"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={() => onClick(index)}
-      >
-        <div className="overflow-hidden rounded-t-lg">
-          <img
-            src={imageMap[item.image]}
-            alt={item.title}
-            className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-        <div className="px-2 pt-4 rounded-b-lg text-gray-800 flex-grow flex flex-col justify-between group-hover:bg-[#f8c2c5] group-hover:text-gray-900 transition-colors duration-500">
-          <div>
-            <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-            <p className="text-sm mb-2 group-hover:opacity-90 transition-opacity duration-500">
-              {item.description}
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    );
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-slate-100 pt-10 pb-4 px-6 md:px-20">
@@ -224,30 +222,26 @@ const Excavations = () => {
         </motion.div>
       </motion.div>
 
-      <div className="relative mt-8 flex items-center justify-center">
-        <button
-          onClick={() => scroll('left')}
-          className="z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700 mr-4"
-        >
-          <ChevronLeft size={28} />
-        </button>
-
+      <div className="relative mt-1">
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-[80%] md:w-[80%] px-4 pt-4 pb-8 mb-4"
+          className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar px-16 pt-4 pb-8 mb-4"
         >
           {items.map((item, index) => (
             <Card key={item.id} item={item} index={index} onClick={setSelectedIndex} />
           ))}
         </div>
-
-        <button
-          onClick={() => scroll('right')}
-          className="z-10 bg-yellow-600 text-white rounded-full p-2 shadow hover:bg-yellow-700 ml-4"
-        >
-          <ChevronRight size={28} />
-        </button>
       </div>
+
+      {/* Protected Sites Section */}
+      <div className="flex justify-center mt-8">
+        <Link to="/protected-sites">
+          <button className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition-all duration-300">
+            📜 View All Protected Sites
+          </button>
+        </Link>
+      </div>
+
 
       <Modal item={modalItem} onClose={() => setModalItem(null)} />
     </div>

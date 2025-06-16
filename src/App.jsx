@@ -19,6 +19,7 @@ import ExecutiveCommittee from "./components/ExecutiveCommitee";
 import ArcheologicalTeam from "./components/ArcheologicalTeam";
 import ActivitiesPage from "./components/ActivitiesPage";
 import ScrollToTop from "./components/ScrollToTop";
+import ProtectedSites from "./components/ProtectedSites";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
 					<Route path ="/Activities" element={<ActivitiesPage />} />
 					<Route path="/governingbody" element={<GoverningBody />} />
 					<Route path="/about" element={<AboutUs />} />
+					<Route path="/protected-sites" element={<ProtectedSites />} />
 					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />
 					<Route path="/executive" element={<ExecutiveCommittee />} />
 					<Route path="/archeologicalteam" element={<ArcheologicalTeam />} />
