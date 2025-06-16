@@ -236,7 +236,7 @@ const Excavations = () => {
       {/* Protected Sites Section */}
       <div className="flex justify-center mt-8">
         <Link to="/protected-sites">
-          <button className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition-all duration-300">
+          <button className="bg-yellow-600 cursor-pointer text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition-all duration-300">
             📜 View All Protected Sites
           </button>
         </Link>
