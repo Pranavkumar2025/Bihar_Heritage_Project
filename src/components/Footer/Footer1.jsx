@@ -12,12 +12,7 @@ const Footer1 = () => {
 						<ul className="text-gray-800 ">
 							<li className="font-bold  text-2xl mb-2">About</li>
 							<li className=" py-2 mt-4 font-bold  transition-colors duration-300">
-								Over the years BSFDFC has worked with some of the most acclaimed
-								filmmakers of India including Satyajit Ray, Mira Nair, Aparna
-								Sen, Shyam Benegal, Govind Nihalani, Mrinal Sen, Richard
-								Attenborogh, Adoor Gopalkrishnan and Ketan Mehta. BSFDFC is
-								breaking new grounds by co-producing projects involving
-								public-private partnerships
+								The Bihar Heritage Development Society (BHDS) is an initiative under the Department of Art, Culture & Youth, Government of Bihar. Established to preserve, promote, and revitalize the rich cultural heritage of Bihar, BHDS works as a nodal body to plan, implement, and coordinate heritage-related projects across the state.
 							</li>
 						</ul>
 					</div>
