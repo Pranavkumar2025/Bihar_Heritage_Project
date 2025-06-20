@@ -22,7 +22,7 @@ export default function AboutUs() {
             Bihar Heritage Development Society (BHDS)
           </h2>
           <p className="text-lg text-gray-100 max-w-4xl mx-auto leading-relaxed">
-            The Bihar Heritage Development Society (BHDS) is an initiative under the Department of Art, Culture & Youth, Government of Bihar. Established to preserve, promote, and revitalize the rich cultural heritage of Bihar, BHDS works as a nodal body to plan, implement, and coordinate heritage-related projects across the state.
+            Bihar Heritage Development Society was formed to preserve, protect, and promote the rich cultural and historical heritage of Bihar. The state is home to ancient sites, monuments, and traditions that reflect India's glorious past. The society aims to restore these assets and boost heritage-based tourism. It also works to raise awareness and involve communities in heritage conservation efforts.
           </p>
         </div>
 

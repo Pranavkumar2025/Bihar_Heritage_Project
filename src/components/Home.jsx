@@ -37,9 +37,6 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <section ref={excavationRef} id="excavation">
-        <Excavations />
-      </section>
       <UniqueBihar />
 	  {/* <section ref={conservationRef} id="conservation">
         <Conservation />

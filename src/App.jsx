@@ -20,6 +20,7 @@ import ArcheologicalTeam from "./components/ArcheologicalTeam";
 import ActivitiesPage from "./components/ActivitiesPage";
 import ScrollToTop from "./components/ScrollToTop";
 import ProtectedSites from "./components/ProtectedSites";
+import Excavations from "./components/Excavations";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
 					<Route path="/Gallery" element={<Gallery />} />
 					<Route path ="/Activities" element={<ActivitiesPage />} />
 					<Route path="/governingbody" element={<GoverningBody />} />
+					<Route path="/excavations" element={<Excavations />} />
 					<Route path="/about" element={<AboutUs />} />
 					<Route path="/protected-sites" element={<ProtectedSites />} />
 					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />

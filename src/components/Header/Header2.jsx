@@ -34,9 +34,15 @@ const Header2 = () => {
         { name: "Archeological Team", to: "/archeologicalteam" },
       ],
     },
-    { name: "Excavation", to: "/#excavation", isHash: true },
     { name: "Exploration", to: "/#explorejoin", isHash: true },
-    { name: "Activities", to: "/Activities", isHash: true },
+     {
+      name: "Activities",
+      subMenu: [
+        { name : "Excavation", to:"/excavations" },
+        { name: "Activities", to: "/Activities" },
+        // { name: "Videos", to: "/VideoGalleryPage" },
+      ],
+    },
     { name: "Events", to: "/events/upcoming" },
     {
       name: "Gallery",
