@@ -28,6 +28,15 @@ import VadathikaCave from "../assets/ProtectedSites/VadathikaCave.jpg";
 import VapiyakaCaves from "../assets/ProtectedSites/VapiyakaCaves.jpg";
 import ViswaJhopaRockCutCave from "../assets/ProtectedSites/ViswaJhopaRockCutCave.jpeg";
 import TombOfMalikIbrahimBayu from "../assets/ProtectedSites/TombOfMalikIbrahimBayu.jpeg";
+import AncientMoundBargaon from "../assets/ProtectedSites/AncientMoundBargaon.jpeg";
+import StatueOfBuddha from "../assets/ProtectedSites/StatueOfBuddha.jpeg";
+import RajgirAncientStructures from "../assets/ProtectedSites/RajgirAncientStructures.webp";
+import BulandiBagh from "../assets/ProtectedSites/BulandiBagh.jpg";
+import AshokanPalaceSiteKumharar from "../assets/ProtectedSites/AshokanPalaceSiteKumharar.jpg";
+import MirAshrafMasjid from "../assets/ProtectedSites/MirAshrafMasjid.jpg";
+import TombOfShahMakhadumDaulat from "../assets/ProtectedSites/TombOfShahMakhadumDaulat.jpg";
+import TankManer from "../assets/ProtectedSites/TankManer.jpg";
+import TombOfShamsherKhan from "../assets/ProtectedSites/TombOfShamsherKhan.jpg";
 
 const imageMap = {
   VikramshilaRuins,
@@ -55,6 +64,15 @@ const imageMap = {
   VapiyakaCaves,
   ViswaJhopaRockCutCave,
   TombOfMalikIbrahimBayu,
+  AncientMoundBargaon,
+  StatueOfBuddha,
+  RajgirAncientStructures,
+  BulandiBagh,
+  AshokanPalaceSiteKumharar,
+  MirAshrafMasjid,
+  TombOfShahMakhadumDaulat,
+  TankManer,
+  TombOfShamsherKhan,
 
 };
 
