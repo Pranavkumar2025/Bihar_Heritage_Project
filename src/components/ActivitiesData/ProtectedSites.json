@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "name": "Vikramshila Ruins",
+    "location": "Bhagalpur, Bihar",
+    "image": "VikramshilaRuins"
+  },
+  {
+    "id": 2,
+    "name": "Colganj Rock Cut Temples",
+    "location": "Bhagalpur, Bihar",
+    "image": "ColganjRockCut"
+  },
+  {
+    "id": 3,
+    "name": "Patalpuri and Bateshwar Cave",
+    "location": "Bihar",
+    "image": "Bateshwar_sthan_caves"
+  },
+  {
+    "id": 4,
+    "name": "Patharghata Hill Sculptures",
+    "location": "Bhagalpur, Bihar",
+    "image": "SilentPages"
+  },
+  {
+    "id": 5,
+    "name": "Ancient Mound",
+    "location": "Buxar, Bihar",
+    "image": "AncientMound"
+  },
+  {
+    "id": 6,
+    "name": "Pachrukhi Garh",
+    "location": "Balirajgarh, Madhubani",
+    "image": "PachrukhiGarh"
+  },
+  {
+    "id": 7,
+    "name": "Chankigarh Fortress Ruins",
+    "location": "Chanki, West Champaran",
+    "image": "Chanki_garh_West_Champaran"
+  },
+  {
+    "id": 8,
+    "name": "Ashoka Pillar at Lauriya Nandangarh",
+    "location": "Lauria Nandangarh, Bihar",
+    "image": "AshokaPillarAtLauriy"
+  },
+  {
+    "id": 9,
+    "name": "Vedic Burial Mounds",
+    "location": "Lauria Nandangarh, West Champaran",
+    "image": "VedicBurialMounds"
+  },
+  {
+    "id": 10,
+    "name": "Kesariya Stupa",
+    "location": "Bihar",
+    "image": "KesariyaStupa"
+  },
+  {
+    "id": 11,
+    "name": "Ashoka Pillar Lauriya",
+    "location": "Lauria Nandangarh, Bihar",
+    "image": "AshokaPillarLauriya"
+  },
+  {
+    "id": 12,
+    "name": "Ashokan Pillars at Rampurva",
+    "location": "West Champaran, Bihar",
+    "image": "AshokanPillarsRampurva"
+  },
+  {
+    "id": 13,
+    "name": "Crow Hill Sculptures",
+    "location": "Kauwadol Hill, Kurisarai, Gaya",
+    "image": "CrowHillSculptures"
+  },
+  {
+    "id": 14,
+    "name": "Ancient Buddha Statue Ruins",
+    "location": "Kurisarai, Bihar",
+    "image": "AncientBuddhaStatueRuins"
+  },
+  {
+    "id": 15,
+    "name": "Shiv Temple Konch",
+    "location": "Gaya, Bihar",
+    "image": "ShivTempleKonch"
+  },
+  {
+    "id": 16,
+    "name": "Sujata Kutir Stupa",
+    "location": "Sujatagarh, Gaya",
+    "image": "SujataKutirStupa"
+  },
+  {
+    "id": 17,
+    "name": "Buddha of Ghejan",
+    "location": "Jehanabad, Bihar",
+    "image": "BuddhaOfGhejan"
+  },
+  {
+    "id": 18,
+    "name": "Lomas Rishi Cave",
+    "location": "Khidar Saray, Bihar",
+    "image": "LomasRishiCave"
+  },
+  {
+    "id": 19,
+    "name": "Sudama Cave",
+    "location": "Bihar",
+    "image": "SudamaCave"
+  },
+  {
+    "id": 20,
+    "name": "Karan Chaupar Cave",
+    "location": "Barabar Hills, Bihar",
+    "image": "KaranChauparCave"
+  },
+  {
+    "id": 21,
+    "name": "Lomas Rishi Cave, Barabar Hills",
+    "location": "Barabar Hills, Bihar",
+    "image": "LomasRishiCaveBarabarHills"
+  },
+  {
+    "id": 22,
+    "name": "Vadathika Cave",
+    "location": "Bihar",
+    "image": "VadathikaCave"
+  },
+  {
+    "id": 23,
+    "name": "Vapiyaka Caves",
+    "location": "Bihar",
+    "image": "VapiyakaCaves"
+  },
+  {
+    "id": 24,
+    "name": "Viswa Jhopa Rock Cut Cave",
+    "location": "Barabar Hill, Bihar",
+    "image": "ViswaJhopaRockCutCave"
+  },
+  {
+    "id": 25,
+    "name": "Tomb of Malik Ibrahim Bayu",
+    "location": "Nalanda, Bihar",
+    "image": "TombOfMalikIbrahimBayu"
+  },
+  {
+    "id": 26,
+    "name": "Ancient Mound, Bargaon",
+    "location": "Nalanda, Bihar",
+    "image": "AncientMoundBargaon"
+  },
+  {
+    "id": 27,
+    "name": "Statue of Buddha",
+    "location": "Jagdishpur, Nalanda",
+    "image": "StatueOfBuddha"
+  },
+  {
+    "id": 28,
+    "name": "Rajgir Ancient Structures",
+    "location": "Rajgir, Bihar",
+    "image": "RajgirAncientStructures"
+  },
+  {
+    "id": 29,
+    "name": "Bulandi Bagh",
+    "location": "Patna, Bihar",
+    "image": "BulandiBagh"
+  },
+  {
+    "id": 30,
+    "name": "Ashokan Palace Site Kumharar",
+    "location": "Patna, Bihar",
+    "image": "AshokanPalaceSiteKumharar"
+  },
+  {
+    "id": 31,
+    "name": "Mir Ashraf Masjid",
+    "location": "Patna City, Bihar",
+    "image": "MirAshrafMasjid"
+  },
+  {
+    "id": 32,
+    "name": "Tomb of Shah Makhadum Daulat Maneri and Ibrahim Khan",
+    "location": "Bihar",
+    "image": "TombOfShahMakhadumDaulat"
+  },
+  {
+    "id": 33,
+    "name": "Tank Maner",
+    "location": "Maner, Bihar",
+    "image": "TankManer"
+  },
+  {
+    "id": 34,
+    "name": "Tomb of Shamsher Khan",
+    "location": "Aurangabad, Bihar",
+    "image": "TombOfShamsherKhan"
+  }
+]

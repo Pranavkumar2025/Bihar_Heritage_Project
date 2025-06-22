@@ -1,43 +1,62 @@
 import React from "react";
 
-const protectedSites = [
-  {
-    id: 1,
-    name: "Nalanda Mahavihara",
-    location: "Nalanda, Bihar",
-    image: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/201607/nalanda-4_647_071616090821.jpg?VersionId=oCPaQk771Y.mQaq9UdbLXDXHPA6vlEnE"
-  },
-  {
-    id: 2,
-    name: "Vikramashila Monastery",
-    location: "Bhagalpur, Bihar",
-    image: "https://iasgyan.sgp1.digitaloceanspaces.com/images/VIKRAMSHILA_UNIVERSITY.png"
-  },
-  {
-    id: 3,
-    name: "Ancient Ruins of Rajgir",
-    location: "Rajgir, Bihar",
-    image: "https://www.mytourplans.com/storage/ck/010623122533-rajgir-1629804778-lb.jpg"
-  },
-  {
-    id: 4,
-    name: "Rohtasgarh Fort",
-    location: "Rohtas, Bihar",
-    image: "https://assets.telegraphindia.com/telegraph/2022/Jun/1656338067_rothasgarh-fort-1.jpg"
-  },
-  {
-    id: 5,
-    name: "Kesaria Stupa",
-    location: "East Champaran, Bihar",
-    image: "https://pwonlyias.com/wp-content/uploads/2024/04/untitled-2024-04-20t121629155-1-66238db9aa2a9.webp"
-  },
-  {
-    id: 6,
-    name: "Telhara Monastery",
-    location: "Nalanda District, Bihar",
-    image: "https://images.indianexpress.com/2014/02/cover.jpg"
-  }
-];
+// Importing JSON data
+import protectedSites from "../components/ActivitiesData/ProtectedSites.json";
+
+import VikramshilaRuins from "../assets/ProtectedSites/VikramshilaRuins.jpg";
+import ColganjRockCut from "../assets/ProtectedSites/ColganjRockCut.jpg";
+import Bateshwar_sthan_caves from "../assets/ProtectedSites/Bateshwar_sthan_caves.jpg";
+import SilentPages from "../assets/ProtectedSites/SilentPages.jpeg";
+import AncientMound from "../assets/ProtectedSites/AncientMound.avif";
+import PachrukhiGarh from "../assets/ProtectedSites/PachrukhiGarh.jpeg";
+import Chanki_garh_West_Champaran from "../assets/ProtectedSites/Chanki_garh_West_Champaran.jpg";
+import AshokaPillarAtLauriy from "../assets/ProtectedSites/Ashoka Pillar at Lauriya Nandangarh.webp";
+import VedicBurialMounds from "../assets/ProtectedSites/VedicBurialMounds.jpg";
+import KesariyaStupa from "../assets/ProtectedSites/KesariyaStupa.jpg";
+import AshokaPillarLauriya from "../assets/ProtectedSites/AshokaPillarLauriya.webp";
+import AshokanPillarsRampurva from "../assets/ProtectedSites/AshokanPillarsRampurva.jpg";
+import CrowHillSculptures from "../assets/ProtectedSites/CrowHillSculptures.jpg";
+import AncientBuddhaStatueRuins from "../assets/ProtectedSites/AncientBuddhaStatueRuins.jpg";
+import ShivTempleKonch from "../assets/ProtectedSites/ShivTempleKonch.jpg";
+import SujataKutirStupa from "../assets/ProtectedSites/SujataKutirStupa.jpeg";
+import BuddhaOfGhejan  from "../assets/ProtectedSites/BuddhaOfGhejan.jpg";
+import LomasRishiCave from "../assets/ProtectedSites/LomasRishiCave.webp";
+import SudamaCave from "../assets/ProtectedSites/SudamaCave.jpg";
+import KaranChauparCave from "../assets/ProtectedSites/KaranChauparCave.jpg";
+import LomasRishiCaveBarabarHills from "../assets/ProtectedSites/LomasRishiCaveBarabarHills.jpg";
+import VadathikaCave from "../assets/ProtectedSites/VadathikaCave.jpg";
+import VapiyakaCaves from "../assets/ProtectedSites/VapiyakaCaves.jpg";
+import ViswaJhopaRockCutCave from "../assets/ProtectedSites/ViswaJhopaRockCutCave.jpeg";
+import TombOfMalikIbrahimBayu from "../assets/ProtectedSites/TombOfMalikIbrahimBayu.jpeg";
+
+const imageMap = {
+  VikramshilaRuins,
+  ColganjRockCut,
+  Bateshwar_sthan_caves,
+  SilentPages,
+  AncientMound,
+  PachrukhiGarh,
+  Chanki_garh_West_Champaran,
+  AshokaPillarAtLauriy,
+  VedicBurialMounds,
+  KesariyaStupa,
+  AshokaPillarLauriya,
+  AshokanPillarsRampurva,
+  CrowHillSculptures,
+  AncientBuddhaStatueRuins,
+  ShivTempleKonch,
+  SujataKutirStupa,
+  BuddhaOfGhejan,
+  LomasRishiCave,
+  SudamaCave,
+  KaranChauparCave,
+  LomasRishiCaveBarabarHills,
+  VadathikaCave,
+  VapiyakaCaves,
+  ViswaJhopaRockCutCave,
+  TombOfMalikIbrahimBayu,
+
+};
 
 const ProtectedSites = () => {
   return (
@@ -54,7 +73,7 @@ const ProtectedSites = () => {
           >
             <div className="overflow-hidden rounded-xl">
               <img
-                src={site.image}
+                src={imageMap[site.image]}
                 alt={site.name}
                 className="w-full h-48 object-cover rounded-xl transform hover:scale-105 transition-transform duration-700 ease-in-out"
               />
