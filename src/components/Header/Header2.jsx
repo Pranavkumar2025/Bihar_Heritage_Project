@@ -35,6 +35,7 @@ const Header2 = () => {
       ],
     },
     { name: "Exploration", to: "/#explorejoin", isHash: true },
+    { name: "Protected Sites", to: "/protected-sites" },
      {
       name: "Activities",
       subMenu: [

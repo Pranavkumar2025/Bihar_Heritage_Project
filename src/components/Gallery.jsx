@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import img1 from "../assets/heritage/img1.jpeg";
 import img2 from "../assets/heritage/img2.jpg";
@@ -25,7 +25,7 @@ const Gallery = () => {
   const nextRef = useRef(null);
 
   useEffect(() => {
-    SwiperCore.use([Navigation, Autoplay]);
+    SwiperCore.use([Navigation, Autoplay, Pagination]);
   }, []);
 
   return (
@@ -49,7 +49,7 @@ const Gallery = () => {
       </motion.p>
 
       <h3 className="text-2xl font-bold text-blue-800 mb-6">📸 Photo Gallery</h3>
-      {/* Swiper Gallery */}
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -83,13 +83,17 @@ const Gallery = () => {
             });
           }}
           autoplay={{ delay: 3000 }}
+          pagination={{
+            clickable: true,
+            el: ".custom-pagination",
+          }}
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
           navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-          modules={[Navigation, Autoplay]}
+          modules={[Navigation, Autoplay, Pagination]}
         >
           {photos.map((src, index) => (
             <SwiperSlide key={index}>
@@ -111,6 +115,9 @@ const Gallery = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Custom Pagination Dots Below the Image */}
+        <div className="custom-pagination flex justify-center mt-6  gap-[6px]"></div>
       </motion.div>
     </div>
   );

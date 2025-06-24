@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Hero from "./Hero";
 import SS_Site from "./SS_Site";
-import Excavations from "./Excavations";
+import Excavation2 from "./Excavation2";
 import ExploreJoin from "./ExploreJoin";
 import Conservation from "./Conservation";
 import Awareness from "./Awareness";
@@ -37,6 +37,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
+      <Excavation2/>
       <UniqueBihar />
 	  {/* <section ref={conservationRef} id="conservation">
         <Conservation />
