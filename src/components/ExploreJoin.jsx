@@ -98,7 +98,7 @@ const ExploreJoin = () => {
       description: "Ancient university, one of the two most important centers of Buddhist learning in India.",
       link: "https://en.wikipedia.org/wiki/Vikramashila"
     },
-    
+
   ];
 
   const joinOptions = [
@@ -135,81 +135,140 @@ const ExploreJoin = () => {
 
   return (
     <div id="explore-join-section" className="bg-gradient-to-b from-white to-gray-100 py-20 px-6 md:px-20">
-      <motion.section ref={exploreRef} variants={staggerContainer} initial="hidden" animate={inViewExplore ? "visible" : "hidden"} className="mb-20 relative">
-        <motion.h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800" variants={fadeIn}>
-          Explore Heritage Sites
+      <motion.section
+        ref={exploreRef}
+        variants={staggerContainer}
+        initial="hidden"
+        animate={inViewExplore ? "visible" : "hidden"}
+        className="mb-20 relative bg-[#e52428] py-16 px-4"
+      >
+        <motion.h2
+          className="text-5xl md:text-7xl font-extrabold text-white text-center mb-2"
+          variants={fadeIn}
+        >
+          EXPLORE HERITAGE SITES
         </motion.h2>
+        <p className="text-white text-center text-xl italic mb-10">
+          — of timeless tradition —
+        </p>
 
-        <button onClick={scrollLeft} aria-label="Scroll Left" className="hidden md:flex absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 hover:bg-orange-100 transition" style={{ zIndex: 10 }}>
-          <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        <button onClick={scrollRight} aria-label="Scroll Right" className="hidden md:flex absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 hover:bg-orange-100 transition" style={{ zIndex: 10 }}>
-          <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        <div ref={scrollContainerRef} className="flex space-x-6 overflow-x-hidden no-scrollbar p-4" style={{ scrollBehavior: "smooth" }}>
+        <div
+          ref={scrollContainerRef}
+          className="flex space-x-6 overflow-x-auto no-scrollbar px-4"
+          style={{ scrollBehavior: "smooth" }}
+        >
           {heritageSites.map((site, index) => (
             <motion.div
               key={index}
-              className="flex-shrink-0 bg-gradient-to-br from-white via-gray-50 to-slate-100 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-500"
+              className="flex-shrink-0 w-80 bg-white rounded-md shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
               variants={cardVariant}
-              {...hoverEffect}
-              style={{ transformStyle: "preserve-3d", width: "425px" }}
             >
-              <img src={site.image} alt={site.title} className="h-56 w-full object-cover transition-transform duration-500 hover:scale-105" />
-              <div className="p-5">
-                <h3 className="text-xl font-semibold text-slate-700 mb-2">{site.title}</h3>
-                <p className="text-sm text-gray-500 flex items-center mb-3">
-                  <MapPin className="w-4 h-4 mr-2" /> {site.location}
+              <img
+                src={site.image}
+                alt={site.title}
+                className="h-48 w-full object-cover"
+              />
+              <div className="bg-[#f5f5f5] p-4">
+                <p className="text-sm text-red-600 font-semibold mb-1">
+                  {site.location.split(",")[0]} |{" "}
+                  <span className="capitalize">
+                    {site.location.split(",")[1].trim()}
+                  </span>
                 </p>
-                <p className="text-gray-600 text-sm mb-4">{site.description}</p>
-                <a href={site.link} target="_blank" rel="noopener noreferrer" className="text-orange-500 font-medium hover:underline">
+                <h3 className="text-black text-lg font-bold mb-1">{site.title}</h3>
+                <p className="text-gray-600 text-sm mb-3">{site.description}</p>
+                <a
+                  href={site.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-600 text-sm font-medium hover:underline"
+                >
                   Learn More →
                 </a>
               </div>
             </motion.div>
           ))}
         </div>
-      </motion.section>
 
-      <motion.div className="my-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }}>
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-8">Bihar’s Living Heritage</h2>
-        <div className="relative w-full max-w-5xl mx-auto shadow-xl rounded-xl overflow-hidden">
-          <video ref={videoRef} src={heritageVideo} controls autoPlay muted loop className="w-full h-auto object-cover" style={{ maxHeight: "600px" }} />
-        </div>
-      </motion.div>
-
-      <motion.section ref={joinRef} variants={staggerContainer} initial="hidden" animate={inViewJoin ? "visible" : "hidden"}>
-        <motion.h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-800" variants={fadeIn}>
-          Join Our Mission
-        </motion.h2>
-
-        <div className="flex flex-wrap justify-center gap-6 text-center">
-          {joinOptions.map((option, i) => (
-            <motion.div key={i} className="bg-slate-50 p-6 w-72 rounded-xl shadow hover:shadow-md transition-transform duration-300" variants={cardVariant} whileHover={{ scale: 1.06 }}>
-              {option.icon}
-              <h4 className="text-lg font-semibold mb-1">{option.title}</h4>
-              <p className="text-sm text-gray-600">{option.text}</p>
-            </motion.div>
-          ))}
+        {/* Arrows */}
+        <div className="flex justify-center gap-6 mt-10 mb-6 text-2xl text-white">
+          <button
+            onClick={scrollLeft}
+            className="w-10 h-10 rounded-full bg-white text-red-600 hover:bg-gray-200 transition"
+          >
+            ←
+          </button>
+          <button
+            onClick={scrollRight}
+            className="w-10 h-10 rounded-full bg-white text-red-600 hover:bg-gray-200 transition"
+          >
+            →
+          </button>
         </div>
 
-        <motion.div className="text-center mt-10" variants={fadeIn}>
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transform transition duration-300">
-            Join Now
-          </a>
-        </motion.div>
       </motion.section>
 
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
+
+      <motion.div
+  className="my-20"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  <div className="bg-gradient-to-br from-indigo-100 to-white rounded-xl px-6 md:px-12 py-12 shadow-xl max-w-7xl mx-auto">
+    <h2 className="text-4xl md:text-6xl font-extrabold text-center text-indigo-700 uppercase mb-10">
+      Bihar’s Living Heritage
+    </h2>
+
+    <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      {/* Left Text Content */}
+      <div className="md:w-1/2 text-left space-y-6">
+  <h3 className="text-4xl font-semibold text-neutral-800 leading-snug tracking-wide">
+    Preserving the echoes of our glorious past
+  </h3>
+
+  <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
+    Bihar is not merely a state — it's a living testament to India’s rich and ancient heritage. 
+    From the scholarly serenity of Nalanda to the spiritual depth of Bodh Gaya, every landmark whispers history.
+  </p>
+
+  <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
+    Our mission is to preserve these timeless legacies — to honour, protect, and promote the stories carved into our soil.
+  </p>
+</div>
+
+
+      {/* Right Side: Video */}
+<div className="md:w-1/2">
+  <div className="relative rounded-2xl overflow-hidden shadow-lg ring-2 ring-indigo-100">
+    <video
+      ref={videoRef}
+      src={heritageVideo}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="w-full h-auto object-cover rounded-2xl"
+      style={{ maxHeight: "500px" }}
+    />
+    {/* Optional overlay icon */}
+    <div className="absolute bottom-3 right-3 bg-white/70 backdrop-blur-md p-2 rounded-full shadow">
+      <svg
+        className="w-6 h-6 text-indigo-600"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path d="M6 4l10 6-10 6V4z" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</motion.div>
+
     </div>
   );
 };

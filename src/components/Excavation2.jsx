@@ -17,6 +17,9 @@ import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
 
+
+import BackImage from "../assets/UniqueBiharImg/PatnaSahib.jpeg";
+
 // Image map
 const imageMap = {
   "NalandaUniversity.jpg": NalandaImg,
@@ -147,13 +150,17 @@ const Excavation2 = () => {
 
   return (
     <div
-      className="relative min-h-screen flex flex-col"
-      style={{
-        background: "linear-gradient(to bottom right, #f8f9fa, #e9ecef)",
-      }}
-    >
+  className="relative min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+>
+  <div className="absolute inset-0 -z-10">
+          <img
+            src={BackImage}
+            alt="Background"
+            className="w-full h-full object-cover  brightness-[0.4]"
+          />
+        </div>
       <div className="relative z-10 min-h-screen mt-8 pt-10 pb-4 px-6 md:px-20 text-gray-800">
-        <h1 className="text-5xl font-bold text-center text-gray-900">Discoveries Through Time</h1>
+        <h1 className="text-7xl font-extrabold text-center text-white">DISCOVERIES THROUGH TIME</h1>
 
         <div className="mt-6 flex justify-center gap-4">
           <button

@@ -24,3 +24,10 @@ html {
   opacity: 1;
   transform: scale(1.2);
 }
+
+html,
+body,
+#root {
+  overflow-y: visible !important;
+}
+

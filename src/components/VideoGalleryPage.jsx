@@ -1,96 +1,157 @@
-import React from 'react';
-// eslint-disable-next-line
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Video Data
-const videoItems = [
-  { id: 'video1', youtubeVideoId: '7REX6br2CjY', caption: 'Nalanda University Documentary' },
-  { id: 'video2', youtubeVideoId: '7REX6br2CjY', caption: 'Exploring Vikramshila' },
-  { id: 'video3', youtubeVideoId: '7REX6br2CjY', caption: 'The Story of Patliputra' },
-  { id: 'video4', youtubeVideoId: '7REX6br2CjY', caption: 'Rohtas Fort - A Visual Tour' },
-  { id: 'video5', youtubeVideoId: '7REX6br2CjY', caption: 'Journey to Rajgir Hills' },
-  { id: 'video6', youtubeVideoId: '7REX6br2CjY', caption: 'Telhara Monastery Rediscovered' },
+const videoData = [
+  {
+    region: "Bihar",
+    category: "Art, Culture, & Youth",
+    title: "Ashoka and Bihar",
+    videoUrl: "https://www.youtube.com/embed/qcn8Mfl1Ogk?enablejsapi=1",
+    link: "https://www.youtube.com/watch?v=qcn8Mfl1Ogk",
+  },
+  {
+    region: "Bihar",
+    category: "Art, Culture, & Youth",
+    title: "Education in Bihar",
+    videoUrl: "https://www.youtube.com/embed/1u1bKreoPHg?enablejsapi=1",
+    link: "https://www.youtube.com/watch?v=1u1bKreoPHg",
+  },
+  // {
+  //   region: "Bihar",
+  //   category: "Art, Culture, & Youth",
+  //   title: "Buddhism in Bihar",
+  //   videoUrl: "https://www.youtube.com/embed/bpobLRMk9kY?enablejsapi=1",
+  //   link: "https://www.youtube.com/watch?v=bpobLRMk9kY",
+  // },
+  {
+    region: "Bihar",
+    category: "Art, Culture, & Youth",
+    title: "Heritage Walk on World Heritage Day 2025",
+    videoUrl: "https://www.youtube.com/embed/bivZV2J8NnI?enablejsapi=1",
+    link: "https://www.youtube.com/watch?v=bivZV2J8NnI",
+  },
+  {
+    region: "Bihar",
+    category: "Art, Culture, & Youth",
+    title: "World Heritage Day 2025 at Bihar Museum",
+    videoUrl: "https://www.youtube.com/embed/4KQ4awJe5MM?enablejsapi=1",
+    link: "https://www.youtube.com/watch?v=4KQ4awJe5MM",
+  },
 ];
 
-// Animation Variants
-const containerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      when: "beforeChildren",
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
-const headingVariants = {
-  hidden: { opacity: 0, y: -40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-};
-
 const VideoGalleryPage = () => {
-  return (
-    <motion.div
-      className="min-h-screen overflow-x-hidden overflow-y-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-12"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <div className="max-w-6xl mx-auto p-5">
-        <motion.h1
-          className="text-4xl md:text-5xl font-extrabold text-white mb-12 leading-tight text-center"
-          variants={headingVariants}
-        >
-          Bihar Heritage - Video Gallery
-        </motion.h1>
+  const [currentStart, setCurrentStart] = useState(0);
+  const cardWidth = 330;
+  const cardGap = 24;
+  const visibleCards = 4;
+  const containerWidth = cardWidth * visibleCards + cardGap * (visibleCards - 1);
+  const maxStart = videoData.length - visibleCards;
 
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-8">
-          {videoItems.map((item) => (
-            <motion.figure
-              key={item.id}
-              className="w-full md:w-[48%] lg:w-[31%] relative mb-5 rounded-lg overflow-hidden shadow-lg bg-gray-800 group cursor-pointer"
-              variants={cardVariants}
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="aspect-w-16 aspect-h-9 bg-black">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${item.youtubeVideoId}`}
-                  title={item.caption}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="rounded-t-lg"
-                ></iframe>
+  const handleLeft = () => {
+    setCurrentStart((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleRight = () => {
+    setCurrentStart((prev) => (prev >= maxStart ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleRight();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentStart]);
+
+  return (
+    <div
+      className="relative min-h-screen px-6 py-12"
+      style={{ backgroundColor: "#FEC343" }}
+    >
+      {/* Zigzag Background */}
+      <div
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/zig-zag.png')",
+          backgroundSize: "20px 20px",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h1 className="text-white text-8xl font-extrabold">VIDEO GALLERY</h1>
+          <p className="text-white text-3xl mt-2">— Bihar Heritage —</p>
+        </div>
+
+        {/* Card Container with extra height */}
+        <div
+          className="mx-auto relative"
+          style={{
+            width: `${containerWidth}px`,
+            height: "500px", // More than card height to allow hover float
+          }}
+        >
+          <div
+            className="flex gap-6 transition-transform duration-700 ease-in-out absolute"
+            style={{
+              transform: `translateX(-${currentStart * (cardWidth + cardGap)}px)`,
+            }}
+          >
+            {videoData.map((video, idx) => (
+              <div
+                key={idx}
+                className="w-[330px] h-[450px] bg-black text-white flex-shrink-0 shadow-xl transform transition-transform duration-300 hover:-translate-y-8 hover:scale-105 hover:shadow-2xl"
+
+              >
+                <div className="w-full h-[260px] overflow-hidden">
+                  <iframe
+                    src={video.videoUrl}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+                <div className="p-4 h-[190px] bg-black">
+                  <p className="text-red-500 font-semibold text-lg">
+                    {video.region} <span className="text-white">| {video.category}</span>
+                  </p>
+                  <h3 className="mt-2 font-bold text-2xl leading-tight">{video.title}</h3>
+                  <a
+                    href={video.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 text-sm text-yellow-400 border border-yellow-400 px-3 py-1 rounded hover:bg-yellow-400 hover:text-black transition"
+                  >
+                    Watch on YouTube
+                  </a>
+                </div>
               </div>
-              <figcaption className="p-4 text-center bg-gray-900">
-                <h3 className="text-lg font-semibold text-gray-200 group-hover:text-sky-400 transition-colors duration-300">
-                  {item.caption}
-                </h3>
-              </figcaption>
-            </motion.figure>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Arrows */}
+        <div className="flex justify-center mt-8 gap-10">
+          <button
+            onClick={handleLeft}
+            disabled={currentStart === 0}
+            className="text-black hover:scale-125 transition-transform disabled:opacity-30"
+          >
+            <FaArrowLeft size={28} />
+          </button>
+          <button
+            onClick={handleRight}
+            disabled={currentStart >= maxStart}
+            className="text-black hover:scale-125 transition-transform disabled:opacity-30"
+          >
+            <FaArrowRight size={28} />
+          </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,124 +1,211 @@
-import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import SwiperCore from "swiper";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-import img1 from "../assets/heritage/img1.jpeg";
-import img2 from "../assets/heritage/img2.jpg";
-import img3 from "../assets/heritage/img3.jpg";
-import img4 from "../assets/heritage/img4.jpg";
-import img5 from "../assets/heritage/img5.jpg";
-import img6 from "../assets/heritage/img6.jpg";
-import img7 from "../assets/heritage/img7.jpg";
-import img8 from "../assets/heritage/img8.jpg";
+import BodhGaya from "../assets/GalleryImg/BodhGaya.webp";
+import JalMandir from "../assets/GalleryImg/JalMandir.jpg"; // background image
+import MahabodhiTemple from "../assets/GalleryImg/MahabodhiTemple.jpg";
+import ShantiBabaMandir from "../assets/GalleryImg/ShantiBaba.jpg";
+import RohtasGarhFort from "../assets/UniqueBiharImg/RohtasFort.webp";
+import NalandaUniversity from "../assets/UniqueBiharImg/NalandaUniversity.jpg";
+import PatnaSahib from "../assets/UniqueBiharImg/PatnaSahib.jpeg";
+import VikramShila from "../assets/UniqueBiharImg/VIKRAMSHILA_UNIVERSITY.png";
+import VaishaliBihar from "../assets/GalleryImg/VaishaliBihar.webp";
+import AjatshatruFort from "../assets/GalleryImg/AjatshatruFort.avif";
 
-const photos = [img1, img2, img3, img4, img5, img6, img7, img8];
+const data = [
+  {
+    image: BodhGaya,
+    title: "Bodh Gaya",
+    subtitle: "The sacred place where Buddha attained enlightenment",
+    location: "Gaya, Bihar",
+  },
+  {
+    image: JalMandir,
+    title: "Jal Mandir",
+    subtitle: "Beautiful marble Jain temple in a lotus-filled pond",
+    location: "Pawapuri, Bihar",
+  },
+  {
+    image: MahabodhiTemple,
+    title: "Mahabodhi Temple",
+    subtitle: "UNESCO site marking Buddha’s enlightenment",
+    location: "Bodh Gaya, Bihar",
+  },
+  {
+    image: ShantiBabaMandir,
+    title: "Shanti Baba Mandir",
+    subtitle: "Serene temple near the Ganga river islands",
+    location: "Kahalgaon, Bihar",
+  },
+  {
+    image: RohtasGarhFort,
+    title: "Rohtasgarh Fort",
+    subtitle: "Historic hill fort with majestic architecture",
+    location: "Rohtas, Bihar",
+  },
+  {
+    image: NalandaUniversity,
+    title: "Nalanda University Ruins",
+    subtitle: "Ancient global center of learning for Buddhism",
+    location: "Nalanda, Bihar",
+  },
+  {
+    image: PatnaSahib,
+    title: "Takht Sri Patna Sahib",
+    subtitle: "Sacred birthplace of Guru Gobind Singh Ji",
+    location: "Patna, Bihar",
+  },
+  {
+    image: VikramShila,
+    title: "Vikramshila University",
+    subtitle: "Ruins of a major Buddhist learning center",
+    location: "Bhagalpur, Bihar",
+  },
+  {
+    image: VaishaliBihar,
+    title: "Vaishali Stupa",
+    subtitle: "Historic site of Buddha’s last sermon",
+    location: "Vaishali, Bihar",
+  },
+  {
+    image: AjatshatruFort,
+    title: "Ajatshatru Fort",
+    subtitle: "Ancient red-brick fort of the Magadha dynasty",
+    location: "Rajgir, Bihar",
+  },
+];
 
 const Gallery = () => {
-  const navigate = useNavigate();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  let swiperRef = null;
 
   useEffect(() => {
-    SwiperCore.use([Navigation, Autoplay, Pagination]);
-  }, []);
+    if (prevRef.current && nextRef.current && swiperRef) {
+      prevRef.current.addEventListener("click", () => swiperRef.slidePrev());
+      nextRef.current.addEventListener("click", () => swiperRef.slideNext());
+    }
+  }, [swiperRef]);
 
   return (
-    <div className="bg-white min-h-screen px-4 md:px-16 py-16" id="gallery">
-      <motion.h2
-        className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 mb-3"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        Experience the Culture
-      </motion.h2>
+    <div className="relative w-full overflow-hidden">
+      {/* Blurred Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={JalMandir}
+          alt="Background"
+          className="w-full h-full object-cover  brightness-[0.4]"
+        />
+      </div>
 
-      <motion.p
-        className="text-center text-gray-600 text-lg mb-14 max-w-3xl mx-auto"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        Discover Bihar’s rich heritage and traditions through immersive visuals curated from historical and cultural landmarks.
-      </motion.p>
+      <div className="relative py-16 px-4 md:px-16 z-10">
+        {/* Heading Section */}
+        <div className="w-full max-w-screen-xl mx-auto py-16 px-4 md:px-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase mb-2 drop-shadow-md"
+          >
+            Experience the Culture
+          </motion.h2>
 
-      <h3 className="text-2xl font-bold text-blue-800 mb-6">📸 Photo Gallery</h3>
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="relative"
-      >
-        {/* Arrows */}
-        <div
-          ref={prevRef}
-          className="absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-blue-800 text-white flex justify-center items-center rounded-full cursor-pointer shadow-lg hover:bg-blue-900 transition"
-        >
-          ❮
-        </div>
-        <div
-          ref={nextRef}
-          className="absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-blue-800 text-white flex justify-center items-center rounded-full cursor-pointer shadow-lg hover:bg-blue-900 transition"
-        >
-          ❯
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-white text-lg text-center drop-shadow"
+          >
+            — Explore Bihar’s rich heritage and timeless cultural landmarks. —
+          </motion.p>
         </div>
 
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          onSwiper={(swiper) => {
-            setTimeout(() => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            });
-          }}
-          autoplay={{ delay: 3000 }}
-          pagination={{
-            clickable: true,
-            el: ".custom-pagination",
-          }}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-          modules={[Navigation, Autoplay, Pagination]}
-        >
-          {photos.map((src, index) => (
-            <SwiperSlide key={index}>
-              <motion.div
-                className="overflow-hidden rounded-2xl shadow-md cursor-pointer group bg-white border border-gray-200 hover:shadow-xl transition-all duration-300"
-                whileHover={{
-                  scale: 1.03,
-                  transition: { duration: 0.3, ease: "easeInOut" },
-                }}
-                onClick={() => navigate("/GalleryPage")}
+        {/* Slider */}
+        <div className="relative z-10">
+          <div className="mb-4">
+            <p className="text-2xl md:text-3xl font-bold text-yellow-300">
+              📸 Photo Gallery
+            </p>
+          </div>
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={"auto"}
+            centeredSlides={true}
+            loop={true}
+            onSwiper={(swiper) => (swiperRef = swiper)}
+            autoplay={{ delay: 4000 }}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            modules={[Navigation, Autoplay]}
+            className="pb-24"
+          >
+            {data.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className="!w-[85%] md:!w-[65%] lg:!w-[50%] flex justify-center"
               >
-                <motion.img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                  initial={{ scale: 1 }}
-                />
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                {({ isActive }) => (
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      scale: isActive ? 1 : 0.85,
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className={`relative w-full h-[420px] md:h-[500px] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-500 ${
+                      isActive ? "z-30" : "z-10 opacity-70"
+                    }`}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover rounded-[30px]"
+                    />
 
-        {/* Custom Pagination Dots Below the Image */}
-        <div className="custom-pagination flex justify-center mt-6  gap-[6px]"></div>
-      </motion.div>
+                    <div className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-black/80 to-transparent px-6 pt-8 pb-4 flex flex-col justify-end z-20">
+                      <h3 className="text-3xl md:text-4xl font-extrabold text-[#fda12b] leading-tight drop-shadow-md">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm md:text-lg text-white drop-shadow-sm">
+                        {item.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="absolute bottom-4 right-4 flex items-center text-white font-semibold text-sm md:text-base z-20">
+                      <FaMapMarkerAlt className="text-red-500 mr-1" />
+                      {item.location}
+                    </div>
+                  </motion.div>
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Arrows */}
+          <div className="flex justify-center items-center gap-6 mt-10">
+            <div
+              ref={prevRef}
+              className="custom-prev cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg shadow-lg"
+            >
+              &#8592;
+            </div>
+            <div
+              ref={nextRef}
+              className="custom-next cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg shadow-lg"
+            >
+              &#8594;
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
