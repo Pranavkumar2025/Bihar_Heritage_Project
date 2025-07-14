@@ -11,6 +11,7 @@ import News from "./News";
 import UniqueBihar from "./UniqueBihar";
 import { useLocation } from "react-router-dom";
 import GoverningComponents from "./GoverningComponents";
+import VideoGalleryPage from "./VideoGalleryPage";
 
 
 const Home = () => {
@@ -43,6 +44,7 @@ const Home = () => {
         <Conservation />
       </section> */}
       <Gallery />
+      {/* <VideoGalleryPage /> */}
       {/* <SS_Site /> */}
       <section ref={exploreJoinRef} id="explorejoin">
         <ExploreJoin />

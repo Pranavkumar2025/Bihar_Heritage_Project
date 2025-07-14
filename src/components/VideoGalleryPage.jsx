@@ -16,13 +16,6 @@ const videoData = [
     videoUrl: "https://www.youtube.com/embed/1u1bKreoPHg?enablejsapi=1",
     link: "https://www.youtube.com/watch?v=1u1bKreoPHg",
   },
-  // {
-  //   region: "Bihar",
-  //   category: "Art, Culture, & Youth",
-  //   title: "Buddhism in Bihar",
-  //   videoUrl: "https://www.youtube.com/embed/bpobLRMk9kY?enablejsapi=1",
-  //   link: "https://www.youtube.com/watch?v=bpobLRMk9kY",
-  // },
   {
     region: "Bihar",
     category: "Art, Culture, & Youth",
@@ -45,7 +38,7 @@ const VideoGalleryPage = () => {
   const cardGap = 24;
   const visibleCards = 4;
   const containerWidth = cardWidth * visibleCards + cardGap * (visibleCards - 1);
-  const maxStart = videoData.length - visibleCards;
+  const maxStart = Math.max(0, videoData.length - visibleCards);
 
   const handleLeft = () => {
     setCurrentStart((prev) => Math.max(0, prev - 1));
@@ -57,10 +50,11 @@ const VideoGalleryPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleRight();
+      setCurrentStart((prev) => (prev >= maxStart ? 0 : prev + 1));
     }, 5000);
+
     return () => clearInterval(interval);
-  }, [currentStart]);
+  }, [maxStart]);
 
   return (
     <div
@@ -84,12 +78,12 @@ const VideoGalleryPage = () => {
           <p className="text-white text-3xl mt-2">— Bihar Heritage —</p>
         </div>
 
-        {/* Card Container with extra height */}
+        {/* Card Container */}
         <div
-          className="mx-auto relative"
+          className="mx-auto relative overflow-hidden"
           style={{
             width: `${containerWidth}px`,
-            height: "500px", // More than card height to allow hover float
+            height: "500px",
           }}
         >
           <div
@@ -102,7 +96,6 @@ const VideoGalleryPage = () => {
               <div
                 key={idx}
                 className="w-[330px] h-[450px] bg-black text-white flex-shrink-0 shadow-xl transform transition-transform duration-300 hover:-translate-y-8 hover:scale-105 hover:shadow-2xl"
-
               >
                 <div className="w-full h-[260px] overflow-hidden">
                   <iframe
@@ -134,7 +127,7 @@ const VideoGalleryPage = () => {
         </div>
 
         {/* Arrows */}
-        <div className="flex justify-center mt-8 gap-10">
+        <div className="flex justify-center mt-8 gap-10 z-20 relative">
           <button
             onClick={handleLeft}
             disabled={currentStart === 0}
