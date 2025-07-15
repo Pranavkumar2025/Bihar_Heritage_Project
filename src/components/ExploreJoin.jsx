@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import JoinMovement from "./JoinMovement";
+
 import NalandaUniversityImg from "../assets/heritage/NalandaUniversity.jpg";
 import GolgharImg from "../assets/heritage/GolgharImg.jpg";
 import RohtasgarhFortImg from "../assets/heritage/rohtas.jpg";
@@ -209,57 +211,9 @@ const ExploreJoin = () => {
         </section>
 
         {/* ❤️ Join Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="py-24 px-6 md:px-20 bg-gradient-to-tr from-indigo-50 via-white to-indigo-100"
-        >
-          <div className="max-w-7xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-indigo-800 uppercase mb-4">
-              Join the Movement
-            </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Heritage needs its heroes — step in, speak up, and safeguard the soul of Bihar.
-            </p>
-          </div>
+        <JoinMovement />
 
-          <div className="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Become a Volunteer",
-                description: "Lend your time and energy to protect history and culture.",
-                icon: "🤝",
-              },
-              {
-                title: "Report a Site",
-                description: "Share neglected gems and help us bring them to light.",
-                icon: "📍",
-              },
-              {
-                title: "Support the Cause",
-                description: "Your donations, shares, or ideas can fuel preservation.",
-                icon: "🌟",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white ring-1 ring-indigo-100 rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition-transform transform hover:-translate-y-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-16 h-16 mx-auto mb-5 bg-indigo-100 text-indigo-600 text-3xl rounded-full flex items-center justify-center shadow-sm">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-indigo-800 mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+        {/* Footer */}
       </div>
     </div>
   );

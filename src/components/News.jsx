@@ -50,12 +50,16 @@ const newsItems = [
     icon: <CalendarDays className="w-6 h-6 text-blue-600" />,
   },
 ];
+ const fadeIn = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    };
 
 const News = () => {
   const swiperRef = useRef();
 
   return (
-    <section className="relative overflow-hidden py-24 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-white to-indigo-100">
+    <section className="relative min-h-screen overflow-hidden py-24 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-white to-indigo-100">
   {/* Zigzag SVG */}
   <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180 z-0">
     <svg
@@ -81,11 +85,11 @@ const News = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-4xl md:text-6xl font-extrabold text-indigo-900 mb-6 uppercase">
+        <h2 className="text-4xl md:text-7xl font-extrabold text-indigo-600 mb-6 uppercase">
           Recent Announcements
         </h2>
         <p className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto">
-          --Discover the newest announcements, festivals, and heritage walks happening across Bihar.--
+          - Discover the newest announcements, festivals, and heritage walks happening across Bihar -
         </p>
       </motion.div>
 
