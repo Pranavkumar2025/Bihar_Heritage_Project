@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
 // Load data
 import data from "./ExcavationData/Excavation.json";
 import detailMap from "./ExcavationData/DetailedInfo.json";
@@ -16,7 +17,6 @@ import rajgirImg from "../assets/heritage/rajgir.jpg";
 import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
-
 
 // Image map
 const imageMap = {
@@ -34,7 +34,7 @@ const Card = ({ item, index, onClick }) => {
   return (
     <motion.div
       key={item.id}
-      className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-64 min-h-[280px] bg-white"
+      className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-64 min-h-[280px] bg-white/10 backdrop-blur-sm"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       onClick={() => onClick(index)}
@@ -49,7 +49,7 @@ const Card = ({ item, index, onClick }) => {
       <div className="px-2 pt-4 rounded-b-lg text-gray-800 flex-grow flex flex-col justify-between group-hover:bg-[#f8c2c5] group-hover:text-gray-900 transition-colors duration-500">
         <div>
           <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-          <p className="text-sm mb-2 group-hover:opacity-90 transition-opacity duration-500">
+          <p className="text-sm text-gray-600 mb-2 group-hover:opacity-90 transition-opacity duration-500">
             {item.description}
           </p>
         </div>
@@ -141,146 +141,139 @@ const Excavation2 = () => {
   }, [items.length]);
 
   const scrollRef = useRef(null);
-  const scrollLeft = () => {
-  scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" });
-};
-
-const scrollRight = () => {
-  scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
-};
 
   const selectedItem = items[selectedIndex];
   const detailsText =
     detailMap[selectedItem?.title]?.details || "No detailed description available.";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-yellow-100 px-4 sm:px-6 md:px-12 py-12">
-  <div className="max-w-7xl mx-auto space-y-12">
+    <div className="relative min-h-screen flex flex-col overflow-hidden">
 
-    {/* Hero / Banner Section */}
-    <div className="bg-indigo-500 py-14 px-4 sm:px-10 text-center  shadow-lg">
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-3xl sm:text-4xl md:text-7xl font-extrabold text-white uppercase mb-4 tracking-wide"
-      >
-        Discoveries Through Time
-      </motion.h2>
+  {/* Background Image Layer */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="/helooo.jpg"// replace with your image path
+      alt="Background"
+      className="w-full h-full object-cover opacity-30"
+    />
+  </div>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-white text-sm sm:text-base md:text-lg max-w-2xl mx-auto"
-      >
-        — Echoes of the past unearthed through stone, soil, and legacy. —
-      </motion.p>
-    </div>
+  
 
-    {/* Tab Buttons */}
-    <div className="flex justify-center gap-3 flex-wrap">
-      {["excavation", "exploration"].map((tab) => (
-        <button
-          key={tab}
-          onClick={() => setActiveTab(tab)}
-          className={`px-5 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-medium transition-all ${
-            activeTab === tab
-              ? "bg-yellow-500 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-yellow-300"
-          }`}
-        >
-          {tab === "excavation" ? "🏺 Excavation Sites" : "🧭 Exploration Activities"}
-        </button>
-      ))}
-    </div>
+      <div className="relative z-10 min-h-screen mt-8 pt-10 pb-4 px-6 md:px-20 text-gray-800">
+        <h1 className="text-5xl  text-center text-[#66b2e2] font-montserrat font-extrabold tracking-widest">Bihar Heritage: Timeless Discoveries</h1>
 
-    {/* Highlighted Item Section */}
-    <div className="w-full max-w-6xl mx-auto">
-      <motion.div
-        className="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <img
-          src={imageMap[selectedItem.image]}
-          alt={selectedItem.title}
-          className="w-full md:w-1/2 h-64 md:h-auto object-cover"
-        />
-        <div className="p-6 md:p-10 flex flex-col justify-between">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            {selectedItem.title}
-          </h2>
-          <p className="text-gray-700 text-sm md:text-base max-h-52 overflow-y-auto pr-2">
-            {detailsText}
-          </p>
+        <div className="mt-6 flex justify-center gap-4">
           <button
-            onClick={() => setModalItem(selectedItem)}
-            className="mt-6 text-yellow-600 hover:underline font-semibold text-sm md:text-base"
+            onClick={() => setActiveTab("excavation")}
+            className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === "excavation"
+              ? "bg-[#66b2e2] text-white"
+              : "bg-white text-gray-800 hover:bg-[#96d2f7]"
+              }`}
           >
-            Learn More →
+            Excavation Sites
+          </button>
+          <button
+            onClick={() => setActiveTab("exploration")}
+            className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === "exploration"
+              ? "bg-[#66b2e2] text-white"
+              : "bg-white text-gray-800 hover:bg-[#96d2f7]"
+              }`}
+          >
+            Exploration Activities
           </button>
         </div>
+
+        <motion.div
+          className="mt-4 w-full px-4 md:px-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+         <div className="w-full h-[500px] perspective">
+      <motion.div
+        whileHover={{ rotateY: 180 }}
+        transition={{ duration: 0.4 }}
+        className="relative w-full h-full transform-style-preserve-3d will-change-transform transition-transform duration-700"
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 backface-hidden">
+          <img
+            src={imageMap[selectedItem.image]}
+            alt={selectedItem.title}
+            className="w-full h-full object-cover rounded-2xl shadow-lg"
+          />
+          <div className="absolute bottom-6 left-6 z-20 text-white">
+            <h2 className="text-3xl font-bold">{selectedItem.title}</h2>
+            <button
+              onClick={() => setModalItem(selectedItem)}
+              className="mt-4 text-[#FF4D5A] font-semibold hover:underline"
+            >
+              Learn More →
+            </button>
+          </div>
+        </div>
+
+        {/* Back Side */}
+       <div className="absolute inset-0 rotate-y-180 backface-hidden bg-white rounded-2xl shadow-lg p-6 overflow-y-auto flex flex-col md:flex-row">
+      
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 flex flex-col justify-between">
+        <div>
+          <h2 className="text-2xl lg:text-3xl font-bold mb-4">{selectedItem.title}</h2>
+          <p className="whitespace-pre-wrap text-sm md:text-base max-h-[350px] overflow-y-auto pr-2">
+            {detailsText}
+          </p>
+        </div>
+        <button
+          onClick={() => setModalItem(selectedItem)}
+          className="mt-6 text-[#FF4D5A] text-base font-semibold hover:underline transition-all duration-500 group-hover:text-[#D90429] flex items-center gap-1"
+        >
+          Learn More <ChevronRight size={16} />
+        </button>
+      </div>
+
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] lg:h-[400px] overflow-hidden mt-6 md:mt-0 md:ml-6">
+        <motion.img
+          src={imageMap[selectedItem.image]}
+          alt={selectedItem.title}
+          className="w-full h-full object-cover rounded-xl"
+         
+
+        />
+      </div>
+      
+    </div>
+  
       </motion.div>
     </div>
 
-    {/* Horizontal Scroll Cards */}
-<div className="pt-4 pb-6">
-  <div
-  ref={scrollRef}
-  className="flex gap-2 overflow-x-auto snap-x snap-mandatory px-1 sm:px-4 md:px-6 no-scrollbar"
-  style={{ scrollBehavior: "smooth" }}
->
-  {items.map((item, index) => (
-    <div key={item.id} className="snap-start shrink-0 w-[80%] sm:w-[320px] ">
-      <Card
-        item={item}
-        index={index}
-        onClick={setSelectedIndex}
-        isActive={index === selectedIndex}
-      />
+
+        </motion.div>
+
+        <div className="relative mt-1">
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar px-16 pt-4 pb-8 mb-4"
+          >
+            {items.map((item, index) => (
+              <Card key={item.id} item={item} index={index} onClick={setSelectedIndex} />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <Link to="/protected-sites">
+            <button className="bg-[#66b2e2] cursor-pointer text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#96d2f7] transition-all duration-300">
+              View All Protected Sites
+            </button>
+          </Link>
+        </div>
+
+        <Modal item={modalItem} onClose={() => setModalItem(null)} />
+      </div>
     </div>
-  ))}
-</div>
-
-
-  {/* Arrows */}
-  <div className="flex justify-center items-center gap-6 mt-6">
-    <button
-      onClick={scrollLeft}
-      className="custom-prev cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg"
-    >
-      &#8592;
-    </button>
-    <button
-      onClick={scrollRight}
-      className="custom-next cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg"
-    >
-      &#8594;
-    </button>
-  </div>
-</div>
-
-
-    {/* Call to Action */}
-    <div className="text-center">
-      <Link to="/protected-sites">
-        <button className="bg-yellow-600 text-lg sm:text-xl text-white px-6 py-3 rounded-full font-semibold hover:bg-yellow-700 transition-all duration-300">
-          📜 View All Protected Sites
-        </button>
-      </Link>
-    </div>
-
-    {/* Modal */}
-    <Modal item={modalItem} onClose={() => setModalItem(null)} />
-  </div>
-</div>
-
-
-
   );
 };
 

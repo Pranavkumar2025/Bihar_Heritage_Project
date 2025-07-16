@@ -96,17 +96,17 @@ const ExploreJoin = () => {
           variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
           className="relative py-10 px-6 md:px-20 bg-white"
         >
-          <div className="w-full max-w-screen-xl mx-auto bg-indigo-500 py-16 px-4 md:px-10 rounded-md">
+          <div className="w-full max-w-screen-xl mx-auto py-16 px-4 md:px-10 rounded-md">
             <motion.h2
               variants={fadeIn}
-              className="text-5xl md:text-6xl font-extrabold text-white text-center uppercase mb-4"
+              className="text-5xl md:text-7xl font-extrabold text-black text-center uppercase mb-4"
             >
               Explore Heritage Sites
             </motion.h2>
 
             <motion.p
               variants={fadeIn}
-              className="text-white text-lg text-center"
+              className="text-black text-lg text-center"
             >
               — Timeless sites that breathe life into Bihar’s identity —
             </motion.p>

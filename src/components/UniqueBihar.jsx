@@ -149,13 +149,13 @@ const UniqueBihar = () => {
 
         {/* 🚀 Features Carousel */}
         <section className="relative py-10 px-6 md:px-20 bg-white/90 overflow-visible">
-          <div className="w-full max-w-screen-xl mx-auto bg-indigo-500 py-16 px-4 md:px-10 rounded-none">
+          <div className="w-full max-w-screen-xl mx-auto py-16 px-4 md:px-10 rounded-none">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase mb-2"
+              className="text-5xl md:text-7xl font-extrabold text-black text-center uppercase mb-2"
             >
               What Makes Bihar Unique
             </motion.h2>
@@ -165,7 +165,7 @@ const UniqueBihar = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-white text-lg text-center"
+              className="text-black text-lg text-center"
             >
               — Discover Bihar’s unmatched contributions to culture, religion, and history through these timeless landmarks. —
             </motion.p>

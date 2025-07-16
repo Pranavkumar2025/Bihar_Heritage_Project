@@ -32,17 +32,6 @@ const GoverningComponents = () => {
   return (
     <section className="relative py-20 px-6 md:px-20 min-h-screen overflow-hidden">
 
-      {/* Background Image */}
- <div
-  className="absolute inset-0 bg-contain bg-no-repeat z-0"
-  style={{
-    backgroundImage: `url(${GoverningBodyBackImg})`,
-    backgroundPosition: "center top -70px", // crop top ~40px
-    opacity: 0.4,
-  }}
-></div>
-
-
       {/* Glassy Content Container */}
       <div className="relative">
         {/* Heading */}
