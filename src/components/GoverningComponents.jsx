@@ -44,7 +44,7 @@ const GoverningComponents = () => {
     Cultural Heritage Leadership
   </h1>
   {/* Subtitle */}
-  <p className="text-center text-gray-600 text-lg max-w-xl mx-auto mb-8">
+  <p className="text-center text-gray-600 font-semibold text-lg max-w-xl mx-auto mb-8">
     - Guiding the preservation of Bihar’s cultural legacy -
   </p>
 
