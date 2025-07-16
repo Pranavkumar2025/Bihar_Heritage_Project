@@ -1,206 +1,451 @@
 [
   {
     "id": 1,
-    "name": "Vikramshila Ruins",
-    "location": "Bhagalpur, Bihar",
-    "image": "VikramshilaRuins"
+    "name": "Golghar",
+    "location": "Patna, Bihar",
+    "image": "https://s7ap1.scene7.com/is/image/incredibleindia/gol-ghar-patna-bihar-1-attr-hero?qlt=82&ts=1726740340434",
+    "protected_since": "08-12-1976",
+    "subtitle": "A massive beehive‑shaped granary built by Captain John Garstin in 1786 under Warren Hastings to prevent famine. It stands 29 m tall with an inward-leaning dome & spiral staircases offering panoramic views of Patna and the Ganges"
   },
   {
     "id": 2,
-    "name": "Colganj Rock Cut Temples",
-    "location": "Bhagalpur, Bihar",
-    "image": "ColganjRockCut"
+    "name": "Agam Kuan, Gulzarbagh, Patna City",
+    "location": "Patna, Bihar",
+    "image": "https://s7ap1.scene7.com/is/image/incredibleindia/agam-kuan-patna-bihar-1-musthead-hero?qlt=82&ts=1726740207337",
+    "protected_since": "08-12-1976",
+    "subtitle": "An ancient circular brick well dating to the Mauryan era (~3rd century BCE). At 44 ft deep and lined with brick and wooden rings, it's tied to Ashoka's pre‑Buddhist history and folklore about torture and an unquenchable depth"
   },
   {
     "id": 3,
-    "name": "Patalpuri and Bateshwar Cave",
-    "location": "Bihar",
-    "image": "Bateshwar_sthan_caves"
+    "name": "Begu Hazzam's Mosque, Gulzarbagh, Patna City",
+    "location": "Patna, Bihar",
+    "image": "https://www.theislamicheritage.com/uploads/submission_images/417_Begu%20Hajjam's%20mosque%20Bihar.jpg",
+    "protected_since": "08-12-1976",
+    "subtitle": "One of Patna’s oldest mosques. While originally built under Khan Muazzam Nazir Khan around 1510, it was renovated by Begu Hajjam in 1645. It boasts glazed-tile Gaur‑style architecture, a majestic dome, minarets, and intricate carvings"
   },
   {
     "id": 4,
-    "name": "Patharghata Hill Sculptures",
-    "location": "Bhagalpur, Bihar",
-    "image": "SilentPages"
+    "name": "Jain Temple, Kamaldah, Gulzarbagh, Patna City",
+    "location": "Patna, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jain_Temple%2C_Kamaldah%2C_Gulzarbagh%2C_Patna%2C_Bihar..JPG/1200px-Jain_Temple%2C_Kamaldah%2C_Gulzarbagh%2C_Patna%2C_Bihar..JPG?20130923054036",
+    "protected_since": "08-12-1976",
+    "subtitle": "One of Bihar’s oldest Jain temples near Gulzarbagh Station. Marks the teaching site of Jain teacher Sthulabhadra; features ancient idols and lotus ponds"
   },
-  {
-    "id": 5,
-    "name": "Ancient Mound",
-    "location": "Buxar, Bihar",
-    "image": "AncientMound"
-  },
+  
   {
     "id": 6,
-    "name": "Pachrukhi Garh",
-    "location": "Balirajgarh, Madhubani",
-    "image": "PachrukhiGarh"
+    "name": "Chhoti Patan Devi, Patna City",
+    "location": "Patna, Bihar",
+    "image": "https://lh3.googleusercontent.com/p/AF1QipMJ4kW7Gwy-rlKF5zno4gBv0MEz0HlR5yowQVo3=w640-h640-no",
+    "protected_since": "08-12-1976",
+    "subtitle": "A revered Shakti Peetha temple believed to contain part of the goddess Sati. Though smaller than Bari Patan Devi, it was once the city's main shrine. It features images of Ganesh, Vishnu, Surya, and hosts vibrant festivals during Durga Puja"
   },
   {
     "id": 7,
-    "name": "Chankigarh Fortress Ruins",
-    "location": "Chanki, West Champaran",
-    "image": "Chanki_garh_West_Champaran"
+    "name": "Alawal Khan's Tomb, Sasaram",
+    "location": "Sasaram, Rohtas, Bihar",
+    "image": "https://rangandatta.wordpress.com/wp-content/uploads/2019/12/sher-shah-tomb-5.jpg?w=584",
+    "protected_since": "11-03-1981",
+    "subtitle": "Built for Alauddin (Alawal) Khan, architect for Sher Shah Suri. The sandstone mausoleum is enclosed within a walled courtyard with finely carved entrances"
   },
   {
     "id": 8,
-    "name": "Ashoka Pillar at Lauriya Nandangarh",
-    "location": "Lauria Nandangarh, Bihar",
-    "image": "AshokaPillarAtLauriy"
+    "name": "Surya Temple, Kandaha, Mauja Madwar",
+    "location": "Saharsa, Bihar",
+    "image": "https://tourism.bihar.gov.in/content/dam/bihar-tourism-aem/destination-detail/surya-mandir-kandaha/banner.jpg",
+    "protected_since": "07-08-1982",
+    "subtitle": "The Krishna-era Sun Temple at Kandaha village (Mahishi block). Built around the 12th century; features a carved granite idol of Surya in a seven-horse chariot; a rare Sun temple protected by ASI"
   },
   {
     "id": 9,
-    "name": "Vedic Burial Mounds",
-    "location": "Lauria Nandangarh, West Champaran",
-    "image": "VedicBurialMounds"
+    "name": "Katra Garh",
+    "location": "Muzaffarpur, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "07-08-1982",
+    "subtitle": "An archaeological fortification near Muzaffarpur, showcasing medieval defensive architecture."
   },
   {
     "id": 10,
-    "name": "Kesariya Stupa",
-    "location": "Bihar",
-    "image": "KesariyaStupa"
+    "name": "Nepali Temple, Hajipur",
+    "location": "Vaishali, Bihar",
+    "image": "https://static.langimg.com/photo/imgsize-157160,msid-66409937/navbharat-times.jpg",
+    "protected_since": "02-07-1981",
+    "subtitle": "A Hindu temple built by Nepali artisans with Kathmandu-style pagoda roof and carved wooden struts; serves as a cultural bridge between Bihar and Nepal."
+  },
+  {
+    "id": 5,
+    "name": "Two-faced Idol, Kankarbagh, Patna",
+    "location": "Patna, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "08-12-1976",
+    "subtitle": "An ancient dual-faced deity idol unearthed in Kankarbagh; details are sparse in public sources but it's noteworthy for its dual visage and religious significance."
   },
   {
     "id": 11,
-    "name": "Ashoka Pillar Lauriya",
-    "location": "Lauria Nandangarh, Bihar",
-    "image": "AshokaPillarLauriya"
+    "name": "Kheri Archaeological Site, Shahkund",
+    "location": "Bhagalpur, Bihar",
+    "image": "https://angdesh.com/wp-content/uploads/2022/03/cropped-Vikramshila.jpg",
+    "protected_since": "02-07-1981",
+    "subtitle": "An excavation site unveiling artifacts from early historic to medieval periods—pottery, coins, and structural remains—under ASI protection."
   },
   {
     "id": 12,
-    "name": "Ashokan Pillars at Rampurva",
-    "location": "West Champaran, Bihar",
-    "image": "AshokanPillarsRampurva"
+    "name": "Mahmud Shah's Tomb, Kahalgaon",
+    "location": "Bhagalpur, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "02-07-1981",
+    "subtitle": "Mausoleum of Sultan Mahmud Shah (Khilji dynasty) near Bhagalpur; features an elegant domed structure centered in landscaped grounds."
   },
   {
     "id": 13,
-    "name": "Crow Hill Sculptures",
-    "location": "Kauwadol Hill, Kurisarai, Gaya",
-    "image": "CrowHillSculptures"
+    "name": "Jalalgarh Fort Kasba",
+    "location": "Purnia, Bihar",
+    "image": "https://purneatimes.wordpress.com/wp-content/uploads/2019/03/2.jpg",
+    "protected_since": "16-08-1982",
+    "subtitle": "A 16th-century defensive fort near Purnia built by Jalal Khan. Comprised of thick walls, bastions, and internal complexes, showcasing medieval military architecture."
   },
   {
     "id": 14,
-    "name": "Ancient Buddha Statue Ruins",
-    "location": "Kurisarai, Bihar",
-    "image": "AncientBuddhaStatueRuins"
+    "name": "Arrah House, Maharaja College Campus",
+    "location": "Arrah, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Arrah_House.jpg",
+    "protected_since": "12-11-1982",
+    "subtitle": "Ara House, now known as the Veer Kunwar Singh Museum, is a historical building located within the campus of Maharaja College in Arrah, Bihar. It is a national monument that played a significant role during the First War of Indian Independence in 1857, also known as the Siege of Arrah."
   },
   {
     "id": 15,
-    "name": "Shiv Temple Konch",
-    "location": "Gaya, Bihar",
-    "image": "ShivTempleKonch"
+    "name": "Chausagarh",
+    "location": "Buxar, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Rishabhadeva%2C_Bronze_from_Chausa%2C_Bihar%2C_dating_from_7th_century_A.D._37631.jpg/500px-Rishabhadeva%2C_Bronze_from_Chausa%2C_Bihar%2C_dating_from_7th_century_A.D._37631.jpg",
+    "protected_since": "12-11-1982",
+    "subtitle": "Chausagarh, often referred to simply as Chausa, is a historically significant site in the Buxar district of Bihar, India. It is known for a pivotal battle in Indian history and a remarkable archaeological discovery"
   },
   {
     "id": 16,
-    "name": "Sujata Kutir Stupa",
-    "location": "Sujatagarh, Gaya",
-    "image": "SujataKutirStupa"
+    "name": "Daud Khan's Fort, Daudnagar, Aurangabad",
+    "location": "Aurangabad, Bihar",
+    "image": "https://i0.wp.com/indianvagabond.com/wp-content/uploads/2023/10/Daud-Khan-Fort-Aurangabad-7.jpg?resize=1024%2C684&ssl=1",
+    "protected_since": "01-06-1983",
+    "subtitle": "Located on the eastern bank of the Sone river in Daudnagar, Aurangabad district, Bihar, Daud Khan Fort is a significant historical site dating back to the 17th century. Founded by Daud Khan, a governor of Bihar under the Mughal Emperor Aurangzeb, the fort's construction commenced in 1663 and was completed in 1673. It was built as a formidable stronghold, featuring a battlemented wall, imposing gates, and a surrounding moat."
   },
   {
     "id": 17,
-    "name": "Buddha of Ghejan",
-    "location": "Jehanabad, Bihar",
-    "image": "BuddhaOfGhejan"
+    "name": "Ramshila Hill, Gaya",
+    "location": "Gaya, Bihar",
+    "image": "https://hblimg.mmtcdn.com/content/hubble/img/ttds/mmt/activities/t_ufs/m_Gaya_Ramshila_Hill_7_l_600_800.jpg",
+    "protected_since": "21-02-2007",
+    "subtitle": "Ramshila Hill is a prominent and highly revered pilgrimage site in Gaya, Bihar, holding significant mythological and spiritual importance, especially for Hindus. Located on the southeast side of Gaya, it's easily accessible and considered one of the holiest places in the region."
   },
   {
     "id": 18,
-    "name": "Lomas Rishi Cave",
-    "location": "Khidar Saray, Bihar",
-    "image": "LomasRishiCave"
+    "name": "Pretshila Hill, Chamari, Chiraiyroad, Bahadur Bigha",
+    "location": "Gaya, Bihar",
+    "image": "https://hindi.cdn.zeenews.com/hindi/sites/default/files/styles/zm_700x400/public/2022/09/15/1322209-pretshila.jpg?itok=bw1Dhn1G",
+    "protected_since": "21-02-2007",
+    "subtitle": "Pretshila Hill, also known as Pret Shila, is a significant Hindu pilgrimage site located in Gaya, Bihar, particularly associated with rituals for the peace and salvation of departed souls. It holds great religious importance, especially for those who visit to perform Pinda Daan, a ritual offering made to ancestors."
   },
   {
     "id": 19,
-    "name": "Sudama Cave",
-    "location": "Bihar",
-    "image": "SudamaCave"
+    "name": "Vishnupad Temple, Gaya",
+    "location": "Gaya, Bihar",
+    "image": "https://puja.viaveda.in/wp-content/uploads/2024/11/Vishnupad_Temple_de7a7ce9ce.webp",
+    "protected_since": "21-02-2007",
+    "subtitle": "The Vishnupad Temple, located on the banks of the Falgu River in Gaya, Bihar, is a highly revered Hindu temple dedicated to Lord Vishnu. It is one of the most important pilgrimage destinations in the region, particularly for devotees who come to perform rituals for their ancestors."
   },
   {
     "id": 20,
-    "name": "Karan Chaupar Cave",
-    "location": "Barabar Hills, Bihar",
-    "image": "KaranChauparCave"
+    "name": "Brahmayoni Hill, Gaya",
+    "location": "Gaya, Bihar",
+    "image": "https://images.bhaskarassets.com/thumb/730x0/web2images/521/2024/09/10/app_172587808266decf42f33f9_1001204951.jpg",
+    "protected_since": "21-02-2007",
+    "subtitle": "Brahmayoni Hill, located south of Gaya in Bihar, is a significant pilgrimage site for both Hindus and Buddhists, offering a blend of religious importance and natural beauty. It is known for its connection to both Hindu mythology and Buddhist history."
   },
   {
     "id": 21,
-    "name": "Lomas Rishi Cave, Barabar Hills",
-    "location": "Barabar Hills, Bihar",
-    "image": "LomasRishiCaveBarabarHills"
+    "name": "Hazarimal Dharamshala, Bettiah",
+    "location": "West Champaran, Bihar",
+    "image": "https://c8.alamy.com/comp/CE67GR/hazarimal-dharamshala-mahatma-gandhi-satyagrah-building-betia-bettiah-CE67GR.jpg",
+    "protected_since": "11-11-1996",
+    "subtitle": "Hazarimal Dharamshala, located in the Lal Bazar area of Bettiah, Bihar, holds historical significance related to India's freedom struggle, specifically the Champaran Satyagraha."
   },
   {
     "id": 22,
-    "name": "Vadathika Cave",
-    "location": "Bihar",
-    "image": "VadathikaCave"
+    "name": "Mira Bigha",
+    "location": "Jehanabad, Bihar",
+    "image": "https://im.hunt.in/cg/Jahanabad/City-Guide/Shidheshwar-Nath-Temple.jpg",
+    "protected_since": "24-07-1998",
+    "subtitle": "Mira Bigha is a village situated in the Jehanabad district of Bihar, within the Tikari tehsil, that serves as a local hub along the Patna-Gaya railway line with its own halt station. This rural settlement, home to a population of around 1512 residents across approximately 173 households, also possesses an archaeological complex, hinting at its historical depth and potential for further discovery."
   },
   {
     "id": 23,
-    "name": "Vapiyaka Caves",
-    "location": "Bihar",
-    "image": "VapiyakaCaves"
+    "name": "Babu Veer Kunwar Singh Birthplace",
+    "location": "Bhojpur, Bihar",
+    "image": "https://www.prabhatkhabar.com/wp-content/uploads/2025/01/babu-veer-kunwar-singh-1024x673.jpg",
+    "protected_since": "25-07-2000",
+    "subtitle": "Babu Veer Kunwar Singh, a celebrated figure of the 1857 Indian Rebellion, was born in the historic town of Jagdishpur, now part of the Bhojpur district in Bihar, India. As a member of the Ujjainiya clan, which held sway over the Jagdishpur estate, he inherited a legacy of leadership and valor. His ancestral home, particularly the Jagdishpur Fort, stands as a tangible link to his past and a testament to his pivotal role in the struggle for Indian independence."
   },
   {
     "id": 24,
-    "name": "Viswa Jhopa Rock Cut Cave",
-    "location": "Barabar Hill, Bihar",
-    "image": "ViswaJhopaRockCutCave"
+    "name": "Jama Masjid, Stone Mosque, Hajipur",
+    "location": "Vaishali, Bihar",
+    "image": "https://pbs.twimg.com/amplify_video_thumb/1692079199904038913/img/0JvGJjKxMmxMCb6U.jpg:large",
+    "protected_since": "06-07-2002",
+    "subtitle": "In Hajipur, Bihar, the Sangi Jama Masjid, also known as the Stone Mosque or Patthar ki Masjid, stands as a notable historical and religious landmark. Located on the banks of the Gandak River, it's distinguished by its construction entirely of stone, which gives it its name. This mosque was built in 1587 AD by Makhasush Khan, who was the governor of Hajipur during the reign of Mughal Emperor Akbar."
   },
   {
     "id": 25,
-    "name": "Tomb of Malik Ibrahim Bayu",
-    "location": "Nalanda, Bihar",
-    "image": "TombOfMalikIbrahimBayu"
+    "name": "Masahi Kaimur",
+    "location": "Kaimur, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/KohiraDamKaimurBihar.jpg/1200px-KohiraDamKaimurBihar.jpg",
+    "protected_since": "15-09-1998",
+    "subtitle": "In Kaimur (Bhabua) district of Bihar, India, the village of Masahi is located within the Bhagwanpur subdivision. It is known to be in the Bhagwanpur taluka (subdivision) and falls under the jurisdiction of the Saraiya Gram Panchayat and the Bhagwanpur Block Panchayat. Masahi, with a geographical area of 285 hectares (or 2.85 square kilometers), has a population of approximately 1565 people."
   },
   {
     "id": 26,
-    "name": "Ancient Mound, Bargaon",
-    "location": "Nalanda, Bihar",
-    "image": "AncientMoundBargaon"
+    "name": "Munger Fort",
+    "location": "Munger, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "13-01-2001",
+    "subtitle": "Munger Fort, located in the city of Munger, Bihar, is a formidable historical structure situated on a rocky hillock along the southern bank of the Ganges River. It is a site of immense historical and architectural significance, having played a key role in the region's military and administrative affairs for centuries."
   },
   {
     "id": 27,
-    "name": "Statue of Buddha",
-    "location": "Jagdishpur, Nalanda",
-    "image": "StatueOfBuddha"
+    "name": "Chirand",
+    "location": "Saran, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "",
+    "subtitle": "Chirand, located in the Saran district of Bihar, is a nationally renowned archaeological site, recognized for its exceptional evidence of the Neolithic age and subsequent cultural periods. Often referred to as the \"'rising sun of the neolithic culture in India'\", Chirand boasts a significant prehistoric mound that holds a continuous archaeological record spanning from the Neolithic period (around 2500–1345 BC) to the reign of the Pal dynasty."
   },
   {
     "id": 28,
-    "name": "Rajgir Ancient Structures",
-    "location": "Rajgir, Bihar",
-    "image": "RajgirAncientStructures"
+    "name": "Taradih, Bodhgaya, Gaya",
+    "location": "Gaya, Bihar",
+    "image": "http://t3.gstatic.com/images?q=tbn:ANd9GcSa3tO4_kLjWAa0SXkkmgv6FLPxp84lh4lEljmArrQvDODb4Lgj2uwjIhfrEmo1bLBXiTf2sCK2",
+    "protected_since": "22-02-2006",
+    "subtitle": "\"Taradih is an archaeological site near Bodh Gaya in Bihar, India, revealing a history of human settlements from the Neolithic to the Pala periods. Bodh Gaya is a UNESCO World Heritage Site and the place where Lord Buddha is said to have attained enlightenment under the Bodhi Tree. The Mahabodhi Temple Complex in Bodh Gaya includes the ancient Mahabodhi Temple and a descendant of the original Bodhi Tree, attracting Buddhist pilgrims worldwide. Gaya is a district headquarters and the second-largest city in Bihar. Gaya is considered holy by Hindus, Buddhists, and Jains, serving as a significant pilgrimage destination for performing rituals like Pind-daan, and for Buddhists as a site of the Buddha's teachings.\""
   },
   {
     "id": 29,
-    "name": "Bulandi Bagh",
-    "location": "Patna, Bihar",
-    "image": "BulandiBagh"
+    "name": "Nishan Singh Shaheed Smarak Sthal and Cemetery, Sasaram",
+    "location": "Rohtas, Bihar",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frohtasdistrict.com%2Fmartyr-babu-nishan-singh-from-rohtas%2Fbabu-nishan-singh%2F&psig=AOvVaw2T1M5tzzpi23XTMBXm2RnH&ust=1751530815407000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNCnnvPenY4DFQAAAAAdAAAAABAK",
+    "protected_since": "08-11-2006",
+    "subtitle": "\"Significance: This memorial honors Shaheed Nishan Singh, a key figure in the Indian Rebellion of 1857. He was a close associate of Babu Kunwar Singh and played a significant role in the uprising against British rule in the Shahabad (now Rohtas) region. Execution Site: The memorial marks the spot where Nishan Singh was executed by the British. On June 7, 1858, he was tied to the mouth of a cannon and blown apart. Twelve other rebels were also executed by the British in a similar manner. Memorial and Celebrations: The site commemorates the sacrifice of Nishan Singh and his fellow freedom fighters. Annual events and programs are held to mark his martyrdom anniversary. A library named after Nishan Singh is nearby, and efforts have been made to renovate it.\""
   },
   {
     "id": 30,
-    "name": "Ashokan Palace Site Kumharar",
-    "location": "Patna, Bihar",
-    "image": "AshokanPalaceSiteKumharar"
+    "name": "Apsarh Garh, Varah Temple and Ancient Pond located in Apsarh village",
+    "location": "Nawada, Bihar",
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npS0f2luaox0WyYOYJ9ea1WnXRyCDsYsx8gPoBhCOUNaQ02q-CMg6Tgbbs_tOLuPfq5S_hFlIgEVtfxRGYVBizfvOVBgdnWYsetgNwH-vyJlze6U9lCXwEQ-_QCnXK53tCmiQnWzs1tZFP-=s1360-w1360-h1020-rw",
+    "protected_since": "16-03-2011",
+    "subtitle": "\"Apsarh Village: Located in the Nawada district of Bihar, Apsarh is a village of historical interest. It is known for its historical monuments originating from King Adityasen, of the Later Gupta dynasty. It is situated 14 km from Warisaliganj. Apsarh Garh: The term \"Garh\" suggests a fort or fortified area. However, there's not a lot of specific information available about \"Apsarh Garh\" as a distinct structure in Apsarh village within these search results. It's likely related to the historical monuments mentioned as being from the time of King Adityasen. Some sources mention the \"Battle Ground of Jarasandh\" in Rajgir, Bihar, which is described as having history, mythology, and reality blended together, suggesting a historical battlefield site, but it's unclear if this is related to Apsarh Garh.\""
   },
   {
     "id": 31,
-    "name": "Mir Ashraf Masjid",
-    "location": "Patna City, Bihar",
-    "image": "MirAshrafMasjid"
+    "name": "Parvati Hill",
+    "location": "Nawada, Bihar",
+    "image": "https://cdn.s3waas.gov.in/s3a4f23670e1833f3fdb077ca70bbd5d66/uploads/bfi_thumb/2018032844-olwbexnghz5ildoq61ol17eggezzm0jneq46vzyw7e.jpeg",
+    "protected_since": "16-03-2011",
+    "subtitle": "\"This site in Nawada district is connected to Buddhist mythology. According to legend, Lord Buddha spent a year in this cave during heavy rains. During this time, Indra Dev, the king of Gods, visited Buddha and asked him 42 questions, all of which Buddha answered correctly. This site is located in the village of Dariyapur within the Kashichak block. It is approximately 30 km from Rajgir and 120 km from Bodh Gaya, and is part of the Buddhist Circuit.\""
   },
   {
     "id": 32,
-    "name": "Tomb of Shah Makhadum Daulat Maneri and Ibrahim Khan",
-    "location": "Bihar",
-    "image": "TombOfShahMakhadumDaulat"
+    "name": "George Orwell's Birthplace",
+    "location": "Motihari, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "10-12-2010",
+    "subtitle": ""
   },
   {
     "id": 33,
-    "name": "Tank Maner",
-    "location": "Maner, Bihar",
-    "image": "TankManer"
+    "name": "Tekari Fort (Nau Ana)",
+    "location": "Gaya, Bihar",
+    "image": "https://scontent.fccu19-1.fna.fbcdn.net/v/t39.30808-6/503575966_10087010838052192_3506643036812607368_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=NV_UFD2-S_IQ7kNvwEvQjBy&_nc_oc=Adkqzrg-9gp6Q4o48OrBKoOzzYXNlOgMQOfnx-ZtdwYaBGhgWk_kX48Uat6j07Ua0R8&_nc_zt=23&_nc_ht=scontent.fccu19-1.fna&_nc_gid=wAZ6EZhGzfgTpSE0-UyGSA&oh=00_AfMxhMlSSB6jN_A9ixe7dtxsjdLT5RgxlpjORniwwUnVwg&oe=686AA2F8",
+    "protected_since": "23-02-2011",
+    "subtitle": "\"Tekari Fort, also known as Nau Ana Fort, in Gaya, Bihar, stands as a testament to the region's rich history and architectural heritage. The fort of Tekari Raj was a prominent zamindari estate, and the fort itself reflects a blend of art and architecture, serving as a reminder of the glory of the past. Architectural Features: Five-Storied Structure: The king's palace was built on a high platform with a beautiful, five-story building. Strategic Location: The topmost chambers were reserved for the king, offering panoramic views of the surroundings to detect approaching enemies. Underground Features: The fort complex included an underground palace, a war ground, and a network of tunnels. Tunnel to the Pond: A notable feature was a 3-kilometer long tunnel connecting the king's palace to a nearby pond, which was reportedly used by the queen for her daily ablutions. Recreational Spaces: A beautiful garden near the pond provided a space for the queen and her companions to relax. Other Attractions: The fort complex also housed a Rangmahal Guesthouse, a beautiful makeup room, a dance hall, a mysterious pond, a massive lion gate, and even cages for tigers, which added to its grandeur and mystique. Historical Significance: Tekari Raj Zamindari Estate: The Tekari Raj was a significant zamindari estate in South Bihar during the Mughal period, with the Tekari family playing an influential role in the socio-economic and political landscape of the region. Notable Rulers: The estate was established by Raja Veer Singh and subsequently ruled by various prominent figures like Sunder Shah, Hitnarayan Singh, Buniad Singh, Modnarayan Singh, and Captain Maharaja Gopal Sharan Singh. Architectural Symbol: The fort, with its impressive structures and defensive features, stood as a symbol of the power and prestige of the Tekari Rajas. \""
   },
   {
     "id": 34,
-    "name": "Tomb of Shamsher Khan",
-    "location": "Aurangabad, Bihar",
-    "image": "TombOfShamsherKhan"
+    "name": "Ahilya Sthan",
+    "location": "Darbhanga, Bihar",
+    "image": "https://mindtrip.ai/cdn-cgi/image/w=640,format=webp,h=480,fit=cover/https://iorigin.mindtrip.ai/attractions/2cb2/20cf/01bd/ed3e/d108/1bd0/f8ef/dd08",
+    "protected_since": "07-01-2014",
+    "subtitle": "\"Ahilya Sthan, also known as Ahalya Asthan, is a significant Hindu temple located in the Ahiyari South neighborhood of Darbhanga, Bihar. It is a site steeped in mythology, particularly in connection with the story of Goddess Ahilya from the epic Ramayana. Key Aspects: Deity: The temple is primarily dedicated to Goddess Ahilya, the wife of Sage Gautam Rishi. Mythological Significance: The site is believed to be the former ashram of Maharishi Gautama and is associated with the legend of Lord Rama liberating Ahilya from a curse, restoring her human form. This makes it a sacred place symbolizing redemption and purity. Temple Construction: The current structural form of the temple was built between 1662 and 1682 during the reign of Maharaja Chhatra Singh and Maharaja Rudra Singh. It is also considered the first Ram Janaki temple in India. Architectural Style: The temple showcases exquisite art and traditional Indian architectural patterns, particularly the Maithili style. You can admire intricate carvings and sacred symbols on the temple walls. Main Object of Worship: A flat stone within the temple is said to bear the footprints of Goddess Sita. Festivals: Large fairs are held every year on the occasions of Ramnavami in the Hindi month of Chaitra and Vivah Panchami in Agrahayan. Atmosphere: Ahilya Sthan offers a serene ambiance for prayer and reflection. Location: It is situated about 3 kilometers south of Kamtaul Railway Station in Jale Block, in a place known as Ahilya gram. It is also located near the banks of the Gandaki river. \""
+  },
+  {
+    "id": 35,
+    "name": "Telhara",
+    "location": "Nalanda, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/IMG_B6465FF4640F-1.jpg/1280px-IMG_B6465FF4640F-1.jpg",
+    "protected_since": "17-01-2014",
+    "subtitle": "\"Telhara, located in the Nalanda district of Bihar, is an important archaeological site known for the ruins of an ancient Buddhist monastery and what is believed to have been a university or seat of learning, possibly older than Nalanda and Vikramshila. It is also known as Tiladhak or Teladhaka and was a prominent center of learning and monastic life, particularly associated with Mahayana Buddhism. Description: Ancient Monastery and University: Telhara was the site of a significant Buddhist monastery dating back to the 1st century CE and remaining active until at least the 12th century CE. Chinese travelers like Hiuen Tsang and Yijing mentioned Telhara in their accounts, highlighting its importance as a center of higher learning. Archaeological Discoveries: Excavations at Telhara have unearthed a wealth of artifacts and structural remains, including: Ruins of stupas, sculptures, and artifacts from India's early Buddhist period. Evidence of a multi-story monastery from the Gupta period through the Pala period. Red sandstone, black stone or blue basalt statues of Buddha and several Hindu deities. Miniature bronze and terracotta stupas, statues, and figurines dating back to the Gupta and Pala empires. Terracotta monastery seals, some featuring a Chakra flanked by two deer, similar to those found at Nalanda, suggesting a connection between the institutions. Evidence of a three-storeyed structure, prayer halls, residential cells, and a platform that could accommodate over 1,000 monks or students.\""
+  },
+  {
+    "id": 36,
+    "name": "Sopha Temple",
+    "location": "West Champaran, Bihar",
+    "image": "https://www.bhaskar.com/local/bihar/muzaffarpur/bettiah/news/visit-the-ancient-sofa-shiva-temple-of-mahabharata-is-situated-on-a-70-feet-high-mound-129452422.html",
+    "protected_since": "12-02-2014",
+    "subtitle": "\"Sopha Temple, located in West Champaran, Bihar, is a Shiv Mandir situated in the foothills of the Himalayas. It is known for its religious significance and its beautiful natural surroundings. It is considered a place of religious attraction, particularly for those interested in the Valmiki Tiger Reserve area. Description: Ancient Temple: The Sopha Shiva temple is considered very old, with some local accounts suggesting a connection to the Mahabharata era. Location: It is situated on a 70-foot high mound, surrounded by forests, mountains, and rivers on three sides, near the border of Nepal. Mythological Association: Local beliefs suggest that the Pandavas used to bathe in the nearby river, giving it the name \"Pandai\". Highlight: The temple itself is described as \"attractive,\" situated amidst a \"beautiful river\" and having the feel of an \"ancient place\".\""
+  },
+  {
+    "id": 37,
+    "name": "Morrison Building",
+    "location": "Patna, Bihar",
+    "image": "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2022/08/22/orig_21patna-city-pg-2-01_1661123103.jpg",
+    "protected_since": "01-09-2014",
+    "subtitle": "\"The Morrison Building in Patna is a significant historical building that has recently been added to the list of protected monuments in Bihar under the state archaeology department. Description: Architectural Style: The Morrison Building is described as a symbol of Gothic architecture. This suggests an ornate and detailed style, likely featuring elements such as pointed arches, ribbed vaults, and large windows. Historical Significance: The building is linked to F.A. Morrison, a foreign woman from Australia who played a vital role in enhancing education in Patna. Current Condition and Future Plans: In 2014, the building was reported to be facing neglect, with issues like encroachment, piled up garbage, and lack of maintenance. In 2014, the state archaeology directorate planned to undertake renovation work on the Morrison Building. More recently, in 2022, there was a plan to establish a new museum within the Morrison Building premises, dedicated to showcasing the life and work of F.A. Morrison, who significantly contributed to the education of disadvantaged children in Patna, mentoring many future civil servants. The proposed museum aims to display items used by F.A. Morrison, including her books, furniture, clothes, diary, and other personal belongings. The project for the museum and building's preservation was estimated to cost approximately 1 crore 40 lakh rupees. Special lime, similar to the material used in constructing Golghar, was planned for use in the building's renovation. \""
+  },
+  {
+    "id": 38,
+    "name": "Lord Minto Tower",
+    "location": "Jamui, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Minto_tower%2CGidhaur.jpg",
+    "protected_since": "06-11-2014",
+    "subtitle": "\"The Lord Minto Tower is a prominent historical monument located in Gidhaur, Jamui district, Bihar. It holds significance in modern Indian history due to its connection with a visit by a British Viceroy. Description: Commemorative Structure: The tower was built by the Maharaja of Gidhaur in 1909 to commemorate the visit of the then British Viceroy, Lord Minto (and not Lord Irwin as mentioned in some snippets), to Gidhaur. Location: It is situated in the middle of the Gidhaur Market on the main Jamui-Jhajha state highway. Historical Significance: The tower marks the center of Gidhaur city and holds historical importance related to the British colonial era. \""
+  },
+  {
+    "id": 39,
+    "name": "Hareshwarnath Temple, Dwalakh",
+    "location": "Madhubani, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "02-03-2015",
+    "subtitle": "\"The Hareshwarnath Temple, also known as Hareshwar Nath Mahadev Mandir, located in the village of Dwalakh in the Madhubani district of Bihar, is an ancient Hindu temple dedicated to Lord Shiva. It is an important religious site in the Mithila region. Description: Deity: Lord Shiva. Location: Dwalakh village, Madhepur, Madhubani district, Bihar. It is situated on the banks of the Bhutahi-Balan river. History: The temple's construction is attributed to Darbhanga Maharaj Shree Lakshmeshwar Singh Bahadur of the Darbhanga Raj Kingdom. Construction took place between 1858 AD and 1869 AD, overseen by Shree Jhuna Lal Shah. Land Endowment: The Darbhanga Raj Kingdom donated 12 acres of farming land to the temple to support its various religious activities. Pilgrim Amenities: A large pond is located on the east side of the temple, providing bathing facilities for pilgrims. Protected Monument: The temple was declared a \"Protected Heritage Monument of Bihar\" by the Government of Bihar's archaeology department in 2015. Festivals: The temple is a significant site for festivals like Mahashivratri, Sombari, and Narak Niwaran Chaturdashi. \""
+  },
+  {
+    "id": 40,
+    "name": "Raja Bhoj Fort / Navratan Garh, Naya Bhojpur, Dumraon",
+    "location": "Buxar, Bihar",
+    "image": "https://www.livehindustan.com/lh-img/uploadimage/library/2023/10/03/16_9/16_9_6/hindustan_special_navratna_fort_of_raja_bhoj_became_ruins_many_stories_of_history_are_present_here_b_1696313402.JPEG",
+    "protected_since": "03-08-2016",
+    "subtitle": "\"Raja Bhoj Fort, also known as Navratan Garh or Raja Bhoj Ka Kila, is a historical site located in the village of Naya Bhojpur, near Dumraon in the Buxar district of Bihar. It's a place associated with the rich history of the region and attracts visitors interested in ancient heritage. Description: Construction: It is believed to have been constructed in 1633 CE by Raja Rudrapratap Narayan Singh. Legends: Folklore suggests that Raja Bhoj of Malwa (Madhya Pradesh) conquered and settled in the area, and the fort is associated with his lineage. It is also said that the fort had 52 lanes and 56 doors and used to shine brightly at night. Destruction: According to folklore, the fort was demolished by the Mughal officer Abdullah Khan within three years of construction due to its bright appearance at night. Current State: Today, only ruins remain of the fort. It is unfortunately facing neglect and decay. Efforts were made in the past to secure its preservation, but these plans have not yet materialized. There have also been concerns about its surrounding area being used for garbage dumping, further endangering the monument. Significance: Despite its dilapidated condition, the fort remains a symbol of its historical past and holds cultural importance for the local community. \""
+  },
+  {
+    "id": 41,
+    "name": "Barigarh Vaishwak and Chhotigarh Vaishwak",
+    "location": "Nalanda, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "26-04-2014",
+    "subtitle": ""
+  },
+  {
+    "id": 42,
+    "name": "Lari",
+    "location": "Arwal, Bihar",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5CCWNNqN8CSowEf-Y7NQxrFjmOuwuSfp-go0gLU1pNjy8A-bZCs1AQyKECLlbv8wEGvg&usqp=CAU",
+    "protected_since": "08-09-2017",
+    "subtitle": "Lari (Lari Garh), Arwal is an ancient archaeological mound protected since September 8, 2017. It features brick wall remains, pottery shards, and terracotta pieces, indicating a settlement from the Late Gupta to Pala period (6th–12th century CE). The site also yielded earlier pottery like Northern Black Polished Ware, suggesting habitation from around 700 BCE. Its elevated location near the old Son River channel highlights its historical significance as a fortified settlement."
+  },
+  {
+    "id": 43,
+    "name": "Koteshwara Nath Temple / Site (including nearby giant Peepal tree)",
+    "location": "Gaya, Bihar",
+    "image": "https://www.seawatersports.com/images/places/koteshwarnath-temple.png",
+    "protected_since": "02-08-2017",
+    "subtitle": "Koteshwarnath is a revered Shiva temple in Gaya, reportedly built during the Gupta dynasty (4th–6th C CE). The temple includes a sanctum carved from red stone containing a large Shivlinga surrounded by 1,008 miniature lingas. It’s located at the confluence of the Morhar River and a local dargah and is a site of Mahashivaratri festivities"
+  },
+  {
+    "id": 44,
+    "name": "Lali Hill (Jaynagar)",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://www.jagranimages.com/images/newimg/08072022/08_07_2022-lali_pahari_lakhisarai2_22872728.webp",
+    "protected_since": "02-07-2018",
+    "subtitle": "Known locally as \"Lali Pahari,\" excavations revealed an ancient Buddhist hilltop monastery dating to around the Pala period (8th–12th C CE). Its location atop a hill makes it the first such monastery found in the Ganges valley."
+  },
+  {
+    "id": 45,
+    "name": "Satsanda Hill",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Chaturbhuj_Temple_at_Gwalior_Fort_2011-08-14.jpg",
+    "protected_since": "27-08-2019",
+    "subtitle": "Also known as part of the group including Nonghar and Laiy hills, Satsanda is a hill with the Chaturbhuj Temple on its slopes. The area was notified in 2018 for protection under Bihar’s ancient monument law and is earmarked for infrastructure development to boost tourism"
+  },
+  {
+    "id": 46,
+    "name": "Ghoshikundi Hill",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "02-07-2018",
+    "subtitle": "Part of a cluster of Pala‑period archaeological hill sites in Lakhisarai, Ghoshikundi Hill retains structural remnants and terracotta sculptures indicative of an ancient hilltop Buddhist monastery, believed to date from the 8th–12th century CE alongside Lay and Bichhwe Hills"
+  },
+  {
+    "id": 47,
+    "name": "Bichhwe Hill",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "02-07-2018",
+    "subtitle": "Also one of the seven protected hill sites surveyed in 2017, Bichhwe Hill features the remains of mud-brick buildings and monastic cell structures, consistent with findings at other Pala-era Buddhist settlements in the region ."
+  },
+  {
+    "id": 48,
+    "name": "Lay",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://i.ytimg.com/vi/9mfFA2WR3_U/maxresdefault.jpg",
+    "protected_since": "02-07-2018",
+    "subtitle": "Lay—also called Lali Hill—is notable for being the first hilltop Buddhist monastery documented in the Gangetic plains, featuring terracotta Buddha figurines, monks' cells, boundary walls, and a central courtyard, excavated in early 2018"
+  },
+  {
+    "id": 49,
+    "name": "Kamar Ali Sultan Dargah",
+    "location": "Gaya, Bihar",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSfXXz-HB0TXPywhE23ElROp0m-XCIuiiNgho-5Ul2OuwITciqmusPl6AX2fBnb8wODKU&usqp=CAU",
+    "protected_since": "12-06-2020",
+    "subtitle": "The shrine in Sherghati commemorates Hazrat Qamar Ali and Sultan Ali, Mughal-era warriors. It's a local pilgrimage site where annual urs (death anniversary) events are observed, reflecting regional Sufi traditions."
+  },
+  {
+    "id": 50,
+    "name": "Dulhin Temple",
+    "location": "Gaya, Bihar",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr0W9Szxy86t50UGdAmAAAMYQQv1yVaMJdgQ&s",
+    "protected_since": "12-06-2020",
+    "subtitle": "Located in Sherghati, this temple, known for its devotional rituals and folklore, is locally revered as “Dulhin Mandir.” It symbolizes folk faith and draws worshipers who sing traditional hymns tied to its name."
+  },
+  {
+    "id": 51,
+    "name": "Shiv Temple, Dumaria",
+    "location": "Gopalganj, Bihar",
+    "image": "https://content3.jdmagicbox.com/comp/araria/s6/9999p6453.6453.180319141340.t4s6/catalogue/sundarnath-mandir-sundari-araria-temples-6vjuwg9xst.jpg",
+    "protected_since": "27-08-2020",
+    "subtitle": "An ancient Shiva shrine in Dumaria village, it remains an active worship site, especially during Mahashivaratri. Built in traditional style, it’s integral to rural religious practice, although precise architectural details are under-documented ."
+  },
+  {
+    "id": 52,
+    "name": "Nongarh",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://www.nativeplanet.com/photos/325x244x100/2018/12/photo-92-115028-1.jpg",
+    "protected_since": "12-04-2021",
+    "subtitle": "An archaeological mound approximately 18 km from Lakhisarai town, excavations have revealed sandstone deity idols, microlithic tools, and pottery, indicating a fortified settlement and temple complex with evidence of early battles"
+  },
+  {
+    "id": 53,
+    "name": "Archaeological site / remains found near Chandan river in Bhadariya",
+    "location": "Banka, Bihar",
+    "image": "https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-122041281/122041281.jpg",
+    "protected_since": "12-08-2021",
+    "subtitle": "Discovered in 2020 during Ghat construction, submerged brick walls and cell-like structures suggest a 2,600‑year-old settlement, possibly with Buddhist links. Subsequent surveys and ASI-led excavations highlight its historical depth"
+  },
+  {
+    "id": 54,
+    "name": "Guari Dih Wariarpur (Guari)",
+    "location": "Bhagalpur, Bihar",
+    "image": "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg",
+    "protected_since": "12-08-2021",
+    "subtitle": "A significant archaeological mound near Bihpur, this site yielded Copper Age, Maurya, Gupta, and post-Gupta era artefacts like terracotta figurines, copper tools, beads, pottery, and seals. Recently protected and targeted for heritage tourism initiatives"
+  },
+  {
+    "id": 55,
+    "name": "Balgudar Fort",
+    "location": "Lakhisarai, Bihar",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/d2/78/f4/temple.jpg?w=500&h=500&s=1",
+    "protected_since": "05-02-2025",
+    "subtitle": "Situated in Balgudar village, this hilltop fort is one of several protected sites from Lakhisarai’s rich archaeological landscape. Though detailed archaeological study is pending, it’s mentioned among the seven officially notified historic zones"
+  },
+  {
+    "id": 56,
+    "name": "Karinga Tomb",
+    "location": "Saran, Bihar",
+    "image": "https://pbs.twimg.com/media/ErXTfhrVoAY0w-7?format=jpg&name=4096x4096",
+    "protected_since": "16-04-2025",
+    "subtitle": "The Dutch Cemetery at Karinga, near Chapra, dates back to the early 1700s, containing mausoleums including that of Dutch governor Jacobus Van Hoorn (inscriptions from 1712). It's a colonial-era heritage site reflecting Dutch presence in Bihar"
   }
 ]
