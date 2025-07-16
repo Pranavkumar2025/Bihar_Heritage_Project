@@ -9,7 +9,7 @@ import {
   FaEnvelope,
   FaLocationArrow,
 } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Make sure this import is present
+import { Link } from "react-router-dom";
 
 
 import FooterBack from "../../assets/UniqueBiharImg/RohtasFort.webp";
