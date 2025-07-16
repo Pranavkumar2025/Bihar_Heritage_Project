@@ -1,7 +1,6 @@
-import React from "react";
-// eslint-disable-next-line
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CalendarDays, MapPin, Ticket } from "lucide-react";
+import { CalendarDays, MapPin, Ticket, X } from "lucide-react";
 
 const events = [
   {
@@ -36,9 +35,7 @@ const events = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
@@ -48,10 +45,14 @@ const cardVariants = {
 };
 
 export default function Event() {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleOpenModal = (event) => setSelectedEvent(event);
+  const handleCloseModal = () => setSelectedEvent(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-gray-100 py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +65,6 @@ export default function Event() {
           Discover our curated cultural experiences designed to showcase the soul of Bihar.
         </p>
 
-        {/* Event Cards */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
           variants={containerVariants}
@@ -79,7 +79,6 @@ export default function Event() {
               whileHover={{ scale: 1.02 }}
               className="bg-gray-900 p-6 rounded-2xl border border-gray-700 shadow-xl transition-all duration-300"
             >
-              {/* Date and Location */}
               <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
                 <div className="flex items-center gap-2">
                   <CalendarDays size={16} className="text-purple-400" />
@@ -91,17 +90,14 @@ export default function Event() {
                 </div>
               </div>
 
-              {/* Title */}
               <h3 className="text-xl font-semibold text-white mb-2">
                 {event.title}
               </h3>
 
-              {/* Description */}
               <p className="text-sm text-gray-300 leading-relaxed mb-4">
                 {event.description}
               </p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {event.tags.map((tag, index) => (
                   <span
@@ -113,19 +109,68 @@ export default function Event() {
                 ))}
               </div>
 
-              {/* Button */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => handleOpenModal(event)}
                 className="mt-auto flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition"
               >
                 <Ticket size={16} />
-                Book Now
+                Visiting Details
               </motion.button>
             </motion.div>
           ))}
         </motion.div>
       </div>
+
+      {/* Modal */}
+      {selectedEvent && (
+  <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 border border-gray-600 rounded-2xl shadow-xl p-6 w-full max-w-lg relative text-gray-100">
+      <button
+        onClick={handleCloseModal}
+        className="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+      >
+        <X size={20} />
+      </button>
+
+      <h2 className="text-2xl font-semibold text-white mb-4">
+        {selectedEvent.title}
+      </h2>
+
+      <table className="w-full text-sm text-left border-collapse">
+        <tbody>
+          <tr className="border-t border-gray-600">
+            <th className="py-2 px-4 text-purple-300 w-1/3">📅 Date</th>
+            <td className="py-2 px-4">{selectedEvent.date}</td>
+          </tr>
+          <tr className="border-t border-gray-600">
+            <th className="py-2 px-4 text-pink-300">📍 Location</th>
+            <td className="py-2 px-4">{selectedEvent.location}</td>
+          </tr>
+          <tr className="border-t border-gray-600">
+            <th className="py-2 px-4 text-cyan-300">🏷️ Tags</th>
+            <td className="py-2 px-4">
+              {selectedEvent.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="inline-block mr-2 mb-1 bg-purple-700 bg-opacity-30 text-purple-300 text-xs px-3 py-1 rounded-full"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </td>
+          </tr>
+          <tr className="border-t border-gray-600">
+            <th className="py-2 px-4 text-blue-300 align-top">📝 Description</th>
+            <td className="py-2 px-4">{selectedEvent.description}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

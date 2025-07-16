@@ -34,22 +34,23 @@ const Header2 = () => {
         { name: "Archeological Team", to: "/archeologicalteam" },
       ],
     },
-    { name: "Exploration", to: "/#explorejoin", isHash: true },
     { name: "Protected Sites", to: "/protected-sites" },
      {
       name: "Activities",
-      subMenu: [
-        { name : "Excavation", to:"/excavations" },
-        { name: "Activities", to: "/Activities" },
-        // { name: "Videos", to: "/VideoGalleryPage" },
-      ],
+     subMenu: [
+  { name : "Excavation", to:"/excavations#Excavation" },
+  { name : "Exploration", to:"/excavations#Exploration" },
+  { name: "Heritage Walk", to: "/excavations#HeritageWalk" },
+  { name: "Workshop & Seminar", to: "/Activities" },
+]
+
     },
     { name: "Events", to: "/events/upcoming" },
     {
       name: "Gallery",
       subMenu: [
-        { name: "Photos", to: "/GalleryPage" },
-        // { name: "Videos", to: "/VideoGalleryPage" },
+        { name: "Photos", to: "/Gallery" },
+        { name: "Videos", to: "/VideoGalleryPage" },
       ],
     },
     { name: "Publications", to: "/publication" },
