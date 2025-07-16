@@ -21,6 +21,7 @@ import ActivitiesPage from "./components/ActivitiesPage";
 import ScrollToTop from "./components/ScrollToTop";
 import ProtectedSites from "./components/ProtectedSites";
 import Excavations from "./components/Excavations";
+import News from "./components/News";
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
 					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />
 					<Route path="/executive" element={<ExecutiveCommittee />} />
 					<Route path="/archeologicalteam" element={<ArcheologicalTeam />} />
+					<Route path="/news" element={<News />} />
 					{/* <Route path="*" element={<Home />} /> Fallback route */}
 
 
