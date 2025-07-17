@@ -199,7 +199,7 @@ const UniqueBihar = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="block h-[350px] flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
+                    className="my-5 h-[450px] flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
                   >
                     <div className="h-60 w-full">
                       <img
