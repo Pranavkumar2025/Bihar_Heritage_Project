@@ -28,10 +28,10 @@ export default function ExecutiveCommittee() {
 
       {/* Title */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-orange-700 uppercase tracking-wide">
+        <h1 className="text-4xl font-bold text-white uppercase tracking-wide">
           Executive Committee & Secretariat
         </h1>
-        <div className="mt-2 mx-auto w-24 h-1 bg-orange-500 rounded"></div>
+        <div className="mt-2 mx-auto w-24 h-1 bg-orange-400 rounded"></div>
       </div>
 
       {/* Description */}
