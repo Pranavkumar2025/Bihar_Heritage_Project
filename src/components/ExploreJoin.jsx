@@ -125,11 +125,11 @@ const ExploreJoin = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="min-w-[340px] max-w-[340px] bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2"
+                  className="min-w-[340px] max-w-[340px] bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 my-5"
                 >
                   <div className="h-48 w-full relative">
                     <img src={site.image} alt={site.title} className="h-full w-full object-cover rounded-t-xl" />
-                    <div className="absolute top-0 left-0 bg-indigo-600 text-white px-3 py-1 text-xs font-semibold rounded-br-xl">
+                    <div className="absolute top-0 left-0 bg-indigo-600 text-white px-3 py-1 text-xs font-semibold rounded-br-xl rounded-tl-xl">
                       {site.location}
                     </div>
                   </div>
