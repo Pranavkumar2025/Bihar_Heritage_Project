@@ -144,6 +144,7 @@ import {
   FaEnvelope,
   FaLocationArrow,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import FooterBack from "../../assets/UniqueBiharImg/RohtasFort.webp";
 
@@ -177,18 +178,25 @@ const Footer1 = () => {
         <div>
           <h2 className="text-2xl font-bold mb-4">Important Links</h2>
           <ul className="space-y-3 text-white/90">
-            {["Publication", "Photo Gallery", "News", "Tender", "Contact Us"].map(
-              (item) => (
-                <li
-                  key={item}
-                  className="hover:text-red-500 cursor-pointer border-b border-white/30 pb-1 font-medium transition"
+             {[
+              { name: "Home", path: "/" },
+              { name: "Publication", path: "/publication" },
+              { name: "Photo Gallery", path: "/gallery" },
+              { name: "News", path: "/news" },
+              { name: "Tender", path: "/tender" },
+              { name: "Contact Us", path: "/contact" },
+            ].map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="hover:text-red-500 cursor-pointer border-b border-white/30 pb-1 font-medium transition block"
                 >
-                  {item}
-                </li>
-              )
-            )}
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
-        </div>
+                   </div>
 
         {/* Contact */}
         <div>
