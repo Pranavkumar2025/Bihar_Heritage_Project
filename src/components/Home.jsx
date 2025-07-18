@@ -49,7 +49,7 @@ const Home = () => {
       <section ref={exploreJoinRef} id="explorejoin">
         <ExploreJoin />
       </section>
-      <News />
+      {/* <News /> */}
       <Awareness />
       <GoverningComponents/>
     
