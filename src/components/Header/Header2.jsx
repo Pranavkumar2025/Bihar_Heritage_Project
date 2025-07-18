@@ -35,15 +35,14 @@ const Header2 = () => {
       ],
     },
     { name: "Protected Sites", to: "/protected-sites" },
-     {
+    {
       name: "Activities",
-     subMenu: [
-  { name : "Excavation", to:"/excavations#Excavation" },
-  { name : "Exploration", to:"/excavations#Exploration" },
-  { name: "Heritage Walk", to: "/excavations#HeritageWalk" },
-  { name: "Workshop & Seminar", to: "/Activities" },
-]
-
+      subMenu: [
+        { name: "Excavation", to: "/excavations#Excavation" },
+        { name: "Exploration", to: "/excavations#Exploration" },
+        { name: "Heritage Walk", to: "/excavations#HeritageWalk" },
+        { name: "Workshop & Seminar", to: "/Activities" },
+      ],
     },
     { name: "Events", to: "/events/upcoming" },
     {
@@ -102,11 +101,18 @@ const Header2 = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img src={bhdsLogo} alt="Bihar Heritage Logo" className="h-10 w-auto" />
+              <img
+                src={bhdsLogo}
+                alt="Bihar Heritage Logo"
+                className="h-10 w-auto"
+              />
             </motion.div>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex gap-8 z-10 relative" role="navigation">
+            <nav
+              className="hidden md:flex gap-8 z-10 relative"
+              role="navigation"
+            >
               {navLinks.map(({ name, to, subMenu, isHash }, idx) => (
                 <motion.div
                   key={name}
@@ -132,9 +138,11 @@ const Header2 = () => {
                         className={({ isActive }) => {
                           let isCurrentPageActive = false;
                           if (to === "/") {
-                            isCurrentPageActive = location.pathname === "/" && location.hash === "";
+                            isCurrentPageActive =
+                              location.pathname === "/" && location.hash === "";
                           } else {
-                            isCurrentPageActive = isActive && location.hash === "";
+                            isCurrentPageActive =
+                              isActive && location.hash === "";
                           }
                           return `text-base font-medium transition duration-200 ${
                             isCurrentPageActive
@@ -150,7 +158,9 @@ const Header2 = () => {
                     <div className="relative">
                       <button
                         onClick={() =>
-                          setActiveDropdown(activeDropdown === name ? null : name)
+                          setActiveDropdown(
+                            activeDropdown === name ? null : name
+                          )
                         }
                         className={`flex items-center gap-1 ${textColor}`}
                       >
@@ -172,7 +182,9 @@ const Header2 = () => {
                                 onClick={() => setActiveDropdown(null)}
                                 className={({ isActive }) =>
                                   `block px-4 py-2 text-gray-800 hover:bg-gray-100 whitespace-nowrap transition-colors duration-200 ${
-                                    isActive ? "bg-gray-100 text-yellow-500" : ""
+                                    isActive
+                                      ? "bg-gray-100 text-yellow-500"
+                                      : ""
                                   }`
                                 }
                               >
@@ -190,7 +202,10 @@ const Header2 = () => {
 
             {/* Mobile Toggle */}
             <div className="md:hidden z-20">
-              <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle Menu"
+              >
                 {menuOpen ? (
                   <X size={28} className="text-white" />
                 ) : (
@@ -226,7 +241,9 @@ const Header2 = () => {
                             onClick={() => setMenuOpen(false)}
                             className={({ isActive }) =>
                               `block py-2 text-base font-medium ${
-                                isActive ? "text-yellow-400" : "hover:text-yellow-400"
+                                isActive
+                                  ? "text-yellow-400"
+                                  : "hover:text-yellow-400"
                               }`
                             }
                           >
@@ -237,7 +254,9 @@ const Header2 = () => {
                         <>
                           <button
                             onClick={() =>
-                              setActiveDropdown(activeDropdown === name ? null : name)
+                              setActiveDropdown(
+                                activeDropdown === name ? null : name
+                              )
                             }
                             className="w-full py-2 text-base font-medium hover:text-yellow-400 flex justify-center items-center gap-1"
                           >
@@ -262,7 +281,9 @@ const Header2 = () => {
                                     }}
                                     className={({ isActive }) =>
                                       `block py-2 px-4 text-sm hover:bg-gray-600 transition-colors duration-200 ${
-                                        isActive ? "bg-gray-600 text-yellow-400" : ""
+                                        isActive
+                                          ? "bg-gray-600 text-yellow-400"
+                                          : ""
                                       }`
                                     }
                                   >
