@@ -152,17 +152,12 @@ const Gallery = () => {
             {data.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className="!w-[85%] md:!w-[65%] lg:!w-[50%] flex justify-center"
+                className="!w-[85%] md:!w-[65%] lg:!w-[50%] flex justify-center transition-transform duration-300 ease-out"
               >
                 {({ isActive }) => (
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      scale: isActive ? 1 : 0.85,
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className={`relative w-full h-[420px] md:h-[500px] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-500 ${
-                      isActive ? "z-30" : "z-10 opacity-70"
+                  <div
+                    className={`relative w-full h-[420px] md:h-[500px] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-300 ease-out transform ${
+                      isActive ? "z-30 scale-100" : "z-10 opacity-100 blur-xs scale-85"
                     }`}
                   >
                     <img
@@ -184,7 +179,7 @@ const Gallery = () => {
                       <FaMapMarkerAlt className="text-red-500 mr-1" />
                       {item.location}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </SwiperSlide>
             ))}
