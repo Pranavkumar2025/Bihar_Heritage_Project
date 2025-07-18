@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -95,7 +96,6 @@ const UniqueBihar = () => {
       <div className="relative z-10 w-full bg-white/90 backdrop-blur-sm">
         {/* 🧭 Hero Section */}
         <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 px-6 md:px-20 py-20 bg-gradient-to-br from-indigo-50 to-white">
-
           {/* 📽️ Video Section */}
           <motion.div
             className="w-full md:w-1/2 relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
@@ -122,7 +122,10 @@ const UniqueBihar = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-900 leading-tight mb-4">
-              Bihar — <span className="text-indigo-600">The Land of Ancient Wisdom</span>
+              Bihar —{" "}
+              <span className="text-indigo-600">
+                The Land of Ancient Wisdom
+              </span>
             </h2>
 
             <motion.p
@@ -131,9 +134,13 @@ const UniqueBihar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Explore the <span className="text-indigo-600 font-semibold">spiritual</span> and{" "}
-              <span className="text-indigo-600 font-semibold">intellectual</span> legacy
-              that shaped civilizations.
+              Explore the{" "}
+              <span className="text-indigo-600 font-semibold">spiritual</span>{" "}
+              and{" "}
+              <span className="text-indigo-600 font-semibold">
+                intellectual
+              </span>{" "}
+              legacy that shaped civilizations.
             </motion.p>
 
             <motion.blockquote
@@ -142,7 +149,8 @@ const UniqueBihar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              “Where knowledge was born before it spread to the world — that’s the story of Bihar.”
+              “Where knowledge was born before it spread to the world — that’s
+              the story of Bihar.”
             </motion.blockquote>
           </motion.div>
         </section>
@@ -167,7 +175,8 @@ const UniqueBihar = () => {
               viewport={{ once: true }}
               className="text-black text-lg text-center"
             >
-              — Discover Bihar’s unmatched contributions to culture, religion, and history through these timeless landmarks. —
+              — Discover Bihar’s unmatched contributions to culture, religion,
+              and history through these timeless landmarks. —
             </motion.p>
           </div>
 
@@ -228,16 +237,15 @@ const UniqueBihar = () => {
 
             {/* Arrows */}
             <div className="flex justify-center items-center gap-6 mt-10">
-              <div className="custom-prev cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg">
-                &#8592;
+              <div className="custom-prev cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <ChevronLeft size={20} />
               </div>
-              <div className="custom-next cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg">
-                &#8594;
+              <div className="custom-next cursor-pointer bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <ChevronRight size={20} />
               </div>
             </div>
           </div>
         </section>
-
       </div>
     </div>
   );

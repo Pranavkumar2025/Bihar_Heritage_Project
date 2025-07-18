@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import JoinMovement from "./JoinMovement";
 
@@ -17,14 +18,16 @@ const heritageSites = [
     title: "Bodh Gaya",
     location: "Gaya, Bihar",
     image: BodhGayaImg,
-    description: "Where Buddha attained enlightenment, a major pilgrimage site.",
+    description:
+      "Where Buddha attained enlightenment, a major pilgrimage site.",
     link: "https://en.wikipedia.org/wiki/Bodh_Gaya",
   },
   {
     title: "Rajgir",
     location: "Nalanda, Bihar",
     image: RajgirImg,
-    description: "Ancient city with hills, hot springs, and religious significance.",
+    description:
+      "Ancient city with hills, hot springs, and religious significance.",
     link: "https://en.wikipedia.org/wiki/Rajgir",
   },
   {
@@ -74,7 +77,10 @@ const ExploreJoin = () => {
   const scroll = (dir) => {
     if (scrollRef.current) {
       const cardWidth = 340 + 24;
-      scrollRef.current.scrollBy({ left: dir * cardWidth * 3, behavior: "smooth" });
+      scrollRef.current.scrollBy({
+        left: dir * cardWidth * 3,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -114,7 +120,10 @@ const ExploreJoin = () => {
 
           {/* Cards */}
           <div className="relative mt-10 z-10">
-            <div ref={scrollRef} className="flex space-x-6 overflow-x-auto no-scrollbar px-2 pb-4 max-w-full">
+            <div
+              ref={scrollRef}
+              className="flex space-x-6 overflow-x-auto no-scrollbar px-2 pb-4 max-w-full"
+            >
               {heritageSites.map((site, index) => (
                 <motion.a
                   key={index}
@@ -128,14 +137,22 @@ const ExploreJoin = () => {
                   className="min-w-[340px] max-w-[340px] bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 my-5"
                 >
                   <div className="h-48 w-full relative">
-                    <img src={site.image} alt={site.title} className="h-full w-full object-cover rounded-t-xl" />
+                    <img
+                      src={site.image}
+                      alt={site.title}
+                      className="h-full w-full object-cover rounded-t-xl"
+                    />
                     <div className="absolute top-0 left-0 bg-indigo-600 text-white px-3 py-1 text-xs font-semibold rounded-br-xl rounded-tl-xl">
                       {site.location}
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="text-xl font-bold text-gray-800 mb-1">{site.title}</h3>
-                    <p className="text-gray-600 text-sm mb-2">{site.description}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">
+                      {site.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-2">
+                      {site.description}
+                    </p>
                     <span className="text-indigo-600 text-sm font-medium hover:underline">
                       Learn More →
                     </span>
@@ -148,15 +165,15 @@ const ExploreJoin = () => {
             <div className="flex justify-center items-center gap-6 mt-10">
               <button
                 onClick={() => scroll(-1)}
-                className="w-10 h-10 rounded-full bg-black text-white text-lg hover:bg-gray-800"
+                className="w-10 h-10 rounded-full bg-black text-white hover:bg-gray-800 flex items-center justify-center transition-colors"
               >
-                ←
+                <ChevronLeft size={20} />
               </button>
               <button
                 onClick={() => scroll(1)}
-                className="w-10 h-10 rounded-full bg-black text-white text-lg hover:bg-gray-800"
+                className="w-10 h-10 rounded-full bg-black text-white hover:bg-gray-800 flex items-center justify-center transition-colors"
               >
-                →
+                <ChevronRight size={20} />
               </button>
             </div>
           </div>
@@ -171,7 +188,8 @@ const ExploreJoin = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-900 leading-tight mb-4">
-              Explore — <span className="text-indigo-600">Bihar’s Timeless Heritage</span>
+              Explore —{" "}
+              <span className="text-indigo-600">Bihar’s Timeless Heritage</span>
             </h2>
             <motion.p
               className="text-gray-700 text-lg mb-6 max-w-xl mx-auto md:mx-0"
@@ -179,7 +197,13 @@ const ExploreJoin = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Dive into ancient landmarks that echo with <span className="text-indigo-600 font-semibold">wisdom, power,</span> and <span className="text-indigo-600 font-semibold">devotion</span>. Bihar's legacy lives in every stone and story.
+              Dive into ancient landmarks that echo with{" "}
+              <span className="text-indigo-600 font-semibold">
+                wisdom, power,
+              </span>{" "}
+              and{" "}
+              <span className="text-indigo-600 font-semibold">devotion</span>.
+              Bihar's legacy lives in every stone and story.
             </motion.p>
             <motion.blockquote
               className="italic text-indigo-800 text-base md:text-lg font-medium border-l-4 border-indigo-300 pl-4 max-w-lg mx-auto md:mx-0"
@@ -187,7 +211,8 @@ const ExploreJoin = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              “To explore Bihar is to walk the footsteps of history — sacred, scholarly, and eternal.”
+              “To explore Bihar is to walk the footsteps of history — sacred,
+              scholarly, and eternal.”
             </motion.blockquote>
           </motion.div>
 

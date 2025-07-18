@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -193,15 +194,15 @@ const Gallery = () => {
           <div className="flex justify-center items-center gap-6 mt-10">
             <div
               ref={prevRef}
-              className="custom-prev cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg shadow-lg"
+              className="custom-prev cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 shadow-lg transition-colors"
             >
-              &#8592;
+              <ChevronLeft size={20} />
             </div>
             <div
               ref={nextRef}
-              className="custom-next cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 text-lg shadow-lg"
+              className="custom-next cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 shadow-lg transition-colors"
             >
-              &#8594;
+              <ChevronRight size={20} />
             </div>
           </div>
         </div>
