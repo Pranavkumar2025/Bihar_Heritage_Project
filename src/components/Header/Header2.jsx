@@ -163,7 +163,7 @@ const Header2 = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute bg-white shadow-lg mt-2 rounded-md z-50"
+                            className="absolute bg-white shadow-lg mt-2 rounded-md z-50 overflow-hidden"
                           >
                             {subMenu.map((item) => (
                               <NavLink
@@ -171,7 +171,7 @@ const Header2 = () => {
                                 to={item.to}
                                 onClick={() => setActiveDropdown(null)}
                                 className={({ isActive }) =>
-                                  `block px-4 py-2 text-gray-800 hover:bg-gray-100 whitespace-nowrap ${
+                                  `block px-4 py-2 text-gray-800 hover:bg-gray-100 whitespace-nowrap transition-colors duration-200 ${
                                     isActive ? "bg-gray-100 text-yellow-500" : ""
                                   }`
                                 }
@@ -250,7 +250,7 @@ const Header2 = () => {
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="bg-gray-700"
+                                className="bg-gray-700 rounded-md overflow-hidden"
                               >
                                 {subMenu.map((item) => (
                                   <NavLink
@@ -261,7 +261,7 @@ const Header2 = () => {
                                       setMenuOpen(false);
                                     }}
                                     className={({ isActive }) =>
-                                      `block py-2 px-4 text-sm hover:bg-gray-600 ${
+                                      `block py-2 px-4 text-sm hover:bg-gray-600 transition-colors duration-200 ${
                                         isActive ? "bg-gray-600 text-yellow-400" : ""
                                       }`
                                     }
