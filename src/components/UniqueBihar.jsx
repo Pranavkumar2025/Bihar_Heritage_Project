@@ -109,7 +109,7 @@ const UniqueBihar = () => {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-y-108"
             />
             <div className="absolute inset-0 bg-black/30 rounded-3xl" />
           </motion.div>
