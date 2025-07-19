@@ -282,16 +282,16 @@
     "id": 32,
     "name": "Birth Place of George Orwell",
     "location": "Motihari, Bihar",
-    "image": "https://drive.google.com/file/d/1DA89nXJGOL_fZhGfY_ki91TcRWnuDQ6u/view?usp=sharing",
+    "image": "src/assets/ProtectedSites/George_Orwell.JPG",
     "protected_since": "10-12-2010",
     "subtitle": "",
     "distance": 160
   },
   {
     "id": 33,
-    "name": "Tekarikila",
+    "name": "Tekari Quila",
     "location": "Gaya, Bihar",
-    "image": "https://scontent.fccu19-1.fna.fbcdn.net/v/t39.30808-6/503575966_10087010838052192_3506643036812607368_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=NV_UFD2-S_IQ7kNvwEvQjBy&_nc_oc=Adkqzrg-9gp6Q4o48OrBKoOzzYXNlOgMQOfnx-ZtdwYaBGhgWk_kX48Uat6j07Ua0R8&_nc_zt=23&_nc_ht=scontent.fccu19-1.fna&_nc_gid=wAZ6EZhGzfgTpSE0-UyGSA&oh=00_AfMxhMlSSB6jN_A9ixe7dtxsjdLT5RgxlpjORniwwUnVwg&oe=686AA2F8",
+    "image": "src/assets/ProtectedSites/Tekari_Quila.JPG",
     "protected_since": "23-02-2011",
     "subtitle": "\"Tekari Fort, also known as Nau Ana Fort, in Gaya, Bihar, stands as a testament to the region's rich history and architectural heritage. The fort of Tekari Raj was a prominent zamindari estate, and the fort itself reflects a blend of art and architecture, serving as a reminder of the glory of the past. Architectural Features: Five-Storied Structure: The king's palace was built on a high platform with a beautiful, five-story building. Strategic Location: The topmost chambers were reserved for the king, offering panoramic views of the surroundings to detect approaching enemies. Underground Features: The fort complex included an underground palace, a war ground, and a network of tunnels. Tunnel to the Pond: A notable feature was a 3-kilometer long tunnel connecting the king's palace to a nearby pond, which was reportedly used by the queen for her daily ablutions. Recreational Spaces: A beautiful garden near the pond provided a space for the queen and her companions to relax. Other Attractions: The fort complex also housed a Rangmahal Guesthouse, a beautiful makeup room, a dance hall, a mysterious pond, a massive lion gate, and even cages for tigers, which added to its grandeur and mystique. Historical Significance: Tekari Raj Zamindari Estate: The Tekari Raj was a significant zamindari estate in South Bihar during the Mughal period, with the Tekari family playing an influential role in the socio-economic and political landscape of the region. Notable Rulers: The estate was established by Raja Veer Singh and subsequently ruled by various prominent figures like Sunder Shah, Hitnarayan Singh, Buniad Singh, Modnarayan Singh, and Captain Maharaja Gopal Sharan Singh. Architectural Symbol: The fort, with its impressive structures and defensive features, stood as a symbol of the power and prestige of the Tekari Rajas. \"",
     "distance": 100
@@ -318,7 +318,7 @@
     "id": 36,
     "name": "Sofa Temple",
     "location": "West Champaran, Bihar",
-    "image": "https://www.bhaskar.com/local/bihar/muzaffarpur/bettiah/news/visit-the-ancient-sofa-shiva-temple-of-mahabharata-is-situated-on-a-70-feet-high-mound-129452422.html",
+    "image": "src/assets/ProtectedSites/Sofa_Temple.JPG",
     "protected_since": "12-02-2014",
     "subtitle": "\"Sopha Temple, located in West Champaran, Bihar, is a Shiv Mandir situated in the foothills of the Himalayas. It is known for its religious significance and its beautiful natural surroundings. It is considered a place of religious attraction, particularly for those interested in the Valmiki Tiger Reserve area. Description: Ancient Temple: The Sopha Shiva temple is considered very old, with some local accounts suggesting a connection to the Mahabharata era. Location: It is situated on a 70-foot high mound, surrounded by forests, mountains, and rivers on three sides, near the border of Nepal. Mythological Association: Local beliefs suggest that the Pandavas used to bathe in the nearby river, giving it the name \"\"Pandai\"\". Highlight: The temple itself is described as \"\"attractive,\"\" situated amidst a \"\"beautiful river\"\" and having the feel of an \"\"ancient place\"\".\"",
     "distance": 200
@@ -345,7 +345,7 @@
     "id": 39,
     "name": "Hareswaranath Temple",
     "location": "Madhubani, Bihar",
-    "image": "https://drive.google.com/file/d/1x6SdTe1MzfJ-yKOpyi54P5zOssvNNkwh/view?usp=sharing",
+    "image": "src/assets/ProtectedSites/Hareshwarnath_temple.JPG",
     "protected_since": "02-03-2015",
     "subtitle": "\"The Hareshwarnath Temple, also known as Hareshwar Nath Mahadev Mandir, located in the village of Dwalakh in the Madhubani district of Bihar, is an ancient Hindu temple dedicated to Lord Shiva. It is an important religious site in the Mithila region. Description: Deity: Lord Shiva. Location: Dwalakh village, Madhepur, Madhubani district, Bihar. It is situated on the banks of the Bhutahi-Balan river. History: The temple's construction is attributed to Darbhanga Maharaj Shree Lakshmeshwar Singh Bahadur of the Darbhanga Raj Kingdom. Construction took place between 1858 AD and 1869 AD, overseen by Shree Jhuna Lal Shah. Land Endowment: The Darbhanga Raj Kingdom donated 12 acres of farming land to the temple to support its various religious activities. Pilgrim Amenities: A large pond is located on the east side of the temple, providing bathing facilities for pilgrims. Protected Monument: The temple was declared a \"\"Protected Heritage Monument of Bihar\"\" by the Government of Bihar's archaeology department in 2015. Festivals: The temple is a significant site for festivals like Mahashivratri, Sombari, and Narak Niwaran Chaturdashi. \"",
     "distance": 170
@@ -363,7 +363,7 @@
     "id": 41,
     "name": "Beshvak, Large Fortress And Small Fortress",
     "location": "Nalanda, Bihar",
-    "image": "",
+    "image": "src/assets/ProtectedSites/Beswek.JPG",
     "protected_since": "26-04-2014",
     "subtitle": "",
     "distance": 70
@@ -408,7 +408,7 @@
     "id": 46,
     "name": "Ghoshi Kundi Pahari",
     "location": "Lakhisarai, Bihar",
-    "image": "",
+    "image": "src/assets/ProtectedSites/Ghoshi_Kundi.JPG",
     "protected_since": "02-07-2018",
     "subtitle": "Part of a cluster of Pala‑period archaeological hill sites in Lakhisarai, Ghoshikundi Hill retains structural remnants and terracotta sculptures indicative of an ancient hilltop Buddhist monastery, believed to date from the 8th–12th century CE alongside Lay and Bichhwe Hills",
     "distance": 135
@@ -417,7 +417,7 @@
     "id": 47,
     "name": "Bichwai Pahari",
     "location": "Lakhisarai, Bihar",
-    "image": "",
+    "image": "src/assets/ProtectedSites/Bichwai_Pahadi.JPG",
     "protected_since": "02-07-2018",
     "subtitle": "Also one of the seven protected hill sites surveyed in 2017, Bichhwe Hill features the remains of mud-brick buildings and monastic cell structures, consistent with findings at other Pala-era Buddhist settlements in the region .",
     "distance": 135
@@ -480,7 +480,7 @@
     "id": 54,
     "name": "Guaridih",
     "location": "Bhagalpur, Bihar",
-    "image": "",
+    "image": "src/assets/ProtectedSites/Gauridih.JPG",
     "protected_since": "12-08-2021",
     "subtitle": "A significant archaeological mound near Bihpur, this site yielded Copper Age, Maurya, Gupta, and post-Gupta era artefacts like terracotta figurines, copper tools, beads, pottery, and seals. Recently protected and targeted for heritage tourism initiatives",
     "distance": 235

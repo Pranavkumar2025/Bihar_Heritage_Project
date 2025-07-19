@@ -27,7 +27,11 @@ const ProtectedSites = () => {
             {/* Gradient Overlay */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent p-4">
               <h3 className="text-sm font-bold text-white">{site.name}</h3>
-              <p className="text-gray-300 text-sm mt-1"> {site.location}</p>
+              <p className="text-gray-300 text-sm/6"> {site.location}</p>
+              <p className="text-gray-300 text-xs">
+                {" "}
+                Protected Since : {site.protected_since}
+              </p>
             </div>
           </div>
         ))}
