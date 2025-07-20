@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "name": "Kamaldah Jain Temple",
+    "name": "Kamaldah Jain Temple (Gulzarbagh)",
     "location": "Patna, Bihar",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jain_Temple%2C_Kamaldah%2C_Gulzarbagh%2C_Patna%2C_Bihar..JPG/1200px-Jain_Temple%2C_Kamaldah%2C_Gulzarbagh%2C_Patna%2C_Bihar..JPG?20130923054036",
     "protected_since": "08-12-1976",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "name": "Durukhi Devi Temple",
+    "name": "Do Rukhi Devi Temple",
     "location": "Patna, Bihar",
     "image": "",
     "protected_since": "08-12-1976",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "name": "Tomb of Alwal Khan",
+    "name": "Tomb of Alwal Khan,Sasaram",
     "location": "Sasaram, Rohtas, Bihar",
     "image": "https://rangandatta.wordpress.com/wp-content/uploads/2019/12/sher-shah-tomb-5.jpg?w=584",
     "protected_since": "11-03-1981",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "name": "Kandaha Sun Temple",
+    "name": "Kandaha Sun Temple ",
     "location": "Saharsa, Bihar",
     "image": "https://tourism.bihar.gov.in/content/dam/bihar-tourism-aem/destination-detail/surya-mandir-kandaha/banner.jpg",
     "protected_since": "07-08-1982",
@@ -208,7 +208,7 @@
   },
   {
     "id": 24,
-    "name": "Jami Mosque",
+    "name": "Jama Masjid (Patthar Ki Masjid)",
     "location": "Vaishali, Bihar",
     "image": "https://pbs.twimg.com/amplify_video_thumb/1692079199904038913/img/0JvGJjKxMmxMCb6U.jpg:large",
     "protected_since": "06-07-2002",
@@ -244,7 +244,7 @@
   },
   {
     "id": 28,
-    "name": "Taradih",
+    "name": "Taradih Bodh Gaya",
     "location": "Gaya, Bihar",
     "image": "http://t3.gstatic.com/images?q=tbn:ANd9GcSa3tO4_kLjWAa0SXkkmgv6FLPxp84lh4lEljmArrQvDODb4Lgj2uwjIhfrEmo1bLBXiTf2sCK2",
     "protected_since": "22-02-2006",
@@ -361,7 +361,7 @@
   },
   {
     "id": 41,
-    "name": "Beshvak, Large Fortress And Small Fortress",
+    "name": "Badigadh Beshvak & Choti Gadh Beshvak",
     "location": "Nalanda, Bihar",
     "image": "src/assets/ProtectedSites/Beswek.JPG",
     "protected_since": "26-04-2014",
@@ -415,7 +415,7 @@
   },
   {
     "id": 47,
-    "name": "Bichwai Pahari",
+    "name": "Bichwe Pahari",
     "location": "Lakhisarai, Bihar",
     "image": "src/assets/ProtectedSites/Bichwai_Pahadi.JPG",
     "protected_since": "02-07-2018",
@@ -433,7 +433,7 @@
   },
   {
     "id": 49,
-    "name": "Kamarali Sultan Dargah",
+    "name": "Karam Ali Sultan Dargah",
     "location": "Gaya, Bihar",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSfXXz-HB0TXPywhE23ElROp0m-XCIuiiNgho-5Ul2OuwITciqmusPl6AX2fBnb8wODKU&usqp=CAU",
     "protected_since": "12-06-2020",
@@ -469,7 +469,7 @@
   },
   {
     "id": 53,
-    "name": "Bhadariya",
+    "name": "Bhadariya Archaelogical Site (Chandan Nadi)",
     "location": "Banka, Bihar",
     "image": "https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-122041281/122041281.jpg",
     "protected_since": "12-08-2021",
