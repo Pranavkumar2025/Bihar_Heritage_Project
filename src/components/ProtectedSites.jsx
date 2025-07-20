@@ -9,7 +9,7 @@ const ProtectedSites = () => {
   return (
     <div className="min-h-screen relative">
       {/* Background Image */}
-      <div className="absolute inset-0 bg-[url(/tomb.jpg)] bg-cover bg-center bg-fixed grayscale"></div>
+      <div className="absolute inset-0 bg-[url(https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/Bihar%20Heritage%2FSites%20Photo%2Falwal%20khan%20tomb.jpg?alt=media&token=d1159553-dcff-4aa4-9c41-97f1caf5d6b1)] bg-cover bg-center bg-fixed grayscale"></div>
       <div className="absolute inset-0 bg-blue-100/40"></div>
 
       {/* Top Fading Mask */}
@@ -29,7 +29,7 @@ const ProtectedSites = () => {
             <div
               key={site.id}
               className="group relative overflow-hidden rounded-2xl hover:shadow-lg transform transition-transform duration-500 ease-in-out hover:-translate-y-6 cursor-pointer"
-              onClick={() => setSelectedSite(site)} 
+              onClick={() => setSelectedSite(site)}
               style={{ minHeight: "2px" }}
             >
               <img
@@ -54,65 +54,67 @@ const ProtectedSites = () => {
         </div>
       </div>
       <AnimatePresence>
-              {selectedSite && (
-                <motion.div
-                  key="modal-backdrop"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4"
-                  onClick={() => setSelectedSite(null)} 
-                >
-                  <motion.div
-                    key="modal-content"
-                    initial={{ scale: 0.95, y: 40, opacity: 0 }}
-                    animate={{ scale: 1, y: 0, opacity: 1 }}
-                    exit={{ scale: 0.95, y: 40, opacity: 0 }}
-                    transition={{ duration: 0.35 }}
-                    className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[80vh] relative overflow-hidden flex flex-col"
-                    onClick={(e) => e.stopPropagation()} 
-                  >
-                    <button
-                      onClick={() => setSelectedSite(null)}
-                      className="absolute top-4 right-4 bg-gray-300 hover:bg-red-500 hover:text-white text-gray-800 rounded-full p-1 z-10"
-                    >
-                      <X size={20} />
-                    </button>
-      
-                    <div className="h-[50%] w-full overflow-hidden object-center">
-                      <img
-                        src={selectedSite.image || "https://via.placeholder.com/600x300?text=No+Image"}
-                        alt={selectedSite.name}
-                        className="w-full h-full object-cover rounded-t-xl"
-                      />
-      
-      
-                    </div>
-      
-                    <div className="p-6 overflow-y-auto h-[50%]">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                        {selectedSite.name}
-                      </h2>
-                      <p className="text-gray-600 text-sm mb-3">
-                        📍 {selectedSite.location} (Distance from Patna: {selectedSite.distance} Km)
-                      </p>
-      
-                      {selectedSite.protected_since && (
-                        <p className="text-gray-500 text-sm mt-2 italic">
-                          🛡️ Protected since: {selectedSite.protected_since}
-                        </p>
-                      )}
-      
-                      {selectedSite.subtitle && (
-                        <p className="text-gray-700 text-sm italic">
-                          {selectedSite.subtitle}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+        {selectedSite && (
+          <motion.div
+            key="modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4"
+            onClick={() => setSelectedSite(null)}
+          >
+            <motion.div
+              key="modal-content"
+              initial={{ scale: 0.95, y: 40, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 40, opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[80vh] relative overflow-hidden flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedSite(null)}
+                className="absolute top-4 right-4 bg-gray-300 hover:bg-red-500 hover:text-white text-gray-800 rounded-full p-1 z-10"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="h-[50%] w-full overflow-hidden object-center">
+                <img
+                  src={
+                    selectedSite.image ||
+                    "https://via.placeholder.com/600x300?text=No+Image"
+                  }
+                  alt={selectedSite.name}
+                  className="w-full h-full object-cover rounded-t-xl"
+                />
+              </div>
+
+              <div className="p-6 overflow-y-auto h-[50%]">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  {selectedSite.name}
+                </h2>
+                <p className="text-gray-600 text-sm mb-3">
+                  📍 {selectedSite.location} (Distance from Patna:{" "}
+                  {selectedSite.distance} Km)
+                </p>
+
+                {selectedSite.protected_since && (
+                  <p className="text-gray-500 text-sm mt-2 italic">
+                    🛡️ Protected since: {selectedSite.protected_since}
+                  </p>
+                )}
+
+                {selectedSite.subtitle && (
+                  <p className="text-gray-700 text-sm italic">
+                    {selectedSite.subtitle}
+                  </p>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
