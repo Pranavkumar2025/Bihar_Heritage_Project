@@ -59,13 +59,13 @@ export default function GoverningBody() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-400 via-slate-300 to-slate-200 pt-24 pb-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 pt-24 pb-12 px-4">
       {/* Header */}
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-bold text-white uppercase tracking-wide">
           Governing Body
         </h1>
-        <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+        <p className="text-gray-300 mt-4 max-w-3xl mx-auto">
           <span className="font-semibold">Governing Body:</span> The Governing
           Committee controls the affairs of the Society and has the authority to
           exercise and perform all the powers, acts and deeds of the society. It
@@ -74,34 +74,31 @@ export default function GoverningBody() {
       </div>
 
       {/* Table Section */}
-      <div className="max-w-6xl mx-auto bg-white border border-orange-100 rounded-xl shadow-xl overflow-hidden">
+      <div className="max-w-6xl mx-auto bg-gray-800 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-orange-100 text-left text-sm text-gray-700 font-semibold uppercase">
+            <thead className="bg-gray-900 text-left text-sm text-gray-300 font-semibold uppercase">
               <tr>
-                <th className="px-6 py-4">Position</th>
-                <th className="px-6 py-4 text-right">Role</th>
+                <th className="px-6 py-4 border-b border-gray-700">Position</th>
+                <th className="px-6 py-4 text-right border-b border-gray-700">
+                  Role
+                </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-orange-100 text-sm">
+            <tbody className="divide-y divide-gray-700 text-sm">
               {governingBodyMembers.map((member, index) => (
                 <tr
                   key={index}
                   className={`transition duration-150 ${
-                    index % 2 === 0 ? "bg-white" : "bg-orange-50"
-                  } hover:bg-orange-100`}
+                    index % 2 === 0 ? "bg-gray-800" : "bg-gray-700"
+                  } hover:bg-gray-600`}
                 >
-                  <td className="px-6 py-4 text-gray-800 border-r border-orange-100">
+                  <td className="px-6 py-4 text-gray-200 border-r border-gray-700">
                     <div className="flex items-center gap-3">
-                      <img
-                        src={profileImg}
-                        alt="Profile"
-                        className="w-9 h-9 rounded-full border border-gray-300 object-cover shadow-sm"
-                      />
-                      <span>{member.position}</span>
+                      <span className="text-md font-semi">{member.position}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-right font-medium text-orange-700">
+                  <td className="px-6 py-4 text-right font-medium text-blue-400">
                     {member.role}
                   </td>
                 </tr>

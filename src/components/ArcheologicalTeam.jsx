@@ -13,14 +13,14 @@ export default function ArcheologicalTeam() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-600 via-slate-400 to-slate-200 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 py-12">
       {/* Page Title */}
       <div className="max-w-4xl mx-auto text-center mb-12 px-4 mt-16">
         <h2 className="text-4xl font-bold text-white uppercase tracking-wide">
           Archaeological Team
         </h2>
-        <div className="mt-3 w-24 h-1 bg-orange-400 mx-auto rounded-full" />
-        <p className="mt-5 text-lg text-gray-700 max-w-3xl mx-auto">
+        <div className="mt-3 w-24 h-1 bg-blue-400 mx-auto rounded-full" />
+        <p className="mt-5 text-lg text-gray-300 max-w-3xl mx-auto">
           Our dedicated archaeological team conducts field surveys, excavations,
           and research to preserve Bihar’s rich cultural heritage.
         </p>
@@ -28,34 +28,31 @@ export default function ArcheologicalTeam() {
 
       {/* Team Members Table */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
-        <div className="bg-white rounded-xl shadow-xl border border-orange-100 overflow-hidden">
+        <div className="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-orange-100 text-left text-sm text-gray-700 font-semibold uppercase">
+              <thead className="bg-gray-900 text-left text-sm text-gray-300 font-semibold uppercase">
                 <tr>
-                  <th className="px-6 py-4">Name & Position</th>
+                  <th className="px-6 py-4 border-b border-gray-700">
+                    Name & Position
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-orange-100 text-sm">
+              <tbody className="divide-y divide-gray-700 text-sm">
                 {teamMembers.map((member, index) => (
                   <tr
                     key={index}
                     className={`transition duration-150 ${
-                      index % 2 === 0 ? "bg-white" : "bg-orange-50"
-                    } hover:bg-orange-100`}
+                      index % 2 === 0 ? "bg-gray-800" : "bg-gray-700"
+                    } hover:bg-gray-600`}
                   >
-                    <td className="px-6 py-5 text-gray-800">
+                    <td className="px-6 py-5 text-gray-200">
                       <div className="flex items-center gap-4">
-                        <img
-                          src={profileImg}
-                          alt={member.name}
-                          className="w-10 h-10 rounded-full object-cover border border-gray-300"
-                        />
                         <div>
-                          <p className="text-md font-semibold text-gray-900">
+                          <p className="text-md font-semibold text-white">
                             {member.name}
                           </p>
-                          <p className="text-gray-600">{member.position}</p>
+                          <p className="text-gray-300">{member.position}</p>
                         </div>
                       </div>
                     </td>
@@ -69,11 +66,11 @@ export default function ArcheologicalTeam() {
 
       {/* Team Responsibilities */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-xl shadow-xl p-8 border border-orange-100">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">
+        <div className="bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+          <h3 className="text-2xl font-bold text-white mb-6">
             Team Responsibilities
           </h3>
-          <div className="text-gray-700 leading-relaxed space-y-4 text-md">
+          <div className="text-gray-300 leading-relaxed space-y-4 text-md">
             <p>
               The Archaeological team at Bihar Heritage Project is dedicated to
               uncovering, documenting, and preserving the rich cultural heritage

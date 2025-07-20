@@ -2,7 +2,7 @@ import { Building2, Users, Globe, Palette } from "lucide-react";
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-500 via-slate-200 to-slate-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 py-12 px-4">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-center mt-16">
