@@ -22,60 +22,80 @@ const features = [
   {
     title: "Nalanda University",
     description: "World’s First Residential University",
+    subtitle:
+      "Famed seat of ancient learning attracting scholars worldwide in history.",
     icon: NalandaUniversity,
     url: "https://en.wikipedia.org/wiki/Nalanda",
   },
   {
     title: "Bodh Gaya – Buddhism",
     description: "The place of Buddha's enlightenment",
+    subtitle:
+      "Sacred site where Buddha attained enlightenment under the Bodhi tree.",
     icon: BodhGaya,
     url: "https://en.wikipedia.org/wiki/Bodh_Gaya",
   },
   {
     title: "Rajgir – Jainism",
     description: "Spiritual center of Jainism",
+    subtitle:
+      "Ancient city significant to Jain and Buddhist traditions in Bihar.",
     icon: Rajgir,
     url: "https://en.wikipedia.org/wiki/Rajgir",
   },
   {
     title: "Mahabodhi Temple",
     description: "UNESCO World Heritage Site",
+    subtitle:
+      "Temple marking Buddha’s enlightenment, UNESCO World Heritage Site in India.",
     icon: MahabodhiTmeple,
     url: "https://en.wikipedia.org/wiki/Mahabodhi_Temple",
   },
   {
     title: "Rohtas Fort",
     description: "Historic hill fort of Sher Shah Suri",
+    subtitle:
+      "Majestic medieval fort with strategic architecture and historical prominence.",
     icon: RohtasFort,
     url: "https://en.wikipedia.org/wiki/Rohtasgarh_Fort",
   },
   {
     title: "Chhath Festival",
     description: "Ancient Vedic Sun-worship festival",
+    subtitle:
+      "Devotional festival honoring the Sun God with ritualistic traditions.",
     icon: ChaatPuja,
     url: "https://en.wikipedia.org/wiki/Chhath",
   },
   {
     title: "Madhubani Art",
     description: "Folk painting from Mithila region",
+    subtitle:
+      "Traditional painting style with colorful themes and symbolic pattern work.",
     icon: MadhubaniArt,
     url: "https://en.wikipedia.org/wiki/Madhubani_art",
   },
   {
     title: "Takht Sri Patna Sahib",
     description: "Birthplace of Guru Gobind Singh Ji",
+    subtitle:
+      "Prominent Sikh shrine marking Guru Gobind Singh’s sacred birthplace.",
     icon: PatnaSahib,
     url: "https://en.wikipedia.org/wiki/Takht_Sri_Patna_Sahib",
   },
   {
     title: "Kesariya Stupa",
     description: "Tallest Buddhist stupa in the world",
+    subtitle:
+      "Massive Buddhist stupa believed to preserve sacred Buddhist relics.",
     icon: KesariyaStupa,
     url: "https://en.wikipedia.org/wiki/Kesaria_stupa",
   },
   {
     title: "Vikramshila University",
     description: "Ancient center of Buddhist learning",
+    subtitle:
+      "Renowned monastic university for Vajrayana Buddhism during ancient India.",
     icon: VikramshilaUniversity,
     url: "https://en.wikipedia.org/wiki/Vikramashila",
   },
@@ -208,7 +228,7 @@ const UniqueBihar = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="my-5 h-[450px] flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
+                    className="my-5 h-[500px] flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
                   >
                     <div className="h-60 w-full">
                       <img
@@ -219,12 +239,13 @@ const UniqueBihar = () => {
                     </div>
                     <div className="flex-1 px-6 py-4 flex flex-col justify-between">
                       <div>
-                        <p className="text-indigo-700 text-[17px] font-semibold mb-1">
+                        <p className="text-indigo-700 text-[17px] font-semibold pt-1">
                           {item.description}
                         </p>
-                        <h3 className="text-2xl font-bold text-black mb-2">
+                        <h3 className="text-xl font-bold text-gray-800 my-1">
                           {item.title}
                         </h3>
+                        <h1 className="text-xs text-gray-500">{item.subtitle}</h1>
                       </div>
                       <p className="text-blue-600 text-sm font-medium hover:underline mt-auto">
                         Click to know more →
