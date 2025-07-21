@@ -43,7 +43,7 @@ const JoinMovement = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative  py-12 px-6 md:px-20 bg-cover bg-center flex flex-col justify-center"
+            className="relative  py-12 px-6 md:px-20 bg-cover bg-center flex flex-col justify-center h-screen"
             style={{ backgroundImage: `url(${JoinMovementBack})` }}
         >
             {/* Overlay */}

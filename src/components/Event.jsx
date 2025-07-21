@@ -62,7 +62,8 @@ export default function Event() {
           Events
         </motion.h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-16">
-          Discover our curated cultural experiences designed to showcase the soul of Bihar.
+          Discover our curated cultural experiences designed to showcase the
+          soul of Bihar.
         </p>
 
         <motion.div
@@ -77,15 +78,15 @@ export default function Event() {
               key={event.id}
               variants={cardVariants}
               whileHover={{ scale: 1.02 }}
-              className="bg-gray-900 p-6 rounded-2xl border border-gray-700 shadow-xl transition-all duration-300"
+              className="bg-gray-800 p-6 rounded-2xl border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
+              <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
                 <div className="flex items-center gap-2">
-                  <CalendarDays size={16} className="text-purple-400" />
+                  <CalendarDays size={16} className="text-blue-400" />
                   <span>{event.date}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-pink-400" />
+                  <MapPin size={16} className="text-blue-400" />
                   <span>{event.location}</span>
                 </div>
               </div>
@@ -102,7 +103,7 @@ export default function Event() {
                 {event.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="bg-purple-700 bg-opacity-30 text-purple-300 text-xs px-3 py-1 rounded-full"
+                    className="bg-blue-600/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/30"
                   >
                     #{tag}
                   </span>
@@ -113,7 +114,7 @@ export default function Event() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleOpenModal(event)}
-                className="mt-auto flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition"
+                className="mt-auto flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition"
               >
                 <Ticket size={16} />
                 Visiting Details
@@ -125,52 +126,53 @@ export default function Event() {
 
       {/* Modal */}
       {selectedEvent && (
-  <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 border border-gray-600 rounded-2xl shadow-xl p-6 w-full max-w-lg relative text-gray-100">
-      <button
-        onClick={handleCloseModal}
-        className="absolute top-3 right-3 text-gray-400 hover:text-red-500"
-      >
-        <X size={20} />
-      </button>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+          <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 border border-gray-600 rounded-2xl shadow-xl p-6 w-full max-w-lg relative text-gray-100">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+            >
+              <X size={20} />
+            </button>
 
-      <h2 className="text-2xl font-semibold text-white mb-4">
-        {selectedEvent.title}
-      </h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">
+              {selectedEvent.title}
+            </h2>
 
-      <table className="w-full text-sm text-left border-collapse">
-        <tbody>
-          <tr className="border-t border-gray-600">
-            <th className="py-2 px-4 text-purple-300 w-1/3">📅 Date</th>
-            <td className="py-2 px-4">{selectedEvent.date}</td>
-          </tr>
-          <tr className="border-t border-gray-600">
-            <th className="py-2 px-4 text-pink-300">📍 Location</th>
-            <td className="py-2 px-4">{selectedEvent.location}</td>
-          </tr>
-          <tr className="border-t border-gray-600">
-            <th className="py-2 px-4 text-cyan-300">🏷️ Tags</th>
-            <td className="py-2 px-4">
-              {selectedEvent.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="inline-block mr-2 mb-1 bg-purple-700 bg-opacity-30 text-purple-300 text-xs px-3 py-1 rounded-full"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </td>
-          </tr>
-          <tr className="border-t border-gray-600">
-            <th className="py-2 px-4 text-blue-300 align-top">📝 Description</th>
-            <td className="py-2 px-4">{selectedEvent.description}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-)}
-
+            <table className="w-full text-sm text-left border-collapse">
+              <tbody>
+                <tr className="border-t border-gray-600">
+                  <th className="py-2 px-4 text-purple-300 w-1/3">📅 Date</th>
+                  <td className="py-2 px-4">{selectedEvent.date}</td>
+                </tr>
+                <tr className="border-t border-gray-600">
+                  <th className="py-2 px-4 text-pink-300">📍 Location</th>
+                  <td className="py-2 px-4">{selectedEvent.location}</td>
+                </tr>
+                <tr className="border-t border-gray-600">
+                  <th className="py-2 px-4 text-cyan-300">🏷️ Tags</th>
+                  <td className="py-2 px-4">
+                    {selectedEvent.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="inline-block mr-2 mb-1 bg-purple-700 bg-opacity-30 text-purple-300 text-xs px-3 py-1 rounded-full"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </td>
+                </tr>
+                <tr className="border-t border-gray-600">
+                  <th className="py-2 px-4 text-blue-300 align-top">
+                    📝 Description
+                  </th>
+                  <td className="py-2 px-4">{selectedEvent.description}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

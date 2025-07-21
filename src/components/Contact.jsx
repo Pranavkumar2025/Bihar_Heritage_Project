@@ -10,12 +10,13 @@ const iconVariants = {
 
 const Contact = () => {
   return (
-    <div className="relative min-h-screen bg-gray-900 px-5 py-20 md:px-24 text-gray-100">
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 px-5 py-20 md:px-24 text-gray-100">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
         className="text-center mb-14"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-gray-100">
@@ -25,6 +26,7 @@ const Contact = () => {
           initial={{ width: 0 }}
           whileInView={{ width: "100%" }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
           className="h-[2px] bg-gray-600 w-20 mx-auto mt-3 rounded-full"
         />
       </motion.div>
@@ -36,6 +38,7 @@ const Contact = () => {
           initial={{ opacity: 0, scale: 0.95, x: -50 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
           className="bg-gray-800 p-8 rounded-xl shadow-md border border-gray-700"
         >
           <h2 className="text-2xl font-semibold text-gray-100 mb-6">
@@ -85,6 +88,7 @@ const Contact = () => {
           initial={{ opacity: 0, scale: 0.95, x: 50 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
           className="rounded-xl overflow-hidden shadow-md border border-gray-700"
         >
           <iframe

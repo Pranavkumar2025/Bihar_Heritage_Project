@@ -28,7 +28,7 @@ const cardVariant = {
 
 const Awareness = () => {
   return (
-    <section className="relative overflow-hidden py-24 px-6 md:px-20 bg-cover bg-center bg-fixed h-[750px]">
+    <section className="relative overflow-hidden py-24 px-6 md:px-20 bg-cover bg-center bg-fixed ">
       {/* Background image */}
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10">
         <img
