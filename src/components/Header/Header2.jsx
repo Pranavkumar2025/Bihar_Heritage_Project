@@ -4,7 +4,7 @@ import { HashLink } from "react-router-hash-link";
 // eslint-disable-next-line
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import bhdsLogo from "../../assets/logo.png";
+import bhdsLogo from "../../assets/favicon.png";
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -96,7 +96,7 @@ const Header2 = () => {
             {/* Logo */}
             <motion.div
               onClick={() => navigate("/")}
-              className="cursor-pointer z-10"
+              className="cursor-pointer z-10 flex *:justify-center items-center gap-3"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -106,6 +106,14 @@ const Header2 = () => {
                 alt="Bihar Heritage Logo"
                 className="h-10 w-auto"
               />
+              <div className="flex flex-col">
+                <span className="text-white text-xs font-semibold tracking-wide">
+                  Bihar Heritage
+                </span>
+                <span className="text-gray-300 text-xs font-medium">
+                  Development Society
+                </span>
+              </div>
             </motion.div>
 
             {/* Desktop Nav */}
