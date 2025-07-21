@@ -22,41 +22,42 @@ import ScrollToTop from "./components/ScrollToTop";
 import ProtectedSites from "./components/ProtectedSites";
 import Excavations from "./components/Excavations";
 import News from "./components/News";
+import Tender from "./components/Tender";
 
 const App = () => {
   return (
-			<Router>
-				{/* <Header /> */}
-				{/* <Header1 /> */}
-				<ScrollToTop />
-				<Header2 />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/publication" element={<Publication />} />
-					<Route path="/events/*" element={<Event />} /> {/* Changed to handle sub-routes */}
-					<Route path="/contact" element={<Contact />} />
-					{/* <Route path="/excavation" element={<Event />} /> */}
-					<Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
-					<Route path="/GalleryPage" element={<GalleryPage />} />
-					<Route path="/Gallery" element={<Gallery />} />
-					<Route path ="/Activities" element={<ActivitiesPage />} />
-					<Route path="/governingbody" element={<GoverningBody />} />
-					<Route path="/excavations" element={<Excavations />} />
-					<Route path="/about" element={<AboutUs />} />
-					<Route path="/protected-sites" element={<ProtectedSites />} />
-					<Route path="/keyfunctionaries" element={<KeyFunctionaries />} />
-					<Route path="/executive" element={<ExecutiveCommittee />} />
-					<Route path="/archeologicalteam" element={<ArcheologicalTeam />} />
-					<Route path="/news" element={<News />} />
-					{/* <Route path="*" element={<Home />} /> Fallback route */}
-
-
-					{/* Add other routes */}
-				</Routes>
-				<Footer1 />
-				{/* <Footer1old /> */}
-			</Router>
-		);
+    <Router>
+      {/* <Header /> */}
+      {/* <Header1 /> */}
+      <ScrollToTop />
+      <Header2 />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/publication" element={<Publication />} />
+        <Route path="/events/*" element={<Event />} />{" "}
+        {/* Changed to handle sub-routes */}
+        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/excavation" element={<Event />} /> */}
+        <Route path="/VideoGalleryPage" element={<VideoGalleryPage />} />
+        <Route path="/GalleryPage" element={<GalleryPage />} />
+        <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/Activities" element={<ActivitiesPage />} />
+        <Route path="/governingbody" element={<GoverningBody />} />
+        <Route path="/excavations" element={<Excavations />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/protected-sites" element={<ProtectedSites />} />
+        <Route path="/keyfunctionaries" element={<KeyFunctionaries />} />
+        <Route path="/executive" element={<ExecutiveCommittee />} />
+        <Route path="/archeologicalteam" element={<ArcheologicalTeam />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/tender" element={<Tender />} />
+        {/* <Route path="*" element={<Home />} /> Fallback route */}
+        {/* Add other routes */}
+      </Routes>
+      <Footer1 />
+      {/* <Footer1old /> */}
+    </Router>
+  );
 };
 
 export default App;
