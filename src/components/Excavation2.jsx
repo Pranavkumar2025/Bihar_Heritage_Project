@@ -250,20 +250,21 @@ const Excavation2 = () => {
         </motion.div>
 
         <div className="relative mt-1">
-          <div
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar px-16 pt-4 pb-8 mb-4"
-          >
-            {items.map((item, index) => (
-              <Card
-                key={item.id}
-                item={item}
-                index={index}
-                onClick={setSelectedIndex}
-              />
-            ))}
-          </div>
-        </div>
+  <div
+    ref={scrollRef}
+    className="flex flex-col md:flex-row gap-4 overflow-x-auto md:overflow-x-scroll scroll-smooth no-scrollbar px-4 md:px-16 pt-4 pb-8 mb-4"
+  >
+    {items.map((item, index) => (
+      <Card
+        key={item.id}
+        item={item}
+        index={index}
+        onClick={setSelectedIndex}
+      />
+    ))}
+  </div>
+</div>
+
 
         <div className="flex justify-center mt-8">
           <Link to="/protected-sites">
