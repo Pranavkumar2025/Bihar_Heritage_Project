@@ -5,7 +5,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCameraRetro } from "react-icons/fa";
 
 import BodhGaya from "../assets/GalleryImg/BodhGaya.webp";
 import JalMandir from "../assets/GalleryImg/JalMandir.jpg"; // background image
@@ -130,10 +130,10 @@ const Gallery = () => {
 
         {/* Slider */}
         <div className="relative z-10">
-          <div className="mb-4">
-            <p className="text-2xl md:text-3xl font-bold text-yellow-300">
-              📸 Photo Gallery
-            </p>
+          <div className="mb-4"><p className="text-2xl md:text-3xl font-bold text-pink-400 flex items-center gap-3">
+  <FaCameraRetro className="text-indigo-400 drop-shadow" />
+  <span className="text-yellow-300">Photo Gallery</span>
+</p>
           </div>
           <Swiper
             spaceBetween={30}
