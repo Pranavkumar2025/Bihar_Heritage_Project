@@ -1,7 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight, X, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 // Load data
 import data from "./ExcavationData/Excavation.json";
@@ -16,6 +22,8 @@ import rajgirImg from "../assets/heritage/rajgir.jpg";
 import telharaImg from "../assets/heritage/telhara.jpg";
 import exploration1Img from "../assets/heritage/exploration1.jpg";
 import exploration2Img from "../assets/heritage/exploration2.jpg";
+
+import BackImage from "../assets/UniqueBiharImg/PatnaSahib.jpeg";
 
 // Image map
 const imageMap = {
@@ -33,22 +41,25 @@ const Card = ({ item, index, onClick }) => {
   return (
     <motion.div
       key={item.id}
-      className="flex flex-col rounded-2xl overflow-hidden border p-2 border-gray-200 transition-all duration-500 ease-in-out hover:shadow-xl group cursor-pointer w-64 min-h-[280px] bg-white/10 backdrop-blur-sm"
+      className="relative group w-full h-[600px] overflow-hidden rounded-2xl shadow-md cursor-pointer transition-transform duration-500 my-5"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      onClick={() => onClick(index)}
+      onClick={() => onClick(item)}
     >
-      <div className="overflow-hidden rounded-t-lg">
-        <img
-          src={imageMap[item.image]}
-          alt={item.title}
-          className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-      <div className="px-2 pt-4 rounded-b-lg text-gray-800 flex-grow flex flex-col justify-between group-hover:bg-[#f8c2c5] group-hover:text-gray-900 transition-colors duration-500">
-        <div>
-          <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-          <p className="text-sm text-gray-600 mb-2 group-hover:opacity-90 transition-opacity duration-500">
+      {/* Image */}
+      <img
+        src={imageMap[item.image]}
+        alt={item.title}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+
+      {/* Text Overlay with Gradient */}
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 py-4 transition-all duration-500 group-hover:from-black/95 group-hover:via-black/80">
+        <div className="transition-all duration-500 transform group-hover:-translate-y-2">
+          <h3 className="text-lg font-bold text-white mb-1 transition-all duration-500">
+            {item.title}
+          </h3>
+          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-20 overflow-hidden">
             {item.description}
           </p>
         </div>
@@ -123,7 +134,6 @@ const Modal = ({ item, onClose }) => {
 
 const Excavation2 = () => {
   const [activeTab, setActiveTab] = useState("excavation");
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalItem, setModalItem] = useState(null);
 
   const items =
@@ -131,45 +141,27 @@ const Excavation2 = () => {
       ? data.excavationSites
       : data.explorationActivities;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedIndex((prev) => (prev + 1) % items.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [items.length]);
-
-  const scrollRef = useRef(null);
-
-  const selectedItem = items[selectedIndex];
-  const detailsText =
-    detailMap[selectedItem?.title]?.details ||
-    "No detailed description available.";
-
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background Image Layer */}
+    <div className="relative min-h-screen flex flex-col bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={BackImage}
+          alt="Background"
+          className="w-full h-full object-cover  brightness-[0.4]"
+        />
+      </div>
+      <div className="relative z-10 min-h-screen mt-8 pt-10 pb-4 px-6 md:px-20 text-gray-800">
+        <h1 className="text-7xl font-extrabold text-center text-white">
+          DISCOVERIES THROUGH TIME
+        </h1>
 
-      <div className="relative z-10 min-h-screen  pt-10 pb-4 px-6 md:px-20 text-gray-800">
-        <div className="w-full max-w-screen-xl mx-auto py-10 px-4 md:px-10 rounded-none">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-7xl font-extrabold text-black text-center uppercase mb-2"
-          >
-            Bihar Heritage: Timeless Discoveries
-          </motion.h2>
-        </div>
-
-        <div className="mb-8 flex justify-center gap-4">
+        <div className="mt-6 flex justify-center gap-4">
           <button
             onClick={() => setActiveTab("excavation")}
             className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
               activeTab === "excavation"
-                ? "bg-[#66b2e2] text-white"
-                : "bg-white text-gray-800 hover:bg-[#96d2f7]"
+                ? "bg-yellow-600 text-white"
+                : "bg-white text-gray-800 hover:bg-yellow-100"
             }`}
           >
             Excavation Sites
@@ -178,104 +170,71 @@ const Excavation2 = () => {
             onClick={() => setActiveTab("exploration")}
             className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
               activeTab === "exploration"
-                ? "bg-[#66b2e2] text-white"
-                : "bg-white text-gray-800 hover:bg-[#96d2f7]"
+                ? "bg-yellow-600 text-white"
+                : "bg-white text-gray-800 hover:bg-yellow-100"
             }`}
           >
             Exploration Activities
           </button>
         </div>
 
-        <motion.div
-          className="mt-4 w-full px-4 md:px-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <div className="w-full h-[500px] perspective">
-            <motion.div
-              whileHover={{ rotateY: 180 }}
-              transition={{ duration: 0.4 }}
-              className="relative w-full h-full transform-style-preserve-3d will-change-transform transition-transform duration-700"
+        <div className="relative mt-8">
+          {/* Swiper Carousel */}
+          <div className="relative overflow-visible z-10">
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev",
+              }}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 4 },
+              }}
+              modules={[Navigation, Autoplay]}
             >
-              {/* Front Side */}
-              <div className="absolute inset-0 backface-hidden">
-                <img
-                  src={imageMap[selectedItem.image]}
-                  alt={selectedItem.title}
-                  className="w-full h-full object-cover rounded-2xl shadow-lg"
-                />
-                <div className="absolute bottom-6 left-6 z-20 text-white">
-                  <h2 className="text-3xl font-bold">{selectedItem.title}</h2>
-                  <button
-                    onClick={() => setModalItem(selectedItem)}
-                    className="mt-4 text-[#FF4D5A] font-semibold hover:underline"
-                  >
-                    Learn More →
-                  </button>
-                </div>
-              </div>
+              {items.map((item, index) => (
+                <SwiperSlide key={item.id}>
+                  <Card item={item} index={index} onClick={setModalItem} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-              {/* Back Side */}
-              <div className="absolute inset-0 rotate-y-180 backface-hidden bg-white rounded-2xl shadow-lg p-6 overflow-y-auto flex flex-col md:flex-row">
-                {/* Text Section */}
-                <div className="w-full md:w-1/2 flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                      {selectedItem.title}
-                    </h2>
-                    <p className="whitespace-pre-wrap text-sm md:text-base max-h-[350px] overflow-y-auto pr-2">
-                      {detailsText}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setModalItem(selectedItem)}
-                    className="mt-6 text-[#FF4D5A] text-base font-semibold hover:underline transition-all duration-500 group-hover:text-[#D90429] flex items-center gap-1"
-                  >
-                    Learn More <ChevronRight size={16} />
-                  </button>
-                </div>
-
-                {/* Image Section */}
-                <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] lg:h-[400px] overflow-hidden mt-6 md:mt-0 md:ml-6">
-                  <motion.img
-                    src={imageMap[selectedItem.image]}
-                    alt={selectedItem.title}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
+            {/* Custom Navigation Arrows */}
+            <div className="flex justify-center items-center gap-6 mt-10">
+              <div className="custom-prev cursor-pointer bg-yellow-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors shadow-lg">
+                <ChevronLeft size={24} />
               </div>
-            </motion.div>
+              <div className="custom-next cursor-pointer bg-yellow-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors shadow-lg">
+                <ChevronRight size={24} />
+              </div>
+            </div>
           </div>
-        </motion.div>
-
-        <div className="relative mt-1">
-  <div
-    ref={scrollRef}
-    className="flex flex-col md:flex-row gap-4 overflow-x-auto md:overflow-x-scroll scroll-smooth no-scrollbar px-4 md:px-16 pt-4 pb-8 mb-4"
-  >
-    {items.map((item, index) => (
-      <Card
-        key={item.id}
-        item={item}
-        index={index}
-        onClick={setSelectedIndex}
-      />
-    ))}
-  </div>
-</div>
-
-
-        <div className="flex justify-center mt-8">
-          <Link to="/protected-sites">
-            <button className="bg-[#66b2e2] cursor-pointer text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#96d2f7] transition-all duration-300">
-              View All Protected Sites
-            </button>
-          </Link>
         </div>
 
         <Modal item={modalItem} onClose={() => setModalItem(null)} />
       </div>
+
+      {/* Custom Swiper Styles */}
+      <style jsx>{`
+        .swiper-container {
+          padding: 40px 0 60px 0;
+          overflow: visible;
+        }
+
+        .swiper-slide {
+          height: auto;
+        }
+
+        .custom-next,
+        .custom-prev {
+          z-index: 10;
+        }
+      `}</style>
     </div>
   );
 };

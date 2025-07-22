@@ -239,15 +239,17 @@ const UniqueBihar = () => {
                     </div>
                     <div className="flex-1 px-6 py-4 flex flex-col justify-between">
                       <div>
-                        <p className="text-indigo-700 text-[17px] font-semibold pt-1">
+                        <p className="text-indigo-700 text-sm font-semibold pt-1 whitespace-nowrap">
                           {item.description}
                         </p>
                         <h3 className="text-xl font-bold text-gray-800 my-1">
                           {item.title}
                         </h3>
-                        <h1 className="text-xs text-gray-500">{item.subtitle}</h1>
+                        <h1 className="text-xs text-gray-500">
+                          {item.subtitle}
+                        </h1>
                       </div>
-                      <p className="text-blue-600 text-sm font-medium hover:underline mt-auto mt-3">
+                      <p className="text-blue-600 text-sm font-medium hover:underline  mt-3">
                         Click to know more →
                       </p>
                     </div>
