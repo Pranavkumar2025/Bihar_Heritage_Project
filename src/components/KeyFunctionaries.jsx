@@ -20,6 +20,15 @@ export default function KeyFunctionaries() {
       contact: "0612-2211619",
     },
     {
+      name: "Smt. Rachna Patil,",
+      position: "Excecutive Director,",
+      department: "Art Culture and Youth Department, Govt. of Bihar",
+      // role: "Chairman",
+      // committee: "Executive Committee",
+      organization: "Bihar Heritage Development Society",
+      contact: "0612-2211619",
+    },
+    {
       name: "Arvind Tiwari",
       position: "Deputy Executive Director",
       organization: "Bihar Heritage Development Society",
