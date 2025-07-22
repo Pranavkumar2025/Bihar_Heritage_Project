@@ -228,7 +228,7 @@ const UniqueBihar = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="my-5 h-[500px] flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
+                    className="my-5 flex flex-col bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3"
                   >
                     <div className="h-60 w-full">
                       <img
@@ -247,7 +247,7 @@ const UniqueBihar = () => {
                         </h3>
                         <h1 className="text-xs text-gray-500">{item.subtitle}</h1>
                       </div>
-                      <p className="text-blue-600 text-sm font-medium hover:underline mt-auto">
+                      <p className="text-blue-600 text-sm font-medium hover:underline mt-auto mt-3">
                         Click to know more →
                       </p>
                     </div>
