@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // Load data
 import data from "./ExcavationData/Excavation.json";
@@ -56,10 +56,10 @@ const Card = ({ item, index, onClick }) => {
       {/* Text Overlay with Gradient */}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 py-4 transition-all duration-500 group-hover:from-black/95 group-hover:via-black/80">
         <div className="transition-all duration-500 transform group-hover:-translate-y-2">
-          <h3 className="text-lg font-bold text-white mb-1 transition-all duration-500">
+          <h3 className="text-xl font-bold text-white mb-1 transition-all duration-500 text-center pb-3">
             {item.title}
           </h3>
-          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-20 overflow-hidden">
+          <p className="text-md text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-20 overflow-hidden text-center line-clamp-2">
             {item.description}
           </p>
         </div>
@@ -72,69 +72,41 @@ const Modal = ({ item, onClose }) => {
   const detailsText =
     detailMap[item?.title]?.details || "No detailed description available.";
 
+  if (!item) return null;
+
   return (
-    <AnimatePresence>
-      {item && (
-        <motion.div
-          key="backdrop"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4"
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4">
+      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh] p-6">
+        <motion.button
+          whileHover={{ scale: 1.2, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={onClose}
+          className="absolute top-4 right-4 bg-gray-200 rounded-full p-1 hover:bg-red-500 hover:text-white transition-colors"
         >
-          <motion.div
-            key="modal-content"
-            initial={{ scale: 0.9, y: 40, opacity: 0 }}
-            animate={{ scale: 1, y: 0, opacity: 1 }}
-            exit={{ scale: 0.9, y: 40, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh] p-6"
-          >
-            <motion.button
-              whileHover={{ scale: 1.2, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={onClose}
-              className="absolute top-4 right-4 bg-gray-200 rounded-full p-1 hover:bg-red-500 hover:text-white transition-colors"
-            >
-              <X size={20} />
-            </motion.button>
+          <X size={20} />
+        </motion.button>
 
-            <motion.img
-              src={imageMap[item.image]}
-              alt={item.title}
-              className="w-full h-64 object-cover rounded-xl mb-4"
-              initial={{ scale: 1.1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            />
+        <img
+          src={imageMap[item.image]}
+          alt={item.title}
+          className="w-full h-64 object-cover rounded-xl mb-4"
+        />
 
-            <motion.h2
-              className="text-2xl font-bold text-gray-800 mb-2"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              {item.title}
-            </motion.h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">{item.title}</h2>
 
-            <motion.pre
-              className="text-gray-700 whitespace-pre-wrap font-sans text-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              {detailsText}
-            </motion.pre>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        <pre className="text-gray-700 whitespace-pre-wrap font-sans text-sm">
+          {detailsText}
+        </pre>
+      </div>
+    </div>
   );
 };
 
 const Excavation2 = () => {
   const [activeTab, setActiveTab] = useState("excavation");
   const [modalItem, setModalItem] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
 
   const items =
     activeTab === "excavation"
@@ -178,24 +150,27 @@ const Excavation2 = () => {
           </button>
         </div>
 
-        <div className="relative mt-8">
+        <div className="relative mt-8 pb-20">
           {/* Swiper Carousel */}
           <div className="relative overflow-visible z-10">
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
-              navigation={{
-                nextEl: ".custom-next",
-                prevEl: ".custom-prev",
-              }}
+              loop={true}
+              pagination={false}
               autoplay={{ delay: 4000, disableOnInteraction: false }}
+              onSwiper={setSwiperInstance}
+              onSlideChange={(swiper) =>
+                setActiveSlide(swiper.realIndex % items.length)
+              }
               breakpoints={{
                 640: { slidesPerView: 1 },
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
                 1280: { slidesPerView: 4 },
               }}
-              modules={[Navigation, Autoplay]}
+              modules={[Pagination, Autoplay]}
+              className=""
             >
               {items.map((item, index) => (
                 <SwiperSlide key={item.id}>
@@ -204,14 +179,22 @@ const Excavation2 = () => {
               ))}
             </Swiper>
 
-            {/* Custom Navigation Arrows */}
-            <div className="flex justify-center items-center gap-6 mt-10">
-              <div className="custom-prev cursor-pointer bg-yellow-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors shadow-lg">
-                <ChevronLeft size={24} />
-              </div>
-              <div className="custom-next cursor-pointer bg-yellow-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors shadow-lg">
-                <ChevronRight size={24} />
-              </div>
+            {/* Dynamic pagination based on items count */}
+            <div className="custom-dot-pagination">
+              {Array.from({ length: items.length }, (_, index) => (
+                <span
+                  key={index}
+                  className={`custom-bullet ${
+                    index === activeSlide ? "custom-bullet-active" : ""
+                  }`}
+                  onClick={() => {
+                    if (swiperInstance) {
+                      swiperInstance.slideToLoop(index);
+                      setActiveSlide(index);
+                    }
+                  }}
+                ></span>
+              ))}
             </div>
           </div>
         </div>
@@ -230,9 +213,50 @@ const Excavation2 = () => {
           height: auto;
         }
 
-        .custom-next,
-        .custom-prev {
-          z-index: 10;
+        .custom-bullet {
+          width: 12px !important;
+          height: 12px !important;
+          background: rgba(255, 255, 255, 0.4) !important;
+          border-radius: 50% !important;
+          margin: 0 4px !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          opacity: 1 !important;
+        }
+
+        .custom-bullet-active {
+          background: rgba(255, 255, 255, 0.9) !important;
+          transform: scale(1.2) !important;
+        }
+
+        .swiper-pagination {
+          bottom: -50px !important;
+          text-align: center !important;
+          position: relative !important;
+          z-index: 20 !important;
+        }
+
+        .custom-dot-pagination {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          margin-top: 20px !important;
+          gap: 8px !important;
+        }
+
+        .custom-dot-pagination .custom-bullet {
+          width: 12px !important;
+          height: 12px !important;
+          background: rgba(255, 255, 255, 0.4) !important;
+          border-radius: 50% !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          display: inline-block !important;
+        }
+
+        .custom-dot-pagination .custom-bullet-active {
+          background: rgba(255, 255, 255, 0.9) !important;
+          transform: scale(1.2) !important;
         }
       `}</style>
     </div>

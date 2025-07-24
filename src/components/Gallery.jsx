@@ -131,8 +131,7 @@ const Gallery = () => {
         {/* Slider */}
         <div className="relative z-10">
           <div className="mb-4"><p className="text-2xl md:text-3xl font-bold text-pink-400 flex items-center gap-3">
-  <FaCameraRetro className="text-indigo-400 drop-shadow" />
-  <span className="text-yellow-300">Photo Gallery</span>
+
 </p>
           </div>
           <Swiper

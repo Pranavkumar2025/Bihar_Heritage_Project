@@ -104,13 +104,13 @@ const Header2 = () => {
               <img
                 src={bhdsLogo}
                 alt="Bihar Heritage Logo"
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
-              <div className="flex flex-col">
-                <span className="text-white text-xs font-semibold tracking-wide">
+              <div className="flex flex-col pl-1">
+                <span className="text-white text-md font-semibold tracking-wide -mb-1">
                   Bihar Heritage
                 </span>
-                <span className="text-gray-300 text-xs font-medium">
+                <span className="text-gray-300 text-md font-medium">
                   Development Society
                 </span>
               </div>

@@ -36,7 +36,7 @@ const Home = () => {
   }, [location]);
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Hero />
       <Excavation2/>
       <UniqueBihar />

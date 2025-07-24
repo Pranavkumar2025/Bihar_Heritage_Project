@@ -26,7 +26,7 @@ export default function KeyFunctionaries() {
       // role: "Chairman",
       // committee: "Executive Committee",
       organization: "Bihar Heritage Development Society",
-      contact: "0612-2211619",
+      contact: "0612-2217256",
     },
     {
       name: "Arvind Tiwari",

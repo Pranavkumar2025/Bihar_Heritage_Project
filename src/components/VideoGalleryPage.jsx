@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const videoData = [
   {
@@ -33,116 +32,50 @@ const videoData = [
 ];
 
 const VideoGalleryPage = () => {
-  const [currentStart, setCurrentStart] = useState(0);
-  const cardWidth = 330;
-  const cardGap = 24;
-  const visibleCards = 4;
-  const containerWidth = cardWidth * visibleCards + cardGap * (visibleCards - 1);
-  const maxStart = Math.max(0, videoData.length - visibleCards);
-
-  const handleLeft = () => {
-    setCurrentStart((prev) => Math.max(0, prev - 1));
-  };
-
-  const handleRight = () => {
-    setCurrentStart((prev) => (prev >= maxStart ? 0 : prev + 1));
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStart((prev) => (prev >= maxStart ? 0 : prev + 1));
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [maxStart]);
-
   return (
-    <div
-      className="relative min-h-screen px-6 py-12"
-      style={{ backgroundColor: "#FEC343" }}
-    >
-      {/* Zigzag Background */}
-      <div
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: "url('https://www.transparenttextures.com/patterns/zig-zag.png')",
-          backgroundSize: "20px 20px",
-        }}
-      />
+    <div className="min-h-screen bg-gray-200 pt-10 pb-4 px-6 md:px-20">
+      <h1 className="text-4xl font-bold text-center text-yellow-500 mb-10 mt-14">
+        VIDEO GALLERY - Bihar Heritage
+      </h1>
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h1 className="text-white text-8xl font-extrabold">VIDEO GALLERY</h1>
-          <p className="text-white text-3xl mt-2">— Bihar Heritage —</p>
-        </div>
-
-        {/* Card Container */}
-        <div
-          className="mx-auto relative overflow-hidden"
-          style={{
-            width: `${containerWidth}px`,
-            height: "500px",
-          }}
-        >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9">
+        {videoData.map((video, idx) => (
           <div
-            className="flex gap-6 transition-transform duration-700 ease-in-out absolute"
-            style={{
-              transform: `translateX(-${currentStart * (cardWidth + cardGap)}px)`,
-            }}
+            key={idx}
+            className="group relative overflow-hidden rounded-2xl hover:shadow-lg transform transition-transform duration-500 ease-in-out hover:-translate-y-6 cursor-pointer bg-black"
           >
-            {videoData.map((video, idx) => (
-              <div
-                key={idx}
-                className="w-[330px] h-[450px] bg-black text-white flex-shrink-0 shadow-xl transform transition-transform duration-300 hover:-translate-y-8 hover:scale-105 hover:shadow-2xl"
-              >
-                <div className="w-full h-[260px] overflow-hidden">
-                  <iframe
-                    src={video.videoUrl}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
-                <div className="p-4 h-[190px] bg-black">
-                  <p className="text-red-500 font-semibold text-lg">
-                    {video.region} <span className="text-white">| {video.category}</span>
-                  </p>
-                  <h3 className="mt-2 font-bold text-2xl leading-tight">{video.title}</h3>
-                  <a
-                    href={video.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-3 text-sm text-yellow-400 border border-yellow-400 px-3 py-1 rounded hover:bg-yellow-400 hover:text-black transition"
-                  >
-                    Watch on YouTube
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+            {/* Video iframe */}
+            <div className="w-full h-64 overflow-hidden">
+              <iframe
+                src={video.videoUrl}
+                title={video.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
+              ></iframe>
+            </div>
 
-        {/* Arrows */}
-        <div className="flex justify-center mt-8 gap-10 z-20 relative">
-          <button
-            onClick={handleLeft}
-            disabled={currentStart === 0}
-            className="text-black hover:scale-125 transition-transform disabled:opacity-30"
-          >
-            <FaArrowLeft size={28} />
-          </button>
-          <button
-            onClick={handleRight}
-            disabled={currentStart >= maxStart}
-            className="text-black hover:scale-125 transition-transform disabled:opacity-30"
-          >
-            <FaArrowRight size={28} />
-          </button>
-        </div>
+            {/* Content Overlay */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4">
+              <p className="text-red-400 font-semibold text-sm line-clamp-2">
+                {video.region} | {video.category}
+              </p>
+              <h3 className="text-sm font-bold text-white mt-1 line-clamp-2">
+                {video.title}
+              </h3>
+              <a
+                href={video.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 text-xs text-yellow-400 border border-yellow-400 px-2 py-1 rounded hover:bg-yellow-400 hover:text-black transition"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Watch on YouTube
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
