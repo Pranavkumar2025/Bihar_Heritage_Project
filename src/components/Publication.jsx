@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
+import Flipbook from "./Flipbook";
 
 // PDF Imports
 import pdf1 from "../assets/pdfs/Archaeological Atlas of Bihar.pdf";
@@ -16,15 +17,12 @@ import cover2 from "../assets/pdfs/image2.jpg";
 import cover3 from "../assets/pdfs/image3.jpg";
 import cover4 from "../assets/pdfs/image4.jpg";
 
-
-
-
-
 const data = [
   {
     id: 1,
     title: "Archaeological Atlas of Bihar",
-    description: "A detailed atlas showcasing archaeological richness of Bihar.",
+    description:
+      "A detailed atlas showcasing archaeological richness of Bihar.",
     pdfUrl: pdf1,
   },
   {
@@ -63,6 +61,23 @@ const cardVariants = {
 };
 
 const Publication = () => {
+  const [selectedPdf, setSelectedPdf] = useState(null);
+  const [showFlipbook, setShowFlipbook] = useState(false);
+
+  const handleViewAsBook = (pdfUrl) => {
+    setSelectedPdf(pdfUrl);
+    setShowFlipbook(true);
+  };
+
+  const handleCloseFlipbook = () => {
+    setShowFlipbook(false);
+    setSelectedPdf(null);
+  };
+
+  if (showFlipbook && selectedPdf) {
+    return <Flipbook pdfFile={selectedPdf} onClose={handleCloseFlipbook} />;
+  }
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 py-16 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-7xl mx-auto">
@@ -102,7 +117,8 @@ const Publication = () => {
                   alt="Folk Tales: Bhojpuri, Magahi Cover"
                   className="mb-4 w-28 h-36 object-cover rounded-lg shadow"
                 />
-              ) : item.title === "Development of Languages and Scripts in Bihar" ? (
+              ) : item.title ===
+                "Development of Languages and Scripts in Bihar" ? (
                 <img
                   src={cover3}
                   alt="Development of Languages and Scripts in Bihar Cover"
@@ -125,19 +141,17 @@ const Publication = () => {
                 {item.description}
               </p>
 
-              <div className="mt-auto flex justify-center gap-6 text-sm font-medium px-2 w-full max-w-[200px]">
-                <a
-                  href={item.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 hover:underline"
+              <div className="mt-auto flex justify-center gap-6 text-sm font-medium px-2 w-full ">
+                <button
+                  onClick={() => handleViewAsBook(item.pdfUrl)}
+                  className="text-blue-400 hover:text-blue-300 cursor-pointer"
                 >
-                  View
-                </a>
+                  View as Book
+                </button>
                 <a
                   href={item.pdfUrl}
                   download
-                  className="text-green-400 hover:text-green-300 hover:underline"
+                  className="text-green-400 hover:text-green-300"
                 >
                   Download
                 </a>
