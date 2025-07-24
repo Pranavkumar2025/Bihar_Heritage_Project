@@ -1,34 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FiUsers, FiMapPin, FiHeart, FiBookOpen, FiShield } from "react-icons/fi";
+import {
+  FiUsers,
+  FiMapPin,
+  FiHeart,
+  FiBookOpen,
+  FiShield,
+} from "react-icons/fi";
 import JoinMovementBack from "../assets/UniqueBiharImg/JoinMovement.jpg";
+import JoinMovementForm from "./JoinMovementForm";
 
 const JoinMovement = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedAction, setSelectedAction] = useState("");
+
+  const handleCardClick = (actionType) => {
+    setSelectedAction(actionType);
+    setIsFormOpen(true);
+  };
   const actions = [
     {
       title: "Become a Volunteer",
       description: "Lend your time and energy to protect history and culture.",
       icon: <FiUsers size={28} />,
+      actionType: "volunteer",
     },
     {
       title: "Report a Site",
       description: "Share neglected gems and help us bring them to light.",
       icon: <FiMapPin size={28} />,
+      actionType: "report",
     },
     {
       title: "Support the Cause",
       description: "Your donations, shares, or ideas can fuel preservation.",
       icon: <FiHeart size={28} />,
+      actionType: "support",
     },
     {
       title: "Educate & Spread Awareness",
       description: "Teach others the importance of conserving heritage.",
       icon: <FiBookOpen size={28} />,
+      actionType: "educate",
     },
     {
       title: "Preserve Local Stories",
       description: "Document and save oral histories, photos, and traditions.",
       icon: <FiShield size={28} />,
+      actionType: "preserve",
     },
   ];
 
@@ -55,7 +74,8 @@ const JoinMovement = () => {
           transition={{ duration: 0.8 }}
           className="text-white text-base sm:text-lg md:text-xl"
         >
-          — Heritage needs its heroes — step in, speak up, and safeguard the soul of Bihar —
+          — Heritage needs its heroes — step in, speak up, and safeguard the
+          soul of Bihar —
         </motion.p>
       </div>
 
@@ -66,16 +86,19 @@ const JoinMovement = () => {
           {actions.slice(0, 3).map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white/90 w-full max-w-xs backdrop-blur-md ring-1 ring-indigo-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:shadow-2xl transition-transform transform hover:-translate-y-2"
+              className="bg-white/90 w-full max-w-xs backdrop-blur-md ring-1 ring-indigo-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:shadow-2xl transition-transform transform hover:-translate-y-2 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
+              onClick={() => handleCardClick(item.actionType)}
             >
               <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center shadow">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-bold text-indigo-800 mb-2">{item.title}</h3>
+              <h3 className="text-lg font-bold text-indigo-800 mb-2">
+                {item.title}
+              </h3>
               <p className="text-gray-600 text-sm">{item.description}</p>
             </motion.div>
           ))}
@@ -86,21 +109,31 @@ const JoinMovement = () => {
           {actions.slice(3).map((item, index) => (
             <motion.div
               key={index + 3}
-              className="bg-white/90 w-full max-w-xs backdrop-blur-md ring-1 ring-indigo-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:shadow-2xl transition-transform transform hover:-translate-y-2"
+              className="bg-white/90 w-full max-w-xs backdrop-blur-md ring-1 ring-indigo-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:shadow-2xl transition-transform transform hover:-translate-y-2 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
+              onClick={() => handleCardClick(item.actionType)}
             >
               <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center shadow">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-bold text-indigo-800 mb-2">{item.title}</h3>
+              <h3 className="text-lg font-bold text-indigo-800 mb-2">
+                {item.title}
+              </h3>
               <p className="text-gray-600 text-sm">{item.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Form Modal */}
+      <JoinMovementForm
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        selectedAction={selectedAction}
+      />
     </motion.section>
   );
 };
