@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const videoData = [
   {
@@ -33,42 +33,42 @@ const videoData = [
 
 const VideoGalleryPage = () => {
   return (
-    <div className="min-h-screen bg-gray-200 pt-10 pb-4 px-6 md:px-20">
-      <h1 className="text-4xl font-bold text-center text-yellow-500 mb-10 mt-14">
-        VIDEO GALLERY - Bihar Heritage
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4 md:px-16 py-14">
+      <h1 className="text-4xl font-extrabold text-center text-yellow-400 mb-14 tracking-wide uppercase mt-10 drop-shadow-md">
+        Bihar Heritage — Video Gallery
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {videoData.map((video, idx) => (
           <div
             key={idx}
-            className="group relative overflow-hidden rounded-2xl hover:shadow-lg transform transition-transform duration-500 ease-in-out hover:-translate-y-6 cursor-pointer bg-black"
+            className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-md border border-white/10 hover:shadow-xl transition duration-500 transform hover:-translate-y-3 group"
           >
-            {/* Video iframe */}
-            <div className="w-full h-64 overflow-hidden">
+            {/* Video */}
+            <div className="h-56 overflow-hidden">
               <iframe
                 src={video.videoUrl}
                 title={video.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
+                className="w-full h-full group-hover:scale-105 transition-transform duration-500"
               ></iframe>
             </div>
 
-            {/* Content Overlay */}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4">
-              <p className="text-red-400 font-semibold text-sm line-clamp-2">
-                {video.region} | {video.category}
+            {/* Content */}
+            <div className="p-4">
+              <p className="text-sm text-indigo-300 font-medium">
+                {video.region} • {video.category}
               </p>
-              <h3 className="text-sm font-bold text-white mt-1 line-clamp-2">
+              <h3 className="text-white font-semibold mt-1 text-base line-clamp-2">
                 {video.title}
               </h3>
               <a
                 href={video.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 text-xs text-yellow-400 border border-yellow-400 px-2 py-1 rounded hover:bg-yellow-400 hover:text-black transition"
+                className="inline-block mt-3 text-xs text-yellow-400 border border-yellow-400 px-3 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black transition"
                 onClick={(e) => e.stopPropagation()}
               >
                 Watch on YouTube
