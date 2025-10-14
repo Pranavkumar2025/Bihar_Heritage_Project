@@ -5,10 +5,10 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaMapMarkerAlt, FaCameraRetro } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 import BodhGaya from "../assets/GalleryImg/BodhGaya.webp";
-import JalMandir from "../assets/GalleryImg/JalMandir.jpg"; // background image
+import JalMandir from "../assets/GalleryImg/JalMandir.jpg";
 import MahabodhiTemple from "../assets/GalleryImg/MahabodhiTemple.jpg";
 import ShantiBabaMandir from "../assets/GalleryImg/ShantiBaba.jpg";
 import RohtasGarhFort from "../assets/UniqueBiharImg/RohtasFort.webp";
@@ -91,20 +91,27 @@ const Gallery = () => {
       prevRef.current.addEventListener("click", () => swiperRef.slidePrev());
       nextRef.current.addEventListener("click", () => swiperRef.slideNext());
     }
+    return () => {
+      if (prevRef.current && nextRef.current) {
+        prevRef.current.removeEventListener("click", () => swiperRef.slidePrev());
+        nextRef.current.removeEventListener("click", () => swiperRef.slideNext());
+      }
+    };
   }, [swiperRef]);
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Blurred Background Image */}
+      {/* Blurred Background Image with Lighter Overlay */}
       <div className="absolute inset-0 -z-10">
         <img
           src={JalMandir}
           alt="Background"
-          className="w-full h-full object-cover  brightness-[0.4]"
+          className="w-full h-full object-cover filter blur-md brightness-75"
         />
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
-      <div className="relative py-16 px-4 md:px-16 z-10">
+      <div className="relative py-16 px-4 md:px-8 lg:px-16 z-10">
         {/* Heading Section */}
         <div className="w-full max-w-screen-xl mx-auto py-16 px-4 md:px-10">
           <motion.h2
@@ -116,7 +123,6 @@ const Gallery = () => {
           >
             Experience the Culture
           </motion.h2>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -129,74 +135,92 @@ const Gallery = () => {
         </div>
 
         {/* Slider */}
-        <div className="relative z-10">
-          <div className="mb-4"><p className="text-2xl md:text-3xl font-bold text-pink-400 flex items-center gap-3">
-
-</p>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
           <Swiper
-            spaceBetween={30}
-            slidesPerView={"auto"}
+            spaceBetween={16}
+            slidesPerView={3}
             centeredSlides={true}
             loop={true}
             onSwiper={(swiper) => (swiperRef = swiper)}
-            autoplay={{ delay: 4000 }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
             modules={[Navigation, Autoplay]}
-            className="pb-24"
+            className="pb-16"
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 8 },
+              640: { slidesPerView: 2, spaceBetween: 12 },
+              1024: { slidesPerView: 3, spaceBetween: 16 },
+            }}
           >
             {data.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className="!w-[85%] md:!w-[65%] lg:!w-[50%] flex justify-center transition-transform duration-300 ease-out"
+                className="flex justify-center transition-transform duration-500 ease-in-out"
               >
                 {({ isActive }) => (
-                  <div
-                    className={`relative w-full h-[420px] md:h-[500px] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-300 ease-out transform ${
-                      isActive ? "z-30 scale-100" : "z-10 opacity-100 blur-xs scale-85"
+                  <motion.div
+                    className={`relative w-full h-[450px] md:h-[540px] overflow-hidden rounded-lg shadow-2xl transition-all duration-500 ease-in-out transform hover:shadow-3xl hover:-translate-y-2 ${
+                      isActive ? "z-30 scale-100" : "z-10 scale-90 opacity-80"
                     }`}
+                    whileHover={{ scale: 1.02 }}
                   >
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover rounded-[30px]"
+                      className="w-full h-full object-cover rounded-md transition-transform duration-500 ease-in-out"
                     />
-
-                    <div className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-black/80 to-transparent px-6 pt-8 pb-4 flex flex-col justify-end z-20">
-                      <h3 className="text-3xl md:text-4xl font-extrabold text-[#fda12b] leading-tight drop-shadow-md">
+                    <div className="absolute inset-0 border-4 border-transparent hover:border-[#fda12b]/40 hover:shadow-[0_0_15px_rgba(253,161,43,0.5)] rounded-md transition-all duration-300"></div>
+                    <motion.div
+                      className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-black/90 to-transparent px-6 py-5 flex flex-col justify-end z-20"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      <h3
+                        className="text-2xl md:text-3xl font-bold text-[#fda12b] leading-tight"
+                        style={{ fontFamily: "'Poppins', sans-serif" }}
+                      >
                         {item.title}
                       </h3>
-                      <p className="text-sm md:text-lg text-white drop-shadow-sm">
+                      <p
+                        className="text-sm md:text-base text-gray-100 mt-1"
+                        style={{ fontFamily: "'Roboto', sans-serif" }}
+                      >
                         {item.subtitle}
                       </p>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 flex items-center text-white font-semibold text-sm md:text-base z-20">
-                      <FaMapMarkerAlt className="text-red-500 mr-1" />
+                    </motion.div>
+                    <motion.div
+                      className="absolute top-4 right-6 flex items-center text-white text-base md:text-lg font-semibold bg-black/60 px-4 py-1.5 rounded-lg z-20"
+                      style={{ fontFamily: "'Roboto', sans-serif" }}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      <FaMapMarkerAlt className="text-red-400 mr-2" />
                       {item.location}
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 )}
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Arrows */}
+          {/* Navigation Arrows */}
           <div className="flex justify-center items-center gap-6 mt-10">
             <div
               ref={prevRef}
-              className="custom-prev cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 shadow-lg transition-colors"
+              className="cursor-pointer bg-white/15 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-white/25 shadow-lg transition-all duration-300 backdrop-blur-md"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={28} />
             </div>
             <div
               ref={nextRef}
-              className="custom-next cursor-pointer bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 shadow-lg transition-colors"
+              className="cursor-pointer bg-white/15 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-white/25 shadow-lg transition-all duration-300 backdrop-blur-md"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={28} />
             </div>
           </div>
         </div>

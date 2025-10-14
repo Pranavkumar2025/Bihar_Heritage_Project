@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Hero from "./Hero";
 import SS_Site from "./SS_Site";
 import Excavation2 from "./Excavation2";
@@ -13,7 +13,6 @@ import { useLocation } from "react-router-dom";
 import GoverningComponents from "./GoverningComponents";
 import VideoGalleryPage from "./VideoGalleryPage";
 
-
 const Home = () => {
   const excavationRef = useRef(null);
   const exploreJoinRef = useRef(null);
@@ -26,7 +25,7 @@ const Home = () => {
     const sectionRefs = {
       excavation: excavationRef,
       explorejoin: exploreJoinRef,
-	  conservation: conservationRef,
+      conservation: conservationRef,
     };
 
     const targetRef = sectionRefs[hash];
@@ -38,9 +37,11 @@ const Home = () => {
   return (
     <main className="overflow-x-hidden">
       <Hero />
-      <Excavation2/>
+      <section ref={excavationRef} id="excavation">
+        <Excavation2 />
+      </section>
       <UniqueBihar />
-	  {/* <section ref={conservationRef} id="conservation">
+      {/* <section ref={conservationRef} id="conservation">
         <Conservation />
       </section> */}
       <Gallery />
@@ -51,11 +52,11 @@ const Home = () => {
       </section>
       {/* <News /> */}
       <Awareness />
-      <GoverningComponents/>
-    
+      <GoverningComponents />
       {/* <CallToAction /> */}
     </main>
   );
 };
 
 export default Home;
+

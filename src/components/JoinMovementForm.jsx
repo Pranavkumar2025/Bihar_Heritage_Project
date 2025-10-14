@@ -18,13 +18,10 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
     email: "",
     phone: "",
     actionType: selectedAction || "",
-    // Volunteer specific
     pledge: "",
-    // Report site specific
     location: "",
     siteDescription: "",
     sitePhotos: [],
-    // Preserve stories specific
     story: "",
     storyPhotos: [],
   });
@@ -37,7 +34,6 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
       ...prev,
       [name]: value,
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -66,20 +62,17 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
 
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.actionType)
-      newErrors.actionType = "Please select an action type";
+    if (!formData.actionType) newErrors.actionType = "Please select an action type";
 
-    // Action-specific validations
     if (formData.actionType === "volunteer" && !formData.pledge.trim()) {
       newErrors.pledge = "Pledge is required";
     }
 
     if (formData.actionType === "report") {
-      if (!formData.location.trim())
-        newErrors.location = "Location is required";
-      if (!formData.siteDescription.trim())
-        newErrors.siteDescription = "Site description is required";
+      if (!formData.location.trim()) newErrors.location = "Location is required";
+      if (!formData.siteDescription.trim()) newErrors.siteDescription = "Site description is required";
     }
 
     if (formData.actionType === "preserve" && !formData.story.trim()) {
@@ -94,7 +87,6 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form submitted:", formData);
-      // Handle form submission here
       alert("Thank you for joining the movement! We'll be in touch soon.");
       onClose();
     }
@@ -116,32 +108,28 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-[9999] flex items-center justify-center p-4"
         onClick={onClose}
-        style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
       >
         <motion.div
-          initial={{ scale: 0.9, y: 20 }}
+          initial={{ scale: 0.95, y: 20 }}
           animate={{ scale: 1, y: 0 }}
-          exit={{ scale: 0.9, y: 20 }}
-          className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-[10000] mx-auto my-auto scrollbar-hide"
+          exit={{ scale: 0.95, y: 20 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative z-[10000] mx-auto my-auto scrollbar-hide"
           onClick={(e) => e.stopPropagation()}
-          style={{
-            maxHeight: "90vh",
-            overflowY: "auto",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
         >
           {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl">
+          <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-t-xl">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">
-                Join the Movement
+              <h2 className="text-2xl font-bold tracking-tight">
+                Join the Heritage Movement
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-2 hover:bg-indigo-700 rounded-full transition-colors"
+                aria-label="Close form"
               >
                 <FiX size={24} />
               </button>
@@ -149,17 +137,16 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="p-6 space-y-6">
-            {/* Basic Information */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
-                Personal Information
+          <form onSubmit={handleSubmit} className="p-8 space-y-8">
+            {/* Personal Information */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-indigo-900 border-b border-indigo-200 pb-3">
+                Your Details
               </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    <FiUser className="inline mr-2" />
+                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                    <FiUser className="mr-2 text-indigo-600" />
                     Full Name *
                   </label>
                   <input
@@ -167,19 +154,20 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                      errors.name ? "border-red-500" : "border-gray-300"
+                    className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                      errors.name ? "border-red-500" : "border-gray-200"
                     }`}
                     placeholder="Enter your full name"
+                    aria-required="true"
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    <p className="text-red-500 text-xs mt-1">{errors.name}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    <FiPhone className="inline mr-2" />
+                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                    <FiPhone className="mr-2 text-indigo-600" />
                     Phone Number *
                   </label>
                   <input
@@ -187,50 +175,54 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
+                    className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                      errors.phone ? "border-red-500" : "border-gray-200"
                     }`}
                     placeholder="Enter your phone number"
+                    aria-required="true"
                   />
                   {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                    <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
                   )}
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  <FiMail className="inline mr-2" />
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  }`}
-                  placeholder="Enter your email address"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
+                <div className="md:col-span-2">
+                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                    <FiMail className="mr-2 text-indigo-600" />
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                      errors.email ? "border-red-500" : "border-gray-200"
+                    }`}
+                    placeholder="Enter your email address"
+                    aria-required="true"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
+                </div>
               </div>
             </div>
 
             {/* Action Type Selection */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <FiFileText className="mr-2 text-indigo-600" />
                 How would you like to contribute? *
               </label>
               <select
                 name="actionType"
                 value={formData.actionType}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                  errors.actionType ? "border-red-500" : "border-gray-300"
+                className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                  errors.actionType ? "border-red-500" : "border-gray-200"
                 }`}
+                aria-required="true"
               >
                 <option value="">Select an action</option>
                 {actionTypes.map((type) => (
@@ -240,24 +232,26 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                 ))}
               </select>
               {errors.actionType && (
-                <p className="text-red-500 text-sm mt-1">{errors.actionType}</p>
+                <p className="text-red-500 text-xs mt-1">{errors.actionType}</p>
               )}
             </div>
 
-            {/* Conditional Fields Based on Action Type */}
+            {/* Conditional Fields */}
             <AnimatePresence>
               {formData.actionType === "volunteer" && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="space-y-4"
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="space-y-6"
                 >
-                  <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
+                  <h3 className="text-xl font-semibold text-indigo-900 border-b border-indigo-200 pb-3">
                     Volunteer Commitment
                   </h3>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiFileText className="mr-2 text-indigo-600" />
                       Your Pledge *
                     </label>
                     <textarea
@@ -265,15 +259,14 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                       value={formData.pledge}
                       onChange={handleInputChange}
                       rows={4}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                        errors.pledge ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                        errors.pledge ? "border-red-500" : "border-gray-200"
                       }`}
-                      placeholder="Write your commitment pledge to heritage preservation..."
+                      placeholder="Share your commitment to heritage preservation..."
+                      aria-required="true"
                     />
                     {errors.pledge && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.pledge}
-                      </p>
+                      <p className="text-red-500 text-xs mt-1">{errors.pledge}</p>
                     )}
                   </div>
                 </motion.div>
@@ -284,14 +277,15 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="space-y-4"
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="space-y-6"
                 >
-                  <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
-                    Site Information
+                  <h3 className="text-xl font-semibold text-indigo-900 border-b border-indigo-200 pb-3">
+                    Heritage Site Information
                   </h3>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiMapPin className="inline mr-2" />
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiMapPin className="mr-2 text-indigo-600" />
                       Location *
                     </label>
                     <input
@@ -299,21 +293,20 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                       name="location"
                       value={formData.location}
                       onChange={handleInputChange}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                        errors.location ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                        errors.location ? "border-red-500" : "border-gray-200"
                       }`}
-                      placeholder="Enter the site location (address, landmarks, GPS coordinates)"
+                      placeholder="Enter the site location (address, landmarks, GPS)"
+                      aria-required="true"
                     />
                     {errors.location && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.location}
-                      </p>
+                      <p className="text-red-500 text-xs mt-1">{errors.location}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiFileText className="inline mr-2" />
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiFileText className="mr-2 text-indigo-600" />
                       Site Description *
                     </label>
                     <textarea
@@ -321,46 +314,52 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                       value={formData.siteDescription}
                       onChange={handleInputChange}
                       rows={4}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                        errors.siteDescription
-                          ? "border-red-500"
-                          : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                        errors.siteDescription ? "border-red-500" : "border-gray-200"
                       }`}
-                      placeholder="Describe the heritage site, its current condition, historical significance..."
+                      placeholder="Describe the site, its condition, and historical significance..."
+                      aria-required="true"
                     />
                     {errors.siteDescription && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.siteDescription}
-                      </p>
+                      <p className="text-red-500 text-xs mt-1">{errors.siteDescription}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiImage className="inline mr-2" />
-                      Site Photos
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiImage className="mr-2 text-indigo-600" />
+                      Site Photos (Optional)
                     </label>
-                    <input
-                      type="file"
-                      multiple
-                      accept="image/*"
-                      onChange={(e) => handleFileUpload(e, "sitePhotos")}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                    />
+                    <div className="relative">
+                      <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload(e, "sitePhotos")}
+                        className="hidden"
+                        id="sitePhotos"
+                      />
+                      <label
+                        htmlFor="sitePhotos"
+                        className="flex items-center justify-center w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"
+                      >
+                        <FiUpload className="mr-2 text-indigo-600" />
+                        <span className="text-sm text-gray-600">Upload Photos</span>
+                      </label>
+                    </div>
                     {formData.sitePhotos.length > 0 && (
-                      <div className="mt-2 space-y-2">
+                      <div className="mt-3 space-y-2">
                         {formData.sitePhotos.map((file, index) => (
                           <div
                             key={index}
-                            className="flex items-center justify-between bg-gray-50 p-2 rounded"
+                            className="flex items-center justify-between bg-gray-100 p-2 rounded-lg"
                           >
-                            <span className="text-sm text-gray-600">
-                              {file.name}
-                            </span>
+                            <span className="text-sm text-gray-600 truncate">{file.name}</span>
                             <button
                               type="button"
                               onClick={() => removeFile(index, "sitePhotos")}
-                              className="text-red-500 hover:text-red-700"
+                              className="text-red-500 hover:text-red-700 p-1"
+                              aria-label={`Remove ${file.name}`}
                             >
                               <FiX size={16} />
                             </button>
@@ -377,14 +376,15 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="space-y-4"
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="space-y-6"
                 >
-                  <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
+                  <h3 className="text-xl font-semibold text-indigo-900 border-b border-indigo-200 pb-3">
                     Story Preservation
                   </h3>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiFileText className="inline mr-2" />
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiFileText className="mr-2 text-indigo-600" />
                       Your Story *
                     </label>
                     <textarea
@@ -392,44 +392,52 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
                       value={formData.story}
                       onChange={handleInputChange}
                       rows={6}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-                        errors.story ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors ${
+                        errors.story ? "border-red-500" : "border-gray-200"
                       }`}
-                      placeholder="Share your local story, tradition, oral history, or cultural memory..."
+                      placeholder="Share your local story, tradition, or cultural memory..."
+                      aria-required="true"
                     />
                     {errors.story && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.story}
-                      </p>
+                      <p className="text-red-500 text-xs mt-1">{errors.story}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiImage className="inline mr-2" />
-                      Related Photos
+                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                      <FiImage className="mr-2 text-indigo-600" />
+                      Related Photos (Optional)
                     </label>
-                    <input
-                      type="file"
-                      multiple
-                      accept="image/*"
-                      onChange={(e) => handleFileUpload(e, "storyPhotos")}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                    />
+                    <div className="relative">
+                      <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload(e, "storyPhotos")}
+                        className="hidden"
+                        id="storyPhotos"
+                      />
+                      <label
+                        htmlFor="storyPhotos"
+                        className="flex items-center justify-center w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"
+                      >
+                        <FiUpload className="mr-2 text-indigo-600" />
+                        <span className="text-sm text-gray-600">Upload Photos</span>
+                      </label>
+                    </div>
                     {formData.storyPhotos.length > 0 && (
-                      <div className="mt-2 space-y-2">
+                      <div className="mt-3 space-y-2">
                         {formData.storyPhotos.map((file, index) => (
                           <div
                             key={index}
-                            className="flex items-center justify-between bg-gray-50 p-2 rounded"
+                            className="flex items-center justify-between bg-gray-100 p-2 rounded-lg"
                           >
-                            <span className="text-sm text-gray-600">
-                              {file.name}
-                            </span>
+                            <span className="text-sm text-gray-600 truncate">{file.name}</span>
                             <button
                               type="button"
                               onClick={() => removeFile(index, "storyPhotos")}
-                              className="text-red-500 hover:text-red-700"
+                              className="text-red-500 hover:text-red-700 p-1"
+                              aria-label={`Remove ${file.name}`}
                             >
                               <FiX size={16} />
                             </button>
@@ -443,17 +451,17 @@ const JoinMovementForm = ({ isOpen, onClose, selectedAction }) => {
             </AnimatePresence>
 
             {/* Submit Button */}
-            <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+            <div className="flex justify-end space-x-4 pt-6 border-t border-indigo-200">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="px-6 py-3 text-gray-600 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-sm hover:bg-indigo-700 transition-colors"
               >
                 Submit Application
               </button>
