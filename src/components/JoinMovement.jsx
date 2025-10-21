@@ -24,83 +24,75 @@ const JoinMovement = () => {
     {
       title: "Become a Volunteer",
       description: "Contribute your time to preserve Bihar's rich history and culture.",
-      icon: <FiUsers size={32} />,
+      icon: <FiUsers size={28} />,
       actionType: "volunteer",
     },
     {
       title: "Report a Site",
       description: "Help us identify and protect neglected heritage sites.",
-      icon: <FiMapPin size={32} />,
+      icon: <FiMapPin size={28} />,
       actionType: "report",
     },
     {
       title: "Support the Cause",
       description: "Your donations or advocacy can make a lasting impact.",
-      icon: <FiHeart size={32} />,
+      icon: <FiHeart size={28} />,
       actionType: "support",
     },
     {
       title: "Educate & Spread Awareness",
       description: "Inspire others to value and conserve our shared heritage.",
-      icon: <FiBookOpen size={32} />,
+      icon: <FiBookOpen size={28} />,
       actionType: "educate",
     },
     {
       title: "Preserve Local Stories",
       description: "Document oral histories and traditions for future generations.",
-      icon: <FiShield size={32} />,
+      icon: <FiShield size={28} />,
       actionType: "preserve",
     },
   ];
 
   // Animation variants
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     hover: {
-      scale: 1.03,
-      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+      scale: 1.02,
+      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.1)",
       transition: { duration: 0.3, ease: "easeOut" },
     },
   };
 
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 0.4, transition: { duration: 0.3, ease: "easeOut" } },
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
   };
 
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative min-h-screen py-20 px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-gray-900 to-indigo-900 bg-cover bg-center"
+      className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
       style={{ backgroundImage: `url(${JoinMovementBack})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/90 to-gray-900/90 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/95 to-gray-950/95 z-0" />
 
       {/* Header */}
-      <div className="relative z-10 text-center mb-16 max-w-5xl mx-auto px-4">
+      <div className="relative z-10 text-center mb-12 max-w-4xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-7xl uppercase font-extrabold text-white mb-6 tracking-wide"
+          className="uppercase text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
         >
           Join the Movement
         </motion.h2>
@@ -108,20 +100,20 @@ const JoinMovement = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-gray-200 text-base sm:text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed"
+          className="text-gray-300 text-lg sm:text-xl lg:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
         >
           Be a champion for Bihar’s heritage. Act now to preserve its cultural legacy.
         </motion.p>
       </div>
 
       {/* Card Layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Row 1 – 3 Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {actions.slice(0, 3).map((item, index) => (
             <motion.div
               key={index}
-              className="relative bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl cursor-pointer border-t-4 border-indigo-600 transition-all duration-300"
+              className="relative bg-white/95 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg cursor-pointer border border-gray-100 transition-all duration-300"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -136,29 +128,16 @@ const JoinMovement = () => {
               onKeyDown={(e) => e.key === "Enter" && handleCardClick(item.actionType)}
               aria-label={`Join ${item.title}`}
             >
-              {/* Overlay */}
-              <motion.div
-                variants={overlayVariants}
-                initial="hidden"
-                animate={hoveredCard === index ? "visible" : "hidden"}
-                className="absolute inset-0 bg-gray-900/40 rounded-lg z-10"
-              />
-
-              {/* Card Content */}
-              <div className="relative z-0 flex flex-col items-center">
-                <div className="w-14 h-14 mb-4 bg-indigo-50 text-indigo-600 flex items-center justify-center rounded-full">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+              <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-700 flex items-center justify-center rounded-full">
+                {item.icon}
               </div>
-
-              {/* Button */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
               <motion.button
                 variants={buttonVariants}
                 initial="hidden"
                 animate={hoveredCard === index ? "visible" : "hidden"}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200 z-20"
+                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200"
                 onClick={() => handleCardClick(item.actionType)}
                 aria-label={`Join ${item.title}`}
               >
@@ -169,11 +148,11 @@ const JoinMovement = () => {
         </div>
 
         {/* Row 2 – 2 Centered Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {actions.slice(3).map((item, index) => (
             <motion.div
               key={index + 3}
-              className="relative bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl cursor-pointer border-t-4 border-indigo-600 transition-all duration-300"
+              className="relative bg-white/95 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg cursor-pointer border border-gray-100 transition-all duration-300"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -188,29 +167,16 @@ const JoinMovement = () => {
               onKeyDown={(e) => e.key === "Enter" && handleCardClick(item.actionType)}
               aria-label={`Join ${item.title}`}
             >
-              {/* Overlay */}
-              <motion.div
-                variants={overlayVariants}
-                initial="hidden"
-                animate={hoveredCard === index + 3 ? "visible" : "hidden"}
-                className="absolute inset-0 bg-gray-900/40 rounded-lg z-10"
-              />
-
-              {/* Card Content */}
-              <div className="relative z-0 flex flex-col items-center">
-                <div className="w-14 h-14 mb-4 bg-indigo-50 text-indigo-600 flex items-center justify-center rounded-full">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+              <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-700 flex items-center justify-center rounded-full">
+                {item.icon}
               </div>
-
-              {/* Button */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
               <motion.button
                 variants={buttonVariants}
                 initial="hidden"
                 animate={hoveredCard === index + 3 ? "visible" : "hidden"}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200 z-20"
+                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200"
                 onClick={() => handleCardClick(item.actionType)}
                 aria-label={`Join ${item.title}`}
               >
