@@ -92,7 +92,7 @@ const JoinMovement = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="uppercase text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
+          className="uppercase text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
         >
           Join the Movement
         </motion.h2>
