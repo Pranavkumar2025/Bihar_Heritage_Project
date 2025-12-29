@@ -24,16 +24,16 @@ const GoverningComponents = () => {
     <section className="bg-gray-100 py-15 px-6" id="GoverningBody">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-center text-gray-900 mb-4 uppercase">
+        <h1 className="text-4xl md:text-6xl lg:text-6xl font-serif font-bold text-center text-gray-900 mb-4 uppercase">
           Cultural Heritage Leadership
         </h1>
 
         {/* Decorative line */}
-        <div className="flex justify-center items-center mb-6">
+        {/* <div className="flex justify-center items-center mb-6">
           <div className="w-32 h-1 bg-yellow-600"></div>
           <div className="w-2 h-2 bg-yellow-600 rotate-45 mx-4"></div>
           <div className="w-32 h-1 bg-yellow-600"></div>
-        </div>
+        </div> */}
 
         {/* Subtitle */}
         <p className="text-center text-gray-600 text-lg md:text-xl max-w-4xl mx-auto mb-16 font-medium italic">
