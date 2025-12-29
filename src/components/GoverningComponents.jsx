@@ -14,7 +14,7 @@ const governingMembers = [
     src: "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/biharfilm%2Fhome_secy.jpeg?alt=media&token=2f9b010e-0fed-4627-949d-a4779308a995",
     name: "Shri Pranav Kumar, I.A.S",
     designation: "Managing Director",
-    additional: "Secretary (Art, Culture & Youth Department)",
+    additional: "Secretary (Department of Art and Culture)",
   },
   // Add more members as needed
 ];
