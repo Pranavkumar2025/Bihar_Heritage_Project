@@ -4,76 +4,87 @@
       "id": 1,
       "title": "Nalanda University",
       "image": "NalandaUniversity.jpg",
-      "description": "Ancient center of learning that attracted scholars from all over Asia."
+      "description": "Ancient center of learning that attracted scholars from all over Asia. A UNESCO World Heritage Site, it was the world's first residential university, flourishing from the 5th to 13th century with monasteries, stupas, and a vast library.",
+      "location": "Nalanda District, Bihar (near Rajgir)"
     },
     {
       "id": 2,
       "title": "Vikramashila",
       "image": "Vikramshila.jpg",
-      "description": "Another great seat of Buddhist learning with stupas and viharas."
+      "description": "Another great seat of Buddhist learning with stupas and viharas. Founded by Pala king Dharmapala in the 8th-9th century, it rivaled Nalanda as a major Mahavihara, specializing in Tantric Buddhism.",
+      "location": "Antichak, Bhagalpur District, Bihar"
     },
     {
       "id": 3,
       "title": "Patliputra",
       "image": "patliputraimg.jpg",
-      "description": "Capital of the Mauryan Empire with palatial ruins and ancient pillars."
+      "description": "Capital of the Mauryan Empire with palatial ruins and ancient pillars. Known as Pataliputra in ancient times, it was one of the largest cities in the world during the Mauryan era, featuring massive wooden fortifications and the famous 80-pillared hall.",
+      "location": "Modern Patna (Kumhrar & surrounding areas), Bihar"
     },
     {
       "id": 4,
       "title": "Rohtasgarh Fort",
       "image": "rohtas.jpg",
-      "description": "Massive medieval fort with under- ground structures and battle remains."
+      "description": "Massive medieval fort with underground structures and battle remains. Perched on a hilltop, it was a strategic stronghold with ancient origins, later used by rulers like Sher Shah Suri and Mughal governors.",
+      "location": "Rohtas District, Bihar (near Sasaram)"
     },
     {
       "id": 5,
       "title": "Rajgir Hills",
       "image": "rajgir.jpg",
-      "description": "Rich archaeological remains of Buddhist and Jain heritage."
+      "description": "Rich archaeological remains of Buddhist and Jain heritage. Ancient capital of Magadha, encircled by cyclopean walls and hills where Buddha delivered many sermons; features hot springs and ancient fortifications.",
+      "location": "Rajgir, Nalanda District, Bihar"
     },
     {
       "id": 6,
       "title": "Telhara Monastery",
       "image": "telhara.jpg",
-      "description": "Buddhist monastery ruins linked to ancient Magadha's monastic tradition."
+      "description": "Buddhist monastery ruins linked to ancient Magadha's monastic tradition. Mentioned by Chinese traveler Xuanzang as Teladhaka, it was a significant Mahavihara active from the 1st to 12th century with multiple monasteries.",
+      "location": "Telhara, Nalanda District, Bihar"
     }
-
   ],
   "explorationActivities": [
     {
       "id": 1,
       "title": "Rohtasgarh Tunnel Study",
       "image": "exploration1.jpg",
-      "description": "Ongoing study on underground tunnels in Rohtasgarh by historians."
+      "description": "Ongoing study on underground tunnels in Rohtasgarh by historians. Exploring the fort's hidden passages and structures for insights into medieval defense and architecture.",
+      "location": "Rohtasgarh Fort, Rohtas District, Bihar"
     },
     {
       "id": 2,
       "title": "Chausa Excavation",
       "image": "exploration2.jpg",
-      "description": "Discovery of coins, seals, and terracotta figurines from the Gupta period."
+      "description": "Discovery of coins, seals, and terracotta figurines from the Gupta period. Famous for the Chausa bronze hoard of Jain images, one of the earliest metal artifact collections in the Gangetic valley.",
+      "location": "Chausa, Buxar District, Bihar"
     },
     {
       "id": 3,
       "title": "Kesaria Stupa Mapping",
       "image": "rajgir.jpg",
-      "description": "GIS-based exploration of the massive Kesaria Buddhist stupa in East Champaran."
+      "description": "GIS-based exploration of the massive Kesaria Buddhist stupa in East Champaran. The tallest excavated stupa in the world (104 ft), linked to Buddha's alms bowl gift and expanded from Ashoka's era.",
+      "location": "Kesaria, East Champaran District, Bihar"
     },
     {
       "id": 4,
       "title": "Sasaram Tombs Documentation",
       "image": "rohtas.jpg",
-      "description": "Ongoing digital documentation of Sher Shah Suri's tomb and related sites."
+      "description": "Ongoing digital documentation of Sher Shah Suri's tomb and related sites. A stunning octagonal mausoleum in a lake, exemplifying Indo-Islamic architecture from the Sur Empire.",
+      "location": "Sasaram, Rohtas District, Bihar"
     },
     {
       "id": 5,
       "title": "Nalanda Digital Reconstruction",
       "image": "NalandaUniversity.jpg",
-      "description": "3D mapping and AR visualization efforts by the Archaeological Survey of India."
+      "description": "3D mapping and AR visualization efforts by the Archaeological Survey of India. Reviving the ancient university's layout through modern technology for education and tourism.",
+      "location": "Nalanda University Ruins, Nalanda District, Bihar"
     },
     {
       "id": 6,
       "title": "Vikramshila River Excavation",
       "image": "Vikramshila.jpg",
-      "description": "River-side excavation near Vikramshila for trade route relics."
+      "description": "River-side excavation near Vikramshila for trade route relics. Uncovering artifacts along the Ganges to understand ancient trade and monastic life at this Pala-era university.",
+      "location": "Antichak, near Bhagalpur on the Ganges, Bihar"
     }
   ]
 }

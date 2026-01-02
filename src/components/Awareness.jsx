@@ -1,115 +1,131 @@
 import React from "react";
 import { motion } from "framer-motion";
-import AwarenessImg from "../assets/UniqueBiharImg/Awareness.jpg";
+
+// Same background as the updated JoinMovement component (Nalanda Mahavihara - iconic Bihar heritage)
+const backgroundImage = "https://whc.unesco.org/uploads/thumbs/site_1502_0010-1200-630-20160616154106.jpg";
+
+// Carefully selected relevant images for each awareness item
+const cardImages = [
+  "https://whc.unesco.org/uploads/thumbs/site_1502_0010-1200-630-20160616154106.jpg", // Heritage Awareness Programme - Iconic Nalanda Mahavihara overview
+  "https://cdn.britannica.com/12/94612-050-B4EEB84A/temple-Buddhist-Mahabodhi-Bihar-India-Bodh-Gaya.jpg", // Seminar/Workshop - Mahabodhi Temple (Bihar UNESCO site)
+  "https://upload.wikimedia.org/wikipedia/commons/f/fa/Women_performing_Jhijhiya_dance.jpg", // Women's Day Special - Traditional Jhijhiya dance by women in Bihar
+  "https://worldheritageolympiad.org/uploads/blog/Bihar%20Heritage%20Olympiad_Blog_%20November%2025,%202024%20-%20Copy.jpg", // Slogan Writing Competition - Students at Bihar World Heritage Olympiad event
+];
 
 const awarenessItems = [
   {
     title: "Heritage Awareness Programme",
     desc: "Engaging the community to value and preserve cultural heritage through interactive sessions.",
+    img: cardImages[0],
   },
   {
     title: "Seminar / Workshop",
     desc: "Expert-led workshops on conservation techniques and historical relevance of local sites.",
+    img: cardImages[1],
   },
   {
     title: "Women's Day Special",
     desc: "Celebrating women’s contribution in heritage conservation with storytelling and performances.",
+    img: cardImages[2],
   },
   {
     title: "Slogan Writing Competition",
     desc: "Encouraging creativity among students to raise awareness on cultural preservation.",
+    img: cardImages[3],
   },
 ];
 
-const sectionVariants = {
+const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+  },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  hover: {
-    scale: 1.02,
-    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)",
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const Awareness = () => {
   return (
-    <motion.section
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${AwarenessImg})` }}
+    <section
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
     >
-      {/* Overlay with Minimal Opacity */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-indigo-950/40 to-gray-950/40 backdrop-blur-[4px] z-0"
-        style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.1)" }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className=" uppercase text-center text-5xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
-        >
-          Awareness & Education
-        </motion.h2>
-
-        {/* Subheading */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center text-gray-100 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12"
-        >
-          Spreading knowledge and involvement through engaging initiatives.
-        </motion.p>
-
-        {/* Cards */}
+      {/* Consistent dark elegant overlay matching JoinMovement */}
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl uppercase sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
+            Awareness & Education
+          </h2>
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+            Spreading knowledge and involvement through engaging initiatives.
+          </p>
+        </motion.div>
+
+        {/* Cards Grid - 4 columns on large screens for perfect fit */}
+        <motion.div
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {awarenessItems.map((item, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
-              whileHover="hover"
-              className="rounded-xl p-6 bg-white/95 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 text-gray-900"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="group relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl cursor-default border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-white/30"
               role="article"
               aria-label={`Awareness Item: ${item.title}`}
             >
-              <h3 className="text-lg font-semibold mb-3 tracking-tight">{item.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+              {/* Card Image - Compact height */}
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6 text-center relative z-10">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Awareness Thought */}
+        {/* Inspirational Quote */}
         <motion.div
-          className="mt-12 max-w-3xl mx-auto text-center px-4"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 max-w-4xl mx-auto text-center px-6"
         >
-          <p className="text-lg sm:text-xl lg:text-2xl text-white font-medium italic">
+          <p className="text-2xl sm:text-3xl lg:text-4xl text-white font-medium italic leading-relaxed">
             “Preserving heritage is not just about saving the past; it’s about shaping a future rich in identity, pride, and connection.”
           </p>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

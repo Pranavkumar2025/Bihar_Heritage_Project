@@ -109,19 +109,15 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden">
+    <div className="relative w-full h-screen  overflow-hidden">
       {/* Inject custom font styles */}
       <style>{styles}</style>
 
       {/* Background Video with Fallback */}
       <div className="absolute inset-0">
         {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black">
-            <img
-              src={fallbackImage}
-              alt="Bihar Heritage Fallback"
-              className="w-full h-full object-cover opacity-70"
-            />
+          <div className="absolute inset-0 flex items-center justify-center">
+            
             <div className="absolute animate-spin rounded-full h-16 w-16 border-t-4 border-yellow-400"></div>
           </div>
         )}

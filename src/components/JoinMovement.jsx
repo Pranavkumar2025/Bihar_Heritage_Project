@@ -7,13 +7,23 @@ import {
   FiBookOpen,
   FiShield,
 } from "react-icons/fi";
-import JoinMovementBack from "../assets/UniqueBiharImg/JoinMovement.jpg";
 import JoinMovementForm from "./JoinMovementForm";
+
+
+
+const cardImages = [
+  "https://swarajya.gumlet.io/swarajya/2017-12/b2099b18-dc31-44b2-83de-ffc4ed727e09/4fda6e5b-9310-4179-b1f7-f55fb216a65a.jpg?w=610&q=75&compress=true&format=auto", // Volunteers reclaiming heritage
+  "https://static.toiimg.com/thumb/msid-53367201,width-1280,height-720,resizemode-72/53367201.jpg", // Nalanda protection
+ "https://whc.unesco.org/uploads/thumbs/news_377-890-520-20090514144639.jpg", // UNESCO donation/heritage support
+ "https://tehelka.com/media/2023/06/Deepanwita-oral-1-1024x682.jpg", // Preserving oral traditions
+  "https://borderlessjournal.com/wp-content/uploads/2023/10/dp-22775-001.jpg", // Elder storytelling oral traditions
+];
+
+
 
 const JoinMovement = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedAction, setSelectedAction] = useState("");
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   const handleCardClick = (actionType) => {
     setSelectedAction(actionType);
@@ -24,167 +34,132 @@ const JoinMovement = () => {
     {
       title: "Become a Volunteer",
       description: "Contribute your time to preserve Bihar's rich history and culture.",
-      icon: <FiUsers size={28} />,
+      icon: <FiUsers size={32} />,
       actionType: "volunteer",
+      img: cardImages[0],
     },
     {
       title: "Report a Site",
       description: "Help us identify and protect neglected heritage sites.",
-      icon: <FiMapPin size={28} />,
+      icon: <FiMapPin size={32} />,
       actionType: "report",
+      img: cardImages[1],
     },
     {
       title: "Support the Cause",
       description: "Your donations or advocacy can make a lasting impact.",
-      icon: <FiHeart size={28} />,
+      icon: <FiHeart size={32} />,
       actionType: "support",
+      img: cardImages[2],
     },
     {
       title: "Educate & Spread Awareness",
       description: "Inspire others to value and conserve our shared heritage.",
-      icon: <FiBookOpen size={28} />,
+      icon: <FiBookOpen size={32} />,
       actionType: "educate",
+      img: cardImages[3],
     },
     {
       title: "Preserve Local Stories",
       description: "Document oral histories and traditions for future generations.",
-      icon: <FiShield size={28} />,
+      icon: <FiShield size={32} />,
       actionType: "preserve",
+      img: cardImages[4],
     },
   ];
 
   // Animation variants
-  const sectionVariants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-    hover: {
-      scale: 1.02,
-      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.1)",
-      transition: { duration: 0.3, ease: "easeOut" },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 },
     },
   };
 
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
   return (
-    <motion.section
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
-      style={{ backgroundImage: `url(${JoinMovementBack})` }}
+    <section
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/95 to-gray-950/95 z-0" />
+   
 
-      {/* Header */}
-      <div className="relative z-10 text-center mb-12 max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Hero Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="uppercase text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight"
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
         >
-          Join the Movement
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-gray-300 text-lg sm:text-xl lg:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
-        >
-          Be a champion for Bihar’s heritage. Act now to preserve its cultural legacy.
-        </motion.p>
-      </div>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 uppercase">
+            Join the Movement
+          </h2>
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+            Be a champion for Bihar’s heritage. Act now to preserve its cultural legacy.
+          </p>
+        </motion.div>
 
-      {/* Card Layout */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4">
-        {/* Row 1 – 3 Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {actions.slice(0, 3).map((item, index) => (
+        {/* Cards Grid – Wider cards on larger screens */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8"
+        >
+          {actions.map((action, index) => (
             <motion.div
               key={index}
-              className="relative bg-white/95 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg cursor-pointer border border-gray-100 transition-all duration-300"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => handleCardClick(item.actionType)}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => handleCardClick(action.actionType)}
+              className="group relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl cursor-pointer border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-white/30"
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && handleCardClick(item.actionType)}
-              aria-label={`Join ${item.title}`}
+              onKeyDown={(e) => e.key === "Enter" && handleCardClick(action.actionType)}
+              aria-label={`Join as ${action.title}`}
             >
-              <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-700 flex items-center justify-center rounded-full">
-                {item.icon}
+              {/* Reduced image height for shorter cards */}
+              <div className="h-40 overflow-hidden">
+                <img
+                  src={action.img}
+                  alt={action.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
-              <motion.button
-                variants={buttonVariants}
-                initial="hidden"
-                animate={hoveredCard === index ? "visible" : "hidden"}
-                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200"
-                onClick={() => handleCardClick(item.actionType)}
-                aria-label={`Join ${item.title}`}
-              >
-                Get Involved
-              </motion.button>
-            </motion.div>
-          ))}
-        </div>
 
-        {/* Row 2 – 2 Centered Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {actions.slice(3).map((item, index) => (
-            <motion.div
-              key={index + 3}
-              className="relative bg-white/95 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg cursor-pointer border border-gray-100 transition-all duration-300"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => handleCardClick(item.actionType)}
-              onMouseEnter={() => setHoveredCard(index + 3)}
-              onMouseLeave={() => setHoveredCard(null)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && handleCardClick(item.actionType)}
-              aria-label={`Join ${item.title}`}
-            >
-              <div className="w-12 h-12 mb-4 bg-indigo-100 text-indigo-700 flex items-center justify-center rounded-full">
-                {item.icon}
+              {/* Compact content area */}
+              <div className="p-6 text-center relative z-10">
+                <div className="w-14 h-14 mx-auto mb-4 bg-indigo-600/20 text-indigo-300 flex items-center justify-center rounded-full group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                  {action.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+                  {action.title}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                  {action.description}
+                </p>
+                <button
+                  className="inline-block bg-indigo-600 text-white font-semibold py-2.5 px-7 rounded-full hover:bg-indigo-700 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick(action.actionType);
+                  }}
+                >
+                  Get Involved
+                </button>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
-              <motion.button
-                variants={buttonVariants}
-                initial="hidden"
-                animate={hoveredCard === index + 3 ? "visible" : "hidden"}
-                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-200"
-                onClick={() => handleCardClick(item.actionType)}
-                aria-label={`Join ${item.title}`}
-              >
-                Get Involved
-              </motion.button>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Form Modal */}
@@ -193,7 +168,7 @@ const JoinMovement = () => {
         onClose={() => setIsFormOpen(false)}
         selectedAction={selectedAction}
       />
-    </motion.section>
+    </section>
   );
 };
 

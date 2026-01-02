@@ -18,6 +18,8 @@ import VikramShila from "../assets/UniqueBiharImg/VIKRAMSHILA_UNIVERSITY.png";
 import VaishaliBihar from "../assets/GalleryImg/VaishaliBihar.webp";
 import AjatshatruFort from "../assets/GalleryImg/AjatshatruFort.avif";
 
+
+
 const data = [
   {
     image: BodhGaya,
@@ -94,32 +96,26 @@ const Gallery = () => {
     return () => {
       if (prevRef.current && nextRef.current) {
         prevRef.current.removeEventListener("click", () => swiperRef.slidePrev());
-        nextRef.current.removeEventListener("click", () => swiperRef.slideNext());
+        prevRef.current.removeEventListener("click", () => swiperRef.slideNext());
       }
     };
   }, [swiperRef]);
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Blurred Background Image with Lighter Overlay */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src={JalMandir}
-          alt="Background"
-          className="w-full h-full object-cover filter blur-md brightness-75"
-        />
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+    <section
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
+    >
 
-      <div className="relative py-16 px-4 md:px-8 lg:px-16 z-10">
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Heading Section */}
-        <div className="w-full max-w-screen-xl mx-auto py-16 px-4 md:px-10">
+        <div className="w-full text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase mb-2 drop-shadow-md"
+            className="text-5xl md:text-7xl font-extrabold text-white uppercase mb-4 drop-shadow-2xl"
           >
             Experience the Culture
           </motion.h2>
@@ -128,14 +124,14 @@ const Gallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-white text-lg text-center drop-shadow"
+            className="text-white text-lg md:text-2xl drop-shadow-lg font-light"
           >
             — Explore Bihar’s rich heritage and timeless cultural landmarks. —
           </motion.p>
         </div>
 
         {/* Slider */}
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <Swiper
             spaceBetween={16}
             slidesPerView={3}
@@ -174,7 +170,7 @@ const Gallery = () => {
                     />
                     <div className="absolute inset-0 border-4 border-transparent hover:border-[#fda12b]/40 hover:shadow-[0_0_15px_rgba(253,161,43,0.5)] rounded-md transition-all duration-300"></div>
                     <motion.div
-                      className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-black/90 to-transparent px-6 py-5 flex flex-col justify-end z-20"
+                      className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-black/90 to-transparent px-6 py-5 flex flex-col justify-end"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
@@ -193,7 +189,7 @@ const Gallery = () => {
                       </p>
                     </motion.div>
                     <motion.div
-                      className="absolute top-4 right-6 flex items-center text-white text-base md:text-lg font-semibold bg-black/60 px-4 py-1.5 rounded-lg z-20"
+                      className="absolute top-4 right-6 flex items-center text-white text-base md:text-lg font-semibold bg-black/60 px-4 py-1.5 rounded-lg backdrop-blur-sm"
                       style={{ fontFamily: "'Roboto', sans-serif" }}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -225,7 +221,7 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
