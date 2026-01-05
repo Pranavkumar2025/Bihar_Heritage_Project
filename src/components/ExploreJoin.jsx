@@ -141,7 +141,7 @@ const ExploreJoin = () => {
           </div>
 
           {/* Auto-scrolling Carousel - FULL WIDTH FIX */}
-          <div className="relative mt-16 -mx-6 md:-mx-12 lg:-mx-24">
+          <div className="relative mt-16 -mx-6 md:-mx-12 lg:-mx-24 mb-14">
             <div className="overflow-hidden">
               <div
                 ref={scrollRef}
@@ -212,7 +212,7 @@ const ExploreJoin = () => {
         </motion.section>
 
         {/* Text + Video Section - Enhanced Professional Design */}
-        <section className="py-32 px-6 md:px-12 lg:px-32 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+        <section className="py-22 px-6 md:px-12 lg:px-32 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             {/* Text Content */}
             <motion.div
