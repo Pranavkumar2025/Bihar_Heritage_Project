@@ -9,17 +9,13 @@ import {
 } from "react-icons/fi";
 import JoinMovementForm from "./JoinMovementForm";
 
-
-
 const cardImages = [
-  "https://swarajya.gumlet.io/swarajya/2017-12/b2099b18-dc31-44b2-83de-ffc4ed727e09/4fda6e5b-9310-4179-b1f7-f55fb216a65a.jpg?w=610&q=75&compress=true&format=auto", // Volunteers reclaiming heritage
-  "https://static.toiimg.com/thumb/msid-53367201,width-1280,height-720,resizemode-72/53367201.jpg", // Nalanda protection
- "https://whc.unesco.org/uploads/thumbs/news_377-890-520-20090514144639.jpg", // UNESCO donation/heritage support
- "https://tehelka.com/media/2023/06/Deepanwita-oral-1-1024x682.jpg", // Preserving oral traditions
-  "https://borderlessjournal.com/wp-content/uploads/2023/10/dp-22775-001.jpg", // Elder storytelling oral traditions
+  "https://swarajya.gumlet.io/swarajya/2017-12/b2099b18-dc31-44b2-83de-ffc4ed727e09/4fda6e5b-9310-4179-b1f7-f55fb216a65a.jpg?w=610&q=75&compress=true&format=auto",
+  "https://static.toiimg.com/thumb/msid-53367201,width-1280,height-720,resizemode-72/53367201.jpg",
+  "https://whc.unesco.org/uploads/thumbs/news_377-890-520-20090514144639.jpg",
+  "https://tehelka.com/media/2023/06/Deepanwita-oral-1-1024x682.jpg",
+  "https://borderlessjournal.com/wp-content/uploads/2023/10/dp-22775-001.jpg",
 ];
-
-
 
 const JoinMovement = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -83,11 +79,7 @@ const JoinMovement = () => {
   };
 
   return (
-    <section
-      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
-    >
-   
-
+    <section className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed">
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero Header */}
         <motion.div
@@ -105,7 +97,7 @@ const JoinMovement = () => {
           </p>
         </motion.div>
 
-        {/* Cards Grid – Wider cards on larger screens */}
+        {/* Cards Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -120,13 +112,13 @@ const JoinMovement = () => {
               whileHover={{ scale: 1.05, y: -10 }}
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => handleCardClick(action.actionType)}
-              className="group relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl cursor-pointer border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-white/30"
+              className="group relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl cursor-pointer border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-white/30 flex flex-col"
               role="button"
               tabIndex={0}
               onKeyDown={(e) => e.key === "Enter" && handleCardClick(action.actionType)}
               aria-label={`Join as ${action.title}`}
             >
-              {/* Reduced image height for shorter cards */}
+              {/* Image Section */}
               <div className="h-40 overflow-hidden">
                 <img
                   src={action.img}
@@ -136,17 +128,21 @@ const JoinMovement = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
-              {/* Compact content area */}
-              <div className="p-6 text-center relative z-10">
-                <div className="w-14 h-14 mx-auto mb-4 bg-indigo-600/20 text-indigo-300 flex items-center justify-center rounded-full group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                  {action.icon}
+              {/* Content Area - Now Properly Stretched with Flex */}
+              <div className="p-6 text-center relative z-10 flex flex-col flex-grow justify-between">
+                <div>
+                  <div className="w-14 h-14 mx-auto mb-4 bg-indigo-600/20 text-indigo-300 flex items-center justify-center rounded-full group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    {action.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+                    {action.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                    {action.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
-                  {action.title}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-5">
-                  {action.description}
-                </p>
+
+                {/* Button Now Always Visible at Bottom */}
                 <button
                   className="inline-block bg-indigo-600 text-white font-semibold py-2.5 px-7 rounded-full hover:bg-indigo-700 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                   onClick={(e) => {
